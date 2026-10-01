@@ -158,7 +158,7 @@
         bctx.fillStyle = "rgba(" + col + "," + a + ")";
         bctx.beginPath(); bctx.arc(x, y, size, 0, 6.283); bctx.fill();
       }
-      // faint nebulae and one distant spiral, fixed to the viewport like a sky behind glass
+      // faint nebulae, fixed to the viewport like a sky behind glass
       bctx.save();
       bctx.globalCompositeOperation = "screen";
       [["227,90,42", 0.82, 0.18, 0.34], ["11,89,98", 0.12, 0.62, 0.42], ["107,78,158", 0.6, 0.85, 0.3], ["200,162,76", 0.3, 0.12, 0.22]].forEach(function (n) {
@@ -169,16 +169,6 @@
           bctx.fillStyle = ng; bctx.fillRect(0, 0, W, H);
         }
       });
-      var gx = W * 0.86, gy = H * 0.3, gR = Math.min(W, H) * 0.09;
-      bctx.translate(gx, gy); bctx.rotate(-0.5);
-      for (var a2 = 0; a2 < 2; a2++) for (var q = 0; q < 500; q++) {
-        var tq = Math.pow(r(), 0.8), th2 = tq * 3.8 * Math.PI + a2 * Math.PI, rq = tq * gR;
-        bctx.fillStyle = "rgba(230,215,200," + ((1 - tq) * 0.35 + 0.04) + ")";
-        bctx.fillRect(Math.cos(th2) * rq, Math.sin(th2) * rq * 0.4, 0.8, 0.8);
-      }
-      var gc = bctx.createRadialGradient(0, 0, 0, 0, 0, gR * 0.25);
-      gc.addColorStop(0, "rgba(255,236,215,0.5)"); gc.addColorStop(1, "rgba(255,236,215,0)");
-      bctx.fillStyle = gc; bctx.fillRect(-gR, -gR, gR * 2, gR * 2);
       bctx.restore();
       // a faint band, like the plane of a galaxy seen edge-on
       var g = bctx.createLinearGradient(0, H * 0.15, W, H * 0.85);
@@ -186,9 +176,15 @@
       bctx.fillStyle = g; bctx.fillRect(0, 0, W, H);
     }
 
+    var paused = false;
     function frame(now) {
       lctx.clearRect(0, 0, W, H);
       var t = now / 1000;
+      if (calm()) {
+        twinklers.forEach(function (s) { lctx.fillStyle = "rgba(" + s.c + "," + s.a * 0.8 + ")"; lctx.beginPath(); lctx.arc(s.x, s.y, s.s, 0, 6.283); lctx.fill(); });
+        meteor = null; paused = true;
+        return;
+      }
       twinklers.forEach(function (s) {
         var a = s.a * (0.55 + 0.45 * Math.sin(t * s.v + s.p));
         lctx.fillStyle = "rgba(" + s.c + "," + a + ")";
@@ -225,6 +221,7 @@
     }
     requestAnimationFrame(frame);
     document.addEventListener("visibilitychange", function () { if (!document.hidden) requestAnimationFrame(frame); });
+    window.addEventListener("vlnc:prefs", function () { if (paused && !calm()) { paused = false; requestAnimationFrame(frame); } else if (calm()) requestAnimationFrame(frame); });
   }
 
   /* ------------------------------------------------------------------ */
@@ -297,7 +294,7 @@
     if (spec.kind === "eclipse") {
       var cor = ctx.createRadialGradient(cx, cy, R * 0.9, cx, cy, R * 2.1);
       cor.addColorStop(0, hexA(HI, 0.9)); cor.addColorStop(0.08, hexA(A, 0.7)); cor.addColorStop(0.35, hexA(A, 0.12)); cor.addColorStop(1, "rgba(0,0,0,0)");
-      ctx.fillStyle = cor; ctx.beginPath(); ctx.arc(cx, cy, R * 2.1, 0, 6.283); ctx.fill();
+      ctx.fillStyle = cor; ctx.beginPath(); ctx.arc(cx, cy, edge, 0, 6.283); ctx.fill();
       ctx.fillStyle = "#050506"; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 6.283); ctx.fill();
       ctx.strokeStyle = hexA(HI, 0.55); ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(cx, cy, R + 0.5, 0, 6.283); ctx.stroke();
       grainOver(ctx, W, H, 0.09);
@@ -509,7 +506,7 @@
     if (reduceMotion) return;
     (function loop(now) {
       var t = now / 1000;
-      animated.forEach(function (s) { if (s.visible) paint(s, t); });
+      if (!calm()) animated.forEach(function (s) { if (s.visible) paint(s, t); });
       requestAnimationFrame(loop);
     })(performance.now());
   }
@@ -655,24 +652,45 @@
     orbit.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }); });
   }
 
-  function initSide() {
-    var btn = $("[data-side-toggle]");
-    if (!btn) return;
+  /* Site-wide display preferences: night/day side and reading mode, remembered across pages.
+     The stored choice is applied before first paint by a small script in <head>. */
+  function calm() { return document.documentElement.dataset.reading === "on"; }
+
+  function initPrefs() {
     var root = document.documentElement;
-    var saved = null;
-    try { saved = localStorage.getItem("vlnc-side"); } catch (e) { /* storage unavailable */ }
-    if (saved === "day" || saved === "night") root.dataset.side = saved;
+    var sideBtns = $$("[data-pref='side'], [data-side-toggle]");
+    var readBtns = $$("[data-pref='reading']");
+    function store(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage unavailable */ } }
     function label() {
-      var day = root.dataset.side === "day";
-      btn.setAttribute("aria-pressed", String(day));
-      $("[data-side-label]", btn).textContent = day ? "Day side" : "Night side";
+      var day = root.dataset.side === "day", reading = calm();
+      sideBtns.forEach(function (b) {
+        b.setAttribute("aria-pressed", String(day));
+        b.setAttribute("aria-label", day ? "Day side is on. Switch to night side" : "Night side is on. Switch to day side");
+        var l = $("[data-side-label], .pref__label", b);
+        if (l) l.textContent = b.hasAttribute("data-side-toggle") ? (day ? "Day side" : "Night side") : (day ? "Day" : "Night");
+      });
+      readBtns.forEach(function (b) {
+        b.setAttribute("aria-pressed", String(reading));
+        b.setAttribute("aria-label", reading ? "Reading mode is on. Turn it off" : "Turn on reading mode: calmer motion, larger text");
+      });
     }
-    label();
-    btn.addEventListener("click", function () {
-      root.dataset.side = root.dataset.side === "day" ? "night" : "day";
-      try { localStorage.setItem("vlnc-side", root.dataset.side); } catch (e) { /* storage unavailable */ }
-      label();
+    sideBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.dataset.side = root.dataset.side === "day" ? "night" : "day";
+        store("vlnc-side", root.dataset.side);
+        label();
+        window.dispatchEvent(new Event("vlnc:prefs"));
+      });
     });
+    readBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (calm()) delete root.dataset.reading; else root.dataset.reading = "on";
+        store("vlnc-reading", calm() ? "on" : "off");
+        label();
+        window.dispatchEvent(new Event("vlnc:prefs"));
+      });
+    });
+    label();
   }
 
   function initQuestions() {
@@ -851,6 +869,121 @@
     }, 2200);
   }
 
+  /* The Navagraha: each room on the home page is drawn as its ruling graha, free-standing,
+     on a transparent canvas so no frame crops it. */
+  function drawGraha(canvas) {
+    var name = canvas.dataset.graha;
+    var rect = canvas.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var W = Math.round(rect.width) || 120, H = Math.round(rect.height) || 96;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    var ctx = canvas.getContext("2d"); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+    var r = rng(name.length * 7919 + name.charCodeAt(0));
+    var cx = W * 0.45, cy = H * 0.5, R = H * 0.22;
+    var edge = Math.min(cx, cy, W - cx, H - cy);
+
+    function glow(c, rad, a) {
+      rad = Math.min(rad, edge);
+      var g = ctx.createRadialGradient(cx, cy, R * 0.8, cx, cy, rad);
+      g.addColorStop(0, hexA(c, a)); g.addColorStop(1, hexA(c, 0));
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, rad, 0, 6.283); ctx.fill();
+    }
+    function sphere(stops, lx, ly) {
+      var g = ctx.createRadialGradient(cx + R * (lx || -0.35), cy + R * (ly || -0.35), R * 0.05, cx, cy, R * 1.02);
+      stops.forEach(function (s) { g.addColorStop(s[0], s[1]); });
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 6.283); ctx.fill();
+    }
+    function inside(fn) { ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, R, 0, 6.283); ctx.clip(); fn(); ctx.restore(); }
+    function shade() {
+      inside(function () {
+        var g = ctx.createLinearGradient(cx - R, cy - R, cx + R, cy + R);
+        g.addColorStop(0.45, "rgba(3,4,6,0)"); g.addColorStop(1, "rgba(3,4,6,0.85)");
+        ctx.fillStyle = g; ctx.fillRect(cx - R, cy - R, R * 2, R * 2);
+      });
+    }
+    function spots(n, col, size) {
+      inside(function () {
+        for (var i = 0; i < n; i++) {
+          var a = r() * 6.283, d = Math.sqrt(r()) * R * 0.85, s = R * size * (0.4 + r());
+          ctx.fillStyle = col; ctx.beginPath(); ctx.arc(cx + Math.cos(a) * d, cy + Math.sin(a) * d, s, 0, 6.283); ctx.fill();
+        }
+      });
+    }
+    function bands(cols) {
+      inside(function () {
+        cols.forEach(function (c, i) {
+          var y = cy - R + (i / cols.length) * R * 2;
+          ctx.fillStyle = c; ctx.fillRect(cx - R, y + (r() - 0.5) * 2, R * 2, (R * 2) / cols.length + 1);
+        });
+      });
+    }
+
+    switch (name) {
+      case "mars":
+        glow("#E35A2A", R * 1.7, 0.3);
+        sphere([[0, "#f6a27a"], [0.45, "#c9481f"], [1, "#4a160a"]]);
+        spots(7, "rgba(70,20,10,0.35)", 0.16);
+        inside(function () { ctx.fillStyle = "rgba(255,240,230,0.75)"; ctx.beginPath(); ctx.ellipse(cx - R * 0.1, cy - R * 0.92, R * 0.32, R * 0.12, 0, 0, 6.283); ctx.fill(); });
+        shade(); break;
+      case "rahu":
+        // the shadow planet: no body of its own, only the light it swallows
+        var cor = ctx.createRadialGradient(cx, cy, R * 0.95, cx, cy, edge);
+        cor.addColorStop(0, "rgba(255,226,190,0.95)"); cor.addColorStop(0.1, "rgba(227,90,42,0.7)"); cor.addColorStop(0.45, "rgba(227,90,42,0.1)"); cor.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = cor; ctx.beginPath(); ctx.arc(cx, cy, edge, 0, 6.283); ctx.fill();
+        ctx.fillStyle = "#050506"; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 6.283); ctx.fill();
+        break;
+      case "moon":
+        glow("#dfe6ee", R * 1.6, 0.18);
+        sphere([[0, "#f4f4f2"], [0.55, "#a9adb3"], [1, "#3c3f44"]]);
+        spots(12, "rgba(60,64,70,0.28)", 0.12);
+        inside(function () { ctx.fillStyle = "rgba(3,4,6,0.9)"; ctx.beginPath(); ctx.arc(cx + R * 0.75, cy + R * 0.1, R * 1.05, 0, 6.283); ctx.fill(); });
+        break;
+      case "venus":
+        glow("#f3e3b0", R * 1.9, 0.35);
+        sphere([[0, "#fffbe9"], [0.5, "#e9cf95"], [1, "#6d5326"]]);
+        bands(["rgba(255,255,255,0.05)", "rgba(200,162,76,0.12)", "rgba(255,255,255,0.06)", "rgba(200,162,76,0.1)", "rgba(255,255,255,0.04)"]);
+        shade(); break;
+      case "mercury":
+        glow("#c49b5b", R * 1.4, 0.16);
+        var s0 = R; R = R * 0.78;
+        sphere([[0, "#d9cbb8"], [0.55, "#8d7e6c"], [1, "#2c2620"]]);
+        spots(14, "rgba(40,34,28,0.35)", 0.1);
+        shade(); R = s0; break;
+      case "jupiter":
+        glow("#C49B5B", R * 1.6, 0.18);
+        R = R * 1.12;
+        sphere([[0, "#f1dfc0"], [0.6, "#c49b5b"], [1, "#4a3420"]]);
+        bands(["rgba(120,70,40,0.25)", "rgba(255,240,215,0.15)", "rgba(160,90,50,0.35)", "rgba(255,240,215,0.2)", "rgba(140,80,45,0.3)", "rgba(255,240,215,0.12)", "rgba(110,65,40,0.3)"]);
+        inside(function () { ctx.fillStyle = "rgba(190,80,50,0.75)"; ctx.beginPath(); ctx.ellipse(cx + R * 0.25, cy + R * 0.32, R * 0.2, R * 0.11, 0, 0, 6.283); ctx.fill(); });
+        shade(); break;
+      case "saturn":
+        glow("#C8A24C", R * 1.6, 0.16);
+        function ring(front) {
+          ctx.save(); ctx.translate(cx, cy); ctx.rotate(-0.38);
+          [[1.95, 0.5, "rgba(200,162,76,0.35)"], [1.7, 0.42, "rgba(243,226,180,0.65)"], [1.45, 0.36, "rgba(200,162,76,0.5)"]].forEach(function (k) {
+            ctx.strokeStyle = k[2]; ctx.lineWidth = R * 0.14;
+            ctx.beginPath(); ctx.ellipse(0, 0, R * k[0], R * k[0] * 0.26, 0, front ? 0 : Math.PI, front ? Math.PI : Math.PI * 2); ctx.stroke();
+          });
+          ctx.restore();
+        }
+        ring(false);
+        sphere([[0, "#f4e2b5"], [0.55, "#c8a24c"], [1, "#4b3a17"]]);
+        bands(["rgba(120,90,40,0.18)", "rgba(255,240,200,0.1)", "rgba(120,90,40,0.22)", "rgba(255,240,200,0.08)"]);
+        shade(); ring(true); break;
+      case "sun":
+        var c2 = ctx.createRadialGradient(cx, cy, R * 0.6, cx, cy, edge);
+        c2.addColorStop(0, "rgba(255,214,140,0.8)"); c2.addColorStop(0.35, "rgba(227,90,42,0.25)"); c2.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = c2; ctx.beginPath(); ctx.arc(cx, cy, edge, 0, 6.283); ctx.fill();
+        sphere([[0, "#fffdf2"], [0.45, "#ffd27a"], [1, "#e35a2a"]], 0, 0);
+        spots(30, "rgba(255,255,255,0.12)", 0.05);
+        break;
+    }
+  }
+  function initGrahas() {
+    var cs = $$("canvas[data-graha]");
+    cs.forEach(drawGraha);
+    if (cs.length) window.addEventListener("resize", function () { clearTimeout(initGrahas.t); initGrahas.t = setTimeout(function () { cs.forEach(drawGraha); }, 200); });
+  }
+
   /* Elements stamped with today's ephemeris data or entry metadata */
   function initStamps() {
     $$("[data-jd]").forEach(function (n) { n.textContent = jdLabel(n.dataset.jd); });
@@ -867,7 +1000,7 @@
   initHeader();
   initFilters();
   initReadingOrbit();
-  initSide();
+  initPrefs();
   initQuestions();
   initLetterForm();
   initCopy();
@@ -878,4 +1011,5 @@
   initStack();
   initCharges();
   initRotator();
+  initGrahas();
 })();

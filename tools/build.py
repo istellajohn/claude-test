@@ -84,6 +84,10 @@ JSONLD = {
 }
 
 
+# applies the reader's saved display preferences before first paint
+PREFS_BOOT = '<script>try{var r=document.documentElement,s=localStorage.getItem("vlnc-side");if(s==="day"||s==="night")r.dataset.side=s;if(localStorage.getItem("vlnc-reading")==="on")r.dataset.reading="on"}catch(e){}</script>'
+
+
 def head(meta):
     side = meta.get("side", "night")
     title = html.escape(meta["title"])
@@ -103,6 +107,7 @@ def head(meta):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="{FONTS}">
 <link rel="stylesheet" href="assets/css/site.css">
+{PREFS_BOOT}
 <script type="application/ld+json">{json.dumps(JSONLD)}</script>
 </head>
 <body>
@@ -155,6 +160,10 @@ def chrome_top(meta):
   <nav class="nav" aria-label="Main">
     {links}
   </nav>
+  <div class="prefs" role="group" aria-label="Display">
+    <button class="pref" type="button" data-pref="side" aria-pressed="false"><span data-moon-glyph="12"></span><span class="pref__label">Night</span></button>
+    <button class="pref" type="button" data-pref="reading" aria-pressed="false"><span class="pref__icon" aria-hidden="true">Aa</span><span class="pref__label">Reading</span></button>
+  </div>
   {cta}
   <button class="btn menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
 </header>
@@ -229,7 +238,7 @@ def artifact_fragment(page):
     body_inner = page.split("<body>", 1)[1].split("</body>", 1)[0]
     side = re.search(r'data-side="(\w+)"', page).group(1)
     boot = f'<script>document.documentElement.dataset.side="{side}";</script>'
-    return head_inner.strip() + "\n" + boot + "\n" + body_inner
+    return boot + "\n" + head_inner.strip() + "\n" + body_inner
 
 
 def main():

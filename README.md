@@ -25,7 +25,8 @@ Static HTML, CSS and JavaScript. No framework, no build dependencies.
 - `assets/js/data.js` is the content index. Every piece is listed here once; listings, the star chart and "next" links all read from it. Wrap one word of a title in `{braces}` to set it in the script face.
 - `assets/js/sky.js` holds the live sky (Julian Day, moon phase, true new moons computed with Meeus' algorithm), the starfield, the generative plates, and the page interactions.
 - `assets/js/hero.js` is the WebGL hero, using three.js r149 (vendored, MIT).
-- `assets/css/site.css` holds all styles. Night is the default; `data-side="day"` switches to the paper archive. Readers can switch a long read to the day side.
+- `assets/css/site.css` holds all styles. Night is the default. The header on every page has two remembered switches: Night/Day (`data-side`, a paper "day side"; cinematic sections stay dark) and Reading (`data-reading`: still motion, no grain, larger higher-contrast text).
+- The eight rooms on the home page are marked by their Vedic graha (Mars, Rahu, Moon, Venus, Mercury, Jupiter, Saturn, Sun), drawn in `sky.js` (`drawGraha`).
 
 ### Generative plates
 

@@ -156,18 +156,19 @@
 
   function frame(now) {
     var t = (now - t0) / 1000;
-    var intro = reduceMotion ? 1 : Math.min(t / 4.5, 1);
+    var still = reduceMotion || document.documentElement.dataset.reading === "on";
+    var intro = still ? 1 : Math.min(t / 4.5, 1);
     var e = ease(intro);
     uniforms.uTime.value = t;
 
     if (horizon) {
       // the planet rises into frame while its upper limb catches the light, like dawn seen from orbit
-      var th2 = Math.PI - e * (Math.PI - 2.05) + (reduceMotion ? 0 : Math.sin(t * 0.06) * 0.08);
+      var th2 = Math.PI - e * (Math.PI - 2.05) + (still ? 0 : Math.sin(t * 0.06) * 0.08);
       uniforms.uLight.value.set(Math.sin(th2) * 0.45, 0.85, Math.cos(th2)).normalize();
       world.position.y = baseY - (1 - e) * 2.2 - scroll * 1.2;
     } else {
       // light swings from behind the body (eclipse) to the upper side (dawn)
-      var th = Math.PI - e * (Math.PI - 1.05) + (reduceMotion ? 0 : Math.sin(t * 0.07) * 0.1) - scroll * 0.5;
+      var th = Math.PI - e * (Math.PI - 1.05) + (still ? 0 : Math.sin(t * 0.07) * 0.1) - scroll * 0.5;
       uniforms.uLight.value.set(Math.sin(th), 0.42 + scroll * 0.2, Math.cos(th)).normalize();
     }
     halo.material.opacity = 0.95 - e * 0.65;
@@ -196,7 +197,7 @@
     }
 
     renderer.render(scene, camera);
-    if (reduceMotion || !visible) { running = false; return; }
+    if (still || !visible) { running = false; return; }
     requestAnimationFrame(frame);
   }
   function kick() { if (!running) { running = true; requestAnimationFrame(frame); } }
@@ -218,4 +219,5 @@
     new IntersectionObserver(function (en) { visible = en[0].isIntersecting; if (visible) kick(); }).observe(hero);
   }
   document.addEventListener("visibilitychange", function () { visible = !document.hidden; if (visible) kick(); });
+  window.addEventListener("vlnc:prefs", kick);
 })();

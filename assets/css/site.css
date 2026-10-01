@@ -205,7 +205,7 @@ button { font: inherit; color: inherit; }
   top: env(safe-area-inset-top, 0px);
   z-index: 50;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr auto auto auto;
   align-items: center;
   gap: 24px;
   padding: 16px var(--gutter);
@@ -1109,3 +1109,54 @@ img.close__plate { object-fit: cover; object-position: 50% 40%; opacity: 0.9; }
   .statement__grid { grid-template-columns: minmax(0, 1fr); }
   .statement__img { max-width: 420px; }
 }
+
+/* ---------- Display preferences (site-wide) ---------- */
+
+.prefs { display: flex; gap: 4px; padding: 3px; border: 1px solid var(--hair-strong); border-radius: 999px; }
+.pref { display: inline-flex; align-items: center; gap: 7px; padding: 6px 11px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); font-family: var(--f-mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: background 0.3s, color 0.3s; }
+.pref:hover { color: var(--fg); }
+.pref[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+.pref .moon-glyph { color: currentColor; }
+.pref__icon { font-family: var(--f-display); font-stretch: 125%; font-weight: 800; font-size: 0.78rem; letter-spacing: 0; text-transform: none; }
+
+/* Day side: cinematic sections stay dark, like plates mounted on paper */
+[data-side="day"] .hero, [data-side="day"] .close, [data-side="day"] .interlude {
+  --bg: var(--void); --fg: var(--bone); --muted: var(--stone); --faint: var(--dust);
+  --hair: rgba(243, 242, 239, 0.12); --hair-strong: rgba(243, 242, 239, 0.24); --script: var(--gold); --hand: #e98a5e;
+  background: var(--void); color: var(--fg);
+}
+[data-side="day"] .btn--solid { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+[data-side="day"] .hero .btn--solid, [data-side="day"] .close .btn--solid { background: var(--bone); color: var(--ink); border-color: var(--bone); }
+[data-side="day"] .stack__plane { border-color: rgba(23, 20, 15, 0.28); background: linear-gradient(135deg, rgba(23, 20, 15, 0.06), rgba(23, 20, 15, 0.01)); }
+[data-side="day"] .orbit__lines rect, [data-side="day"] .orbit__lines circle { stroke: rgba(23, 20, 15, 0.3); }
+[data-side="day"] .trajectory li::before { border-color: var(--ink); }
+[data-side="day"] .shell { border-color: rgba(23, 20, 15, 0.3); }
+[data-side="day"] .shell__e { background: var(--ink); box-shadow: none; }
+[data-side="day"] .room__plate, [data-side="day"] .row__plate { box-shadow: 0 6px 18px rgba(23, 20, 15, 0.25); }
+[data-side="day"] .masthead.is-scrolled { background: color-mix(in srgb, var(--paper) 86%, transparent); }
+[data-side="day"] .menu { background: var(--paper); }
+[data-side="day"] .menu a { color: var(--ink); border-color: var(--hair); }
+
+/* Reading mode: calmer motion, quieter texture, larger and higher-contrast text */
+[data-reading="on"] *, [data-reading="on"] *::before, [data-reading="on"] *::after { animation: none !important; transition-duration: 0.01s !important; }
+[data-reading="on"] .grain, [data-reading="on"] .axis, [data-reading="on"] .annotations { display: none; }
+[data-reading="on"] .sky { opacity: 0.45; }
+[data-reading="on"] body { font-size: 1.08rem; }
+[data-reading="on"] { --muted: color-mix(in srgb, var(--fg) 78%, transparent); --faint: color-mix(in srgb, var(--fg) 60%, transparent); }
+[data-reading="on"] .a-body p, [data-reading="on"] .prose-lg p, [data-reading="on"] .statement__cols p { font-size: clamp(1.14rem, 1.05rem + 0.3vw, 1.3rem); line-height: 1.85; }
+[data-reading="on"] .a-col { max-width: 42rem; }
+[data-reading="on"] .room p, [data-reading="on"] .sys p, [data-reading="on"] .card__subject, [data-reading="on"] .facts dd, [data-reading="on"] .charges p, [data-reading="on"] .trajectory p { font-size: 1rem; }
+[data-reading="on"] .script { color: var(--fg); }
+
+@media (max-width: 860px) {
+  .masthead { grid-template-columns: 1fr auto auto; gap: 10px; }
+  .pref__label { display: none; }
+  .pref { padding: 7px 9px; }
+}
+
+/* Rooms: each marked by its graha, free-standing, no frame */
+.room__graha { display: flex; align-items: center; gap: 0; margin: -18px 0 0 -28px; }
+.room__graha canvas { width: 150px; height: 120px; flex: none; transition: transform 1s var(--ease-out); }
+.room:hover .room__graha canvas { transform: scale(1.12) rotate(-6deg); }
+.room__karaka { font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); line-height: 1.6; }
+.room__karaka span { color: var(--muted); text-transform: none; letter-spacing: 0.04em; }

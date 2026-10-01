@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:ital,wdth,wght@0,50..150,100..900;1,50..150,100..900&family=Ballet:opsz@16..72&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=La+Belle+Aurore&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
+<script>try{var r=document.documentElement,s=localStorage.getItem("vlnc-side");if(s==="day"||s==="night")r.dataset.side=s;if(localStorage.getItem("vlnc-reading")==="on")r.dataset.reading="on"}catch(e){}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "VALENCE", "alternateName": ["VLNC", "Copious Space"], "description": "Perception architecture practice for brands, founders and ideas whose substance has outgrown its expression. Publisher of the VALENCE Journal.", "email": "buzz@vlnc.in", "founder": {"@type": "Person", "name": "Stella John"}, "address": {"@type": "PostalAddress", "addressLocality": "Mumbai", "addressCountry": "IN"}, "sameAs": ["https://www.instagram.com/itsavalencething/"]}</script>
 </head>
 <body>
@@ -41,6 +42,10 @@
     <a href="journal.html" aria-current="page">Journal</a>
     <a href="about.html">About</a>
   </nav>
+  <div class="prefs" role="group" aria-label="Display">
+    <button class="pref" type="button" data-pref="side" aria-pressed="false"><span data-moon-glyph="12"></span><span class="pref__label">Night</span></button>
+    <button class="pref" type="button" data-pref="reading" aria-pressed="false"><span class="pref__icon" aria-hidden="true">Aa</span><span class="pref__label">Reading</span></button>
+  </div>
   <a class="btn" href="journal.html#letter">The letter</a>
   <button class="btn menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
 </header>
@@ -81,7 +86,6 @@
           <div><dt class="mono">Transit time</dt><dd>16 minutes</dd></div>
         </dl>
         <div class="a-tools">
-          <button type="button" class="btn side-toggle" data-side-toggle aria-pressed="false"><span data-moon-glyph="12"></span><span data-side-label>Night side</span></button>
           <a class="btn" href="interviews.html">All interviews</a>
         </div>
       </div>
