@@ -2,7 +2,7 @@
 
 The website of VALENCE, a branding and marketing agency for entrepreneurs, films, artists, public figures, consumer brands and institutions. The agency site leads; the VALENCE Journal of interviews and essays sits inside it and publishes one letter on every new moon.
 
-**Specimen edition (journal only).** Interview subjects are deliberately unnamed, and the texts, dates and listings are placeholders written to show how the site reads. Replace them before launch. No client photographs are used anywhere.
+**Specimen edition (journal only).** Interview subjects are deliberately unnamed, and the texts, dates and listings are placeholders written to show how the site reads. Replace them before launch. Client photographs appear only in the four case studies on the home page (`assets/img/case-*.jpg`, taken from the credentials deck with approval).
 
 ## Pages
 
