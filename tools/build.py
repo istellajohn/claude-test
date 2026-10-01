@@ -32,30 +32,29 @@ FONTS = (
 )
 
 NAV = [
-    ("work", "index.html#work", "Work"),
-    ("practice", "index.html#practice", "Practice"),
-    ("approach", "index.html#approach", "Approach"),
+    ("work", "work.html", "Work"),
+    ("disciplines", "disciplines.html", "Disciplines"),
+    ("how", "how-we-work.html", "How we work"),
     ("journal", "journal.html", "Journal"),
     ("about", "about.html", "About"),
 ]
 
 JOURNAL_NAV = [
-    ("front", "journal.html", "Front page"),
-    ("interviews", "interviews.html", "Interviews"),
+    ("front", "journal.html", "Latest letter"),
+    ("interviews", "interviews.html", "Conversations"),
     ("essays", "essays.html", "Essays"),
     ("catalogue", "catalogue.html", "Catalogue"),
-    ("letter", "journal.html#letter", "The letter"),
+    ("letter", "letter.html", "The Letter"),
 ]
 
 MENU = [
     ("index.html", "Home"),
-    ("index.html#work", "Work"),
-    ("index.html#practice", "Practice"),
+    ("work.html", "Work"),
+    ("disciplines.html", "Disciplines"),
+    ("how-we-work.html", "How we work"),
     ("journal.html", "Journal"),
-    ("interviews.html", "Interviews"),
-    ("essays.html", "Essays"),
-    ("catalogue.html", "Catalogue"),
     ("about.html", "About"),
+    ("contact.html", "Contact"),
 ]
 
 # V Λ L E N C E, drawn as single strokes
@@ -76,7 +75,7 @@ JSONLD = {
     "@type": "Organization",
     "name": "VALENCE",
     "alternateName": ["VLNC", "Copious Space"],
-    "description": "Perception architecture practice for brands, founders and ideas whose substance has outgrown its expression. Publisher of the VALENCE Journal.",
+    "description": "An independent creative practice founded by Stella John in Mumbai, working globally across creative direction, film, photography, writing, branding and digital strategy. Publisher of the VALENCE Journal.",
     "email": "buzz@vlnc.in",
     "founder": {"@type": "Person", "name": "Stella John"},
     "address": {"@type": "PostalAddress", "addressLocality": "Mumbai", "addressCountry": "IN"},
@@ -137,8 +136,8 @@ def chrome_top(meta):
   </div>
 </nav>
 """
-    tag = "Journal" if journal else "Branding &amp; marketing"
-    cta = '<a class="btn" href="journal.html#letter">The letter</a>' if journal else '<a class="btn" href="index.html#contact">Start with the audit</a>'
+    tag = "Journal" if journal else "Creative practice"
+    cta = '<a class="btn" href="contact.html">Bring us into it</a>'
     return f"""<a class="skip" href="#main">Skip to content</a>
 <div class="sky" aria-hidden="true"><canvas id="sky-base"></canvas><canvas id="sky-live"></canvas></div>
 <div class="grain" aria-hidden="true"></div>
@@ -151,8 +150,7 @@ def chrome_top(meta):
   </div>
   <div class="ephemeris__group ephemeris__group--secondary">
     <span>Mumbai · <span data-eph="mumbai"></span></span>
-    <span>Next letter · new moon · <span data-eph="next-new-short"></span></span>
-    <span class="ephemeris__specimen">Specimen edition</span>
+    <span>Next letter · New moon · <span data-eph="next-new-short"></span></span>
   </div>
 </div>
 <header class="masthead">
@@ -162,7 +160,7 @@ def chrome_top(meta):
   </nav>
   <div class="prefs" role="group" aria-label="Display">
     <button class="pref" type="button" data-pref="side" aria-pressed="false"><span data-moon-glyph="12"></span><span class="pref__label">Night</span></button>
-    <button class="pref" type="button" data-pref="reading" aria-pressed="false"><span class="pref__icon" aria-hidden="true">Aa</span><span class="pref__label">Reading</span></button>
+    <button class="pref" type="button" data-pref="reading" aria-pressed="false"><span class="pref__icon" aria-hidden="true">Aa</span><span class="pref__label">Reading mode</span></button>
   </div>
   {cta}
   <button class="btn menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
@@ -180,24 +178,24 @@ FOOTER = """</main>
     <div class="footer__grid">
       <div>
         <img class="footer__sig" src="assets/img/signature-gold.png" alt="Valence" width="1041" height="749" loading="lazy">
-        <p class="footer__note">VALENCE is a branding and marketing agency in Mumbai, working globally, for entrepreneurs, films, artists, public figures, brands and institutions whose substance has outgrown its expression. The journal is published on every new moon.</p>
+        <p class="footer__note">VALENCE is an independent creative practice founded by Stella John in Mumbai, working globally across creative direction, film, photography, writing, branding and digital strategy. The VALENCE Journal publishes written conversations and essays, gathered into a letter each new moon.</p>
       </div>
       <div>
-        <h3 class="mono">Agency</h3>
-        <ul><li><a href="index.html#work">Work</a></li><li><a href="index.html#practice">Practice</a></li><li><a href="index.html#approach">Approach</a></li><li><a href="about.html">About</a></li><li><a href="index.html#contact">Start with the audit</a></li></ul>
+        <h3 class="mono">The practice</h3>
+        <ul><li><a href="work.html">Work</a></li><li><a href="disciplines.html">Disciplines</a></li><li><a href="how-we-work.html">How we work</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul>
       </div>
       <div>
-        <h3 class="mono">Journal</h3>
-        <ul><li><a href="journal.html">Front page</a></li><li><a href="interviews.html">Interviews</a></li><li><a href="essays.html">Essays</a></li><li><a href="catalogue.html">Catalogue</a></li><li><a href="journal.html#letter">The letter</a></li></ul>
+        <h3 class="mono">The Journal</h3>
+        <ul><li><a href="journal.html">Latest letter</a></li><li><a href="interviews.html">Conversations</a></li><li><a href="essays.html">Essays</a></li><li><a href="catalogue.html">Catalogue</a></li><li><a href="letter.html">The Letter</a></li></ul>
       </div>
       <div>
-        <h3 class="mono">Contact</h3>
-        <ul><li><a href="index.html#contact">buzz@vlnc.in</a></li><li><a href="https://www.instagram.com/itsavalencething/" target="_blank" rel="noopener">@itsavalencething</a></li><li class="coord">19.0760° N · 72.8777° E</li><li class="coord">Mumbai · working globally</li><li class="coord">Previously Copious Space</li></ul>
+        <h3 class="mono">Write to us</h3>
+        <ul><li><a href="mailto:buzz@vlnc.in">buzz@vlnc.in</a></li><li class="coord">Mumbai · Working globally</li><li><a href="https://www.instagram.com/itsavalencething/" target="_blank" rel="noopener">Instagram</a></li></ul>
       </div>
     </div>
     <div class="footer__line">
-      <span class="mono muted">© 2026 VALENCE</span>
-      <span class="mono muted">Journal: specimen edition · subjects, texts and dates are placeholders for layout</span>
+      <span class="mono muted">© VALENCE</span>
+      <span class="mono muted">Journal stories shown here are specimens for layout</span>
     </div>
   </div>
 </footer>
@@ -223,6 +221,9 @@ def build_page(src):
         raise SystemExit(f"{src.name}: missing JSON header comment")
     meta = json.loads(m.group(1))
     body = text[m.end():]
+    # shared blocks: <!--NAME--> is replaced by src/partials/name.html
+    for part in (ROOT / "src" / "partials").glob("*.html"):
+        body = body.replace("<!--%s-->" % part.stem.upper(), part.read_text(encoding="utf-8"))
     tail = [READING_ORBIT] if meta.get("reading") else []
     tail.append('<script src="assets/js/data.js"></script>')
     tail.append('<script src="assets/js/sky.js"></script>')

@@ -1,26 +1,31 @@
-<!--{"title": "Essays · VALENCE Journal", "description": "Short essays on perception, reputation and the delay between who someone is and how they are read, written from inside the VALENCE practice.", "nav": "journal", "sub": "essays", "section": "journal"}-->
+<!--{"title": "Essays · VALENCE Journal", "description": "Writing on cinema, culture, creative work and the habits through which we come to know the world.", "nav": "journal", "sub": "essays", "section": "journal"}-->
 <section class="pagehead">
   <div class="wrap">
-    <p class="eyebrow">Section II · <span data-count="essay">5</span> essays catalogued</p>
+    <p class="eyebrow"><span data-count="essay">5</span> essays</p>
     <h1 class="mast" style="--chars:6">Essays</h1>
     <div class="mast-sub">
-      <span class="script">field notes</span>
-      <p>Short essays on perception, reputation and the delay between who someone is and how they are read. Written from inside the practice, usually after a conversation that would not leave us alone.</p>
+      <span class="script mast-sub__line">We kept thinking about it after everyone had gone home.</span>
+      <p>Writing on cinema, culture, creative work and the habits through which we come to know the world. Some essays begin with a conversation; others with an image, a reading or a detail that refuses to become uninteresting.</p>
     </div>
   </div>
 </section>
 
-<section class="section--tight" aria-label="Essays banner">
+<section class="section--tight" aria-label="Photograph">
   <div class="wrap">
-    <figure class="banner slot bracket" data-image-slot="essaysBanner" data-alt="A swimmer at dusk, looking toward a glowing horizon" style="margin:0">
+    <figure class="banner slot bracket" data-image-slot="essaysBanner" data-alt="The glowing limb of a planet against black space" style="margin:0">
       <canvas data-plate="77" data-kind="nebula" aria-hidden="true"></canvas>
-      <figcaption class="hand">every horizon is also a delay</figcaption>
+      <figcaption class="hand">The view changes when you give it a little longer.</figcaption>
     </figure>
   </div>
 </section>
 
 <section class="section" aria-label="All essays">
   <div class="wrap">
-    <div class="posters" data-list="poster" data-type="essay"></div>
+    <div class="search" style="margin-bottom:32px">
+      <label class="mono muted" for="essay-search">Search</label>
+      <input id="essay-search" type="search" placeholder="Search essays by title or subject" autocomplete="off" data-search-list="#essay-list">
+    </div>
+    <div class="posters" id="essay-list" data-list="poster" data-type="essay"></div>
+    <p class="search__empty muted" hidden>We could not find a story matching that search. Try a name, subject or a shorter phrase.</p>
   </div>
 </section>

@@ -87,7 +87,8 @@
   function isoToDate(iso) { return new Date(iso + "T00:00:00Z"); }
   function jdLabel(iso) { return "JD " + jdFromDate(isoToDate(iso)).toFixed(1); }
   function pad(n, w) { n = String(n); while (n.length < w) n = "0" + n; return n; }
-  function vln(id) { return "VLN " + pad(id, 3); }
+  function vln(id) { return "Story " + pad(id, 3); }
+  function fmt(e) { return e.type === "interview" ? "Conversation" : "Essay"; }
 
   /* ------------------------------------------------------------------ */
   /* 2. Ephemeris                                                        */
@@ -294,7 +295,7 @@
     if (spec.kind === "eclipse") {
       var cor = ctx.createRadialGradient(cx, cy, R * 0.9, cx, cy, R * 2.1);
       cor.addColorStop(0, hexA(HI, 0.9)); cor.addColorStop(0.08, hexA(A, 0.7)); cor.addColorStop(0.35, hexA(A, 0.12)); cor.addColorStop(1, "rgba(0,0,0,0)");
-      ctx.fillStyle = cor; ctx.beginPath(); ctx.arc(cx, cy, edge, 0, 6.283); ctx.fill();
+      ctx.fillStyle = cor; ctx.beginPath(); ctx.arc(cx, cy, R * 2.1, 0, 6.283); ctx.fill();
       ctx.fillStyle = "#050506"; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 6.283); ctx.fill();
       ctx.strokeStyle = hexA(HI, 0.55); ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(cx, cy, R + 0.5, 0, 6.283); ctx.stroke();
       grainOver(ctx, W, H, 0.09);
@@ -537,9 +538,10 @@
       return '<article class="card" data-type="' + e.type + '" data-field="' + esc(e.field) + '">' +
         '<a class="card__link" href="' + e.href + '">' +
         '<div class="card__plate">' + media(e) + '<span class="card__vln">' + vln(e.id) + "</span></div>" +
-        '<p class="card__meta"><span>' + (e.type === "interview" ? "Interview" : "Essay") + "</span><span>" + esc(e.field) + "</span><span>" + e.minutes + " min</span></p>" +
+        '<p class="card__meta"><span>' + fmt(e) + "</span><span>" + esc(e.field) + "</span><span>" + e.minutes + " min read</span></p>" +
         '<h3 class="card__title">' + titleHTML(e.title) + "</h3>" +
-        (e.subject ? '<p class="card__subject">' + esc(e.subject) + "</p>" : '<p class="card__subject">' + esc(e.dek) + "</p>") +
+        '<p class="card__subject">' + esc(e.subject || e.dek) + "</p>" +
+        '<span class="card__cta mono">' + (e.type === "interview" ? "Read the conversation" : "Read the essay") + "</span>" +
         "</a></article>";
     },
     row: function (e) {
@@ -549,7 +551,7 @@
         '<span class="row__plate">' + media(e) + "</span>" +
         '<span class="row__main"><span class="row__title">' + titleHTML(e.title) + '</span><span class="row__subject">' + esc(e.subject || e.dek) + "</span></span>" +
         '<span class="row__field">' + esc(e.field) + "</span>" +
-        '<span class="row__time">' + e.minutes + " min<br><span>" + fmtDate(isoToDate(e.date), { month: "short" }) + "</span></span>" +
+        '<span class="row__time">' + e.minutes + " min read<br><span>" + fmtDate(isoToDate(e.date), { month: "short" }) + "</span></span>" +
         "</a></li>";
     },
     poster: function (e) {
@@ -558,11 +560,11 @@
         '<div class="poster__plate">' + media(e) + "</div>" +
         '<div class="poster__text"><p class="poster__vln">' + vln(e.id) + " \u00b7 Letter " + pad(e.letter, 2) + "</p>" +
         '<h3 class="poster__title">' + titleHTML(e.title) + '</h3><p class="poster__dek">' + esc(e.dek) + "</p>" +
-        '<p class="poster__time">' + e.minutes + " min read \u00b7 " + fmtDate(isoToDate(e.date)) + "</p></div></a></article>";
+        '<p class="poster__time">' + e.minutes + " min read \u00b7 " + fmtDate(isoToDate(e.date)) + '</p><span class="poster__cta mono">Read the essay \u2192</span></div></a></article>';
     },
     next: function (e) {
       return '<a class="next" href="' + e.href + '"><span class="next__plate">' + media(e) + "</span>" +
-        '<span class="next__text"><span class="next__meta">' + vln(e.id) + " \u00b7 " + (e.type === "interview" ? "Interview" : "Essay") + "</span>" +
+        '<span class="next__text"><span class="next__meta">' + vln(e.id) + " \u00b7 " + fmt(e) + "</span>" +
         '<span class="next__title">' + titleHTML(e.title) + "</span></span></a>";
     }
   };
@@ -593,6 +595,7 @@
       var open = btn.getAttribute("aria-expanded") === "true";
       btn.setAttribute("aria-expanded", String(!open));
       panel.hidden = open;
+      btn.textContent = open ? "Menu" : "Close menu";
       document.documentElement.classList.toggle("menu-open", !open);
     });
     document.addEventListener("keydown", function (e) {
@@ -619,12 +622,14 @@
         var key = b.dataset.key || "field", val = b.dataset.filter;
         var shown = 0;
         $$("[data-" + key + "]", target).forEach(function (item) {
-          var on = val === "all" || item.dataset[key] === val;
+          var on = val === "all" || (" " + item.dataset[key] + " ").indexOf(" " + val + " ") > -1;
           item.hidden = !on;
           if (on) shown++;
         });
         var out = $("[data-filter-count]", bar.parentNode);
         if (out) out.textContent = shown;
+        var none = target.querySelector(".filters__empty");
+        if (none) none.hidden = shown > 0;
       });
     });
   }
@@ -672,6 +677,8 @@
       readBtns.forEach(function (b) {
         b.setAttribute("aria-pressed", String(reading));
         b.setAttribute("aria-label", reading ? "Reading mode is on. Turn it off" : "Turn on reading mode: calmer motion, larger text");
+        var rl = $(".pref__label", b);
+        if (rl) rl.textContent = reading ? "Leave reading mode" : "Reading mode";
       });
     }
     sideBtns.forEach(function (b) {
@@ -707,12 +714,20 @@
       num.textContent = pad(order[idx] + 1, 2) + " / " + pad(D.questions.length, 2);
     }
     // a different question each day the page is opened
-    i = Math.floor(Date.now() / 86400000) % order.length;
+    i = 0;
     show(i, false);
     btn.addEventListener("click", function () {
       i = (i + 1 + Math.floor(Math.random() * (order.length - 1))) % order.length;
       show(i, true);
     });
+  }
+
+  /* Forms. Without a configured endpoint (VALENCE.forms in data.js) nothing is sent:
+     the letter form says sign-ups are not open yet, and the enquiry form opens an email instead. */
+  var FORMS = (D.forms || {});
+  function post(url, data) {
+    return fetch(url, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { j.ok = r.ok; return j; }); });
   }
 
   function initLetterForm() {
@@ -722,12 +737,60 @@
         e.preventDefault();
         var input = $("input[type=email]", f);
         if (!input.value || !input.checkValidity()) {
-          out.textContent = "That address looks incomplete. Check it and try again.";
+          out.textContent = "Please enter a valid email address.";
           input.focus();
           return;
         }
-        out.textContent = "Noted. Subscriptions open with the first public letter, on the next new moon.";
-        f.classList.add("is-sent");
+        if (!FORMS.letter) {
+          out.textContent = "Sign-ups for the letter are not open yet. Write to buzz@vlnc.in and we will add you by hand.";
+          return;
+        }
+        post(FORMS.letter, { email: input.value }).then(function (r) {
+          if (r.status === "exists") out.textContent = "This address is already on the list for the Journal.";
+          else if (r.status === "confirm") out.textContent = "Please check your inbox and confirm your email address so the letter can reach you.";
+          else if (r.ok) { out.textContent = "You are on the list. We will send you the next letter at the new moon."; f.classList.add("is-sent"); }
+          else out.textContent = "We could not complete your subscription. Please try again.";
+        }, function () { out.textContent = "We could not complete your subscription. Please try again."; });
+      });
+    });
+  }
+
+  function initEnquiry() {
+    var f = $("form[data-enquiry]");
+    if (!f) return;
+    var out = $(".form__status", f);
+    f.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var v = function (n) { return (f.elements[n].value || "").trim(); };
+      if (!v("name")) { out.textContent = "Please add your name."; f.elements.name.focus(); return; }
+      if (!v("email") || !f.elements.email.checkValidity()) { out.textContent = "Please enter an email address we can reply to."; f.elements.email.focus(); return; }
+      if (!v("context")) { out.textContent = "Please tell us a little about the project."; f.elements.context.focus(); return; }
+      var data = { name: v("name"), email: v("email"), organisation: v("organisation"), context: v("context"), timing: v("timing"), budget: v("budget"), link: v("link") };
+      if (FORMS.enquiry) {
+        post(FORMS.enquiry, data).then(function (r) {
+          if (r.ok) { out.textContent = "Your note has reached us. Thank you for telling us about the work."; f.reset(); }
+          else out.textContent = "Your note could not be sent. Please try again, or write to buzz@vlnc.in.";
+        }, function () { out.textContent = "Your note could not be sent. Please try again, or write to buzz@vlnc.in."; });
+        return;
+      }
+      var lines = [data.context, "", "Name: " + data.name, "Email: " + data.email];
+      if (data.organisation) lines.push("Company, artist or project: " + data.organisation);
+      if (data.timing) lines.push("Date to keep in mind: " + data.timing);
+      if (data.budget) lines.push("Budget: " + data.budget);
+      if (data.link) lines.push("Link: " + data.link);
+      window.location.href = "mailto:buzz@vlnc.in?subject=" + encodeURIComponent("A note for VALENCE" + (data.organisation ? " · " + data.organisation : "")) + "&body=" + encodeURIComponent(lines.join("\n"));
+      out.textContent = "Your note is ready in your email app. If nothing opened, write to buzz@vlnc.in.";
+    });
+  }
+
+  function initShare() {
+    $$("[data-share]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var label = b.textContent;
+        var done = function (t) { b.textContent = t; setTimeout(function () { b.textContent = label; }, 1800); };
+        var url = location.href.split("#")[0];
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(function () { done("Story link copied"); }, function () { done(url); });
+        else done(url);
       });
     });
   }
@@ -737,8 +800,9 @@
       b.addEventListener("click", function () {
         var v = b.dataset.copy, label = b.textContent;
         var done = function (t) { b.textContent = t; setTimeout(function () { b.textContent = label; }, 1800); };
-        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(function () { done("Copied"); }, function () { done("Select it above"); });
-        else done("Select it above");
+        var ok = b.dataset.copied || "Copied";
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(function () { done(ok); }, function () { done(v); });
+        else done(v);
       });
     });
   }
@@ -750,7 +814,7 @@
     var fields = [];
     D.entries.forEach(function (e) { if (fields.indexOf(e.field) < 0) fields.push(e.field); });
     fields.sort();
-    var W = 1000, H = 520, L = 120, R = 40, T = 40, B = 60;
+    var W = 1000, H = 560, L = 190, R = 40, T = 40, B = 60;
     var x = function (iso) { var d = isoToDate(iso); var start = Date.UTC(2026, 0, 1), end = Date.UTC(2026, 11, 31); return L + ((d - start) / (end - start)) * (W - L - R); };
     var y = function (f) { return T + ((fields.indexOf(f) + 0.5) / fields.length) * (H - T - B); };
     var svg = '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-labelledby="chart-t chart-d"><title id="chart-t">Star chart of published pieces</title><desc id="chart-d">Each piece is plotted by publication date across 2026 and by field. Larger stars are longer reads. Filled stars are interviews; open rings are essays.</desc>';
@@ -787,7 +851,7 @@
     $$(".ch-star", host).forEach(function (s) {
       var e = D.entries.filter(function (x) { return x.id === +s.dataset.id; })[0];
       function show() {
-        tip.innerHTML = '<span class="tip__vln">' + vln(e.id) + " \u00b7 " + (e.type === "interview" ? "Interview" : "Essay") + " \u00b7 " + esc(e.field) + '</span><span class="tip__title">' + titleHTML(e.title) + '</span><span class="tip__meta">' + fmtDate(isoToDate(e.date)) + " \u00b7 " + jdLabel(e.date) + " \u00b7 " + e.minutes + " min</span>";
+        tip.innerHTML = '<span class="tip__vln">' + vln(e.id) + " \u00b7 " + fmt(e) + " \u00b7 " + esc(e.field) + '</span><span class="tip__title">' + titleHTML(e.title) + '</span><span class="tip__meta">' + fmtDate(isoToDate(e.date)) + " \u00b7 Letter " + pad(e.letter, 2) + " \u00b7 " + e.minutes + " min read</span>";
         tip.hidden = false;
       }
       s.addEventListener("mouseenter", show);
@@ -801,18 +865,52 @@
     if (!body) return;
     var rows = D.entries.slice().sort(function (a, b) { return b.id - a.id; });
     body.innerHTML = rows.map(function (e) {
-      return '<tr data-search="' + esc((vln(e.id) + " " + titlePlain(e.title) + " " + e.type + " " + e.field + " " + e.subject + " " + e.dek).toLowerCase()) + '">' +
-        "<td>" + vln(e.id) + '</td><td><a href="' + e.href + '">' + titleHTML(e.title) + "</a></td><td>" + (e.type === "interview" ? "Interview" : "Essay") + "</td><td>" + esc(e.field) + "</td><td>" + pad(e.letter, 2) +
-        "</td><td>" + fmtDate(isoToDate(e.date), { month: "short" }) + "</td><td>" + jdLabel(e.date).replace("JD ", "") + "</td><td>" + e.minutes + " min</td></tr>";
+      return '<tr data-type="' + e.type + '" data-search="' + esc((vln(e.id) + " " + titlePlain(e.title) + " " + fmt(e) + " " + e.field + " " + e.subject + " " + e.dek).toLowerCase()) + '">' +
+        "<td>" + vln(e.id) + '</td><td><a href="' + e.href + '">' + titleHTML(e.title) + "</a></td><td>" + fmt(e) + "</td><td>" + esc(e.field) + "</td><td>" + pad(e.letter, 2) +
+        "</td><td>" + fmtDate(isoToDate(e.date), { month: "short" }) + "</td><td>" + e.minutes + " min</td></tr>";
     }).join("");
-    var input = $("#catalogue-search"), count = $("#catalogue-count");
+    var input = $("#catalogue-search"), count = $("#catalogue-count"), empty = $("#catalogue-empty"), format = "all";
     function filter() {
       var q = input.value.trim().toLowerCase(), n = 0;
-      $$("tr", body).forEach(function (tr) { var on = !q || tr.dataset.search.indexOf(q) > -1; tr.hidden = !on; if (on) n++; });
-      count.textContent = n === 1 ? "1 body" : n + " bodies";
+      $$("tr", body).forEach(function (tr) {
+        var on = (!q || tr.dataset.search.indexOf(q) > -1) && (format === "all" || tr.dataset.type === format);
+        tr.hidden = !on; if (on) n++;
+      });
+      count.textContent = n === 1 ? "1 story" : n + " stories";
+      if (empty) empty.hidden = n > 0;
     }
+    $$("[data-format-filters] button").forEach(function (b, _, all) {
+      b.addEventListener("click", function () {
+        format = b.dataset.format;
+        all.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+        filter();
+      });
+    });
+    var reset = $("#catalogue-reset");
+    if (reset) reset.addEventListener("click", function () {
+      input.value = ""; format = "all";
+      $$("[data-format-filters] button").forEach(function (x) { x.setAttribute("aria-pressed", String(x.dataset.format === "all")); });
+      filter(); input.focus();
+    });
     input.addEventListener("input", filter);
     filter();
+  }
+
+  /* Search boxes on listing pages: filter the list they point at by its visible text */
+  function initListSearch() {
+    $$("input[data-search-list]").forEach(function (input) {
+      var list = $(input.dataset.searchList);
+      if (!list) return;
+      var empty = list.parentNode.querySelector(".search__empty");
+      input.addEventListener("input", function () {
+        var q = input.value.trim().toLowerCase(), n = 0;
+        Array.prototype.forEach.call(list.children, function (item) {
+          var on = !q || item.textContent.toLowerCase().indexOf(q) > -1;
+          item.hidden = !on; if (on) n++;
+        });
+        if (empty) empty.hidden = n > 0;
+      });
+    });
   }
 
   /* Page-level image slots: a photograph replaces the plate when one is set in data.js */
@@ -1009,6 +1107,9 @@
   initImageSlots();
   initStamps();
   initStack();
+  initListSearch();
+  initEnquiry();
+  initShare();
   initCharges();
   initRotator();
   initGrahas();

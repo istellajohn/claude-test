@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Conversations · VALENCE Journal</title>
-<meta name="description" content="Written conversations across creative and business life, following the details that make a person&#x27;s way of seeing their own.">
+<title>The Letter · VALENCE Journal</title>
+<meta name="description" content="The VALENCE Journal arrives as one letter each new moon, gathering new conversations and essays.">
 <meta name="theme-color" content="#050507">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Conversations · VALENCE Journal">
-<meta property="og:description" content="Written conversations across creative and business life, following the details that make a person&#x27;s way of seeing their own.">
+<meta property="og:title" content="The Letter · VALENCE Journal">
+<meta property="og:description" content="The VALENCE Journal arrives as one letter each new moon, gathering new conversations and essays.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:ital,wdth,wght@0,50..150,100..900;1,50..150,100..900&family=Ballet:opsz@16..72&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=La+Belle+Aurore&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap">
@@ -61,47 +61,35 @@
   <a class="subnav__label" href="journal.html">The <span class="script">Journal</span></a>
   <div class="subnav__links">
     <a href="journal.html">Latest letter</a>
-    <a href="interviews.html" aria-current="page">Conversations</a>
+    <a href="interviews.html">Conversations</a>
     <a href="essays.html">Essays</a>
     <a href="catalogue.html">Catalogue</a>
-    <a href="letter.html">The Letter</a>
+    <a href="letter.html" aria-current="page">The Letter</a>
   </div>
 </nav>
 <main id="main">
-<section class="pagehead">
-  <div class="wrap">
-    <p class="eyebrow"><span data-count="interview">8</span> conversations</p>
-    <h1 class="mast" style="--chars:13">Conversations</h1>
-    <div class="mast-sub">
-      <span class="script">in the particulars</span>
-      <p><strong style="font-weight:500">People become interesting in the particulars.</strong> We are interested in the habit a person cannot quite account for, the thing they changed their mind about or the work they still find difficult. Our written conversations move across creative and business life, following the details that make a person’s way of seeing their own.</p>
+<section class="section letter-page" aria-labelledby="letter-head">
+  <div class="wrap letter">
+    <div class="letter__media slot bracket" data-image-slot="homeLetter" data-alt="A thin crescent moon above the glowing limb of a planet">
+      <canvas data-plate="29" data-kind="galaxy" aria-hidden="true"></canvas>
     </div>
-  </div>
-</section>
-
-<section class="section--tight" aria-label="All conversations">
-  <div class="wrap">
-    <div class="search" style="margin-bottom:24px">
-      <label class="mono muted" for="conv-search">Search</label>
-      <input id="conv-search" type="search" placeholder="Search by person, title or subject" autocomplete="off" data-search-list="#rows">
-    </div>
-    <ol class="rows" id="rows" data-list="row" data-type="interview"></ol>
-    <p class="search__empty muted" hidden>We could not find a story matching that search. Try a name, subject or a shorter phrase.</p>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="ritual">
-  <div class="wrap split">
-    <div>
-      <p class="eyebrow eyebrow--signal">Asked in every conversation</p>
-      <h2 id="ritual" class="h2" style="margin-top:16px">We ask these questions because the answers belong to the <span class="script">person</span>.</h2>
-    </div>
-    <div class="the-three" style="margin:0; border:0; padding:0">
-      <ol style="margin:0">
-        <li><span class="n">01</span><div><h3>What have you learned to see that you once walked past?</h3></div></li>
-        <li><span class="n">02</span><div><h3>What part of your work would surprise the person you were when you began?</h3></div></li>
-        <li><span class="n">03</span><div><h3>What are you still doing simply because you love it?</h3></div></li>
-      </ol>
+    <div class="letter__text">
+      <p class="eyebrow eyebrow--signal">The Letter</p>
+      <h1 id="letter-head" class="letter__title">When the moon begins again, we send a <span class="script">letter</span>.</h1>
+      <p class="muted" style="margin:0; max-width:48ch">Each new edition of the VALENCE Journal gathers the people we have been talking to and the things we have been thinking about. It is a letter to spend time with, and return to when something in it comes back to mind.</p>
+      <p class="mono muted" style="margin:0">Published each new moon, about once a month.</p>
+      <div class="letter__next">
+        <span class="eyebrow">The next letter</span>
+        <strong data-eph="next-new">10 October 2026</strong>
+        <span class="mono muted" data-eph="countdown"></span>
+      </div>
+      <form class="letter__form" data-letter novalidate>
+        <label for="letter-email">Email address</label>
+        <input id="letter-email" type="email" name="email" placeholder="Your email address" autocomplete="email" required>
+        <button class="btn btn--solid" type="submit">Send me the letter</button>
+        <p class="letter__status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="mono muted letter__consent">By subscribing, you ask to receive the VALENCE Journal by email.</p>
     </div>
   </div>
 </section>

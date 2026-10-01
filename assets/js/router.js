@@ -4,9 +4,9 @@
    not load this file; it uses ordinary links. */
 (function () {
   "use strict";
-  var PAGES = /^(home|journal|interviews|essays|catalogue|about|interview|essay)$/;
+  var PAGES = /^(home|journal|interviews|essays|catalogue|about|interview|essay|work|disciplines|how-we-work|contact|letter|404)$/;
 
-  function isLocal(h) { return !!h && /^[a-z-]+\.html(#[A-Za-z0-9_-]*)?$/.test(h); }
+  function isLocal(h) { return !!h && /^[a-z0-9-]+\.html(#[A-Za-z0-9_-]*)?$/.test(h); }
 
   function load(href) {
     var parts = href.split("#"), page = parts[0], anchor = parts[1] || "";

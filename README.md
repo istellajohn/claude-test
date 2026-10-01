@@ -1,6 +1,6 @@
 # VALENCE
 
-The website of VALENCE, a branding and marketing agency for entrepreneurs, films, artists, public figures, consumer brands and institutions. The agency site leads; the VALENCE Journal of interviews and essays sits inside it and publishes one letter on every new moon.
+The website of VALENCE, an independent creative practice founded by Stella John in Mumbai, working globally across creative direction, film, photography, writing, branding and digital strategy. The VALENCE Journal of written conversations and essays sits inside it and publishes one letter each new moon. Copy follows `VALENCE Website Replacement Copy` (October 2026).
 
 **Specimen edition (journal only).** Interview subjects are deliberately unnamed, and the texts, dates and listings are placeholders written to show how the site reads. Replace them before launch. Client photographs appear only in the four case studies on the home page (`assets/img/case-*.jpg`, taken from the credentials deck with approval).
 
@@ -8,10 +8,16 @@ The website of VALENCE, a branding and marketing agency for entrepreneurs, films
 
 | File | What it is |
 | --- | --- |
-| `index.html` | The agency landing page: VLNC over a rising planet, who we build for, the four charges, the six systems, the work, the Valence test, the five-stage approach, the founder, the latest from the journal, contact |
-| `journal.html` | The journal front page: the "old light" hero, the latest letter, recent pieces, a question drawn from the dark, the three closing questions, essays, the letter sign-up |
-| `interviews.html` | All interviews as catalogue rows, filterable by field |
-| `essays.html` | All essays as posters |
+| `index.html` | Practice home: hero, opening statement, the people and worlds we work with (with their grahas), what guides the work, ways a brief can begin, the disciplines, working in another person's voice, selected work, the Journal, closing invitation |
+| `work.html` | Selected projects with filters and case labels |
+| `disciplines.html` | The six disciplines and three ways to engage |
+| `how-we-work.html` | Four movements of a project |
+| `contact.html` | Enquiry form and questions before getting in touch |
+| `journal.html` | Journal front page: latest letter, recent stories, a question for the way home, the three recurring questions, essays, the letter |
+| `letter.html` | The Letter subscription page |
+| `404.html` | Missing page |
+| `interviews.html` | Conversations, searchable |
+| `essays.html` | Essays, searchable |
 | `catalogue.html` | The archive on the day side: a star chart of everything published, plus a searchable table with Julian Day numbers |
 | `about.html` | The name (valence in chemistry and psychology), why the agency keeps a journal, the founder's note, contact |
 | `interview.html` | Long-form interview template (full specimen) |
@@ -54,3 +60,7 @@ The VALENCE wordmark in the header is drawn as single strokes in SVG, following 
 - Replace specimen content in `data.js` and the two long-form templates.
 - Connect the letter form to a newsletter service. It currently confirms on screen only. Ghost fits this publication well: posts, memberships and a newsletter in one, and this design can become its theme.
 - For search and answer engines, render each piece as its own static page at build time. A CMS, or extending `tools/build.py` to read `data.js`, would do it.
+
+## Forms
+
+The letter and enquiry forms send nothing until an endpoint is set in `assets/js/data.js` as `VALENCE.forms = { letter: "https://...", enquiry: "https://..." }` (a JSON POST; the response can return `status: "exists"` or `"confirm"`). Until then the letter form asks people to write in, and the enquiry form opens a pre-filled email to buzz@vlnc.in. Shared blocks live in `src/partials/` and are included with `<!--NAME-->`.
