@@ -1,0 +1,53 @@
+<!--{"title": "Catalogue · VALENCE Journal", "description": "Every interview and essay published by the VALENCE Journal, plotted as a star chart and listed with catalogue designations, fields, letters and Julian dates.", "nav": "catalogue", "side": "day"}-->
+<section class="pagehead archive-grid">
+  <div class="wrap">
+    <p class="eyebrow">Plate I · Journal of 2026 · <span data-count></span> bodies</p>
+    <h1 class="spaced" style="margin-top:28px">Catalogue</h1>
+    <div class="mast-sub">
+      <span class="script">of published bodies</span>
+      <p>Everything the journal has published, plotted the way an astronomer plots a sky. Read left to right as the year; each band is a field. Larger stars are longer reads. The dashed line is the path the journal has travelled, one new moon at a time.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section--tight" aria-label="Star chart">
+  <div class="wrap">
+    <div class="chart-wrap">
+      <div style="position:relative; min-width:760px">
+        <div id="chart"></div>
+        <span class="plate-note hand" style="left:10%; top:84%">first light, 18 Jan</span>
+        <span class="plate-note hand" style="left:56%; top:6%">eclipse letter</span>
+        <span class="plate-note hand" style="left:73%; top:84%">brightest so far?</span>
+      </div>
+      <div id="chart-tip" class="chart-tip" hidden></div>
+    </div>
+    <div class="chart-legend mono">
+      <span><i class="lg-dot"></i>Interview</span>
+      <span><i class="lg-ring"></i>Essay</span>
+      <span><i class="lg-path"></i>Order of publication</span>
+      <span>Numbers along the top mark each letter, sent on a new moon</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="table-head">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="table-head" class="h2">The full <span class="script">list</span></h2>
+      <div class="search">
+        <label class="mono muted" for="catalogue-search">Search</label>
+        <input id="catalogue-search" type="search" placeholder="a title, a field, a designation" autocomplete="off">
+        <span id="catalogue-count" class="mono muted" aria-live="polite"></span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="cat-table">
+        <caption class="mono muted" style="text-align:left; caption-side:bottom; padding-top:16px">Julian Day numbers count days continuously from noon on 1 January 4713 BC, the system astronomers use to date observations without calendars getting in the way.</caption>
+        <thead>
+          <tr><th scope="col">Designation</th><th scope="col">Title</th><th scope="col">Type</th><th scope="col">Field</th><th scope="col">Letter</th><th scope="col">Published</th><th scope="col">Julian Day</th><th scope="col">Transit</th></tr>
+        </thead>
+        <tbody id="catalogue-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>

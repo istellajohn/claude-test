@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" data-side="day">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catalogue · VALENCE Journal</title>
+<meta name="description" content="Every interview and essay published by the VALENCE Journal, plotted as a star chart and listed with catalogue designations, fields, letters and Julian dates.">
+<meta name="theme-color" content="#050507">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Catalogue · VALENCE Journal">
+<meta property="og:description" content="Every interview and essay published by the VALENCE Journal, plotted as a star chart and listed with catalogue designations, fields, letters and Julian dates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:ital,wdth,wght@0,50..150,100..900;1,50..150,100..900&family=Ballet:opsz@16..72&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=La+Belle+Aurore&family=Martian+Mono:wdth,wght@75..112.5,100..800&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "VALENCE", "alternateName": ["VLNC", "Copious Space"], "description": "Perception architecture practice for brands, founders and ideas whose substance has outgrown its expression. Publisher of the VALENCE Journal.", "email": "buzz@vlnc.in", "founder": {"@type": "Person", "name": "Stella John"}, "address": {"@type": "PostalAddress", "addressLocality": "Mumbai", "addressCountry": "IN"}, "sameAs": ["https://www.instagram.com/itsavalencething/"]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sky" aria-hidden="true"><canvas id="sky-base"></canvas><canvas id="sky-live"></canvas></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="axis" aria-hidden="true"></div>
+<div class="page">
+<div class="ephemeris" role="note" aria-label="Tonight's sky">
+  <div class="ephemeris__group">
+    <span><span data-moon-glyph="12"></span><span data-eph="moon">Tonight's sky</span></span>
+    <span data-eph="jd"></span>
+  </div>
+  <div class="ephemeris__group ephemeris__group--secondary">
+    <span>Mumbai · <span data-eph="mumbai"></span></span>
+    <span>Next letter · new moon · <span data-eph="next-new-short"></span></span>
+    <span class="ephemeris__specimen">Specimen edition</span>
+  </div>
+</div>
+<header class="masthead">
+  <a class="wordmark" href="index.html" aria-label="VALENCE Journal, home"><svg viewBox="-2 -2 624 64" aria-hidden="true"><path d="M0 0L30 60L60 0M100 60L130 0L160 60M200 0V60H250M290 0V60M290 0H340M290 30H334M290 60H340M380 60V0L440 60V0M529.3 7A30 30 0 1 0 529.3 53M570 0V60M570 0H620M570 30H614M570 60H620"/></svg><span class="wordmark__sub">Journal</span></a>
+  <nav class="nav" aria-label="Main">
+    <a href="interviews.html">Interviews</a>
+    <a href="essays.html">Essays</a>
+    <a href="catalogue.html" aria-current="page">Catalogue</a>
+    <a href="about.html">About</a>
+  </nav>
+  <a class="btn" href="index.html#letter">The letter</a>
+  <button class="btn menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+</header>
+<nav id="menu" class="menu" aria-label="Menu" hidden>
+  <a href="index.html">Home<span>00</span></a>
+  <a href="interviews.html">Interviews<span>01</span></a>
+  <a href="essays.html">Essays<span>02</span></a>
+  <a href="catalogue.html">Catalogue<span>03</span></a>
+  <a href="about.html">About<span>04</span></a>
+</nav>
+<main id="main">
+<section class="pagehead archive-grid">
+  <div class="wrap">
+    <p class="eyebrow">Plate I · Journal of 2026 · <span data-count></span> bodies</p>
+    <h1 class="spaced" style="margin-top:28px">Catalogue</h1>
+    <div class="mast-sub">
+      <span class="script">of published bodies</span>
+      <p>Everything the journal has published, plotted the way an astronomer plots a sky. Read left to right as the year; each band is a field. Larger stars are longer reads. The dashed line is the path the journal has travelled, one new moon at a time.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section--tight" aria-label="Star chart">
+  <div class="wrap">
+    <div class="chart-wrap">
+      <div style="position:relative; min-width:760px">
+        <div id="chart"></div>
+        <span class="plate-note hand" style="left:10%; top:84%">first light, 18 Jan</span>
+        <span class="plate-note hand" style="left:56%; top:6%">eclipse letter</span>
+        <span class="plate-note hand" style="left:73%; top:84%">brightest so far?</span>
+      </div>
+      <div id="chart-tip" class="chart-tip" hidden></div>
+    </div>
+    <div class="chart-legend mono">
+      <span><i class="lg-dot"></i>Interview</span>
+      <span><i class="lg-ring"></i>Essay</span>
+      <span><i class="lg-path"></i>Order of publication</span>
+      <span>Numbers along the top mark each letter, sent on a new moon</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="table-head">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="table-head" class="h2">The full <span class="script">list</span></h2>
+      <div class="search">
+        <label class="mono muted" for="catalogue-search">Search</label>
+        <input id="catalogue-search" type="search" placeholder="a title, a field, a designation" autocomplete="off">
+        <span id="catalogue-count" class="mono muted" aria-live="polite"></span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="cat-table">
+        <caption class="mono muted" style="text-align:left; caption-side:bottom; padding-top:16px">Julian Day numbers count days continuously from noon on 1 January 4713 BC, the system astronomers use to date observations without calendars getting in the way.</caption>
+        <thead>
+          <tr><th scope="col">Designation</th><th scope="col">Title</th><th scope="col">Type</th><th scope="col">Field</th><th scope="col">Letter</th><th scope="col">Published</th><th scope="col">Julian Day</th><th scope="col">Transit</th></tr>
+        </thead>
+        <tbody id="catalogue-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <img class="footer__sig" src="assets/img/signature-gold.png" alt="Valence" width="1041" height="749" loading="lazy">
+        <p class="footer__note">A journal kept by VALENCE, a perception architecture practice in Mumbai, working globally. One letter, every new moon.</p>
+      </div>
+      <div>
+        <h3 class="mono">Read</h3>
+        <ul><li><a href="interviews.html">Interviews</a></li><li><a href="essays.html">Essays</a></li><li><a href="catalogue.html">Catalogue</a></li><li><a href="index.html#letter">The letter</a></li></ul>
+      </div>
+      <div>
+        <h3 class="mono">Practice</h3>
+        <ul><li><a href="about.html">About VALENCE</a></li><li><a href="about.html#contact">buzz@vlnc.in</a></li><li><a href="https://www.instagram.com/itsavalencething/" target="_blank" rel="noopener">Instagram</a></li></ul>
+      </div>
+      <div>
+        <h3 class="mono">Coordinates</h3>
+        <ul><li class="coord">19.0760° N · 72.8777° E</li><li class="coord">Mumbai · working globally</li><li class="coord">Previously Copious Space</li></ul>
+      </div>
+    </div>
+    <div class="footer__line">
+      <span class="mono muted">© 2026 VALENCE</span>
+      <span class="mono muted">Specimen edition · subjects, texts and dates are placeholders for layout</span>
+    </div>
+  </div>
+</footer>
+</div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/sky.js"></script>
+</body>
+</html>
