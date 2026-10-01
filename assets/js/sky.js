@@ -10,6 +10,12 @@
   "use strict";
 
   var D = window.VALENCE || { entries: [], letters: [], questions: [], images: {} };
+  // In the preview, pages are swapped in place; loops from a replaced page stop themselves.
+  var GEN = window.__vlncGen || 0;
+  var alive = function () { return (window.__vlncGen || 0) === GEN; };
+  var _raf = window.requestAnimationFrame.bind(window), _si = window.setInterval.bind(window);
+  var requestAnimationFrame = function (f) { return _raf(function (t) { if (alive()) f(t); }); };
+  var setInterval = function (f, ms) { var id = _si(function () { if (alive()) f(); else clearInterval(id); }, ms); return id; };
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -98,7 +104,7 @@
       var days = (m.nextNew - now) / 86400000;
       var values = {
         jd: "JD " + m.jd.toFixed(3),
-        moon: m.name + " · " + Math.round(m.illumination * 100) + "% lit",
+        moon: m.name + " \u00b7 " + Math.round(m.illumination * 100) + "% lit",
         "moon-name": m.name,
         "moon-lit": Math.round(m.illumination * 100) + "%",
         "next-new": fmtDate(m.nextNew),
@@ -152,6 +158,28 @@
         bctx.fillStyle = "rgba(" + col + "," + a + ")";
         bctx.beginPath(); bctx.arc(x, y, size, 0, 6.283); bctx.fill();
       }
+      // faint nebulae and one distant spiral, fixed to the viewport like a sky behind glass
+      bctx.save();
+      bctx.globalCompositeOperation = "screen";
+      [["227,90,42", 0.82, 0.18, 0.34], ["11,89,98", 0.12, 0.62, 0.42], ["107,78,158", 0.6, 0.85, 0.3], ["200,162,76", 0.3, 0.12, 0.22]].forEach(function (n) {
+        for (var k = 0; k < 7; k++) {
+          var nx = W * (n[1] + (r() - 0.5) * 0.22), ny = H * (n[2] + (r() - 0.5) * 0.22), nr = Math.max(W, H) * n[3] * (0.4 + r() * 0.6);
+          var ng = bctx.createRadialGradient(nx, ny, 0, nx, ny, nr);
+          ng.addColorStop(0, "rgba(" + n[0] + ",0.055)"); ng.addColorStop(1, "rgba(" + n[0] + ",0)");
+          bctx.fillStyle = ng; bctx.fillRect(0, 0, W, H);
+        }
+      });
+      var gx = W * 0.86, gy = H * 0.3, gR = Math.min(W, H) * 0.09;
+      bctx.translate(gx, gy); bctx.rotate(-0.5);
+      for (var a2 = 0; a2 < 2; a2++) for (var q = 0; q < 500; q++) {
+        var tq = Math.pow(r(), 0.8), th2 = tq * 3.8 * Math.PI + a2 * Math.PI, rq = tq * gR;
+        bctx.fillStyle = "rgba(230,215,200," + ((1 - tq) * 0.35 + 0.04) + ")";
+        bctx.fillRect(Math.cos(th2) * rq, Math.sin(th2) * rq * 0.4, 0.8, 0.8);
+      }
+      var gc = bctx.createRadialGradient(0, 0, 0, 0, 0, gR * 0.25);
+      gc.addColorStop(0, "rgba(255,236,215,0.5)"); gc.addColorStop(1, "rgba(255,236,215,0)");
+      bctx.fillStyle = gc; bctx.fillRect(-gR, -gR, gR * 2, gR * 2);
+      bctx.restore();
       // a faint band, like the plane of a galaxy seen edge-on
       var g = bctx.createLinearGradient(0, H * 0.15, W, H * 0.85);
       g.addColorStop(0, "rgba(140,159,179,0)"); g.addColorStop(0.5, "rgba(140,159,179,0.035)"); g.addColorStop(1, "rgba(140,159,179,0)");
@@ -211,7 +239,7 @@
     ["#E35A2A", "#1B1C22", "#FFD2B0"], // verve over night
     ["#8C9FB3", "#223D2E", "#DCE6EE"]  // sky over forest
   ];
-  var KINDS = ["body", "horizon", "eclipse", "binary"];
+  var KINDS = ["nebula", "galaxy", "body", "nebula", "galaxy", "horizon", "nebula", "eclipse"];
 
   var noiseTile = null;
   function getNoise() {
@@ -262,6 +290,9 @@
     if (spec.kind === "horizon") { cx = W * (0.5 + (r() - 0.5) * 0.2); cy = H * 1.42; R = W * 1.05; }
     if (spec.kind === "binary") { cx = W * 0.42; cy = H * 0.56; R = Math.min(W, H) * 0.24; }
     spec.geo = { cx: cx, cy: cy, R: R };
+
+    if (spec.kind === "nebula") { drawNebula(ctx, W, H, spec, r); return; }
+    if (spec.kind === "galaxy") { drawGalaxy(ctx, W, H, spec, r); return; }
 
     if (spec.kind === "eclipse") {
       var cor = ctx.createRadialGradient(cx, cy, R * 0.9, cx, cy, R * 2.1);
@@ -317,6 +348,79 @@
     grainOver(ctx, W, H, 0.07);
   }
 
+  // gas clouds: layered soft light with dark dust lanes cutting through
+  function drawNebula(ctx, W, H, spec, r) {
+    var pal = spec.pal, S = Math.max(W, H);
+    var cols = [pal[0], pal[1], pal[2], "#6B4E9E", pal[0]];
+    var ox = W * (0.3 + r() * 0.4), oy = H * (0.3 + r() * 0.4), ang = r() * Math.PI, len = S * 0.45;
+    ctx.save();
+    ctx.globalCompositeOperation = "screen";
+    for (var i = 0; i < 46; i++) {
+      var t = r() * 2 - 1, wob = (r() - 0.5) * S * 0.28;
+      var x = ox + Math.cos(ang) * t * len + Math.cos(ang + 1.57) * wob;
+      var y = oy + Math.sin(ang) * t * len + Math.sin(ang + 1.57) * wob;
+      var rad = S * (0.06 + r() * 0.22);
+      var g = ctx.createRadialGradient(x, y, 0, x, y, rad);
+      var c = cols[Math.floor(r() * cols.length)];
+      g.addColorStop(0, hexA(c, 0.16 + r() * 0.22)); g.addColorStop(1, hexA(c, 0));
+      ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    }
+    var core = ctx.createRadialGradient(ox, oy, 0, ox, oy, S * 0.16);
+    core.addColorStop(0, hexA(pal[2], 0.55)); core.addColorStop(1, hexA(pal[2], 0));
+    ctx.fillStyle = core; ctx.fillRect(0, 0, W, H);
+    ctx.globalCompositeOperation = "multiply";
+    for (var d = 0; d < 9; d++) {
+      var dx = ox + (r() - 0.5) * S * 0.6, dy = oy + (r() - 0.5) * S * 0.4, dr = S * (0.04 + r() * 0.12);
+      var dg = ctx.createRadialGradient(dx, dy, 0, dx, dy, dr);
+      dg.addColorStop(0, "rgba(4,5,8,0.75)"); dg.addColorStop(1, "rgba(4,5,8,0)");
+      ctx.fillStyle = dg; ctx.fillRect(0, 0, W, H);
+    }
+    ctx.restore();
+    brightStars(ctx, W, H, r, 5);
+    grainOver(ctx, W, H, 0.12);
+    spec.geo = { cx: ox, cy: oy, R: S * 0.1 };
+  }
+
+  // a spiral galaxy seen at an angle: two arms of scattered light around a hot core
+  function drawGalaxy(ctx, W, H, spec, r) {
+    var pal = spec.pal, S = Math.min(W, H);
+    var cx = W * (0.38 + r() * 0.24), cy = H * (0.4 + r() * 0.2), R = S * (0.34 + r() * 0.1);
+    var tilt = 0.32 + r() * 0.3, rot = r() * Math.PI, wind = 3.4 + r() * 1.6;
+    ctx.save();
+    ctx.translate(cx, cy); ctx.rotate(rot);
+    ctx.globalCompositeOperation = "screen";
+    var halo = ctx.createRadialGradient(0, 0, 0, 0, 0, R * 1.1);
+    halo.addColorStop(0, hexA(pal[2], 0.35)); halo.addColorStop(0.4, hexA(pal[1], 0.12)); halo.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.save(); ctx.scale(1, tilt); ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(0, 0, R * 1.1, 0, 6.283); ctx.fill(); ctx.restore();
+    for (var arm = 0; arm < 2; arm++) {
+      for (var i = 0; i < 1400; i++) {
+        var t = Math.pow(r(), 0.8), th = t * wind * Math.PI + arm * Math.PI + (r() - 0.5) * 0.5;
+        var rr = t * R * (0.9 + r() * 0.25);
+        var x = Math.cos(th) * rr + (r() - 0.5) * R * 0.08, y = (Math.sin(th) * rr + (r() - 0.5) * R * 0.08) * tilt;
+        var c = t < 0.25 ? pal[2] : (r() < 0.5 ? pal[0] : pal[1]);
+        ctx.fillStyle = hexA(c, (1 - t) * 0.55 + 0.08);
+        ctx.fillRect(x, y, 0.6 + r() * 1.3, 0.6 + r() * 1.3);
+      }
+    }
+    var core = ctx.createRadialGradient(0, 0, 0, 0, 0, R * 0.22);
+    core.addColorStop(0, "rgba(255,240,225,0.95)"); core.addColorStop(0.3, hexA(pal[2], 0.6)); core.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.save(); ctx.scale(1, tilt * 1.4); ctx.fillStyle = core; ctx.beginPath(); ctx.arc(0, 0, R * 0.22, 0, 6.283); ctx.fill(); ctx.restore();
+    ctx.restore();
+    brightStars(ctx, W, H, r, 4);
+    grainOver(ctx, W, H, 0.1);
+    spec.geo = { cx: cx, cy: cy, R: R * 0.2 };
+  }
+
+  function brightStars(ctx, W, H, r, n) {
+    for (var i = 0; i < n; i++) {
+      var x = r() * W, y = r() * H, s = 1 + r() * 1.4;
+      ctx.fillStyle = "rgba(255,250,240,0.95)";
+      ctx.beginPath(); ctx.arc(x, y, s, 0, 6.283); ctx.fill();
+      ctx.strokeStyle = "rgba(255,250,240,0.35)"; ctx.lineWidth = 0.6;
+      ctx.beginPath(); ctx.moveTo(x - s * 6, y); ctx.lineTo(x + s * 6, y); ctx.moveTo(x, y - s * 6); ctx.lineTo(x, y + s * 6); ctx.stroke();
+    }
+  }
+
   function grainOver(ctx, W, H, alpha) {
     var n = getNoise();
     ctx.save();
@@ -329,6 +433,7 @@
 
   // moving layer: orbits and the bodies travelling on them
   function drawOrbits(ctx, W, H, spec, t) {
+    if (spec.kind === "nebula" || spec.kind === "galaxy") return;
     if (spec.kind === "horizon") {
       var gx = spec.geo.cx, gy = spec.geo.cy, GR = spec.geo.R;
       ctx.strokeStyle = "rgba(243,242,239,0.22)"; ctx.lineWidth = 1;
@@ -453,14 +558,14 @@
     poster: function (e) {
       return '<article class="poster" data-type="' + e.type + '" data-field="' + esc(e.field) + '">' +
         '<a class="poster__link" href="' + e.href + '">' +
-        '<div class="poster__plate">' + media(e, "horizon") + "</div>" +
-        '<div class="poster__text"><p class="poster__vln">' + vln(e.id) + " · Letter " + pad(e.letter, 2) + "</p>" +
+        '<div class="poster__plate">' + media(e) + "</div>" +
+        '<div class="poster__text"><p class="poster__vln">' + vln(e.id) + " \u00b7 Letter " + pad(e.letter, 2) + "</p>" +
         '<h3 class="poster__title">' + titleHTML(e.title) + '</h3><p class="poster__dek">' + esc(e.dek) + "</p>" +
-        '<p class="poster__time">' + e.minutes + " min read · " + fmtDate(isoToDate(e.date)) + "</p></div></a></article>";
+        '<p class="poster__time">' + e.minutes + " min read \u00b7 " + fmtDate(isoToDate(e.date)) + "</p></div></a></article>";
     },
     next: function (e) {
       return '<a class="next" href="' + e.href + '"><span class="next__plate">' + media(e) + "</span>" +
-        '<span class="next__text"><span class="next__meta">' + vln(e.id) + " · " + (e.type === "interview" ? "Interview" : "Essay") + "</span>" +
+        '<span class="next__text"><span class="next__meta">' + vln(e.id) + " \u00b7 " + (e.type === "interview" ? "Interview" : "Essay") + "</span>" +
         '<span class="next__title">' + titleHTML(e.title) + "</span></span></a>";
     }
   };
@@ -651,7 +756,7 @@
     svg += '<polyline class="ch-path" points="' + ordered.map(function (e) { return x(e.date) + "," + y(e.field); }).join(" ") + '"/>';
     ordered.forEach(function (e) {
       var r = 3 + e.minutes * 0.42, cx = x(e.date), cy = y(e.field);
-      svg += '<a href="' + e.href + '" class="ch-star" data-id="' + e.id + '"><title>' + vln(e.id) + " · " + esc(titlePlain(e.title)) + "</title>" +
+      svg += '<a href="' + e.href + '" class="ch-star" data-id="' + e.id + '"><title>' + vln(e.id) + " \u00b7 " + esc(titlePlain(e.title)) + "</title>" +
         (e.type === "interview"
           ? '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" class="ch-dot"/><path class="ch-spike" d="M' + (cx - r * 2) + " " + cy + "H" + (cx + r * 2) + "M" + cx + " " + (cy - r * 2) + "V" + (cy + r * 2) + '"/>'
           : '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" class="ch-ring"/>') +
@@ -664,7 +769,7 @@
     $$(".ch-star", host).forEach(function (s) {
       var e = D.entries.filter(function (x) { return x.id === +s.dataset.id; })[0];
       function show() {
-        tip.innerHTML = '<span class="tip__vln">' + vln(e.id) + " · " + (e.type === "interview" ? "Interview" : "Essay") + " · " + esc(e.field) + '</span><span class="tip__title">' + titleHTML(e.title) + '</span><span class="tip__meta">' + fmtDate(isoToDate(e.date)) + " · " + jdLabel(e.date) + " · " + e.minutes + " min</span>";
+        tip.innerHTML = '<span class="tip__vln">' + vln(e.id) + " \u00b7 " + (e.type === "interview" ? "Interview" : "Essay") + " \u00b7 " + esc(e.field) + '</span><span class="tip__title">' + titleHTML(e.title) + '</span><span class="tip__meta">' + fmtDate(isoToDate(e.date)) + " \u00b7 " + jdLabel(e.date) + " \u00b7 " + e.minutes + " min</span>";
         tip.hidden = false;
       }
       s.addEventListener("mouseenter", show);

@@ -9,6 +9,12 @@
   var canvas = document.getElementById("hero-gl");
   if (!hero || !canvas || typeof THREE === "undefined") return;
 
+  // In the preview, pages are swapped in place; loops from a replaced page stop themselves.
+  var GEN = window.__vlncGen || 0;
+  var alive = function () { return (window.__vlncGen || 0) === GEN; };
+  var _raf = window.requestAnimationFrame.bind(window), _si = window.setInterval.bind(window);
+  var requestAnimationFrame = function (f) { return _raf(function (t) { if (alive()) f(t); }); };
+  var setInterval = function (f, ms) { var id = _si(function () { if (alive()) f(); else clearInterval(id); }, ms); return id; };
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   // "orbit": the journal's body beside the headline. "horizon": the agency's planet rising under the mark.
   var horizon = hero.dataset.hero === "horizon";
@@ -116,6 +122,7 @@
   });
 
   /* state */
+  if (!horizon) shells[1].group.visible = false;
   if (horizon) {
     shells[0].group.visible = false;
     shells[1].group.visible = false;

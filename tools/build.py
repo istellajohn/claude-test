@@ -241,10 +241,20 @@ def main():
         out[src.name] = page
         print(f"built {src.name:18} {meta['title']}")
     if "--artifact" in sys.argv:
+        # Preview build: the viewer does not follow links between pages, so every page gets the
+        # in-place loader, "index.html" becomes "home.html" (the published root is a fragment),
+        # and the root fragment is written from the home page.
         dest = pathlib.Path(sys.argv[sys.argv.index("--artifact") + 1])
         dest.mkdir(parents=True, exist_ok=True)
-        (dest / "index.html").write_text(artifact_fragment(out["index.html"]), encoding="utf-8")
-        print(f"artifact fragment -> {dest / 'index.html'}")
+        router = '<script src="assets/js/router.js"></script>\n</body>'
+        for name, page in out.items():
+            page = re.sub(r'href="index\.html', 'href="home.html', page).replace("</body>", router, 1)
+            target = "home.html" if name == "index.html" else name
+            (dest / target).write_text(page, encoding="utf-8")
+        frag = artifact_fragment((dest / "home.html").read_text(encoding="utf-8"))
+        frag = frag.replace("<title>VALENCE</title>", "<title>VALENCE Website</title>", 1)
+        (dest / "index.html").write_text(frag, encoding="utf-8")
+        print(f"artifact pages -> {dest}")
 
 
 if __name__ == "__main__":
