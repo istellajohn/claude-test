@@ -2,7 +2,7 @@
 
 The website of VALENCE, an independent creative practice founded by Stella John in Mumbai, working globally across creative direction, film, photography, writing, branding and digital strategy. The VALENCE Journal of written conversations and essays sits inside it and publishes one letter each new moon. Copy follows `VALENCE Website Replacement Copy` (October 2026).
 
-**Specimen edition (journal only).** Interview subjects are deliberately unnamed, and the texts, dates and listings are placeholders written to show how the site reads. Replace them before launch. Client photographs appear only in the four case studies on the home page (`assets/img/case-*.jpg`, taken from the credentials deck with approval).
+**Specimen edition (journal only).** Interview subjects are deliberately unnamed, and the texts, dates and listings are placeholders written to show how the site reads. Replace them before launch. Client photographs appear only in the case studies (home and Work) (`assets/img/case-*.jpg`, taken from the credentials deck with approval).
 
 ## Pages
 
