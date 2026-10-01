@@ -1093,3 +1093,8 @@ button { font: inherit; color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Photographs in slots: framing per image */
+.letter__media .slot-img { object-position: 70% 50%; }
+.slot > .slot-img, .interlude .slot-img { filter: saturate(0.95) contrast(1.04); }
+.banner .slot-img { object-position: 50% 45%; }

@@ -151,11 +151,11 @@ window.VALENCE = {
   /* Optional photographs for page-level image slots (see docs/image-prompts.md).
      Leave empty to use the generative plates. */
   images: {
-    essayHero: "",       // essay hero and home feature: the eye
-    interviewHero: "",   // interview hero and home feature: the profile
-    homeInterlude: "",   // home question band: the star trails
-    homeLetter: "",      // home letter panel: the reaching hand
-    essaysBanner: "",    // essays page banner: the horizon
-    aboutHero: ""        // about page banner: the observatory
+    essayHero: "assets/img/eye.jpg",       // essay hero and home feature: the eye
+    interviewHero: "assets/img/profile.jpg",   // interview hero and home feature: the profile
+    homeInterlude: "assets/img/star-trails.jpg",   // home question band: the star trails
+    homeLetter: "assets/img/moonrise.jpg",      // home letter panel: the reaching hand
+    essaysBanner: "assets/img/limb.jpg",    // essays page banner: the horizon
+    aboutHero: "assets/img/moonrise.jpg"        // about page banner: the observatory
   }
 };
