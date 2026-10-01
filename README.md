@@ -33,7 +33,7 @@ Every catalogued piece gets its own celestial body (a planet, horizon, eclipse o
 
 ### Photographs
 
-Page-level image slots are set in `VALENCE.images` in `data.js` (generated photographs in `assets/img/`: eye, profile, star-trails, moonrise, limb); any slot left empty falls back to a plate:
+Page-level image slots are set in `VALENCE.images` in `data.js` (generated photographs in `assets/img/`: eye, profile, star-trails, moonrise, limb; the home page also uses profile-beam and trails-torch); any slot left empty falls back to a plate:
 `essayHero`, `interviewHero`, `homeInterlude`, `homeLetter`, `essaysBanner`, `aboutHero`. The art direction and prompts for each are in `docs/image-prompts.md`.
 
 ## Type
