@@ -40,8 +40,12 @@ Every catalogued piece gets its own celestial body (a planet, horizon, eclipse o
 
 ### Photographs
 
-Page-level image slots are set in `VALENCE.images` in `data.js` (generated photographs in `assets/img/`: eye, profile, star-trails, moonrise, limb; the home page also uses profile-beam and trails-torch); any slot left empty falls back to a plate:
-`essayHero`, `interviewHero`, `homeInterlude`, `homeLetter`, `essaysBanner`, `aboutHero`. The art direction and prompts for each are in `docs/image-prompts.md`.
+Two systems sit side by side.
+
+- **Stills** are the photographic layer of the practice pages and the Journal: eleven placements registered in `tools/stills.json` and written into pages as `<!--STILL:id-->`. When `assets/img/stills/<id>.jpg` exists the build places it (with `<id>-m.jpg` as an art-directed phone crop, if present); until then the page shows a labelled frame carrying the brief: subject, composition, light and why it sits there. Each still has a desktop and phone ratio, a focus point for each, and a light family (night, dusk, day) that tints its frame. The briefs, the palette and the Midjourney prompts are in `docs/image-briefs.md`.
+- **Image slots** are set in `VALENCE.images` in `data.js` (generated photographs in `assets/img/`: eye, profile, star-trails, moonrise, limb; the home page also uses profile-beam and trails-torch); any slot left empty falls back to a plate: `essayHero`, `interviewHero`, `homeInterlude`, `homeLetter`, `essaysBanner`. Their prompts are in `docs/image-prompts.md`.
+
+Every photograph on the site shares one grade in `site.css` (contrast held, saturation just under natural, fine grain and a soft vignette), so generated, client and commissioned images read as one set.
 
 ## Type
 

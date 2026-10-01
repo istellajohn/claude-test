@@ -1,0 +1,113 @@
+{
+  "_about": "Photographic placements. The build replaces <!--STILL:id--> with assets/img/stills/<id>.jpg when it exists (and <id>-m.jpg on phones, if present), otherwise with a labelled placement carrying the brief. ratio/ratio_m are the desktop and phone frames; focus/focus_m are the object-position on each. temp is the light family (night, dusk, day). Full briefs and Midjourney prompts: docs/image-briefs.md.",
+  "home-rain": {
+    "code": "H-01", "page": "Home · Ways a brief can begin", "kind": "Close detail", "temp": "night",
+    "title": "2am, monsoon on the glass",
+    "subject": "A notebook on a sill: one sentence crossed out and rewritten, a glass of tea gone cold.",
+    "composition": "Close and low, the page sharp in the lower third, the rain-streaked window filling the rest.",
+    "light": "One small tungsten lamp on the paper; the city beyond dissolved into blue rain.",
+    "purpose": "The detail that keeps bothering you usually turns up at this hour.",
+    "alt": "A notebook on a rainy windowsill at night, one line crossed out and rewritten under a small lamp",
+    "ratio": "4 / 5", "ratio_m": "4 / 5", "focus": "50% 62%", "focus_m": "50% 62%", "plate": "nebula", "seed": 301
+  },
+  "home-dapple": {
+    "code": "H-02", "page": "Home · Working in another person's voice", "kind": "Portrait", "temp": "day",
+    "title": "Half in leaf shadow",
+    "subject": "A man in his late forties by an open window, looking just past the lens.",
+    "composition": "Head and shoulders, eyes on the upper third, the room behind falling away into shadow.",
+    "light": "Late sun broken by leaves outside; half the face lit, half in moving shade.",
+    "purpose": "We only ever see part of a person at first. Writing in their voice means learning the rest.",
+    "alt": "A man by an open window in late daylight, leaf shadows across half his face",
+    "ratio": "4 / 5", "ratio_m": "4 / 5", "focus": "55% 35%", "focus_m": "55% 32%", "plate": "nebula", "seed": 302
+  },
+  "home-reflection": {
+    "code": "H-03", "page": "Home · The Journal", "kind": "Wide", "temp": "night",
+    "title": "A city in the water",
+    "subject": "A coastal city at blue hour held upside down in still water.",
+    "composition": "The skyline a thin band across the middle; the reflection below loosens until its lights become stars.",
+    "light": "Blue hour after the sun has gone, a few sodium lights, mist lying on the water.",
+    "purpose": "A conversation about a film becomes one about a city, and then about something larger.",
+    "alt": "A city at blue hour reflected in still water, the reflected lights turning into a field of stars",
+    "ratio": "21 / 9", "ratio_m": "4 / 5", "focus": "50% 55%", "focus_m": "50% 60%", "plate": "galaxy", "seed": 303
+  },
+  "work-field": {
+    "code": "W-01", "page": "Work · Closing invitation", "kind": "Wide, human scale", "temp": "dusk",
+    "title": "A figure under a very large moon",
+    "subject": "One person standing in tall grass, seen from behind.",
+    "composition": "The figure less than a twentieth of the frame, left of centre; the moon fills a third of the sky.",
+    "light": "Last amber light on the grass tips, the sky above already blue.",
+    "purpose": "What a piece of work makes possible is always larger than the person who asked for it.",
+    "alt": "A small figure in tall grass at dusk beneath a very large moon low on the horizon",
+    "ratio": "21 / 9", "ratio_m": "4 / 5", "focus": "50% 60%", "focus_m": "42% 62%", "plate": "nebula", "seed": 304
+  },
+  "disc-screen": {
+    "code": "D-01", "page": "Disciplines · Opening", "kind": "Wide, night exterior", "temp": "night",
+    "title": "A screen in a field",
+    "subject": "A touring cinema at night: a cloth screen on bamboo poles in an open field, a few people on the ground.",
+    "composition": "Screen right of centre, the beam crossing low mist from a tent at the left edge; viewers small, seen from behind.",
+    "light": "The blank screen is the only light. It falls across the grass and makes the mist visible.",
+    "purpose": "An idea crossing the air from one form into another, and arriving in front of people.",
+    "alt": "A cloth cinema screen glowing in a dark field at night, a projector beam crossing the mist toward it",
+    "ratio": "16 / 9", "ratio_m": "4 / 5", "focus": "50% 50%", "focus_m": "62% 48%", "plate": "nebula", "seed": 305
+  },
+  "how-dusk": {
+    "code": "M-01", "page": "How we work · Opening", "kind": "Interior detail", "temp": "dusk",
+    "title": "Dusk reaches the worktable",
+    "subject": "Contact sheets with one frame circled, a loupe, notes with a line rewritten, a pressed leaf, a chair pushed back.",
+    "composition": "Standing height, a slight angle across the table, focus on the loupe and the circled frame.",
+    "light": "Low sun through the window lies across the table in one amber band; the rest of the room has gone blue.",
+    "purpose": "The things that rarely make it into a brief are already on the table.",
+    "alt": "Low dusk sunlight across a worktable with contact sheets, a loupe, handwritten notes and a pressed leaf",
+    "ratio": "16 / 9", "ratio_m": "4 / 5", "focus": "50% 50%", "focus_m": "46% 52%", "plate": "nebula", "seed": 306
+  },
+  "about-cinema": {
+    "code": "A-01", "page": "About · Opening", "kind": "Wide, street", "temp": "night",
+    "title": "Out of the cinema, after rain",
+    "subject": "A woman stepping out of a single-screen cinema onto wet pavement, still half in the lobby light.",
+    "composition": "She is small, right of centre, caught mid-step; marquee light streaks across the ground toward the lens.",
+    "light": "Marquee bulbs and one red neon sign on wet ground; the street beyond in teal dark.",
+    "purpose": "The page opens on that line about cinema following you out. This is the moment it starts.",
+    "alt": "A woman stepping out of a cinema onto a wet street at night, marquee light reflected on the pavement",
+    "ratio": "21 / 9", "ratio_m": "4 / 5", "focus": "50% 55%", "focus_m": "64% 55%", "plate": "nebula", "seed": 307
+  },
+  "about-stella": {
+    "code": "A-02", "page": "About · A note from Stella", "kind": "Portrait, to be photographed", "temp": "dusk",
+    "title": "Stella John, at dusk",
+    "subject": "Stella, photographed, not generated. A camera or notebook in hand, unposed.",
+    "composition": "Three-quarter, eyes on the upper third, room enough around her to breathe.",
+    "light": "Window light at dusk, warm on skin, shadows left open.",
+    "purpose": "A founder's note needs the founder's face, and the face should belong to the same world as the work.",
+    "alt": "Stella John, founder of VALENCE, photographed by a window at dusk",
+    "ratio": "4 / 5", "ratio_m": "4 / 5", "focus": "50% 35%", "focus_m": "50% 30%", "plate": "nebula", "seed": 308
+  },
+  "contact-train": {
+    "code": "C-01", "page": "Contact · Opening", "kind": "Portrait", "temp": "dusk",
+    "title": "A train window at dusk",
+    "subject": "A woman in profile on a long-distance train, a closed notebook on her lap, thinking.",
+    "composition": "Her face on the left third; her reflection and the passing fields layered in the glass to the right.",
+    "light": "Last orange light outside, the carriage in cool shadow, her face lit softly by the window.",
+    "purpose": "The thing taking up room in your head is usually layered over whatever you are looking at.",
+    "alt": "A woman in profile beside a train window at dusk, her reflection layered over the passing fields",
+    "ratio": "4 / 5", "ratio_m": "4 / 5", "focus": "40% 40%", "focus_m": "40% 38%", "plate": "nebula", "seed": 309
+  },
+  "letter-sill": {
+    "code": "L-01", "page": "The Letter · Opening", "kind": "Still life", "temp": "night",
+    "title": "A letter and the first crescent",
+    "subject": "A folded handwritten letter on a wooden windowsill.",
+    "composition": "The fold in focus in the lower half; a thin crescent moon low in the glass above.",
+    "light": "A lamp out of frame warms the paper; the sky outside is deep blue.",
+    "purpose": "The letter goes out at the new moon. The thin crescent is the first sign it has begun again.",
+    "alt": "A folded letter on a windowsill at night, a thin crescent moon low in the window",
+    "ratio": "4 / 5", "ratio_m": "4 / 5", "focus": "50% 55%", "focus_m": "50% 55%", "plate": "galaxy", "seed": 310
+  },
+  "conv-table": {
+    "code": "J-01", "page": "Journal · Conversations", "kind": "Close detail", "temp": "day",
+    "title": "Between two people",
+    "subject": "Two people across a café table, shoulders down: one hand mid-gesture, the other around a cup, a recorder between them.",
+    "composition": "Wide and close at table height; a glass of water throws a bright ring of light onto the tabletop.",
+    "light": "Late afternoon sun across the table, warm skin, moss and terracotta in the soft background.",
+    "purpose": "People become interesting in the particulars, and the particulars are often in the hands.",
+    "alt": "Two people's hands across a café table in late sun, a recorder between them and a ring of light from a water glass",
+    "ratio": "21 / 8", "ratio_m": "4 / 5", "focus": "50% 50%", "focus_m": "50% 50%", "plate": "nebula", "seed": 311
+  }
+}

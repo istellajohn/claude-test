@@ -214,6 +214,41 @@ SCRIPTS = {
 }
 
 
+STILLS = json.loads((ROOT / "tools" / "stills.json").read_text(encoding="utf-8"))
+
+
+def still(key):
+    st = STILLS[key]
+    esc = html.escape
+    style = (f'--ratio:{st["ratio"]};--ratio-m:{st["ratio_m"]};'
+             f'--focus:{st["focus"]};--focus-m:{st["focus_m"]}')
+    stills = ROOT / "assets" / "img" / "stills"
+    if (stills / f"{key}.jpg").exists():
+        img = f'<img src="assets/img/stills/{key}.jpg" alt="{esc(st["alt"])}" loading="lazy">'
+        if (stills / f"{key}-m.jpg").exists():
+            # a separate phone crop, art-directed rather than cut from the wide frame
+            img = (f'<picture><source media="(max-width: 560px)" srcset="assets/img/stills/{key}-m.jpg">'
+                   f'{img}</picture>')
+        inner = img
+        cls = "still"
+    else:
+        rows = "".join(f'<dt class="mono">{label}</dt><dd>{esc(st[field])}</dd>'
+                       for label, field in (("Subject", "subject"), ("Composition", "composition"),
+                                            ("Light", "light"), ("Why here", "purpose")))
+        spec = f'{st["kind"]} · {st["ratio"].replace(" ", "")} desktop · {st["ratio_m"].replace(" ", "")} phone · {st["temp"]}'
+        inner = (f'<canvas data-plate="{st["seed"]}" data-kind="{st["plate"]}" aria-hidden="true"></canvas>'
+                 f'<div class="still__ph" role="group" aria-label="Image placement {st["code"]}: {esc(st["title"])}">'
+                 f'<p class="still__code mono">Image placement · {st["code"]}</p>'
+                 f'<p class="still__title">{esc(st["title"])}</p>'
+                 f'<dl class="still__brief">{rows}</dl>'
+                 f'<p class="still__spec mono">{esc(spec)}</p></div>')
+        cls = "still still--placeholder"
+    if st["ratio"].startswith("21"):
+        cls += " still--wide"
+    return (f'<figure class="{cls}" data-still="{key}" data-temp="{st["temp"]}" style="{style}">'
+            f'<div class="still__frame">{inner}</div></figure>')
+
+
 def build_page(src):
     text = src.read_text(encoding="utf-8")
     m = re.match(r"\s*<!--(\{.*?\})-->\s*", text, re.S)
@@ -221,6 +256,8 @@ def build_page(src):
         raise SystemExit(f"{src.name}: missing JSON header comment")
     meta = json.loads(m.group(1))
     body = text[m.end():]
+    # photographs: <!--STILL:id--> becomes the image, or a labelled placement until it exists
+    body = re.sub(r"<!--STILL:([a-z0-9-]+)-->", lambda m: still(m.group(1)), body)
     # shared blocks: <!--NAME--> is replaced by src/partials/name.html
     for part in (ROOT / "src" / "partials").glob("*.html"):
         body = body.replace("<!--%s-->" % part.stem.upper(), part.read_text(encoding="utf-8"))
