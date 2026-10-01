@@ -705,6 +705,47 @@
     });
   }
 
+  /* Agency page: the capability stack lights the layer you point at, and cycles until you do */
+  function initStack() {
+    var buttons = $$(".sys"), planes = $$(".stack__plane");
+    if (!buttons.length) return;
+    var auto = null, idx = 0;
+    function activate(layer) {
+      planes.forEach(function (p) { p.classList.toggle("is-active", p.dataset.layer === layer); });
+      buttons.forEach(function (b) { b.classList.toggle("is-active", b.dataset.layer === layer); });
+    }
+    function stop() { if (auto) { clearInterval(auto); auto = null; } }
+    buttons.forEach(function (b) {
+      ["mouseenter", "focus", "click"].forEach(function (ev) { b.addEventListener(ev, function () { stop(); activate(b.dataset.layer); }); });
+    });
+    activate(buttons[0].dataset.layer);
+    if (!reduceMotion) auto = setInterval(function () { idx = (idx + 1) % buttons.length; activate(buttons[idx].dataset.layer); }, 2400);
+  }
+
+  /* Agency page: pointing at a charge brings its sphere forward */
+  function initCharges() {
+    var orbit = $(".orbit");
+    if (!orbit) return;
+    $$(".charges li").forEach(function (li) {
+      li.addEventListener("mouseenter", function () { orbit.dataset.active = li.dataset.orb; });
+      li.addEventListener("mouseleave", function () { delete orbit.dataset.active; });
+    });
+  }
+
+  /* Agency hero: the audience word cycles through the rooms VALENCE works in */
+  function initRotator() {
+    var r = $(".rotator");
+    if (!r || reduceMotion) return;
+    var words = r.dataset.words.split("|"), word = $(".rotator__word", r), i = 0;
+    setInterval(function () {
+      if (document.hidden) return;
+      i = (i + 1) % words.length;
+      word.classList.remove("is-arriving"); void word.offsetWidth;
+      word.textContent = words[i];
+      word.classList.add("is-arriving");
+    }, 2200);
+  }
+
   /* Elements stamped with today's ephemeris data or entry metadata */
   function initStamps() {
     $$("[data-jd]").forEach(function (n) { n.textContent = jdLabel(n.dataset.jd); });
@@ -729,4 +770,7 @@
   initTable();
   initImageSlots();
   initStamps();
+  initStack();
+  initCharges();
+  initRotator();
 })();

@@ -32,10 +32,30 @@ FONTS = (
 )
 
 NAV = [
+    ("work", "index.html#work", "Work"),
+    ("practice", "index.html#practice", "Practice"),
+    ("approach", "index.html#approach", "Approach"),
+    ("journal", "journal.html", "Journal"),
+    ("about", "about.html", "About"),
+]
+
+JOURNAL_NAV = [
+    ("front", "journal.html", "Front page"),
     ("interviews", "interviews.html", "Interviews"),
     ("essays", "essays.html", "Essays"),
     ("catalogue", "catalogue.html", "Catalogue"),
-    ("about", "about.html", "About"),
+    ("letter", "journal.html#letter", "The letter"),
+]
+
+MENU = [
+    ("index.html", "Home"),
+    ("index.html#work", "Work"),
+    ("index.html#practice", "Practice"),
+    ("journal.html", "Journal"),
+    ("interviews.html", "Interviews"),
+    ("essays.html", "Essays"),
+    ("catalogue.html", "Catalogue"),
+    ("about.html", "About"),
 ]
 
 # V Λ L E N C E, drawn as single strokes
@@ -96,8 +116,24 @@ def chrome_top(meta):
         f'<a href="{href}"{here if key == current else ""}>{label}</a>' for key, href, label in NAV
     )
     menu_links = "\n  ".join(
-        f'<a href="{href}">{label}<span>0{i + 1}</span></a>' for i, (key, href, label) in enumerate(NAV)
+        f'<a href="{href}">{label}<span>{i:02d}</span></a>' for i, (href, label) in enumerate(MENU)
     )
+    journal = meta.get("section") == "journal"
+    sub_here = meta.get("sub")
+    subnav = ""
+    if journal:
+        sublinks = "\n    ".join(
+            f'<a href="{href}"{here if key == sub_here else ""}>{label}</a>' for key, href, label in JOURNAL_NAV
+        )
+        subnav = f"""<nav class="subnav" aria-label="Journal">
+  <a class="subnav__label" href="journal.html">The <span class="script">Journal</span></a>
+  <div class="subnav__links">
+    {sublinks}
+  </div>
+</nav>
+"""
+    tag = "Journal" if journal else "Branding &amp; marketing"
+    cta = '<a class="btn" href="journal.html#letter">The letter</a>' if journal else '<a class="btn" href="index.html#contact">Start with the audit</a>'
     return f"""<a class="skip" href="#main">Skip to content</a>
 <div class="sky" aria-hidden="true"><canvas id="sky-base"></canvas><canvas id="sky-live"></canvas></div>
 <div class="grain" aria-hidden="true"></div>
@@ -115,18 +151,17 @@ def chrome_top(meta):
   </div>
 </div>
 <header class="masthead">
-  <a class="wordmark" href="index.html" aria-label="VALENCE Journal, home">{WORDMARK}<span class="wordmark__sub">Journal</span></a>
+  <a class="wordmark" href="index.html" aria-label="VALENCE, home">{WORDMARK}<span class="wordmark__sub">{tag}</span></a>
   <nav class="nav" aria-label="Main">
     {links}
   </nav>
-  <a class="btn" href="index.html#letter">The letter</a>
+  {cta}
   <button class="btn menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
 </header>
 <nav id="menu" class="menu" aria-label="Menu" hidden>
-  <a href="index.html">Home<span>00</span></a>
   {menu_links}
 </nav>
-<main id="main">
+{subnav}<main id="main">
 """
 
 
@@ -136,24 +171,24 @@ FOOTER = """</main>
     <div class="footer__grid">
       <div>
         <img class="footer__sig" src="assets/img/signature-gold.png" alt="Valence" width="1041" height="749" loading="lazy">
-        <p class="footer__note">A journal kept by VALENCE, a perception architecture practice in Mumbai, working globally. One letter, every new moon.</p>
+        <p class="footer__note">VALENCE is a branding and marketing agency in Mumbai, working globally, for entrepreneurs, films, artists, public figures, brands and institutions whose substance has outgrown its expression. The journal is published on every new moon.</p>
       </div>
       <div>
-        <h3 class="mono">Read</h3>
-        <ul><li><a href="interviews.html">Interviews</a></li><li><a href="essays.html">Essays</a></li><li><a href="catalogue.html">Catalogue</a></li><li><a href="index.html#letter">The letter</a></li></ul>
+        <h3 class="mono">Agency</h3>
+        <ul><li><a href="index.html#work">Work</a></li><li><a href="index.html#practice">Practice</a></li><li><a href="index.html#approach">Approach</a></li><li><a href="about.html">About</a></li><li><a href="index.html#contact">Start with the audit</a></li></ul>
       </div>
       <div>
-        <h3 class="mono">Practice</h3>
-        <ul><li><a href="about.html">About VALENCE</a></li><li><a href="about.html#contact">buzz@vlnc.in</a></li><li><a href="https://www.instagram.com/itsavalencething/" target="_blank" rel="noopener">Instagram</a></li></ul>
+        <h3 class="mono">Journal</h3>
+        <ul><li><a href="journal.html">Front page</a></li><li><a href="interviews.html">Interviews</a></li><li><a href="essays.html">Essays</a></li><li><a href="catalogue.html">Catalogue</a></li><li><a href="journal.html#letter">The letter</a></li></ul>
       </div>
       <div>
-        <h3 class="mono">Coordinates</h3>
-        <ul><li class="coord">19.0760° N · 72.8777° E</li><li class="coord">Mumbai · working globally</li><li class="coord">Previously Copious Space</li></ul>
+        <h3 class="mono">Contact</h3>
+        <ul><li><a href="index.html#contact">buzz@vlnc.in</a></li><li><a href="https://www.instagram.com/itsavalencething/" target="_blank" rel="noopener">@itsavalencething</a></li><li class="coord">19.0760° N · 72.8777° E</li><li class="coord">Mumbai · working globally</li><li class="coord">Previously Copious Space</li></ul>
       </div>
     </div>
     <div class="footer__line">
       <span class="mono muted">© 2026 VALENCE</span>
-      <span class="mono muted">Specimen edition · subjects, texts and dates are placeholders for layout</span>
+      <span class="mono muted">Journal: specimen edition · subjects, texts and dates are placeholders for layout</span>
     </div>
   </div>
 </footer>

@@ -1,18 +1,19 @@
-# VALENCE Journal
+# VALENCE
 
-A publication site for VALENCE: interviews and essays on perception, reputation and the distance between who people are and how they are seen. One letter is published on every new moon.
+The website of VALENCE, a branding and marketing agency for entrepreneurs, films, artists, public figures, consumer brands and institutions. The agency site leads; the VALENCE Journal of interviews and essays sits inside it and publishes one letter on every new moon.
 
-**Specimen edition.** Interview subjects are deliberately unnamed, and the texts, dates and listings are placeholders written to show how the site reads. Replace them before launch. No client photographs are used anywhere.
+**Specimen edition (journal only).** Interview subjects are deliberately unnamed, and the texts, dates and listings are placeholders written to show how the site reads. Replace them before launch. No client photographs are used anywhere.
 
 ## Pages
 
 | File | What it is |
 | --- | --- |
-| `index.html` | Home: the WebGL "old light" hero, the latest letter, recent pieces, a question drawn from the dark, the three closing questions, essays, the letter sign-up |
+| `index.html` | The agency landing page: VLNC over a rising planet, who we build for, the four charges, the six systems, the work, the Valence test, the five-stage approach, the founder, the latest from the journal, contact |
+| `journal.html` | The journal front page: the "old light" hero, the latest letter, recent pieces, a question drawn from the dark, the three closing questions, essays, the letter sign-up |
 | `interviews.html` | All interviews as catalogue rows, filterable by field |
 | `essays.html` | All essays as posters |
 | `catalogue.html` | The archive on the day side: a star chart of everything published, plus a searchable table with Julian Day numbers |
-| `about.html` | The practice: valence in chemistry and psychology, the six systems, the founder's note, contact |
+| `about.html` | The name (valence in chemistry and psychology), why the agency keeps a journal, the founder's note, contact |
 | `interview.html` | Long-form interview template (full specimen) |
 | `essay.html` | Long-form essay template with margin notes (full specimen) |
 

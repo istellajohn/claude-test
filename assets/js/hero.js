@@ -10,6 +10,8 @@
   if (!hero || !canvas || typeof THREE === "undefined") return;
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // "orbit": the journal's body beside the headline. "horizon": the agency's planet rising under the mark.
+  var horizon = hero.dataset.hero === "horizon";
   var renderer;
   try {
     renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
@@ -114,7 +116,13 @@
   });
 
   /* state */
-  var mouse = { x: 0, y: 0, tx: 0, ty: 0 }, scroll = 0, visible = true, running = false;
+  if (horizon) {
+    shells[0].group.visible = false;
+    shells[1].group.visible = false;
+    shells[2].group.rotation.set(1.42, 0.05, 0.1);
+  }
+
+  var mouse = { x: 0, y: 0, tx: 0, ty: 0 }, scroll = 0, visible = true, running = false, baseY = 0;
   var t0 = performance.now();
 
   function layout() {
@@ -123,6 +131,15 @@
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
     var wide = w > 860;
+    if (horizon) {
+      var halfH = 13 * Math.tan((camera.fov / 2) * Math.PI / 180);
+      var s = wide ? 2.5 : 1.55;
+      world.scale.setScalar(s);
+      baseY = -halfH - R * s + halfH * (wide ? 0.4 : 0.42);
+      world.position.set(0, baseY, 0);
+      camera.position.set(0, 0, 13);
+      return;
+    }
     world.position.set(wide ? 2.3 : 0, wide ? 0.25 : 1.9, 0);
     world.scale.setScalar(wide ? 1 : 0.62);
     camera.position.set(0, 0, wide ? 13 : 14);
@@ -136,9 +153,16 @@
     var e = ease(intro);
     uniforms.uTime.value = t;
 
-    // light swings from behind the body (eclipse) to the upper side (dawn)
-    var th = Math.PI - e * (Math.PI - 1.05) + (reduceMotion ? 0 : Math.sin(t * 0.07) * 0.1) - scroll * 0.5;
-    uniforms.uLight.value.set(Math.sin(th), 0.42 + scroll * 0.2, Math.cos(th)).normalize();
+    if (horizon) {
+      // the planet rises into frame while its upper limb catches the light, like dawn seen from orbit
+      var th2 = Math.PI - e * (Math.PI - 2.05) + (reduceMotion ? 0 : Math.sin(t * 0.06) * 0.08);
+      uniforms.uLight.value.set(Math.sin(th2) * 0.45, 0.85, Math.cos(th2)).normalize();
+      world.position.y = baseY - (1 - e) * 2.2 - scroll * 1.2;
+    } else {
+      // light swings from behind the body (eclipse) to the upper side (dawn)
+      var th = Math.PI - e * (Math.PI - 1.05) + (reduceMotion ? 0 : Math.sin(t * 0.07) * 0.1) - scroll * 0.5;
+      uniforms.uLight.value.set(Math.sin(th), 0.42 + scroll * 0.2, Math.cos(th)).normalize();
+    }
     halo.material.opacity = 0.95 - e * 0.65;
     halo.scale.setScalar(R * (4.2 - e * 0.5));
 
@@ -153,10 +177,16 @@
 
     mouse.x += (mouse.tx - mouse.x) * 0.04;
     mouse.y += (mouse.ty - mouse.y) * 0.04;
-    world.rotation.y = mouse.x * 0.18;
-    world.rotation.x = -mouse.y * 0.12 + scroll * 0.3;
-    camera.position.y = scroll * -1.2;
-    camera.lookAt(0, scroll * -1.2, 0);
+    if (horizon) {
+      world.rotation.y = mouse.x * 0.08;
+      world.rotation.x = -mouse.y * 0.04;
+      camera.lookAt(0, 0, 0);
+    } else {
+      world.rotation.y = mouse.x * 0.18;
+      world.rotation.x = -mouse.y * 0.12 + scroll * 0.3;
+      camera.position.y = scroll * -1.2;
+      camera.lookAt(0, scroll * -1.2, 0);
+    }
 
     renderer.render(scene, camera);
     if (reduceMotion || !visible) { running = false; return; }
