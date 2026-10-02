@@ -224,13 +224,15 @@ def still(key):
              f'--focus:{st["focus"]};--focus-m:{st["focus_m"]}')
     stills = ROOT / "assets" / "img" / "stills"
     if (stills / f"{key}.jpg").exists():
-        img = f'<img src="assets/img/stills/{key}.jpg" alt="{esc(st["alt"])}" loading="lazy">'
+        img = (f'<img src="assets/img/stills/{key}.jpg" alt="{esc(st["alt"])}" '
+               f'width="{st["w"]}" height="{st["h"]}" loading="lazy" decoding="async">')
         if (stills / f"{key}-m.jpg").exists():
             # a separate phone crop, art-directed rather than cut from the wide frame
             img = (f'<picture><source media="(max-width: 560px)" srcset="assets/img/stills/{key}-m.jpg">'
                    f'{img}</picture>')
         inner = img
         cls = "still"
+        cap = f'<figcaption class="still__cap mono">{esc(st["caption"])}</figcaption>' if st.get("caption") else ""
     else:
         rows = "".join(f'<dt class="mono">{label}</dt><dd>{esc(st[field])}</dd>'
                        for label, field in (("Subject", "subject"), ("Composition", "composition"),
@@ -243,10 +245,12 @@ def still(key):
                  f'<dl class="still__brief">{rows}</dl>'
                  f'<p class="still__spec mono">{esc(spec)}</p></div>')
         cls = "still still--placeholder"
-    if st["ratio"].startswith("21"):
+        cap = ""
+    w, h = (float(x) for x in st["ratio"].split("/"))
+    if w / h > 2:
         cls += " still--wide"
     return (f'<figure class="{cls}" data-still="{key}" data-temp="{st["temp"]}" style="{style}">'
-            f'<div class="still__frame">{inner}</div></figure>')
+            f'<div class="still__frame">{inner}</div>{cap}</figure>')
 
 
 def build_page(src):
