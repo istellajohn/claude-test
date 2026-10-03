@@ -1507,3 +1507,54 @@ img.close__plate { object-fit: cover; object-position: 50% 40%; opacity: 0.9; }
   .still__frame, .case__plate, .pick__img, .statement__img, .slot, .feature__plate, .banner,
   .letter__media, .card__plate, .poster__link, .next__plate { transition: none; transform: none !important; }
 }
+
+/* ----------------------------------------------------------------------
+   Cosmic cursor: an ember star at the pointer, a faint orbit with a small
+   moon that trails a moment behind, and stardust left in its wake. Only on
+   devices with a fine pointer; text fields, Reading mode and reduced motion
+   keep the system cursor.
+   ---------------------------------------------------------------------- */
+html.has-cosmo, html.has-cosmo * { cursor: none !important; }
+html.has-cosmo input, html.has-cosmo textarea, html.has-cosmo select, html.has-cosmo [contenteditable] { cursor: text !important; }
+.cosmo { position: fixed; left: 0; top: 0; z-index: 2147483000; pointer-events: none; }
+.cosmo__core {
+  position: fixed; left: 0; top: 0; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%;
+  background: #fff6ea;
+  box-shadow: 0 0 6px 1px rgba(255, 214, 170, 0.95), 0 0 16px 4px rgba(227, 90, 42, 0.55), 0 0 34px 10px rgba(227, 90, 42, 0.18);
+  transition: width 0.4s var(--frame-ease, ease), height 0.4s var(--frame-ease, ease), margin 0.4s var(--frame-ease, ease), opacity 0.3s;
+}
+.cosmo__orbit {
+  position: fixed; left: 0; top: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%;
+  border: 1px solid rgba(243, 242, 239, 0.28);
+  box-shadow: 0 0 14px rgba(140, 159, 179, 0.18) inset;
+  transition: width 0.5s var(--frame-ease, ease), height 0.5s var(--frame-ease, ease), margin 0.5s var(--frame-ease, ease), border-color 0.5s, opacity 0.3s;
+}
+.cosmo__moon {
+  position: absolute; left: 50%; top: 50%; width: 100%; height: 100%; margin: -50% 0 0 -50%;
+  animation: cosmo-orbit 4.8s linear infinite;
+}
+.cosmo__moon::before {
+  content: ""; position: absolute; top: -2.5px; left: 50%; width: 5px; height: 5px; margin-left: -2.5px; border-radius: 50%;
+  background: #cfe3ea; box-shadow: 0 0 8px rgba(160, 205, 220, 0.9);
+}
+@keyframes cosmo-orbit { to { transform: rotate(360deg); } }
+.cosmo.is-hover .cosmo__orbit { width: 58px; height: 58px; margin: -29px 0 0 -29px; border-color: rgba(233, 138, 94, 0.6); }
+.cosmo.is-hover .cosmo__core { width: 4px; height: 4px; margin: -2px 0 0 -2px; }
+.cosmo.is-down .cosmo__orbit { width: 22px; height: 22px; margin: -11px 0 0 -11px; }
+.cosmo.is-text .cosmo__orbit, .cosmo.is-text .cosmo__core, .cosmo.is-out .cosmo__orbit, .cosmo.is-out .cosmo__core { opacity: 0; }
+.cosmo__dust {
+  position: fixed; left: 0; top: 0; width: 3px; height: 3px; margin: -1.5px 0 0 -1.5px; border-radius: 50%;
+  background: #ffe2c4; box-shadow: 0 0 6px rgba(255, 196, 140, 0.9);
+  animation: cosmo-dust 0.9s ease-out forwards;
+}
+@keyframes cosmo-dust { to { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.2); } }
+/* Day side: a deep ink star on paper */
+[data-side="day"] .cosmo__core { background: #17140f; box-shadow: 0 0 0 2px rgba(227, 90, 42, 0.35), 0 0 14px 3px rgba(227, 90, 42, 0.35); }
+[data-side="day"] .cosmo__orbit { border-color: rgba(23, 20, 15, 0.35); box-shadow: none; }
+[data-side="day"] .cosmo__moon::before { background: #0b5962; box-shadow: none; }
+[data-side="day"] .cosmo__dust { background: #c4642f; box-shadow: none; }
+/* cinematic sections stay dark on the day side, so the star stays light there */
+[data-side="day"] .cosmo.on-dark .cosmo__core { background: #fff6ea; box-shadow: 0 0 6px 1px rgba(255, 214, 170, 0.95), 0 0 16px 4px rgba(227, 90, 42, 0.55); }
+[data-side="day"] .cosmo.on-dark .cosmo__orbit { border-color: rgba(243, 242, 239, 0.3); }
+[data-side="day"] .cosmo.on-dark .cosmo__moon::before { background: #cfe3ea; }
+[data-side="day"] .cosmo.on-dark .cosmo__dust { background: #ffe2c4; }
