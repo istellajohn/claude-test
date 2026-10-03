@@ -25,7 +25,7 @@ The website of VALENCE, an independent creative practice founded by Stella John 
 
 ## Introduction film
 
-`motion/` holds *Entry One*, the 36-second introduction film for social (9:16 and 4:5, motion-blurred, with voice-over and an original score), built from this site's photography, type and colour and the official marks. See `motion/README.md`.
+`motion/` holds *Entry One*, the 35-second introduction film for social (9:16 and 4:5, motion-blurred, with voice-over and an original score), built from this site's photography, type and colour and the official marks. See `motion/README.md`.
 
 ## How it is built
 

@@ -124,7 +124,7 @@ def main(cues_path, vo_dir, out):
     cut = c["silence"][0][0]
 
     # ---- the machine's world: drone and space wind ----
-    cold = curve([(0, 0), (0.4, 0.08), (3.5, 0.1), (6.7, 0.12), (12.2, 0.14), (16.0, 0.2), (16.3, 0.1), (20.9, 0.16), (22.3, 0.12), (25.9, 0.22), (cut, 0.22), (cut + 0.001, 0), (dur, 0)])
+    cold = curve([(0, 0), (0.4, 0.08), (3.5, 0.1), (6.7, 0.12), (12.2, 0.14), (16.0, 0.2), (16.3, 0.1), (20.9, 0.16), (22.1, 0.12), (cut - 0.1, 0.22), (cut, 0.22), (cut + 0.001, 0), (dur, 0)])
     drift = 0.003 * np.sin(2 * np.pi * 0.05 * t)
     drone = (np.sin(2 * np.pi * 36.71 * t) + 0.7 * np.sin(2 * np.pi * 55.0 * (1 + drift) * t) + 0.35 * np.sin(2 * np.pi * 73.42 * (1 - drift) * t)
              + 0.12 * np.sin(2 * np.pi * 87.31 * t) * (0.5 + 0.5 * np.sin(2 * np.pi * 0.09 * t)))
@@ -248,6 +248,19 @@ def main(cues_path, vo_dir, out):
     ramp = int(0.004 * SR)
     silence[int(s0 * SR) - ramp : int(s0 * SR)] = np.linspace(1, 0, ramp)
     mix *= silence[:, None]
+    # the breath: a reversed swell through the silence, pulling into the human line
+    for a, b in c.get("breath", []):
+        L = b - a
+        n = int(L * SR)
+        sw = np.zeros((n, 2))
+        for i, f in enumerate([146.83, 220.0, 293.66, 369.99, 440.0, 587.33]):
+            tt = np.arange(n) / SR
+            sw[:, i % 2] += np.sin(2 * np.pi * f * tt + i) * (0.6 if i < 3 else 0.35)
+        air = lowpass_fft(rng.standard_normal(n), 2500) * 4
+        sw[:, 0] += air; sw[:, 1] += np.roll(air, 900)
+        sw *= (np.linspace(0, 1, n) ** 3)[:, None]
+        i0 = int(a * SR)
+        mix[i0:i0 + n] += sw[: M.n - i0] * 0.05
     # tail to nothing for the loop
     mix *= np.clip((dur - 0.5 - t) / 1.2, 0, 1)[:, None]
     mix = np.tanh(mix * 1.2) / np.tanh(1.2)

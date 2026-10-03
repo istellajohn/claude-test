@@ -16,7 +16,7 @@
 (function () {
   "use strict";
 
-  var DUR = 36, FPS = 30;
+  var DUR = 35, FPS = 30;
 
   var C = {
     void: "#050507", bone: "#f3f2ef", stone: "#a6a39e", dust: "#6f6b66", verve: "#e35a2a",
@@ -56,11 +56,13 @@
     { id: "vo3", t: 7.25, d: 4.681, text: "Your kind does it to faces, to names, to everything you will ever be asked to trust." },
     { id: "vo4", t: 12.55, d: 3.008, text: "Then you spend years proving that first second was right." },
     { id: "vo5", t: 16.3, d: 5.415, text: "Your psychologists have a word for the pull that arrives before the reason.", show: 4.0, spoken: 3.63 },
-    { id: "vo6", t: 22.6, d: 1.631, text: "We cannot compute it." },
-    { id: "vo7", t: 24.75, d: 1.204, text: "We have tried." },
-    { id: "vo8", t: 27.1, d: 1.543, text: "Some humans can.", human: true }
+    { id: "vo6", t: 22.15, d: 1.631, text: "We cannot compute it." },
+    { id: "vo7", t: 24.0, d: 1.204, text: "We have tried." },
+    { id: "vo8", t: 26.05, d: 1.543, text: "Some humans can.", human: true }
   ];
-  var T = { blink: 6.3, montage: snap(6.75), years: snap(12.25), pull: 16.2, valence: 20.95, compute: 22.3, cut: snap(26.05), human: 26.05, slam: 29.95, out: 34.4 };
+  // the human act is authored on its own clock (HS seconds later than the film's)
+  var HS = 1.05;
+  var T = { blink: 6.3, montage: snap(6.75), years: snap(12.25), pull: 16.2, valence: 20.95, compute: 22.1, glitch: 25.2, cut: snap(25.55), human: 25.55, slam: 29.95 - HS, out: 34.4 - HS };
 
   var VERDICTS = [
     ["about-cinema", "SEEN IT"], ["contact-train", "TRUST"], ["home-rain", "LATER"], ["disc-screen", "EXPENSIVE"],
@@ -81,8 +83,8 @@
   var CUES = {
     vo: VO.map(function (v) { return [v.id, v.t]; }), lock: [0.85, 1.05], decided: [3.6], blink: [T.blink],
     cuts: CUTS.slice(0, -1), tags: CUTS.slice(0, -1).map(function (x) { return x + 0.05; }),
-    riser: [[12.7, 16.1]], warp: [16.0], valence: [T.valence], compute: [[22.3, 26.05]], glitch: [[25.45, 26.05]],
-    silence: [[26.05, 27.0]], dawn: [28.4], slam: [T.slam], tagline: [30.9], out: [T.out], dur: DUR
+    riser: [[12.7, 16.1]], warp: [16.0], valence: [T.valence], compute: [[T.compute, T.cut]], glitch: [[T.glitch, T.cut]],
+    silence: [[T.cut, 26.0]], breath: [[T.cut + 0.05, 26.05]], dawn: [28.4 - HS], slam: [T.slam], tagline: [30.9 - HS], out: [T.out], dur: DUR
   };
 
   /* ---------- layout ---------- */
@@ -446,7 +448,7 @@
           if (t < T.valence + 0.12) flash = Math.max(flash, 0.18);
           shake += 10 * (1 - seg(t, T.valence, T.valence + 0.5));
         }
-        var vk = seg(t, T.valence, T.valence + 0.7), vOut = seg(t, T.compute, T.compute + 0.5);
+        var vk = seg(t, T.valence, T.valence + 0.7), vOut = seg(t, 22.45, 22.75);
         bigV.style.fontSize = vS + "px";
         bigV.style.fontStretch = lerp(50, 125, outExpo(vk)).toFixed(1) + "%";
         bigV.style.letterSpacing = lerp(0.3, 0.02, outExpo(vk)).toFixed(3) + "em";
@@ -454,9 +456,9 @@
         dict[0].style.fontSize = "20px";
         dict[1].style.fontSize = dict[2].style.fontSize = (L.tall ? 36 : 32) + "px";
         dict[2].style.color = C.stone;
-        set(dict[0], cx, L.dictY, win(t, 21.25, T.compute + 0.4, 0.5, 0.4), { blur: (1 - seg(t, 21.25, 21.6)) * 6 });
-        set(dict[1], cx, L.dictY + 66, win(t, 21.4, T.compute + 0.4, 0.5, 0.4), { blur: (1 - seg(t, 21.4, 21.8)) * 6 });
-        set(dict[2], cx, L.dictY + 116, win(t, 21.6, T.compute + 0.4, 0.5, 0.4), { blur: (1 - seg(t, 21.6, 22)) * 6 });
+        set(dict[0], cx, L.dictY, win(t, 21.25, 22.75, 0.5, 0.3), { blur: (1 - seg(t, 21.25, 21.6)) * 6 });
+        set(dict[1], cx, L.dictY + 66, win(t, 21.4, 22.75, 0.4, 0.3), { blur: (1 - seg(t, 21.4, 21.8)) * 6 });
+        set(dict[2], cx, L.dictY + 116, win(t, 21.55, 22.75, 0.4, 0.3), { blur: (1 - seg(t, 21.6, 22)) * 6 });
 
         /* ----- 5 · compute ----- */
         if (t >= T.compute) {
@@ -470,7 +472,7 @@
           sgd.addColorStop(0, "rgba(140,159,179,0)"); sgd.addColorStop(1, "rgba(190,210,235," + 0.18 * gA + ")");
           ctx.fillStyle = sgd; ctx.fillRect(0, sy - 120, W, 120);
           ctx.font = "400 17px 'Martian Mono'"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
-          var spd = 700 + 900 * seg(t, 23, 25.4), off = (t - T.compute) * spd;
+          var spd = 700 + 900 * seg(t, 22.8, 25.0), off = (t - T.compute) * spd;
           for (var col = 0; col < 8; col++) {
             var colx = (col + 0.5) * W / 8;
             for (var row = -1; row < H / 34 + 2; row++) {
@@ -481,17 +483,17 @@
             }
           }
           ctx.restore();
-          var cd = seg(t, 22.55, 25.35);
+          var cd = seg(t, 22.75, 24.95);
           var val = Math.max(0, 0.97 * (1 - Math.pow(cd, 0.7)) + (cd < 1 ? (hash(fr) - 0.5) * 0.04 : 0));
           confN.textContent = val.toFixed(2);
           confN.style.fontSize = (L.tall ? 230 : 190) + "px"; confN.style.color = C.bone; confN.style.letterSpacing = "-0.03em"; confN.style.fontStretch = "100%";
-          confA.textContent = "ATTEMPTS  " + Math.floor(Math.pow(2, 20 * seg(t, 22.9, 25.6))).toLocaleString("en-US");
+          confA.textContent = "ATTEMPTS  " + Math.floor(Math.pow(2, 20 * seg(t, 22.6, 25.2))).toLocaleString("en-US");
           confA.style.fontSize = "19px";
-          var cA = seg(t, T.compute + 0.2, T.compute + 0.5), jit = t > 25.45 ? (hash(fr * 3) - 0.5) * 30 : 0;
+          var cA = seg(t, 22.6, 22.85), jit = t > T.glitch ? (hash(fr * 3) - 0.5) * 30 : 0;
           set(confL, cx + jit, cy - 170, cA * 0.9);
           set(confN, cx - jit, cy, cA);
-          set(confA, cx + jit * 0.5, cy + 160, cA * seg(t, 22.9, 23.1) * 0.85);
-          chroma = Math.max(chroma, 10 * seg(t, 25.45, 26.0));
+          set(confA, cx + jit * 0.5, cy + 160, cA * seg(t, 22.8, 23.0) * 0.85);
+          chroma = Math.max(chroma, 10 * seg(t, T.glitch, T.cut));
         }
       }
 
@@ -508,11 +510,12 @@
 
       /* ----- 6 · human ----- */
       if (t >= T.human) {
-        var endF = 1 - seg(t, T.out, T.out + 1.0);
+        var t0 = t; t = t + HS; // the act's own clock
+        var endF = 1 - seg(t, (T.out + HS), (T.out + HS) + 1.0);
         var hv8 = subs[subs.length - 1];
         hv8.e.style.fontSize = (L.tall ? 60 : 52) + "px";
         words(hv8, t, 27.1, 0.4, 10);
-        set(hv8.e, cx, cy - 30 - outCubic(seg(t, 28.3, 28.9)) * 60, win(t, 27.0, 28.9, 0.05, 0.5), { blur: seg(t, 28.4, 28.9) * 8 });
+        set(hv8.e, cx, cy - 30 - outCubic(seg(t, 28.2, 28.6)) * 70, win(t, 27.0, 28.6, 0.05, 0.4), { blur: seg(t, 28.2, 28.6) * 10 });
         var dawn = seg(t, 27.5, 30.5) * endF;
         if (dawn > 0) {
           cover(IM.dawn, 0.62, 0.62, cx, H * 0.8, 1.05 + 0.08 * seg(t, 27.5, 35), dawn * 0.55, 0, (1 - outCubic(seg(t, 27.5, 31))) * 160);
@@ -533,31 +536,32 @@
         var sW = lerp(W * 0.8, mW * 0.62, move), sH = sW * SIG_AR;
         var sX = lerp(cx, cx + mW * 0.2, move), sY = lerp(L.markY + 20, L.markY + mH * 0.5 + sH * 0.2, move);
         sig.style.width = sW + "px"; sig.style.height = sH + "px";
-        var wr = seg(t, 28.5, 29.85);
+        var wr = seg(t, 28.62, 29.88);
         sig.style.clipPath = "inset(-5% " + (100 - outCubic(wr) * 100).toFixed(2) + "% -5% -5%)";
-        set(sig, sX, sY, seg(t, 28.45, 28.55) * endF);
+        set(sig, sX, sY, seg(t, 28.6, 28.66) * endF);
         if (wr > 0 && wr < 1) {
           var nibX = sX - sW / 2 + sW * outCubic(wr);
           var ng = ctx.createRadialGradient(nibX, sY, 0, nibX, sY, 120);
           ng.addColorStop(0, "rgba(255,226,170,0.35)"); ng.addColorStop(1, "rgba(255,226,170,0)");
           ctx.fillStyle = ng; ctx.fillRect(nibX - 120, sY - 120, 240, 240);
         }
-        var mk2 = seg(t, T.slam - 0.25, T.slam);
+        var mk2 = seg(t, (T.slam + HS) - 0.25, (T.slam + HS));
         mark.style.width = mW + "px"; mark.style.height = mH + "px";
         set(mark, cx, L.markY, Math.min(1, mk2 * 4) * endF, { s: lerp(2.2, 1, outExpo(mk2)) });
-        if (t > T.slam && t < T.slam + 0.9) {
-          var ak = seg(t, T.slam, T.slam + 0.9);
+        if (t > (T.slam + HS) && t < (T.slam + HS) + 0.9) {
+          var ak = seg(t, (T.slam + HS), (T.slam + HS) + 0.9);
           var ag = ctx.createLinearGradient(0, 0, W, 0);
           ag.addColorStop(0, "rgba(255,220,170,0)"); ag.addColorStop(0.5, "rgba(255,236,210," + (1 - ak) * 0.9 + ")"); ag.addColorStop(1, "rgba(255,220,170,0)");
           ctx.fillStyle = ag; ctx.fillRect(0, L.markY - 2 - (1 - ak) * 3, W, 4 + (1 - ak) * 6);
-          shake += 18 * Math.pow(1 - seg(t, T.slam, T.slam + 0.5), 2);
-          if (t < T.slam + 0.08) flash = Math.max(flash, 0.22);
+          shake += 18 * Math.pow(1 - seg(t, (T.slam + HS), (T.slam + HS) + 0.5), 2);
+          if (t < (T.slam + HS) + 0.08) flash = Math.max(flash, 0.22);
         }
         line.style.fontSize = (L.tall ? 40 : 34) + "px";
         var lk = seg(t, 30.9, 31.6);
         set(line, cx, L.markY + mH * 0.5 + (L.tall ? 330 : 250) + (1 - outCubic(lk)) * 16, lk * endF, { blur: (1 - lk) * 8 });
         mail.style.fontSize = "22px"; mail.style.color = C.stone;
         set(mail, cx, L.markY + mH * 0.5 + (L.tall ? 400 : 310), seg(t, 31.6, 32.2) * endF);
+        t = t0;
       }
 
       /* ----- HUD: the machine's frame ----- */
@@ -569,8 +573,8 @@
       cam.style.transform = shake > 0.2 ? "translate(" + (Math.sin(t * 97) * shake).toFixed(2) + "px," + (Math.cos(t * 83) * shake * 0.7).toFixed(2) + "px)" : "none";
 
       /* ----- glitch: slices of the frame displaced ----- */
-      if (t > 25.45 && t < T.cut) {
-        var gk2 = seg(t, 25.45, T.cut);
+      if (t > T.glitch && t < T.cut) {
+        var gk2 = seg(t, T.glitch, T.cut);
         for (var b = 0; b < 9; b++) {
           if (hash(fr * 13 + b) > 0.25 + 0.6 * gk2) continue;
           var y0 = Math.floor(hash(fr * 7 + b * 3) * H), hh = 8 + Math.floor(hash(fr + b * 11) * 90), shv = (hash(fr * 5 + b) - 0.5) * 220 * gk2;
@@ -578,7 +582,7 @@
         }
         tl.style.transform = "translate(" + ((hash(fr * 9) - 0.5) * 40 * gk2).toFixed(1) + "px,0)";
       } else tl.style.transform = "none";
-      if (t >= T.cut && t < T.human + 0.95) { ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H); }
+      if (t >= T.cut && t < T.human + 0.45) { ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H); }
 
       /* ----- top layer: fringe, scrim, flash, blink, vignette, grain ----- */
       var tc = tctx;
