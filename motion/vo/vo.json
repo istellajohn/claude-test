@@ -1,0 +1,34 @@
+{
+ "vo1": {
+  "text": "Observation log, entry one.",
+  "dur": 2.176
+ },
+ "vo2": {
+  "text": "You decided whether to keep watching this in less than a second.",
+  "dur": 3.673
+ },
+ "vo3": {
+  "text": "Your kind does it to faces, to names, to everything you will ever be asked to trust.",
+  "dur": 4.681
+ },
+ "vo4": {
+  "text": "Then you spend years proving that first second was right.",
+  "dur": 3.008
+ },
+ "vo5": {
+  "text": "Your psychologists have a word for the pull that arrives before the reason. They call it valence.",
+  "dur": 5.415
+ },
+ "vo6": {
+  "text": "We cannot compute it.",
+  "dur": 1.631
+ },
+ "vo7": {
+  "text": "We have tried.",
+  "dur": 1.204
+ },
+ "vo8": {
+  "text": "Some humans can.",
+  "dur": 1.543
+ }
+}

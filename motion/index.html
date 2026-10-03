@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VALENCE · Entry One</title>
+<meta name="description" content="The VALENCE introduction film for social, played live from its source. Space plays and pauses; F switches between 9:16 and 4:5.">
+<style>
+  :root { --void: #050507; --bone: #f3f2ef; --stone: #a6a39e; --verve: #e35a2a; }
+  html, body { margin: 0; background: var(--void); color: var(--bone); height: 100%; }
+  body { display: grid; grid-template-rows: auto 1fr; font: 400 12px/1.4 "Martian Mono", ui-monospace, monospace; letter-spacing: .12em; text-transform: uppercase; }
+  header { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid rgba(243,242,239,.12); color: var(--stone); }
+  header a, header button { color: var(--bone); background: none; border: 1px solid rgba(243,242,239,.3); padding: 7px 10px; font: inherit; letter-spacing: inherit; text-transform: inherit; text-decoration: none; cursor: pointer; }
+  header button[aria-pressed="true"] { border-color: var(--verve); }
+  header button:focus-visible, header a:focus-visible { outline: 2px solid var(--verve); outline-offset: 2px; }
+  main { display: grid; place-items: center; padding: 16px; min-height: 0; }
+  #film { height: min(calc(100vh - 110px), 1920px); max-width: calc(100vw - 32px); }
+  body.render { display: block; }
+  body.render header { display: none; }
+  body.render main { padding: 0; display: block; }
+  body.render #film { height: auto; max-width: none; }
+</style>
+<script src="film.js"></script>
+</head>
+<body>
+<header>
+  <span>VALENCE · Entry One · 36s</span>
+  <span style="display:flex;gap:8px">
+    <button type="button" data-fmt="9x16">9:16 Reels</button>
+    <button type="button" data-fmt="4x5">4:5 Feed</button>
+  </span>
+</header>
+<main><div id="film" tabindex="0" aria-label="VALENCE introduction film"></div></main>
+<script>
+  var q = new URLSearchParams(location.search);
+  var fmt = q.get("format") === "4x5" ? "4x5" : "9x16";
+  var render = q.has("render");
+  if (render) document.body.classList.add("render");
+  var host = document.getElementById("film");
+  var dims = ValenceMotion.formats[fmt];
+  if (render) { host.style.width = dims[0] + "px"; host.style.height = dims[1] + "px"; }
+  else host.style.aspectRatio = dims[0] + " / " + dims[1];
+  window.film = ValenceMotion.mountFilm(host, {
+    format: fmt, fontBase: "fonts/", manual: render, controls: !render, autoplay: !render,
+    start: q.has("t") ? parseFloat(q.get("t")) : 0,
+    audio: render ? null : "mix.wav",
+    assets: {
+      vlnc: "assets/vlnc-white.png", sig: "assets/valence-signature-white.png",
+      eye: "../assets/img/eye.jpg", dawn: "../assets/img/moonrise.jpg",
+      stills: {
+        "about-cinema": "../assets/img/stills/about-cinema-m.jpg",
+        "contact-train": "../assets/img/stills/contact-train.jpg",
+        "home-rain": "../assets/img/stills/home-rain.jpg",
+        "disc-screen": "../assets/img/stills/disc-screen-m.jpg",
+        "study-eye": "../assets/img/stills/study-eye.jpg",
+        "home-dapple": "../assets/img/stills/home-dapple.jpg",
+        "how-dusk": "../assets/img/stills/how-dusk-m.jpg",
+        "home-reflection": "../assets/img/stills/home-reflection-m.jpg",
+        "journal-room": "../assets/img/stills/journal-room-m.jpg",
+        "letter-sill": "../assets/img/stills/letter-sill.jpg",
+        "catalogue-tide": "../assets/img/stills/catalogue-tide-m.jpg",
+        "conv-table": "../assets/img/stills/conv-table-m.jpg",
+        "work-field": "../assets/img/stills/work-field-m.jpg",
+        "essays-window": "../assets/img/stills/essays-window.jpg"
+      }
+    }
+  });
+  document.querySelectorAll("[data-fmt]").forEach(function (b) {
+    b.setAttribute("aria-pressed", String(b.dataset.fmt === fmt));
+    b.addEventListener("click", function () { q.set("format", b.dataset.fmt); location.search = q.toString(); });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "f" || e.key === "F") { q.set("format", fmt === "9x16" ? "4x5" : "9x16"); location.search = q.toString(); }
+    if (e.key === " " && document.activeElement !== host && window.film) { e.preventDefault(); film.playing ? film.pause() : film.play(); }
+  });
+</script>
+</body>
+</html>
