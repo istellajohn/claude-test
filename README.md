@@ -23,6 +23,10 @@ The website of VALENCE, an independent creative practice founded by Stella John 
 | `interview.html` | Long-form interview template (full specimen) |
 | `essay.html` | Long-form essay template with margin notes (full specimen) |
 
+## Introduction film
+
+`motion/` holds the 30-second introduction film for social (9:16 and 4:5, with an original score), built from this site's type, colour, sky and grahas and the official marks. See `motion/README.md`.
+
 ## How it is built
 
 Static HTML, CSS and JavaScript. No framework, no build dependencies.
