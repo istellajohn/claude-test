@@ -1281,11 +1281,11 @@ img.close__plate { object-fit: cover; object-position: 50% 40%; opacity: 0.9; }
 }
 
 /* shared grade on all photographs */
-.still__frame img, .slot > .slot-img, .interlude .slot-img, .statement__img img, img.close__plate, .case__img, .pick__img img {
+.still__frame img, .statement__img img, img.close__plate, .case__img, .pick__img img {
   filter: contrast(1.03) saturate(0.9) brightness(0.98);
 }
-.still__frame, .slot, .statement__img, .case__plate, .pick__img { isolation: isolate; }
-.still__frame::after, .slot::after, .statement__img::after, .case__plate::after, .pick__img::after {
+.still__frame, .statement__img, .case__plate, .pick__img { isolation: isolate; }
+.still__frame::after, .statement__img::after, .case__plate::after, .pick__img::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -1359,7 +1359,6 @@ img.close__plate { object-fit: cover; object-position: 50% 40%; opacity: 0.9; }
 
 /* Day side: photographs read as prints mounted on paper */
 [data-side="day"] .still__frame,
-[data-side="day"] .slot,
 [data-side="day"] .statement__img,
 [data-side="day"] .case__plate,
 [data-side="day"] .pick__img {
@@ -1384,11 +1383,6 @@ img.close__plate { object-fit: cover; object-position: 50% 40%; opacity: 0.9; }
   .still__ph { padding: 14px 14px 15px; }
   .statement__img img { object-position: 62% 42%; }
   img.close__plate { object-position: 52% 72%; }
-  .interlude .slot-img { object-position: 44% 62%; }
-  .a-plate .slot-img { object-position: 42% 40%; }
-  .feature__plate[data-image-slot="interviewHero"] .slot-img { object-position: 40% 45%; }
-  .feature__plate[data-image-slot="essayHero"] .slot-img { object-position: 52% 45%; }
-  .letter__media .slot-img { object-position: 66% 40%; }
 }
 
 /* ----------------------------------------------------------------------
