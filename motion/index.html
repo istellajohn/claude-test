@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VALENCE · Introduction film</title>
+<title>VALENCE · Entry One</title>
 <meta name="description" content="The VALENCE introduction film for social, played live from its source. Space plays and pauses; F switches between 9:16 and 4:5.">
 <style>
   :root { --void: #050507; --bone: #f3f2ef; --stone: #a6a39e; --verve: #e35a2a; }
@@ -24,7 +24,7 @@
 </head>
 <body>
 <header>
-  <span>VALENCE · Introduction film · 30s</span>
+  <span>VALENCE · Entry One · 36s</span>
   <span style="display:flex;gap:8px">
     <button type="button" data-fmt="9x16">9:16 Reels</button>
     <button type="button" data-fmt="4x5">4:5 Feed</button>
@@ -43,7 +43,27 @@
   window.film = ValenceMotion.mountFilm(host, {
     format: fmt, fontBase: "fonts/", manual: render, controls: !render, autoplay: !render,
     start: q.has("t") ? parseFloat(q.get("t")) : 0,
-    assets: { vlnc: "assets/vlnc-white.png", sig: "assets/valence-signature-white.png" }
+    audio: render ? null : "mix.wav",
+    assets: {
+      vlnc: "assets/vlnc-white.png", sig: "assets/valence-signature-white.png",
+      eye: "../assets/img/eye.jpg", dawn: "../assets/img/moonrise.jpg",
+      stills: {
+        "about-cinema": "../assets/img/stills/about-cinema-m.jpg",
+        "contact-train": "../assets/img/stills/contact-train.jpg",
+        "home-rain": "../assets/img/stills/home-rain.jpg",
+        "disc-screen": "../assets/img/stills/disc-screen-m.jpg",
+        "study-eye": "../assets/img/stills/study-eye.jpg",
+        "home-dapple": "../assets/img/stills/home-dapple.jpg",
+        "how-dusk": "../assets/img/stills/how-dusk-m.jpg",
+        "home-reflection": "../assets/img/stills/home-reflection-m.jpg",
+        "journal-room": "../assets/img/stills/journal-room-m.jpg",
+        "letter-sill": "../assets/img/stills/letter-sill.jpg",
+        "catalogue-tide": "../assets/img/stills/catalogue-tide-m.jpg",
+        "conv-table": "../assets/img/stills/conv-table-m.jpg",
+        "work-field": "../assets/img/stills/work-field-m.jpg",
+        "essays-window": "../assets/img/stills/essays-window.jpg"
+      }
+    }
   });
   document.querySelectorAll("[data-fmt]").forEach(function (b) {
     b.setAttribute("aria-pressed", String(b.dataset.fmt === fmt));

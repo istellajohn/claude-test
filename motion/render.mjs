@@ -1,5 +1,5 @@
 // Render the VALENCE introduction film frame by frame.
-//   node motion/render.mjs video 9x16 [out.mp4] [score.wav]
+//   SUB=6 WORKERS=4 node motion/render.mjs video 9x16 [out.mp4] [mix.wav]   (motion-blurred)
 //   node motion/render.mjs stills 9x16 outdir 0.5,3.2,6
 //   node motion/render.mjs check 9x16          (seek every frame, report exceptions)
 //   node motion/render.mjs cues 9x16 cues.json (export the sound cues for score.py)
@@ -52,23 +52,53 @@ if (mode === "stills") {
 } else if (mode === "cues") {
   fs.writeFileSync(out || path.join(here, "cues.json"), JSON.stringify(meta, null, 1));
 } else {
-  const file = out || path.join(here, `valence-intro-${fmt}.mp4`);
-  const args = ["-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", String(meta.fps), "-c:v", "png", "-i", "-"];
+  // Motion blur: every output frame averages SUB sub-frames spread across a 180° shutter
+  // (centred on the frame time), rendered by WORKERS headless browsers in parallel.
+  const SUB = Number(process.env.SUB || 6), WORKERS = Number(process.env.WORKERS || 4);
+  const file = out || path.join(here, `out/valence-entry-one-${fmt}.mp4`);
+  const n = Number(process.env.LIMIT || Math.round(meta.dur * meta.fps)), shutter = 0.5 / meta.fps;
+  const tmp = fs.mkdtempSync(path.join(process.env.TMPDIR || "/tmp", "vlnc-"));
+  const t0 = Date.now(); let done = 0;
+  const worker = async (w) => {
+    const s0 = Number(process.env.START || 0), a = s0 + Math.floor(n * w / WORKERS), b = s0 + Math.floor(n * (w + 1) / WORKERS);
+    const br = await chromium.launch({ args: ["--font-render-hinting=none", "--disable-lcd-text", "--force-color-profile=srgb"] });
+    const pg = await br.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
+    pg.on("pageerror", (e) => console.error("page error:", e.message));
+    await pg.goto(`http://127.0.0.1:${port}/motion/index.html?render&format=${fmt}`);
+    await pg.evaluate(() => window.film.ready);
+    const seg = path.join(tmp, `seg${w}.mkv`);
+    const ff = spawn("ffmpeg", ["-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", String(meta.fps * SUB), "-c:v", "mjpeg", "-i", "-",
+      "-vf", `tmix=frames=${SUB},select='eq(mod(n,${SUB}),${SUB - 1})',setpts=N/${meta.fps}/TB`, "-fps_mode", "passthrough", "-c:v", "ffv1", "-pix_fmt", "yuv444p", seg], { stdio: ["pipe", "inherit", "inherit"] });
+    for (let i = a; i < b; i++) {
+      for (let k = 0; k < SUB; k++) {
+        const t = i / meta.fps + (SUB > 1 ? (k / (SUB - 1) - 0.5) * shutter : 0);
+        await pg.evaluate((t) => window.film.seek(t), t);
+        const buf = await pg.screenshot({ type: "jpeg", quality: 94, clip: { x: 0, y: 0, width: W, height: H } });
+        if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once("drain", r));
+      }
+      if (++done % 60 === 0) process.stdout.write(`${fmt} frame ${done}/${n} · ${((Date.now() - t0) / 1000).toFixed(0)}s\n`);
+    }
+    ff.stdin.end();
+    await new Promise((r) => ff.on("close", r));
+    await br.close();
+    return seg;
+  };
+  const segs = await Promise.all(Array.from({ length: WORKERS }, (_, w) => worker(w)));
+  // join the segments as raw frames (no timestamps to drift), then encode once
+  const args = ["-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "yuv444p", "-s", `${W}x${H}`, "-r", String(meta.fps), "-i", "-"];
   if (extra) args.push("-i", extra);
-  args.push("-c:v", "libx264", "-preset", "slow", "-crf", "19", "-maxrate", "14M", "-bufsize", "28M", "-pix_fmt", "yuv420p", "-profile:v", "high", "-movflags", "+faststart", "-r", String(meta.fps));
+  args.push("-c:v", "libx264", "-preset", "slow", "-crf", "18", "-maxrate", "16M", "-bufsize", "32M", "-pix_fmt", "yuv420p", "-profile:v", "high", "-movflags", "+faststart");
   if (extra) args.push("-c:a", "aac", "-b:a", "256k", "-shortest");
   args.push(file);
-  const ff = spawn("ffmpeg", args, { stdio: ["pipe", "inherit", "inherit"] });
-  const n = Math.round(meta.dur * meta.fps);
-  const t0 = Date.now();
-  for (let i = 0; i < n; i++) {
-    const buf = await shot(i / meta.fps);
-    if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once("drain", r));
-    if (i % 60 === 0) process.stdout.write(`frame ${i}/${n} · ${((Date.now() - t0) / 1000).toFixed(0)}s\n`);
+  const enc = spawn("ffmpeg", args, { stdio: ["pipe", "inherit", "inherit"] });
+  for (const sgm of segs) {
+    const dec = spawn("ffmpeg", ["-loglevel", "error", "-i", sgm, "-fps_mode", "passthrough", "-f", "rawvideo", "-pix_fmt", "yuv444p", "-"], { stdio: ["ignore", "pipe", "inherit"] });
+    for await (const chunk of dec.stdout) { if (!enc.stdin.write(chunk)) await new Promise((r) => enc.stdin.once("drain", r)); }
   }
-  ff.stdin.end();
-  await new Promise((r) => ff.on("close", r));
-  console.log("wrote", file);
+  enc.stdin.end();
+  await new Promise((r, j) => enc.on("close", (c) => (c ? j(new Error("ffmpeg " + c)) : r())));
+  fs.rmSync(tmp, { recursive: true, force: true });
+  console.log("wrote", file, `in ${((Date.now() - t0) / 1000).toFixed(0)}s`);
 }
 await browser.close();
 server.close();
