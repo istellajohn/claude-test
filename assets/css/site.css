@@ -1262,7 +1262,7 @@ img.close__plate { object-fit: cover; object-position: 50% 40%; opacity: 0.9; }
 /* Five selected projects; the SANAM frame is landscape, so hold the stage in view */
 @media (min-width: 1100px) { .selected { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
 @media (min-width: 861px) and (max-width: 1099px) { .selected { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.case__img--sanam, .pick__img img[src*="sanam"] { object-position: 58% 50%; }
+.case__img--sanam, .pick__img img[src*="sanam"] { object-position: 6% 50%; } /* all four members of the band in frame */
 
 /* ======================================================================
    Photographic layer
