@@ -367,19 +367,11 @@
     core.addColorStop(0, hexA(pal[2], 0.55)); core.addColorStop(1, hexA(pal[2], 0));
     ctx.fillStyle = core; ctx.fillRect(0, 0, W, H);
     ctx.globalCompositeOperation = "multiply";
-    // dust lanes run along the nebula's axis as long thin streaks; round dark holes
-    // read as eyes and a mouth, and no plate should suggest a face
-    for (var d = 0; d < 6; d++) {
-      var t2 = r() * 2 - 1, off = (r() - 0.5) * S * 0.18;
-      var dx = ox + Math.cos(ang) * t2 * len * 0.8 + Math.cos(ang + 1.57) * off;
-      var dy = oy + Math.sin(ang) * t2 * len * 0.8 + Math.sin(ang + 1.57) * off;
-      var dr = S * (0.06 + r() * 0.1);
-      ctx.save();
-      ctx.translate(dx, dy); ctx.rotate(ang + (r() - 0.5) * 0.4); ctx.scale(3.2, 0.32);
-      var dg = ctx.createRadialGradient(0, 0, 0, 0, 0, dr);
-      dg.addColorStop(0, "rgba(4,5,8,0.6)"); dg.addColorStop(1, "rgba(4,5,8,0)");
-      ctx.fillStyle = dg; ctx.fillRect(-dr, -dr, dr * 2, dr * 2);
-      ctx.restore();
+    for (var d = 0; d < 9; d++) {
+      var dx = ox + (r() - 0.5) * S * 0.6, dy = oy + (r() - 0.5) * S * 0.4, dr = S * (0.04 + r() * 0.12);
+      var dg = ctx.createRadialGradient(dx, dy, 0, dx, dy, dr);
+      dg.addColorStop(0, "rgba(4,5,8,0.75)"); dg.addColorStop(1, "rgba(4,5,8,0)");
+      ctx.fillStyle = dg; ctx.fillRect(0, 0, W, H);
     }
     ctx.restore();
     brightStars(ctx, W, H, r, 5);

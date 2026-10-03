@@ -40,20 +40,20 @@ Every catalogued piece gets its own celestial body (a planet, horizon, eclipse o
 
 ### Photographs
 
-- **No decorative image shows a face.** This covers the generated artwork and the original assets. Client material is kept only where it meets the same rule: Odisha and Spying Stars show face-free crops of the real campaign and poster (`case-*-type.jpg`). Entrust (Rajmohan Krishnan) and Band SANAM use typographic cards until face-free project material is chosen. Retired images are kept, unpublished, in `masters/retired/`.
-- **Artwork (V3)** is generated photographic artwork, with no people. The full-resolution PNG masters are in `masters/v3/`; the web exports are `assets/img/stills/v3-*.jpg`. The eclipse is the agency hero. The others are placed through the still registry: `tools/stills.json`, written into pages as `<!--STILL:id-->`, with a `file` field naming the artwork. Wide frames keep their own shape on phones and are not cropped to portrait. A placed artwork shows its title as a small caption. Until a file exists, the page shows a labelled frame carrying the brief. The founder portrait (`about-stella`) waits for Stella's own photograph.
-- **The Journal's cosmic world is unchanged:** the planetary opening, the generative plates on every card and poster, the star-chart Catalogue, the grahas and the new-moon rhythm. The eye and profile covers now use the moon-through-glass and orbital-afterimage artwork (`VALENCE.images` in `data.js`). Nebula plates draw their dust as streaks rather than round holes, so no plate suggests a face.
-- The live starfield and its hairline axes appear on Journal pages only. Practice pages sit on quiet ink, graphite and petrol surfaces. No grain is laid over text or controls, and no extra grade is laid over the artwork.
+Two systems sit side by side.
 
-The earlier photographic briefs and Midjourney prompts remain in `docs/image-briefs.md` for reference.
+- **Stills** (V2 photographs, generated in ChatGPT; full-resolution PNG masters in `masters/v2/`, compressed web exports in `assets/img/stills/`) are the photographic layer of the practice pages and the Journal: eleven placements registered in `tools/stills.json` and written into pages as `<!--STILL:id-->`. When `assets/img/stills/<id>.jpg` exists the build places it (with `<id>-m.jpg` as an art-directed phone crop, if present); until then the page shows a labelled frame carrying the brief: subject, composition, light and why it sits there. Each still has a desktop and phone ratio, a focus point for each, and a light family (night, dusk, day) that tints its frame. The Journal's planets, plates, star chart and new-moon rhythm stay as they were; the Journal photographs have their own placements (beside the three questions, after the essay list, between the Catalogue chart and table, and inside the two reading templates). The home hero layers a photograph per side (`hero-night`, `hero-day`) under the WebGL horizon. The planetary-limb study (`study-limb`) is registered but not yet placed. The founder portrait (`about-stella`) waits for Stella's own photograph. The original briefs and Midjourney prompts are in `docs/image-briefs.md`.
+- **Image slots** are set in `VALENCE.images` in `data.js` (generated photographs in `assets/img/`: eye, profile, star-trails, moonrise, limb; the home page also uses profile-beam and trails-torch); any slot left empty falls back to a plate: `essayHero`, `interviewHero`, `homeInterlude`, `homeLetter`, `essaysBanner`. Their prompts are in `docs/image-prompts.md`.
+
+Every photograph on the site shares one grade in `site.css` (contrast held, saturation just under natural, fine grain and a soft vignette), so generated, client and commissioned images read as one set.
 
 ## Type
 
 All from Google Fonts:
 
-- **Host Grotesk**: headings at Regular or Medium, reading text and interface.
-- **Anybody** (variable width 50–150%): kept for brief emphasis only, such as the Journal mastheads.
-- **Ballet**: complete annotations only (the masthead lines). Headlines carry no script words; a `{braced}` word in a title now renders in the heading's own face.
+- **Anybody** (variable width 50–150%): display. It stretches between condensed and extended, and the hover and entrance animations use that width axis.
+- **Ballet**: the script word inside headlines.
+- **Host Grotesk**: reading text and interface.
 - **Martian Mono**: coordinates, catalogue numbers, labels.
 - **La Belle Aurore**: pencil notes in the margins.
 

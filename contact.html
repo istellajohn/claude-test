@@ -18,6 +18,9 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="sky" aria-hidden="true"><canvas id="sky-base"></canvas><canvas id="sky-live"></canvas></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="axis" aria-hidden="true"></div>
 <div class="page">
 <div class="ephemeris" role="note" aria-label="Tonight's sky">
   <div class="ephemeris__group">
@@ -62,7 +65,7 @@
       <h1 class="page-h">Tell us what has taken up room in your <span class="script">head</span>.</h1>
       <p class="page-lede">You might have a project ready to begin, or an idea whose form is still taking shape. Tell us what you know about it and what you would like help with. A few honest lines give us somewhere to start.</p>
       <p class="mono muted" style="margin-top:24px">You can also write directly to <a href="mailto:buzz@vlnc.in">buzz@vlnc.in</a>. <button type="button" class="linkbtn" data-copy="buzz@vlnc.in" data-copied="Email address copied">Copy email address</button></p>
-      <div class="contact__still"><figure class="still" data-still="contact-train" data-temp="dusk" style="--ratio:1122 / 1402;--ratio-m:1122 / 1402;--focus:50% 50%;--focus-m:50% 50%"><div class="still__frame"><img src="assets/img/stills/v3-passing-signal.jpg" alt="Rain on a train window at night, amber and green lights streaking past outside" width="1122" height="1402" loading="lazy" decoding="async"></div><figcaption class="still__cap mono">Passing signal</figcaption></figure></div>
+      <div class="contact__still"><figure class="still" data-still="contact-train" data-temp="dusk" style="--ratio:1122 / 1402;--ratio-m:1122 / 1402;--focus:40% 40%;--focus-m:40% 38%"><div class="still__frame"><img src="assets/img/stills/contact-train.jpg" alt="A woman on a train at dusk, her face layered with the reflection of the sea passing outside" width="1122" height="1402" loading="lazy" decoding="async"></div><figcaption class="still__cap mono">What the window keeps</figcaption></figure></div>
     </div>
     <form class="enquiry" data-enquiry novalidate>
       <div class="field"><label for="q-name">Your name</label><input id="q-name" name="name" autocomplete="name" required></div>

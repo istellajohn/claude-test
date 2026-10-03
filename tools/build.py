@@ -138,12 +138,11 @@ def chrome_top(meta):
 """
     tag = "Journal" if journal else "Creative practice"
     cta = '<a class="btn" href="contact.html">Bring us into it</a>'
-    # the live sky and its hairline axes belong to the Journal's celestial world;
-    # practice pages sit on quiet surfaces, and no grain is laid over text or controls
-    sky = ('<div class="sky" aria-hidden="true"><canvas id="sky-base"></canvas><canvas id="sky-live"></canvas></div>\n'
-           '<div class="axis" aria-hidden="true"></div>\n') if journal else ""
     return f"""<a class="skip" href="#main">Skip to content</a>
-{sky}<div class="page">
+<div class="sky" aria-hidden="true"><canvas id="sky-base"></canvas><canvas id="sky-live"></canvas></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="axis" aria-hidden="true"></div>
+<div class="page">
 <div class="ephemeris" role="note" aria-label="Tonight's sky">
   <div class="ephemeris__group">
     <span><span data-moon-glyph="12"></span><span data-eph="moon">Tonight's sky</span></span>
@@ -224,13 +223,12 @@ def still(key):
     style = (f'--ratio:{st["ratio"]};--ratio-m:{st["ratio_m"]};'
              f'--focus:{st["focus"]};--focus-m:{st["focus_m"]}')
     stills = ROOT / "assets" / "img" / "stills"
-    name = st.get("file", key)
-    if (stills / f"{name}.jpg").exists():
-        img = (f'<img src="assets/img/stills/{name}.jpg" alt="{esc(st["alt"])}" '
+    if (stills / f"{key}.jpg").exists():
+        img = (f'<img src="assets/img/stills/{key}.jpg" alt="{esc(st["alt"])}" '
                f'width="{st["w"]}" height="{st["h"]}" loading="lazy" decoding="async">')
-        if (stills / f"{name}-m.jpg").exists():
+        if (stills / f"{key}-m.jpg").exists():
             # a separate phone crop, art-directed rather than cut from the wide frame
-            img = (f'<picture><source media="(max-width: 560px)" srcset="assets/img/stills/{name}-m.jpg">'
+            img = (f'<picture><source media="(max-width: 560px)" srcset="assets/img/stills/{key}-m.jpg">'
                    f'{img}</picture>')
         inner = img
         cls = "still"

@@ -144,8 +144,8 @@ window.VALENCE = {
   /* Optional photographs for page-level image slots (see docs/image-prompts.md).
      Leave empty to use the generative plates. */
   images: {
-    essayHero: "assets/img/stills/v3-orbital.jpg",       // essay hero and Journal feature: the orbital afterimage
-    interviewHero: "assets/img/stills/v3-moon-glass.jpg",   // interview hero and Journal feature: the moon through glass
+    essayHero: "assets/img/eye.jpg",       // essay hero and home feature: the eye
+    interviewHero: "assets/img/profile.jpg",   // interview hero and home feature: the profile
     homeInterlude: "assets/img/star-trails.jpg",   // home question band: the star trails
     homeLetter: "assets/img/moonrise.jpg",      // home letter panel: the reaching hand
     essaysBanner: "assets/img/limb.jpg"     // essays page banner: the horizon
