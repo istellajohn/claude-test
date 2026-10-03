@@ -150,20 +150,23 @@
   "about-stella": {
     "code": "A-02",
     "page": "About · A note from Stella",
-    "kind": "Portrait, to be photographed",
+    "kind": "Portrait",
     "temp": "dusk",
     "title": "Stella John, at dusk",
     "subject": "Stella, photographed, not generated. A camera or notebook in hand, unposed.",
     "composition": "Three-quarter, eyes on the upper third, room enough around her to breathe.",
     "light": "Window light at dusk, warm on skin, shadows left open.",
     "purpose": "A founder's note needs the founder's face, and the face should belong to the same world as the work.",
-    "alt": "Stella John, founder of VALENCE, photographed by a window at dusk",
+    "alt": "Stella John, founder of VALENCE, seated by a window at sunset with a camera in her hands",
     "ratio": "4 / 5",
     "ratio_m": "4 / 5",
     "focus": "50% 35%",
     "focus_m": "50% 30%",
     "plate": "nebula",
-    "seed": 308
+    "seed": 308,
+    "caption": "Stella John",
+    "w": 1036,
+    "h": 1295
   },
   "contact-train": {
     "code": "C-01",
