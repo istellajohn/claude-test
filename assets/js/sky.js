@@ -1114,3 +1114,36 @@
   initRotator();
   initGrahas();
 })();
+
+/* Image frames: add the .glint layer to every frame (including frames the
+   listings draw later) and let a point of starlight follow the cursor. */
+(function () {
+  var SEL = ".still__frame,.case__plate,.pick__img,.statement__img,.slot,.feature__plate,.banner,.letter__media,.card__plate,.poster__link,.next__plate";
+  var queued = false;
+  function attach() {
+    queued = false;
+    var frames = document.querySelectorAll(SEL);
+    for (var i = 0; i < frames.length; i++) {
+      var f = frames[i];
+      if (f.querySelector(":scope > .glint")) continue;
+      var g = document.createElement("span");
+      g.className = "glint";
+      g.setAttribute("aria-hidden", "true");
+      f.appendChild(g);
+    }
+  }
+  function queue() { if (!queued) { queued = true; requestAnimationFrame(attach); } }
+  attach();
+  if (window.MutationObserver) new MutationObserver(queue).observe(document.body, { childList: true, subtree: true });
+  document.addEventListener("pointermove", function (e) {
+    var f = e.target && e.target.closest ? e.target.closest(SEL) : null;
+    if (!f) {
+      var host = e.target && e.target.closest ? e.target.closest(".pick,.card__link,.next") : null;
+      f = host ? host.querySelector(SEL) : null;
+    }
+    if (!f) return;
+    var r = f.getBoundingClientRect();
+    f.style.setProperty("--mx", (e.clientX - r.left) + "px");
+    f.style.setProperty("--my", (e.clientY - r.top) + "px");
+  }, { passive: true });
+})();
