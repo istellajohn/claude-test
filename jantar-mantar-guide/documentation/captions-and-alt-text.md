@@ -16,7 +16,7 @@ Twenty pages, because that's how many things can go wrong. Hindi version in the 
 
 ## WhatsApp forward
 
-*Jantar Mantar 2.0, Sat 10 Oct: checked 9 Oct, 9:40 pm*
+*Jantar Mantar 2.0, Sat 10 Oct: checked 9 Oct, 11:45 pm*
 
 No police permission. Mobile internet reported off within ~4 km. 57 metro stations closed for entry and exit. Trains to New Delhi and Nizamuddin cancelled 4 am to 2 pm.
 
@@ -39,7 +39,7 @@ Independent guide by Stella John.
 
 ## Pinned comment
 
-Last updated 9 Oct 2026, 9:40 pm IST. Corrections will appear here first, with the time.
+Last updated 9 Oct 2026, 11:45 pm IST. Corrections will appear here first, with the time.
 
 Sources: The Wire, The Quint, ABC (Reuters), ThePrint, Indian Express, Bar & Bench, NPR, Business Standard, TechCrunch, WION, Skymet, the American Academy of Ophthalmology, Physicians for Human Rights, and the published contact pages of Jagori, HRLN, APCR, SFLC.in and PUCL. The allegations on slide 3 are reported and attributed, and have not been tested in court.
 

@@ -2,7 +2,7 @@
 
 By Stella John, published independently in her personal capacity. Not affiliated with any party, organiser or organisation listed.
 
-Last fact check: **9 Oct 2026, 9:40 pm IST**. Things are changing by the hour. Re-check `research/source-ledger.md` before every re-publish.
+Last fact check: **9 Oct 2026, 11:45 pm IST**. Things are changing by the hour. Re-check `research/source-ledger.md` before every re-publish.
 
 ## What's here
 

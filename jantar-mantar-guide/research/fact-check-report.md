@@ -1,6 +1,12 @@
 # Editorial fact-check report (revision 4)
 
-**Status at 9 Oct 2026, 9:40 pm IST.**
+**Status at 9 Oct 2026, 11:45 pm IST.**
+
+## Re-check before posting (9 Oct, 11:45 pm IST)
+
+Re-checked permission, metro, trains and internet against current reports (ETV Bharat live blog, NewsX, State Mirror). Nothing contradicts the status slide. The 57-station metro closure is still reported both as a DMRC announcement and as a police request, which is why the slide marks it "changing" and points to DMRC. A legal challenge to the metro, train and internet restrictions (Kapil Sibal for M A Baby) was reported, with no outcome found.
+
+Copy that said "tomorrow" or "कल" now says "today" or "आज", because the post goes up at midnight on 10 Oct.
 
 ## What's in this version
 

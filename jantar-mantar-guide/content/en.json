@@ -18,7 +18,7 @@
       "date": "Saturday, 10 October 2026",
       "headline": "I was at|Jantar Mantar 1.0.",
       "headline2": "If you’re going for 2.0,|here’s what I want you to know.",
-      "deck": "Twenty pages on what can go wrong tomorrow, and what to do when it does. Save it while you still have signal.",
+      "deck": "Twenty pages on what can go wrong today, and what to do when it does. Save it while you still have signal.",
       "byline": "By Stella John"
     },
     {
@@ -109,7 +109,7 @@
         ],
         [
           "Back up, then log out",
-          "Back up your photos and chats tonight. Log out of anything you won’t need tomorrow."
+          "Back up your photos and chats tonight. Log out of anything you won’t need today."
         ],
         [
           "Save maps offline",
@@ -259,7 +259,7 @@
         ],
         [
           "A painkiller you already use",
-          "Not something new tomorrow",
+          "Not something new today",
           "pills"
         ],
         [
@@ -661,14 +661,14 @@
         "Someone at home",
         "Your person there"
       ],
-      "honest": "The organisers set up a legal-aid fund and volunteer lawyers in July. Get their legal contact from their official handle before you leave. I couldn’t confirm any lawyer or doctor on the ground for tomorrow."
+      "honest": "The organisers set up a legal-aid fund and volunteer lawyers in July. Get their legal contact from their official handle before you leave. I couldn’t confirm any lawyer or doctor on the ground for 10 Oct."
     },
     {
       "id": "closing",
       "type": "closing",
       "kicker": "",
       "headline": "I hope everyone|gets home safe.",
-      "body": "You’ll be angry tomorrow, and you’ll have every right to be. Shout. Just don’t be on your own, and don’t hand them the excuse they’re waiting for. Film what you can. If something happens to you or to the person beside you, it doesn’t end when the bus doors open. Write it down, show a doctor, copy the footage, find a lawyer, and keep at it until somebody answers for it.",
+      "body": "You’ll be angry today, and you’ll have every right to be. Shout. Just don’t be on your own, and don’t hand them the excuse they’re waiting for. Film what you can. If something happens to you or to the person beside you, it doesn’t end when the bus doors open. Write it down, show a doctor, copy the footage, find a lawyer, and keep at it until somebody answers for it.",
       "sign": "Stella John",
       "credit": "Independent citizen’s guide · 10 October 2026"
     }
@@ -740,9 +740,9 @@
   ],
   "stories": {
     "1": {
-      "kicker": "A guide, before tomorrow",
+      "kicker": "A guide, before you leave",
       "headline": "I was at|Jantar Mantar 1.0|in July.",
-      "body": "If you’re going for 2.0 tomorrow, I’ve put together what I’d want you to have read first: what has actually been happening, what to pack, what to do about tear gas, crowds, grabbing hands and police buses, and how to keep proof nobody can take from you.",
+      "body": "If you’re going for 2.0 today, I’ve put together what I’d want you to have read first: what has actually been happening, what to pack, what to do about tear gas, crowds, grabbing hands and police buses, and how to keep proof nobody can take from you.",
       "cta": "Twenty pages on my profile. Save them while you have signal."
     },
     "2": {
