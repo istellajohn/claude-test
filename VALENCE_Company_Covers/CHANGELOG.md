@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v02 (2026-10-09)
+- Four profile picture variations (Monolith, Signature, Orbit, Field), 2048 master plus 800 and 400 exports, circle-crop and size-ladder review board.
+- Official profile picture specs added to `01_RESEARCH/notes.md` and `DESIGN_SYSTEM.md`.
+
 ## v01 (2026-10-09)
 - Three directions across LinkedIn, Facebook, YouTube.
 - Logos vector-traced from supplied PNGs and verified against the originals.

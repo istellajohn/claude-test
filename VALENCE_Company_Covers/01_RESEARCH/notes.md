@@ -14,6 +14,12 @@
 - Facebook: the help page is dated and describes a desktop display of 16:9 while most guides still say 820 x 312. We designed to pass all three crops. Re-test in Meta Business Suite preview before publishing.
 - LinkedIn and Facebook both overlay the profile picture on the cover. The approximate zones drawn in QC are estimates, not official figures.
 
+## Profile picture specifications (checked 2026-10-09)
+- LinkedIn Page logo: 400 x 400 recommended, 268 x 268 minimum, PNG or JPEG, 3 MB. Logos show on light and dark backgrounds.
+- Facebook Page picture: displays 176 px (computer) and 196 px (smartphone), cropped to a circle, 320 x 320 for best quality.
+- YouTube channel picture: renders at 98 x 98, square crop box in Studio, PNG/JPG/GIF/BMP, 15 MB max. The help page does not state circle or square, so we design circle-safe.
+- Instagram was not requested; the 2048 master covers it (circle crop).
+
 ## Imagery
 Searched NASA Image and Video Library (images.nasa.gov) for elemental, abstract aerial imagery that fits the deck's "elemental texture / blurred motion" direction without stock clichés. Shortlisted eight Landsat and MODIS images; chose two at 7000+ px so they hold at 4K. Contact sheet: `visual_research/nasa_candidates_sheet.jpg`.
 

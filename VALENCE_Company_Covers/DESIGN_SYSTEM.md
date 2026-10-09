@@ -44,3 +44,20 @@ Axis hairlines with `+` coordinates (A), orange slash tagline (all), orbit ring 
 
 ## Export
 `python3 -I 04_WORKING/source_files/build_covers.py final` then `make_boards_and_uploads.py`. Upload JPEGs are sRGB, under 3 MB (LinkedIn) and 6 MB (YouTube).
+
+## Profile pictures (v02)
+Canvas 1024 CSS px @2x = 2048 x 2048 master, square and full bleed. Content sits inside the inscribed circle (circle crop on Facebook, YouTube, Instagram) and reads as a square on LinkedIn.
+
+| Platform | Official figure | Source |
+|---|---|---|
+| LinkedIn Page logo | 400 x 400 recommended, 268 x 268 minimum, PNG or JPEG, 3 MB | LinkedIn Help a563309 |
+| Facebook Page picture | shows 176 px desktop / 196 px mobile, cropped to a circle, upload 320 x 320 | Facebook Help 125379114252045 |
+| YouTube channel picture | renders at 98 x 98, square crop in Studio, PNG/JPG, 15 MB max | YouTube Help 10456525 |
+
+| Variant | Ground | Mark | Device | Pairs with |
+|---|---|---|---|---|
+| V1 Monolith | Onyx | Bone stacked VLNC, 468 px wide | one Verve bar 150 x 14, faint giant mark behind | Cover A |
+| V2 Signature | Onyx | Gold signature, 770 px wide | soft gold glow | Cover B |
+| V3 Orbit | Bone | Onyx stacked VLNC, 380 px wide | ring r380 and four nodes (Onyx, Forest, Sea, Verve) on the diagonals, echoing the 2x2 mark | Cover C |
+| V4 Field | Landsat Gotland, graded | Bone stacked VLNC, 470 px wide | shallow-focus pool behind the mark | Cover B |
+Known limit: V2's hairline strokes do not hold below about 56 px. Use V1, V3 or V4 where the avatar renders small.

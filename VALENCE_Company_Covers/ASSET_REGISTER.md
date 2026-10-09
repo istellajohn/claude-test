@@ -43,9 +43,9 @@ All external assets used in VALENCE_Company_Covers v01. Checked 2026-10-09.
 **Original:** `03_ASSETS/photography/NASA_Landsat7_Gotland_orig.jpg` (7152 x 7116)
 **Licence:** NASA content is generally not subject to copyright in the US (NASA Brand Center, images and media guidance). No third-party copyright mark in the record. Landsat data is a USGS public dataset.
 **Commercial use:** Yes, with conditions: must not state or imply NASA endorsement, must not use the NASA insignia or logotype. Attribution not required; credited in the "Fig. 01" caption anyway.
-**Used in:** Direction B (LinkedIn, Facebook, YouTube)
+**Used in:** Direction B (LinkedIn, Facebook, YouTube) and profile picture V4 Field
 **Modified:** Cropped, luminance-mapped to Onyx/Forest/Sea/Bone ramp, partial green retention, softened 0.5 to 0.9 px, grain added, blurred focus pool behind the signature (CSS)
-**Local files:** `03_ASSETS/photography/graded/Gotland_graded_sea.jpg` (regenerable), crops in `graded/crops/B_*.jpg`
+**Local files:** `03_ASSETS/photography/graded/Gotland_graded_sea.jpg` (regenerable), crops in `graded/crops/B_*.jpg` and `V4_avatar.jpg`
 **Script:** `04_WORKING/source_files/grade_images.py`
 
 ### Asset 02: Algerian Abstract (Erg Iguidi, Algeria and Mauritania)
