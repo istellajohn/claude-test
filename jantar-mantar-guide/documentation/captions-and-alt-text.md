@@ -1,18 +1,28 @@
 # Captions, forwards and alt text (revision 3)
 
-## Instagram caption
+## Instagram caption (English)
 
-I was at Jantar Mantar 1.0 in July. Communication broke down for me that day, and 112 didn't help the way it should have.
+I was at Jantar Mantar 1.0 in July. If you're going today, read this first.
 
-Since then it's got worse. In the last week, women journalists have alleged that police groped them. One says officers lifted her shirt on a detention bus. A student leader says she was driven to Narela in an unmarked car with no woman officer. Officers have been seen without name tags. The complainants were told there'd be no FIR without video.
+Twenty pages on what has actually been happening, and what to do if it happens to you.
 
-So this isn't a "know your rights and stay calm" guide. It covers what has actually been happening, what to do if someone puts their hands on you, what to do if they put you in a bus, how to keep evidence they can't take from you, and how to make them answer for it afterwards.
+Don't go alone, write a number on your arm, and record everything.
 
-The protest has no police permission and restrictions are changing by the hour, so check before you decide anything. The numbers are public lines I checked tonight. None of them is confirmed as staffed tomorrow, and none of them has endorsed this.
+Save it now, while you still have signal. Hindi version in the next post.
 
-Don't go alone. Write a number on your arm. Record everything.
+Independent guide. Not affiliated with any party or organiser.
 
-Twenty pages, because that's how many things can go wrong. Hindi version in the next post.
+## Instagram caption (Hindi)
+
+जुलाई में मैं जंतर मंतर 1.0 पर थी। आज जा रहे हैं, तो पहले यह पढ़ लीजिए।
+
+बीस पन्ने, कि असल में क्या होता रहा है, और आपके साथ हो तो क्या करना है।
+
+अकेले मत जाइए, बाँह पर एक नंबर लिख लीजिए, और सब रिकॉर्ड कीजिए।
+
+सिग्नल रहते ही सेव कर लीजिए। English version पिछली पोस्ट में है।
+
+स्वतंत्र गाइड। किसी पार्टी या आयोजक से जुड़ी नहीं।
 
 ## WhatsApp forward
 
