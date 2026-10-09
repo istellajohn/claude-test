@@ -1,0 +1,16 @@
+{
+  "name": "jantar-mantar-2-citizen-guide",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Independent citizen's guide for Jantar Mantar 2.0 (10 Oct 2026) by Stella John. Editable HTML/SVG design system rendered with Playwright.",
+  "scripts": {
+    "build": "node src/build.js",
+    "build:en": "node src/build.js --only=en-",
+    "build:hi": "node src/build.js --only=hi-",
+    "build:cards": "node src/build.js --only=card-",
+    "build:stories": "node src/build.js --only=story-",
+    "build:whatsapp": "node src/build.js --only=wa-",
+    "sheets": "node src/contact-sheet.js exports/instagram-carousel-en exports/contact-sheets/en-carousel.png 4 && node src/contact-sheet.js exports/instagram-carousel-hi exports/contact-sheets/hi-carousel.png 4 && node src/contact-sheet.js exports/standalone-cards exports/contact-sheets/cards.png 3 && node src/contact-sheet.js exports/stories exports/contact-sheets/stories.png 5 && node src/contact-sheet.js exports/whatsapp exports/contact-sheets/whatsapp.png 4"
+  },
+  "dependencies": { "playwright": "^1.56.0" }
+}
