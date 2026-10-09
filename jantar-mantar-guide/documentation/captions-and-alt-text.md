@@ -2,27 +2,23 @@
 
 ## Instagram caption (English)
 
-I was at Jantar Mantar 1.0 in July. If you're going today, read this first.
+I was at Jantar Mantar in July. For hours I couldn't reach anyone, and 112 was no help.
 
-Twenty pages on what has actually been happening, and what to do if it happens to you.
+So if you're going today, please don't go alone. Write a number on your arm. Film whatever you can.
 
-Don't go alone, write a number on your arm, and record everything.
+I've put everything I could find in here. Save it before the internet goes.
 
-Save it now, while you still have signal. Hindi version in the next post.
-
-Independent guide. Not affiliated with any party or organiser.
+Hindi version in the next post. And this is just me. No party, no organiser.
 
 ## Instagram caption (Hindi)
 
-जुलाई में मैं जंतर मंतर 1.0 पर थी। आज जा रहे हैं, तो पहले यह पढ़ लीजिए।
+जुलाई में मैं जंतर मंतर पर थी। घंटों किसी से बात नहीं हो पाई, और 112 से कोई मदद नहीं मिली।
 
-बीस पन्ने, कि असल में क्या होता रहा है, और आपके साथ हो तो क्या करना है।
+इसलिए आज जा रहे हैं तो प्लीज़ अकेले मत जाइए। बाँह पर एक नंबर लिख लीजिए। जो दिखे, रिकॉर्ड कीजिए।
 
-अकेले मत जाइए, बाँह पर एक नंबर लिख लीजिए, और सब रिकॉर्ड कीजिए।
+जो कुछ पता कर पाई, सब इसमें है। नेट जाने से पहले सेव कर लीजिए।
 
-सिग्नल रहते ही सेव कर लीजिए। English version पिछली पोस्ट में है।
-
-स्वतंत्र गाइड। किसी पार्टी या आयोजक से जुड़ी नहीं।
+English वाला पिछली पोस्ट में है। और हाँ, ये बस मैं हूँ। कोई पार्टी नहीं, कोई आयोजक नहीं।
 
 ## WhatsApp forward
 
