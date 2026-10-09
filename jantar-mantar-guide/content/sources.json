@@ -222,5 +222,45 @@
     "type": "News",
     "date": "2026-07-28",
     "reliability": "High; no public helpline number found"
+  },
+  "L29": {
+    "short": "TechCrunch, 3 Oct",
+    "title": "Jack Dorsey's Bitchat disappears from app stores in India after government order",
+    "url": "https://techcrunch.com/2026/10/03/jack-dorseys-bitchat-disappears-from-app-stores-in-india-after-government-order/",
+    "type": "News",
+    "date": "2026-10-03",
+    "reliability": "High"
+  },
+  "L30": {
+    "short": "WION / Open, July",
+    "title": "How Bluetooth mesh apps kept communication alive during the Delhi protests",
+    "url": "https://www.wionews.com/india-news/delhi-neet-protests-how-bluetooth-mesh-apps-kept-communication-alive-without-internet-1784890656998",
+    "type": "News",
+    "date": "2026-07",
+    "reliability": "Medium; describes apps, not measured performance"
+  },
+  "L31": {
+    "short": "American Academy of Ophthalmology; PHR",
+    "title": "Eye safety during protests; Physicians for Human Rights tear gas guide",
+    "url": "https://www.aao.org/eye-health/drugs/protect-eye-safety-protest-rubber-bullet-tear-gas",
+    "type": "Medical guidance",
+    "date": "Checked 2026-10-09",
+    "reliability": "High"
+  },
+  "L32": {
+    "short": "Skymet, 5 Oct",
+    "title": "Delhi temperature outlook for early October",
+    "url": "https://skymetweather.com/content/monsoon-update/mercury-goes-above-normal-in-delhi-rain-showers-likely-this-week",
+    "type": "Weather",
+    "date": "2026-10-05",
+    "reliability": "Medium; forecast"
+  },
+  "L33": {
+    "short": "Crowd-safety guidance (P. Wertheimer)",
+    "title": "How to survive a crowd crush",
+    "url": "https://www.worldnomads.com/travel-safety/worldwide/how-to-survive-a-stampede",
+    "type": "Expert guidance",
+    "date": "Checked 2026-10-09",
+    "reliability": "Medium-high"
   }
 }

@@ -1,29 +1,27 @@
-# Editorial fact-check report (revision 2)
+# Editorial fact-check report (revision 4)
 
-**Status at 9 Oct 2026, 9:40 pm IST, revised the same night after author feedback.**
+**Status at 9 Oct 2026, 9:40 pm IST.**
 
-## What changed in revision 2, and why
+## What's in this version
 
-The author's feedback was that a rights-and-calm guide is useless against how Delhi Police have actually behaved, and that the first version left out harassment. Both points are right, and the evidence supports them.
+The guide is now 20 slides in each language. New topics: getting there and back; phone preparation; what still works without internet; a medicine kit; heat, panic and fainting; tear gas; lathi charges and crowd crush; and what to do if your phone is taken. The "What to carry" slide now includes a photocopy of one ID, an emergency card with blood group, glasses instead of lenses, and a "Leave at home" list.
 
-- **New slide 03, "What to expect":** six documented patterns from the past weeks, each sourced and labelled as reported or alleged.
-- **New slide 07:** what to do if grabbed, groped or stripped, including by police.
-- **New slide 08:** what to do if put in a detention bus, inside and outside, using tactics that worked on 4 Oct.
-- **Legal content moved to slide 10, "Afterwards":** framed as accountability, where it has real force. It covers medical exam and MLC, Zero FIR, the DCP and magistrate routes, NCW and the Police Complaints Authority, and BNS s.199(c).
-- **"Stay calm" removed everywhere.** It's replaced with "don't hit back", which is a tactical reason, not a demand for composure.
-- **Contacts:** DCW 181, NCW 14490 and the Delhi Police Complaints Authority added. "Getting around" and the electoral-roll slide removed for space.
-- **Correction:** the October allegations are of **sexual harassment**, and Delhi Police acknowledged them. My first note said reporting described "assault", but that referred to a different September case. Stella's original poster wording was accurate.
+Government help routes (DCP, magistrate, women's commissions, police complaints authority, state legal aid) were removed at the author's direction. The guide relies on independent organisations, a trusted doctor, and the person's own record.
+
+## Claims to know about
+
+| Claim | Basis | Note |
+|---|---|---|
+| Bitchat removed from Indian app stores | TechCrunch, 3 Oct (L29) | Only Bitchat is confirmed removed. One outlet reported an order covering Briar and Bridgefy too, which is unconfirmed. The slide names Briar and Bridgefy only as apps used at 1.0. It does not tell anyone to sideload a blocked app. |
+| Mesh apps' limits (range, density, battery) | WION (L30) | Framed as a backup, never the only plan |
+| Tear gas: leave, don't rub, rinse with water, lenses out, milk and oil no better | AAO, PHR (L31) | Standard medical guidance |
+| Crowd crush: exits, arms at chest, move in lulls, avoid barricades | Crowd-safety expert P. Wertheimer (L33) | "Cover your head with your arms" is standard advice not found in that specific source |
+| Low 30s in October | Skymet, 5 Oct (L32) | Forecast |
+| Hotels told not to take protesters; border checks on young people with posters | Indian Express, 9 Oct (L02) | Attributed to police sources, worded as "reportedly" |
+| Maharashtra bond notices | Indian Express, 9 Oct (L02) | The DGP's office admits notices and denies detentions |
+| RML and Lady Hardinge are the nearest big hospitals | Geography | Both are within about 2 km of Jantar Mantar |
 
 ## Still needs a human to confirm
-
-1. **A lawyer should read slides 07 and 10 and cards C and F.** Section numbers are consistent across multiple reproductions but were not read from the gazette. The courts are split on whether s.43(5) is mandatory, which is why the slide says "should not".
-2. **Re-check the DMRC station list** after the Supreme Court hearing.
-3. **The internet suspension order itself was not seen.**
-4. **Reddit could not be accessed** from this environment. If you have threads, they can be added as labelled first-hand accounts.
-
-## Copy checks
-
-- No em dashes.
-- First-person claims are limited to the author's own account (1.0 in July, communication problems, 112 unreliable).
-- Allegations are attributed and labelled. The slide 03 footer says they have not been tested in court.
-- Nothing advises violence, obstruction or evading checkpoints. Resisting separation into a private car is framed as asking for a woman officer and a marked vehicle.
+1. Whether Briar and Bridgefy are still downloadable in India tonight.
+2. Jagori's current hours (they come from an older directory) and a phone number for PUCL (only the email is current).
+3. The organisers' legal-aid contact for 10 Oct, which wasn't published anywhere I could find.

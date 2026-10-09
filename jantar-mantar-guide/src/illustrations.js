@@ -230,4 +230,63 @@ function noNameTag(lang = 'en', w = 260, h = 230) {
   <path d="M60 150 h36 v40 l-18 10 l-18 -10z" fill="none" stroke="#C9B98F" stroke-width="2"/></svg>`;
 }
 
-module.exports = { busNote, noNameTag, P, ICON, icon, figure, crowd, samratYantra, paperSlip, phoneNoData, unreachable, recording, helpingHands };
+
+// ---------------------------------------------------------------- spot illustrations (240 × 240 line art)
+// One drawing per topic. Same stroke language as the icons: 3.2 px round strokes, carbon with a wine accent.
+function spot(name, o = {}) {
+  const ink = o.dark ? P.paper : P.carbon, acc = o.dark ? P.blush : P.wine, bg = o.dark ? '#2A2B28' : P.paper2;
+  const sz = o.size || 220;
+  const S = `fill="none" stroke="${ink}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"`;
+  const A = `fill="none" stroke="${acc}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"`;
+  let g = `<circle cx="120" cy="120" r="112" fill="${bg}"/>`;
+  const phone = (x, y, r = 0, w = 64, h = 112) => `<g transform="translate(${x} ${y}) rotate(${r})"><rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="10" ${S}/><path d="M-8 ${-h / 2 + 9}h16" ${S}/></g>`;
+  switch (name) {
+    case 'routes':
+      g += `<path d="M44 186 C70 150 60 110 100 96 S150 70 176 52" ${S} stroke-dasharray="2 10"/>`;
+      g += `<path d="M44 186 C90 196 130 180 150 150 S180 96 176 52" ${A} stroke-dasharray="2 10"/>`;
+      g += `<circle cx="44" cy="186" r="9" fill="${ink}"/>`;
+      g += `<path d="M162 60 l14 -14 l14 14 v16 h-28 z" ${S}/>`;
+      g += `<path d="M96 120 l14 14 M110 120 l-14 14" ${A}/>`;
+      break;
+    case 'lock':
+      g += phone(120, 124, 0, 92, 156);
+      g += `<rect x="98" y="88" width="44" height="34" rx="5" ${A}/><path d="M106 88 v-10 a14 14 0 0 1 28 0 v10" ${A}/>`;
+      [0, 1, 2].forEach(r => [0, 1, 2].forEach(c => { g += `<circle cx="${100 + c * 20}" cy="${144 + r * 18}" r="4.5" fill="${ink}"/>`; }));
+      break;
+    case 'mesh': {
+      const pts = [[62, 82], [120, 56], [178, 88], [92, 160], [158, 166]];
+      [[0, 1], [1, 2], [0, 3], [3, 4], [2, 4], [1, 3]].forEach(([a, b]) => { g += `<path d="M${pts[a][0]} ${pts[a][1]} L${pts[b][0]} ${pts[b][1]}" ${A} stroke-dasharray="3 9"/>`; });
+      pts.forEach(([x, y]) => { g += `<rect x="${x - 15}" y="${y - 24}" width="30" height="48" rx="6" fill="${bg}" stroke="${ink}" stroke-width="3.2"/>`; });
+      break; }
+    case 'sun':
+      g += `<circle cx="96" cy="96" r="30" ${A}/>`;
+      for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4; g += `<path d="M${96 + Math.cos(a) * 42} ${96 + Math.sin(a) * 42} L${96 + Math.cos(a) * 54} ${96 + Math.sin(a) * 54}" ${A}/>`; }
+      g += `<path d="M150 104 h22 v18 l8 10 v58 a6 6 0 0 1 -6 6 h-26 a6 6 0 0 1 -6 -6 v-58 l8 -10 z" ${S}/><path d="M144 150 h36" ${S}/>`;
+      break;
+    case 'eye':
+      g += `<path d="M40 112 C70 70 170 70 200 112 C170 154 70 154 40 112 Z" ${S}/><circle cx="120" cy="112" r="20" ${S}/><circle cx="120" cy="112" r="7" fill="${ink}"/>`;
+      g += `<path d="M84 34 c-10 14 -10 22 0 26 c10 -4 10 -12 0 -26z" ${A}/><path d="M64 150 c-8 12 -8 18 0 21 c8 -3 8 -9 0 -21z" ${A}/><path d="M170 152 c-8 12 -8 18 0 21 c8 -3 8 -9 0 -21z" ${A}/>`;
+      break;
+    case 'exits':
+      for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) g += `<circle cx="${84 + c * 24}" cy="${84 + r * 24}" r="7" fill="${ink}"/>`;
+      g += `<path d="M66 120 H30 M40 110 l-10 10 l10 10" ${A}/><path d="M174 120 H210 M200 110 l10 10 l-10 10" ${A}/>`;
+      g += `<path d="M120 66 V30 M110 40 l10 -10 l10 10" ${A}/>`;
+      break;
+    case 'phoneTaken':
+      g += phone(150, 110, 18);
+      g += `<path d="M40 176 C70 168 92 150 112 136 L136 124" ${S}/><path d="M44 196 C74 192 100 178 122 160" ${S}/>`;
+      g += `<path d="M126 60 q-26 -4 -36 18" ${A} stroke-dasharray="2 8"/><path d="M84 72 l6 8 l9 -5" ${A}/>`;
+      break;
+    case 'unreachable':
+      g += phone(78, 96, -10, 52, 90) + phone(162, 96, 10, 52, 90);
+      g += `<path d="M104 88 C114 76 126 76 136 88" ${S} stroke-dasharray="3 8"/><path d="M112 74 l16 16 M128 74 l-16 16" ${A}/>`;
+      g += `<path d="M78 144 C84 176 104 186 120 194 M162 144 C156 176 136 186 120 194" ${S}/><path d="M120 214 s16 -16 16 -28 a16 16 0 0 0 -32 0 c0 12 16 28 16 28z" fill="${acc}"/>`;
+      break;
+    case 'voice':
+      g += `<path d="M58 100 h24 l40 -30 v100 l-40 -30 h-24 z" ${S}/><path d="M146 92 a36 36 0 0 1 0 56" ${A}/><path d="M166 74 a62 62 0 0 1 0 92" ${A}/>`;
+      break;
+  }
+  return `<svg width="${sz}" height="${sz}" viewBox="0 0 240 240" style="display:block;flex:none">${g}</svg>`;
+}
+
+module.exports = { spot, busNote, noNameTag, P, ICON, icon, figure, crowd, samratYantra, paperSlip, phoneNoData, unreachable, recording, helpingHands };
