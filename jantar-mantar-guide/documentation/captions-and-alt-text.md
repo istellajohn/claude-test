@@ -12,7 +12,7 @@ The protest has no police permission and restrictions are changing by the hour, 
 
 Don't go alone. Write a number on your arm. Record everything.
 
-Hindi version in the next post.
+Twenty pages, because that's how many things can go wrong. Hindi version in the next post.
 
 ## WhatsApp forward
 
@@ -46,30 +46,27 @@ This guide is independent and not affiliated with any party or organiser. No hel
 
 ## Alt text (English)
 
-1. Cover. "I was at Jantar Mantar 1.0. If you're going for 2.0, here's what I want you to know." An illustration of Jantar Mantar's stepped sundial.
+1. Cover. “I was at Jantar Mantar 1.0. If you’re going for 2.0, here’s what I want you to know.” An illustration of Jantar Mantar’s stepped sundial.
 2. Status for 10 Oct: permission denied, 57 metro stations closed, trains cancelled, mobile internet reported off, checkpoints.
-3. "Don't plan for the rules. Plan for what's been happening." Six reported patterns: officers without name tags, women taken in unmarked cars after dark, sexual harassment allegations, no FIR without video, cameras snatched, batons and tear gas. An illustration of a police uniform with an empty name plate marked "Name?".
-4. "Your phone may stop connecting." Seven offline steps, beside a phone showing no data.
-5. A checklist with icons: water, food, medicines, power bank, PIN-locked phone, marker pen, cash, ID, shoes, spare glasses, access needs.
-6. "Don't be alone there. Not for a minute." A buddy plan for when someone is taken. A crowd illustration in which two strangers share water.
-7. "If you're grabbed, groped or stripped, make it loud. Including by a police officer." Five steps: shout, get people filming, record their identity, demand a woman officer, don't hit back.
-8. "If they put you in a bus." Six steps for inside the bus and what to do from outside, beside an illustration of a hand pressing a handwritten note to a bus window.
-9. "They go for cameras first. Record anyway." How to record, pass on and preserve footage, with a blank incident log.
-10. "The law may not protect you on the day. Use it after." Write it down, get a medical exam, file a Zero FIR, escalate if refused, complain to NCW and the Police Complaints Authority, get a lawyer.
-11. "Numbers to have on paper." 112, 102, 181, 14490, 15100, HRLN, APCR, SFLC.in.
-12. "I hope everyone gets home safe." A closing note signed by Stella John, over the sundial at dusk.
+3. Six things reported in recent weeks, from officers without name tags to women detained alone after dark.
+4. Planning the way in and the way home: border checks, no metro or cabs, two routes home, where to stay, police notices.
+5. Getting your phone ready tonight: PIN instead of face unlock, hidden previews, backups, offline maps, a second phone.
+6. What still works without internet: calls and SMS, Bluetooth mesh apps and their limits, and paper.
+7. A checklist of twelve things to carry, and what to leave at home.
+8. A twelve-item medicine kit.
+9. A buddy plan, with an illustration of two strangers in a crowd sharing water.
+10. Heat exhaustion, fainting and panic: signs and what to do.
+11. Tear gas: move uphill, don’t rub, rinse with plain water, lenses out.
+12. Lathi charge or crowd crush: exits, arms at the chest, moving in the lulls, protecting your head.
+13. If anyone grabs you, including a police officer: make noise, get it filmed, record who it is, ask for a woman officer, don’t swing back.
+14. If you’re put in a detention bus, with an illustration of a note pressed to the window.
+15. If your phone is taken: keep it locked, note who took it, change passwords, warn friends, contact SFLC.in.
+16. If you can’t find someone you came with: six steps.
+17. How to record, keep and share footage, with a blank incident log.
+18. Nobody official is coming. Build the record yourself: notes, a doctor, footage in three places, a lawyer, journalists.
+19. Numbers to keep on paper: ambulance 102, Jagori, HRLN, APCR, SFLC.in, PUCL, and space for your own.
+20. “I hope everyone gets home safe.” A note signed by Stella John.
 
 ## Alt text (Hindi)
 
-1. कवर: "मैं जंतर मंतर 1.0 में थी।" सम्राट यंत्र का चित्र।
-2. 10 अक्टूबर की स्थिति: अनुमति से इनकार, मेट्रो स्टेशन बंद, ट्रेनें रद्द, इंटरनेट बंद।
-3. "नियमों के भरोसे मत जाइए।" पिछले हफ़्तों की छह रिपोर्टेड घटनाएँ। बिना नाम की पट्टी वाली वर्दी का चित्र।
-4. "आपका फ़ोन काम करना बंद कर सकता है।" ऑफ़लाइन तैयारी।
-5. साथ रखने की चीज़ों की सूची।
-6. "वहाँ अकेले मत रहिए।" जोड़ी में रहने की योजना, भीड़ का चित्र।
-7. "पकड़ा जाए, छुआ जाए या कपड़े खींचे जाएँ, तो शोर मचाइए। चाहे वह पुलिसवाला ही क्यों न हो।" पाँच क़दम।
-8. "अगर आपको बस में डाल दिया जाए।" बस की खिड़की पर नोट दिखाते हाथ का चित्र।
-9. "वे सबसे पहले कैमरे छीनते हैं। फिर भी रिकॉर्ड करें।"
-10. "उस दिन क़ानून शायद न बचाए। बाद में उसका इस्तेमाल कीजिए।" शिकायत के क़दम।
-11. ज़रूरी नंबर: 112, 102, 181, 14490, 15100 और संस्थाएँ।
-12. "मैं चाहती हूँ कि हर कोई सुरक्षित घर पहुँचे।" स्टेला जॉन का संदेश।
+Use the English descriptions above, translated as needed. The slide order is the same in both languages.
