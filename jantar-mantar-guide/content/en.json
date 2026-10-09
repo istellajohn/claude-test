@@ -40,8 +40,8 @@
           "On 2 Oct journalists asked officers why they weren’t wearing name tags. Nobody would say."
         ],
         [
-          "Women taken away alone, after dark",
-          "A student leader says she was put in a private-looking car with no woman officer and driven to Narela."
+          "Women taken|away alone,|after dark",
+          "A student leader says she was taken to Narela in a private-looking car. No woman officer was with her."
         ],
         [
           "Hands on women",
@@ -49,14 +49,14 @@
         ],
         [
           "No video, no FIR",
-          "The women who complained were told an FIR would come only if someone produced video."
+          "The women who complained were told: no video, no FIR."
         ],
         [
           "Cameras go first",
           "Reporters lost cameras, mics, phones, even glasses, in the minutes before they were pushed into buses."
         ],
         [
-          "Batons and tear gas",
+          "Batons|and tear gas",
           "Both were used on 20 July. By the police’s own count, about 60 protesters were hurt."
         ]
       ],
@@ -71,7 +71,7 @@
       "steps": [
         [
           "Expect to be stopped on the way",
-          "Police have checkpoints at Delhi’s borders and are reportedly stopping young people carrying posters. You may be turned back before you arrive."
+          "Police have checkpoints at Delhi’s borders, and are reportedly stopping young people carrying posters. You may be turned back before you arrive."
         ],
         [
           "Don’t count on the Metro or a cab",
@@ -307,7 +307,7 @@
       ],
       "boundary_label": "Be warm with strangers. Don’t be trusting.",
       "boundary": "Nobody is owed your number or your company, and nobody, in uniform or not, should be leading you somewhere alone.",
-      "close": "By evening, the stranger next to you may be the only person who saw what happened to you."
+      "close": "By evening the stranger next to you may be the only person who saw what happened to you."
     },
     {
       "id": "body",
@@ -454,14 +454,14 @@
         ],
         [
           "Use the window",
-          "On 4 Oct a reporter wrote what was being done to her, and a phone number, on a scrap of paper and pressed it to the glass."
+          "On 4 Oct a reporter pressed a note to the glass. It said what was being done to her, with a phone number."
         ],
         [
           "Ask where they’re taking you",
           "“Kis thane le ja rahe ho?” Then repeat the answer out loud to everyone on the bus."
         ],
         [
-          "Say your medical condition at once",
+          "Name any medical condition",
           "Diabetes, asthma, pregnancy, anything. To the officers and to the people around you."
         ],
         [
@@ -470,7 +470,7 @@
         ],
         [
           "Don’t get split off",
-          "If they try to put you alone in an unmarked car, make noise and ask for a woman officer."
+          "If they try to take you alone in an unmarked car, make noise. Ask for a woman officer."
         ]
       ],
       "note": "Most people were let go by evening, often on the far edge of the city. That’s what your cash is for.",
@@ -690,7 +690,8 @@
         "jagori",
         "hrln",
         "apcr",
-        "sflc"
+        "sflc",
+        "pucl"
       ]
     },
     {
@@ -750,9 +751,9 @@
       "items": [
         "Write a home number and a lawyer’s on your arm.",
         "Turn off face unlock. Use a PIN.",
-        "Install a Bluetooth chat app with your partner, and test it.",
+        "Install a Bluetooth chat app. Test it with your partner.",
         "Photocopy one ID. Leave the original.",
-        "Pack cash, water, ORS, medicines, glasses.",
+        "Pack water, ORS, cash and medicines.",
         "Pick a time and place to regroup."
       ]
     },

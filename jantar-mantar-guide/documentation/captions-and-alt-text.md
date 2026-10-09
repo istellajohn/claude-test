@@ -1,4 +1,4 @@
-# Captions, forwards and alt text (revision 2)
+# Captions, forwards and alt text (revision 3)
 
 ## Instagram caption
 
@@ -22,17 +22,18 @@ No police permission. Mobile internet reported off within ~4 km. 57 metro statio
 
 *Before you go*
 • Pair up. Swap full names and family numbers.
-• Write a family number and 15100 on your arm.
+• Write a family number and a lawyer's number on your arm.
 • Lock your phone with a PIN, not your face.
-• Carry cash to get home from the city's edge.
+• Carry water, ORS, your medicines, a photocopy of one ID, and cash to get home from the city's edge.
 
 *If someone grabs or gropes you, including police*
-Shout what is happening. Get people filming. Note the name tag, or say out loud that there isn't one. Demand a woman officer.
+Shout what is happening. Get people filming. Note the name tag, or say out loud that there isn't one. Ask for a woman officer on camera. Don't swing back.
 
 *If they put you in a bus*
 Shout your name and a number. Ask "kis thane le ja rahe ho?" Tell them about any medical condition.
 
-Women's helpline 181 · NCW 14490 · Ambulance 102 · Free legal aid 15100
+Ambulance 102 · Jagori 011 2669 2700 · HRLN 011 2437 4501 · APCR 011 4105 2797 · SFLC.in 011 4358 7126
+None of these groups has endorsed this guide, and none is confirmed as staffed on 10 Oct.
 
 Independent guide by Stella John.
 
@@ -40,7 +41,7 @@ Independent guide by Stella John.
 
 Last updated 9 Oct 2026, 9:40 pm IST. Corrections will appear here first, with the time.
 
-Sources: The Wire, The Quint, ABC (Reuters), ThePrint, Indian Express, Bar & Bench, NPR, Business Standard, and the official sites of DSLSA, DCW, NCW and the Delhi Police Complaints Authority. The allegations on slide 3 are reported and attributed, and have not been tested in court.
+Sources: The Wire, The Quint, ABC (Reuters), ThePrint, Indian Express, Bar & Bench, NPR, Business Standard, TechCrunch, WION, Skymet, the American Academy of Ophthalmology, Physicians for Human Rights, and the published contact pages of Jagori, HRLN, APCR, SFLC.in and PUCL. The allegations on slide 3 are reported and attributed, and have not been tested in court.
 
 This guide is independent and not affiliated with any party or organiser. No helpline is confirmed as staffed for 10 Oct. If you're a lawyer, doctor or volunteer who will be there, message me. I'll verify you and add you, with your consent.
 

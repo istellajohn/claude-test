@@ -48,6 +48,14 @@ The build prints a layout report. It flags any text that runs off the canvas or 
 
 Write line breaks into headlines with `|`, for example `"Plan the way in.|Plan the way home."`. Break only at a sentence or phrase boundary. Each line is set on one line and the headline shrinks until every line fits, so the browser never inserts a break of its own.
 
-Body text on each slide shrinks only as far as it must to leave a fixed gap above the footer, and never below a readable minimum. If the build reports `body-at-minimum-size`, the slide has too much on it. Cut copy rather than squeezing it.
+Body text follows three rules, all applied automatically:
+
+1. **A new sentence never starts at the end of a line.** Each sentence is set as its own unit. It sits beside the previous one only if it fits whole.
+2. **Inside a sentence, lines break after a comma.** A clause only breaks internally if it is longer than a line.
+3. **Short words stay with their neighbours.** "a", "the", "and", "your", "को", "के लिए" and the like never end a line. Names such as "Lady Hardinge" and "tear gas" never split. Add more to `NAMES` in `src/build.js`.
+
+Spacing is set, never left over. Body text fills the slide down to a fixed gap above the footer: it grows slightly if there is room and shrinks if there isn't. Any space that remains is shared evenly between rows, then between blocks, so there is no dead area at the bottom of a slide. If the build reports `body-at-minimum-size`, the slide is full. Cut copy before adding anything.
+
+Short labels (step titles, checklist items, contact names) take `|` breaks too, for example `"Women taken|away alone,|after dark"`.
 
 Slides are a list in `content/en.json` and `content/hi.json`. Each has a `type` (`cover`, `status`, `expect`, `steps`, `checklist`, `buddy`, `record`, `numbers`, `closing`). Reorder, add or remove slides by editing the list. Page numbers update automatically.
