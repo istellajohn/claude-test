@@ -1,28 +1,29 @@
-# Editorial fact-check report
+# Editorial fact-check report (revision 2)
 
-**Status at 9 Oct 2026, 9:40 pm IST: ready to publish, subject to the three human checks below.**
+**Status at 9 Oct 2026, 9:40 pm IST, revised the same night after author feedback.**
+
+## What changed in revision 2, and why
+
+The author's feedback was that a rights-and-calm guide is useless against how Delhi Police have actually behaved, and that the first version left out harassment. Both points are right, and the evidence supports them.
+
+- **New slide 03, "What to expect":** six documented patterns from the past weeks, each sourced and labelled as reported or alleged.
+- **New slide 07:** what to do if grabbed, groped or stripped, including by police.
+- **New slide 08:** what to do if put in a detention bus, inside and outside, using tactics that worked on 4 Oct.
+- **Legal content moved to slide 10, "Afterwards":** framed as accountability, where it has real force. It covers medical exam and MLC, Zero FIR, the DCP and magistrate routes, NCW and the Police Complaints Authority, and BNS s.199(c).
+- **"Stay calm" removed everywhere.** It's replaced with "don't hit back", which is a tactical reason, not a demand for composure.
+- **Contacts:** DCW 181, NCW 14490 and the Delhi Police Complaints Authority added. "Getting around" and the electoral-roll slide removed for space.
+- **Correction:** the October allegations are of **sexual harassment**, and Delhi Police acknowledged them. My first note said reporting described "assault", but that referred to a different September case. Stella's original poster wording was accurate.
 
 ## Still needs a human to confirm
 
-1. **Slide 07 (legal rights) should be read by a lawyer.** The section numbers are corroborated by several summaries and a PIB comparison document, not read from the gazetted BNSS text. I deliberately left out the rule on arresting women after sunset, because I could not verify its wording.
-2. **The DMRC station list may have changed since the Supreme Court hearing.** No revised list was found. Re-check delhimetrorail.com and DMRC's official X account before posting, and update `content/data.json` → `status.metro` if needed.
-3. **The internet suspension order itself was not seen.** Reports cite police sources and an MHA approval, so the wording stays "reported". If the order text surfaces, update the radius, centre point and services.
-
-## Brief items handled differently, and why
-
-| Brief item | What I did | Why |
-|---|---|---|
-| HRLN second number 011-24376922 | Excluded | No source confirms it |
-| RML Hospital A&E 011-23404902/3 | Excluded | Could not verify. The hospital site was unreachable. |
-| Hospital emergency department in the slide 06 directory | Replaced with the CATS ambulance (102) | Verified official number, and it gets someone to a hospital |
-| "Women journalists accuse Delhi Police of sexual harassment" (from the earlier poster copy) | Not used in this guide | Reported accounts describe assault, not sexual harassment, and it is not needed here |
-| Detention claims in other states | Not used | Organiser claims; the police deny them |
-| Offline mesh apps | Not recommended | The brief asks for no reliability promises. SFLC also reports that one such app (BitChat) faces takedown orders. |
-| Photographs | None used | No documented licence for the reference photographs |
+1. **A lawyer should read slides 07 and 10 and cards C and F.** Section numbers are consistent across multiple reproductions but were not read from the gazette. The courts are split on whether s.43(5) is mandatory, which is why the slide says "should not".
+2. **Re-check the DMRC station list** after the Supreme Court hearing.
+3. **The internet suspension order itself was not seen.**
+4. **Reddit could not be accessed** from this environment. If you have threads, they can be added as labelled first-hand accounts.
 
 ## Copy checks
 
-- No em dashes anywhere in the copy.
-- All first-person claims are limited to what the author told me: she attended 1.0 in July, communication was a problem, and 112 was unreliable. No invented memories.
-- No organisation is described as endorsing the guide. Every directory carries the line "No organisation listed here has endorsed this guide. No number is guaranteed to connect."
-- The guide never advises obstructing police, evading checkpoints, or confrontation.
+- No em dashes.
+- First-person claims are limited to the author's own account (1.0 in July, communication problems, 112 unreliable).
+- Allegations are attributed and labelled. The slide 03 footer says they have not been tested in court.
+- Nothing advises violence, obstruction or evading checkpoints. Resisting separation into a private car is framed as asking for a woman officer and a marked vehicle.

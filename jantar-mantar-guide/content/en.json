@@ -13,7 +13,7 @@
       "kicker": "An independent citizen’s guide",
       "headline": "I was at Jantar Mantar 1.0.",
       "headline2": "If you’re going for 2.0, here’s what I want you to know.",
-      "deck": "Preparation, safety, documentation, and looking after each other.",
+      "deck": "What police have actually been doing, how to protect yourself and each other, and how to make them answer for it.",
       "date": "Saturday, 10 October 2026",
       "byline": "By Stella John"
     },
@@ -23,7 +23,20 @@
       "foot": "The protest does not have police permission. Going is your decision. Make it with current information."
     },
     "s03": {
-      "kicker": "03 · Connectivity",
+      "kicker": "03 · What to expect",
+      "headline": "Don’t plan for the rules. Plan for what’s been happening.",
+      "lede": "These are from the last few weeks at and around Jantar Mantar. Some are allegations under inquiry. All of them were reported.",
+      "items": [
+        ["Officers with no name tags", "Journalists asked why on 2 Oct and were refused an answer. The law says they must wear one when arresting.", "The Wire, 5 Oct"],
+        ["Women taken after dark, in unmarked cars", "A student leader says she was driven to Narela in a private-looking car with no woman officer.", "The Wire, The Quint, 5–6 Oct"],
+        ["Groping and stripping allegations", "Three women journalists allege sexual harassment by police. One names an ACP. Another says officers lifted her shirt on a bus.", "The Wire, The Quint, ABC"],
+        ["No FIR without video", "Police told the complainants an FIR would follow only if video evidence emerged.", "The Quint, 6 Oct"],
+        ["Cameras and phones snatched", "Reporters describe cameras, mics, phones and glasses torn away during detention.", "The Quint, 6 Oct"],
+        ["Batons and tear gas", "On 20 July police used both. Police counted about 60 protesters injured.", "NPR, TIME, July"]
+      ]
+    },
+    "s04": {
+      "kicker": "04 · Connectivity",
       "headline": "Your phone may stop connecting. Prepare before it does.",
       "testimony": "At Jantar Mantar 1.0 in July, communication was a real problem for me, and I found 112 unreliable.",
       "confirmed_label": "What’s confirmed",
@@ -31,349 +44,141 @@
       "unverified_label": "What isn’t",
       "unverified": "Claims that calls will be jammed have not been verified. Plan as if they might be.",
       "steps": [
-        "Download this guide and any maps while you’re still connected.",
-        "Write key numbers on paper. Keep it in a pocket, not your bag.",
-        "Charge your phone fully and carry a power bank.",
+        "Download this guide while you’re still connected.",
+        "Write two numbers on your arm in marker: family and legal aid 15100.",
+        "Lock your phone with a PIN. Turn off face and fingerprint unlock.",
         "Tell family you may be unreachable for hours.",
         "Agree a check-in time and a meeting point.",
         "Carry cash. UPI and cab apps need data.",
         "Know how you’ll get home without an app."
       ]
     },
-    "s04": {
-      "kicker": "04 · What to carry",
-      "headline": "A few small things can make a difficult day easier.",
-      "items": [
-        [
-          "Water",
-          "More than you think you need"
-        ],
-        [
-          "Light food",
-          "Something that won’t spoil"
-        ],
-        [
-          "ORS or electrolytes",
-          "If they suit you"
-        ],
-        [
-          "Your medicines",
-          "Prescriptions, inhalers, anything you rely on"
-        ],
-        [
-          "Power bank and cable",
-          "Charged the night before"
-        ],
-        [
-          "Comfortable shoes",
-          "You may walk far"
-        ],
-        [
-          "Clothes for the weather",
-          "Sun, heat, or rain"
-        ],
-        [
-          "Identification",
-          "Basic ID only"
-        ],
-        [
-          "Small cash",
-          "For water, food, a ride home"
-        ],
-        [
-          "Numbers on paper",
-          "Family, a friend, legal aid"
-        ],
-        [
-          "Your access needs",
-          "Mobility aids, personal care, sanitary supplies"
-        ]
-      ],
-      "note": "Don’t go without medicine, care or support you need to be there. No protest is worth that."
-    },
     "s05": {
-      "kicker": "05 · Each other",
-      "headline": "You may arrive alone. You don’t have to feel alone.",
-      "body": [
-        "Talk to the people around you. Ask where they’ve come from and listen to the answer.",
-        "If someone looks lost or overwhelmed, check on them, gently. Share water, a charger, the information you have.",
-        "Swap numbers if you both want to. Stay near people you trust, and check on each other through the day."
+      "kicker": "05 · What to carry",
+      "headline": "Carry what you’d need if the day goes wrong.",
+      "items": [
+        ["Water", "More than you think"],
+        ["Food and ORS", "Something that won’t spoil"],
+        ["Your medicines", "And a note of any condition you have"],
+        ["Power bank", "Charged tonight"],
+        ["Phone locked with a PIN", "Not face or fingerprint"],
+        ["Marker pen", "For numbers on your arm and notes"],
+        ["Cash", "Enough to get home from the edge of the city"],
+        ["Basic ID", "Only what you need"],
+        ["Shoes you can move in", "You may walk far, or fast"],
+        ["Spare glasses", "Reporters lost theirs in the scuffles"],
+        ["Your access needs", "Mobility aids, personal care, sanitary supplies"]
       ],
-      "boundary_label": "Friendly is not the same as trusting.",
-      "boundary": "You don’t owe anyone your number, your address or your company. Don’t go somewhere with a stranger. Leave anything that feels wrong.",
-      "close": "People who were strangers in the morning can still choose to look out for each other."
+      "note": "Leave behind anything you can’t afford to lose. Don’t go without medicine, care or support you need."
     },
     "s06": {
-      "kicker": "06 · Who to contact",
-      "headline": "If something goes wrong, know who to contact.",
-      "groups": [
-        {
-          "label": "Emergency",
-          "ids": [
-            "112",
-            "102"
-          ]
-        },
-        {
-          "label": "Free legal aid",
-          "ids": [
-            "dslsa"
-          ]
-        },
-        {
-          "label": "Getting around",
-          "ids": [
-            "dmrc"
-          ]
-        }
+      "kicker": "06 · Each other",
+      "headline": "Don’t be alone there. Not for a minute.",
+      "body": [
+        "Go in pairs or small groups. Know each other’s full name, a family number, and any medical condition.",
+        "Agree this now: if one of you is taken, the other notes the time, the place, the vehicle number and which way it went, shouts their name so others hear it, and calls family and legal aid.",
+        "If you see a woman alone being pulled away, don’t look away. Film it, say her name if you know it, stay close, and get her a number."
       ],
-      "medical": "Serious injury needs qualified emergency care. Don’t attempt improvised treatment in a crowd."
+      "boundary_label": "Friendly is not the same as trusting.",
+      "boundary": "You don’t owe anyone your number or your company. Don’t go anywhere with a stranger, in uniform or not.",
+      "close": "People who were strangers in the morning can still choose to look out for each other."
     },
     "s07": {
-      "kicker": "07 · Legal awareness",
-      "headline": "Know your rights. Know where to get help.",
-      "rows": [
-        [
-          "Ask your status",
-          "Calmly ask: Am I free to go, am I being detained, or am I under arrest?"
-        ],
-        [
-          "Grounds of arrest",
-          "If you’re arrested, police must tell you the grounds and the offence. BNSS s. 47"
-        ],
-        [
-          "Someone must be told",
-          "Police must inform a person you name about your arrest and where you’re held. BNSS s. 48"
-        ],
-        [
-          "A lawyer",
-          "You may meet a lawyer of your choice during interrogation. BNSS s. 38"
-        ],
-        [
-          "Bail",
-          "For a bailable offence, you must be told you can be released on bail. BNSS s. 47(2)"
-        ],
-        [
-          "24 hours",
-          "An arrested person must be produced before a magistrate within 24 hours. Constitution, Art. 22(2)"
-        ]
+      "kicker": "07 · If someone puts their hands on you",
+      "headline": "If you’re grabbed, groped or stripped, make it loud.",
+      "sub": "Including by a police officer.",
+      "steps": [
+        ["Shout what is happening", "Say it in plain words. “He is touching me.” “Where is the woman officer?” Noise brings cameras and witnesses."],
+        ["Make people look", "Ask anyone near you to film. Ask witnesses for their names and numbers."],
+        ["Get their identity", "Name tag, rank, helmet number, vehicle number. If there’s no name tag, say so out loud on camera. The law requires one when arresting. BNSS s. 36"],
+        ["Demand a woman officer", "Only a woman may search a woman. A woman should not be arrested after sunset without a magistrate’s permission. BNSS s. 49, 43(5)"],
+        ["Don’t hit back", "Not because they deserve calm. Because hitting back becomes their case against you, and your complaint becomes harder."]
       ],
-      "conduct": "Stay calm. Don’t resist or argue. Note names, badge numbers and the place. Ask for legal aid.",
-      "help": "Free legal aid, Delhi: 15100",
-      "disclaimer": "General information, not legal advice. How these rules apply depends on the situation. Speak to a lawyer."
+      "after": "It was not your fault. Tell someone you trust tonight, and turn to slide 10 for what to do next.",
+      "disclaimer": "General information, not legal advice."
     },
     "s08": {
-      "kicker": "08 · Independent help",
-      "headline": "Help doesn’t always come with a uniform.",
-      "ids": [
-        "hrln",
-        "apcr",
-        "sflc"
+      "kicker": "08 · If you’re detained",
+      "headline": "If they put you in a bus.",
+      "steps": [
+        ["Shout your name and a number", "As you’re taken, shout your full name and a family number so people outside can trace you."],
+        ["Show it through the window", "A reporter on 4 Oct wrote what was happening and a phone number on paper and held it up for friends outside."],
+        ["Ask where you’re being taken", "“Kis thane le ja rahe ho?” Repeat the answer to everyone around you."],
+        ["Say any medical condition at once", "Loudly, to officers and others on board. Diabetes, asthma, pregnancy, anything."],
+        ["Don’t unlock your phone", "They may take it. Keep it locked. SFLC.in has a guide on device seizure."],
+        ["Stay with the group", "Resist being split into a separate private car alone. Ask for a woman officer and a marked vehicle."]
       ],
-      "honest": "As of 9 Oct, 9:40 pm, I have not been able to confirm any independent lawyer, doctor or volunteer who will be on the ground on 10 Oct.",
-      "template_label": "Confirmed for 10 Oct",
-      "template_empty": "Awaiting direct confirmation",
-      "template_note": "If you’re a lawyer, doctor or volunteer who will be there, message me. I’ll verify you and add you, with your consent."
+      "expect": "In recent protests, many people were held for hours at police stations or stadiums, then released in the evening, sometimes far from where they were picked up. Keep cash for the journey back.",
+      "outside_label": "If you’re on the outside",
+      "outside": "Call legal aid 15100 and their family. Go to the police station they were taken to. Ask for the arrest memo if they were arrested. Don’t post their private details."
     },
     "s09": {
       "kicker": "09 · Documentation",
-      "headline": "Record what happens. Preserve what you record.",
+      "headline": "They go for cameras first. Record anyway.",
       "cols": [
-        {
-          "label": "Record",
-          "items": [
-            "Film from a safe distance.",
-            "Never obstruct police or medics.",
-            "Capture what happens before and after, not only the peak.",
-            "Say or note the date, time and place.",
-            "Note names, badge numbers, vehicle numbers if visible."
-          ]
-        },
-        {
-          "label": "Preserve",
-          "items": [
-            "Keep the original file, with sound.",
-            "Don’t trim or filter the original.",
-            "Back it up to a second place when you can.",
-            "Don’t rely on clips you’ve posted."
-          ]
-        },
-        {
-          "label": "Publish with care",
-          "items": [
-            "Think about faces of people who could be harmed.",
-            "Share with a lawyer before posting, if it may be evidence."
-          ]
-        }
+        { "label": "Record", "items": ["Film from a safe distance, in short clips.", "Get faces, name tags or their absence, helmet and vehicle numbers.", "Capture before and after, not only the peak.", "Say the date, time and place out loud."] },
+        { "label": "Preserve", "items": ["Pass clips to a friend away from the front line.", "Keep the original file, with sound. Don’t trim or filter it.", "Back it up the moment you have a connection."] },
+        { "label": "Publish with care", "items": ["Think about faces of people who could be harmed.", "Show a lawyer first if it may be evidence."] }
       ],
-      "impersonation": "If someone claiming authority seems suspicious, don’t confront them or assume from appearance. Note what you can and verify through official or legal channels later.",
+      "impersonation": "Police told the 3 Oct complainants an FIR would follow only with video. Your footage may be the only evidence someone has.",
       "close": "A complete record can matter long after the moment has passed.",
-      "form": [
-        "Date",
-        "Time",
-        "Place",
-        "What happened",
-        "Who was involved",
-        "Original file name"
-      ]
+      "form": ["Date", "Time", "Place", "What happened", "Who: name, rank, number", "Witnesses", "Original file name"]
     },
     "s10": {
-      "kicker": "10 · If someone is unreachable",
-      "headline": "What if you can’t reach someone?",
+      "kicker": "10 · Afterwards",
+      "headline": "The law may not protect you on the day. Use it after.",
       "steps": [
-        [
-          "Wait for the check-in",
-          "Go to the time and place you agreed. Phones may simply be down."
-        ],
-        [
-          "Ask their companions",
-          "Someone who was with them may know where they went."
-        ],
-        [
-          "Try a plain call or SMS",
-          "These may work where data doesn’t."
-        ],
-        [
-          "If you think they’re detained",
-          "Call legal aid: 15100. Note when and where they were last seen."
-        ],
-        [
-          "If you think they’re in danger",
-          "Use emergency services, and seek help in person only if it’s safe."
-        ]
+        ["Write it all down tonight", "Times, places, names, badge or helmet numbers, words used, who saw it."],
+        ["Get a medical examination", "Go to a government hospital. Ask for a medico-legal case (MLC). Photograph every injury."],
+        ["File in writing at any police station", "Get a stamped receiving copy. A Zero FIR can be filed at any station. BNSS s. 173(1)"],
+        ["If they refuse", "Send it in writing to the DCP, then apply to a magistrate. BNSS s. 173(4), 175(3)"],
+        ["Complain beyond the police", "National Commission for Women (14490, ncwapps.nic.in) · Delhi Police Complaints Authority for detention without due process or custodial abuse (011 2140 0977)"],
+        ["Get a lawyer", "Free legal aid 15100, or the organisations on slide 11."]
       ],
-      "dont": "Don’t post unverified ‘missing’ claims. Don’t share their phone number, address or photos publicly without thinking about their safety.",
-      "note112": "112 is the official emergency number. I found it unreliable at 1.0, so keep other routes ready."
+      "note": "Refusing to register some sexual-offence complaints is itself an offence for an officer. BNS s. 199(c). Ask a lawyer how it applies to yours.",
+      "disclaimer": "General information, not legal advice. Have a lawyer check your case."
     },
     "s11": {
-      "kicker": "11 · From where you are",
-      "headline": "You don’t have to be there to be useful.",
-      "items": [
-        "Follow reliable updates and pass on only what’s verified.",
-        "Help a friend make sense of the transport changes.",
-        "Save the contacts in this guide and share them.",
-        "Check on people you know who are going.",
-        "Correct misinformation, calmly and with a source.",
-        "Support legal-aid and rights groups through their official channels.",
-        "Follow what happens after the day, in court and in public."
+      "kicker": "11 · Who to contact",
+      "headline": "Numbers to have on paper.",
+      "groups": [
+        { "label": "Emergency", "ids": ["112", "102"] },
+        { "label": "Women", "ids": ["dcw", "ncw"] },
+        { "label": "Legal and rights", "ids": ["dslsa", "hrln", "apcr", "sflc"] }
       ],
-      "civic_label": "Check your own electoral-roll entry",
-      "civic": "electoralsearch.eci.gov.in · Voter helpline 1950 (Election Commission of India)"
+      "honest": "As of 9 Oct, 9:40 pm, I haven’t confirmed any independent lawyer, doctor or volunteer on the ground for 10 Oct. If you are one, message me and I’ll verify and add you, with your consent."
     },
     "s12": {
       "kicker": "12",
       "headline": "I hope everyone gets home safe.",
-      "body": "Whatever you decide about tomorrow, decide it with good information. If you go, go prepared. Look after yourself, and look after the person next to you. Keep your records. And if someone needs help afterwards, don’t let them carry it alone.",
+      "body": "You’ll be angry tomorrow, and you’ll have every reason. Be loud. Just don’t be alone, and don’t hand them an excuse. Record everything. And if something happens to you or to the person next to you, it doesn’t end when the bus doors open. Write it down, get it examined, file it, and keep going until someone answers for it.",
       "sign": "Stella John",
       "credit": "Independent citizen’s guide · 10 October 2026"
     }
   },
+
   "cards": {
-    "a": {
-      "title": "No internet? Start here.",
-      "sub": "Offline preparation for 10 Oct, Jantar Mantar",
-      "use": "s03"
-    },
-    "b": {
-      "title": "Save these contacts.",
-      "sub": "Emergency, legal aid and transport numbers",
-      "ids": [
-        "112",
-        "102",
-        "dslsa",
-        "dmrc"
-      ]
-    },
-    "c": {
-      "title": "Independent help directory.",
-      "sub": "Established organisations and what they help with",
-      "ids": [
-        "hrln",
-        "apcr",
-        "sflc",
-        "dslsa"
-      ]
-    },
-    "d": {
-      "title": "If you need legal help.",
-      "sub": "Your rights if you’re stopped, detained or arrested",
-      "use": "s07"
-    },
-    "e": {
-      "title": "Record. Preserve. Report responsibly.",
-      "sub": "Documenting what happens, safely",
-      "use": "s09"
-    },
-    "f": {
-      "title": "Check before you travel.",
-      "sub": "Restrictions reported for Jantar Mantar 2.0, 10 Oct",
-      "use": "s02"
-    }
+    "a": { "title": "No internet? Start here.", "sub": "Offline preparation for 10 Oct, Jantar Mantar" },
+    "b": { "title": "Save these numbers.", "sub": "Emergency, women’s helplines, legal aid", "ids": ["112", "102", "dcw", "ncw", "dslsa"] },
+    "c": { "title": "If someone puts their hands on you.", "sub": "Groped, grabbed or stripped, including by police" },
+    "d": { "title": "If they put you in a bus.", "sub": "Detention: what to do inside and outside" },
+    "e": { "title": "Record. Preserve. Hand it on.", "sub": "They go for cameras first" },
+    "f": { "title": "Make them answer for it.", "sub": "What to do in the days after" },
+    "g": { "title": "Check before you travel.", "sub": "Restrictions reported for Jantar Mantar 2.0, 10 Oct" }
   },
+
   "stories": {
-    "1": {
-      "kicker": "A guide, before tomorrow",
-      "headline": "I was at Jantar Mantar 1.0 in July.",
-      "body": "If you’re thinking of going for 2.0 on 10 Oct, I’ve put together what I wish I’d known: how to prepare for losing signal, who to contact, how to record what happens, and how to look after each other.",
-      "cta": "Full guide on my profile. Save it while you have signal."
-    },
-    "2": {
-      "kicker": "Before you lose signal",
-      "headline": "Do these tonight.",
-      "items": [
-        "Download this guide and maps.",
-        "Write key numbers on paper.",
-        "Charge your phone and power bank.",
-        "Tell family you may be unreachable.",
-        "Agree a check-in time and place.",
-        "Carry cash for food and a ride home."
-      ]
-    },
-    "3": {
-      "kicker": "Screenshot this",
-      "headline": "Numbers to have on paper.",
-      "ids": [
-        "112",
-        "102",
-        "dslsa",
-        "dmrc"
-      ]
-    },
-    "4": {
-      "kicker": "Each other",
-      "headline": "Help doesn’t always come with a uniform.",
-      "body": "I haven’t yet been able to confirm independent lawyers, doctors or volunteers on the ground for 10 Oct. If you’re one of them, message me. I’ll verify you and add you, with your consent.",
-      "ids": [
-        "hrln",
-        "apcr",
-        "sflc"
-      ]
-    },
-    "5": {
-      "kicker": "Status",
-      "headline": "What’s changed for 10 Oct."
-    }
+    "1": { "kicker": "A guide, before tomorrow", "headline": "I was at Jantar Mantar 1.0 in July.", "body": "If you’re going for 2.0 tomorrow, I’ve put together what you actually need: what police have been doing, what to do if you’re grabbed or put in a bus, how to keep evidence, and how to make them answer for it afterwards.", "cta": "Full guide on my profile. Save it while you have signal." },
+    "2": { "kicker": "Before you lose signal", "headline": "Do these tonight.", "items": ["Write family and 15100 on your arm.", "Lock your phone with a PIN, not your face.", "Pair up. Swap full names and numbers.", "Agree a check-in time and place.", "Pack cash, water, medicines, spare glasses.", "Tell family you may be unreachable."] },
+    "3": { "kicker": "Screenshot this", "headline": "Numbers to have on paper.", "ids": ["112", "102", "dcw", "dslsa"] },
+    "4": { "kicker": "If it happens", "headline": "If someone puts their hands on you, make it loud." },
+    "5": { "kicker": "Status", "headline": "What’s changed for 10 Oct." }
   },
+
   "whatsapp": {
-    "1": {
-      "title": "Jantar Mantar 2.0, 10 Oct: what’s changed"
-    },
-    "2": {
-      "title": "Save these numbers",
-      "ids": [
-        "112",
-        "102",
-        "dslsa",
-        "dmrc",
-        "hrln",
-        "sflc"
-      ]
-    },
-    "3": {
-      "title": "Before you lose signal"
-    },
-    "4": {
-      "title": "If someone can’t be reached"
-    }
+    "1": { "title": "Jantar Mantar 2.0, 10 Oct: what’s changed" },
+    "2": { "title": "Save these numbers", "ids": ["112", "102", "dcw", "ncw", "dslsa", "hrln"] },
+    "3": { "title": "If someone puts their hands on you" },
+    "4": { "title": "If they put you in a bus" }
   }
 }

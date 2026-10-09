@@ -38,6 +38,14 @@ const ICON = {
   medic: `<rect x="6" y="12" width="36" height="28" rx="3"/><path d="M18 12V7h12v5"/><path d="M24 19v14M17 26h14"/>`,
   shield: `<path d="M24 5l16 6v12c0 10-7 17-16 20C15 40 8 33 8 23V11z"/><path d="M17 24l5 5 9-10"/>`,
   wifioff: `<path d="M6 18a26 26 0 0 1 36 0M12 25a17 17 0 0 1 24 0M18 32a8 8 0 0 1 12 0"/><circle cx="24" cy="38" r="2" fill="currentColor"/><path d="M8 6l32 36"/>`,
+  glasses: `<circle cx="13" cy="27" r="8"/><circle cx="35" cy="27" r="8"/><path d="M21 27h6M5 25l-1-8M43 25l1-8"/>`,
+  pen: `<path d="M30 8l10 10L18 40H8V30z"/><path d="M26 12l10 10"/><path d="M8 40l6-6"/>`,
+  lock: `<rect x="10" y="22" width="28" height="20" rx="3"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><circle cx="24" cy="32" r="2.5" fill="currentColor"/>`,
+  voice: `<path d="M8 20h6l12-9v26l-12-9H8z"/><path d="M32 18a8 8 0 0 1 0 12M36 13a14 14 0 0 1 0 22"/>`,
+  eye: `<path d="M4 24s7-12 20-12 20 12 20 12-7 12-20 12S4 24 4 24z"/><circle cx="24" cy="24" r="6"/>`,
+  bus: `<rect x="6" y="8" width="36" height="28" rx="4"/><path d="M6 22h36"/><path d="M12 14h8v6h-8zM28 14h8v6h-8z"/><circle cx="14" cy="38" r="3"/><circle cx="34" cy="38" r="3"/>`,
+  hospital: `<rect x="8" y="10" width="32" height="32" rx="2"/><path d="M24 16v14M17 23h14"/><path d="M8 42h32"/>`,
+  file: `<path d="M12 6h18l8 8v28H12z"/><path d="M30 6v8h8"/><path d="M18 24h14M18 30h14M18 36h8"/>`,
   vote: `<path d="M8 22h32v20H8z"/><path d="M14 22l10-14 10 4-7 10"/><path d="M18 30h12"/>`,
 };
 function icon(name, size = 44, color = P.carbon, sw = 2.6) {
@@ -188,4 +196,38 @@ function helpingHands(w = 300, h = 200) {
   <g transform="translate(150 106) rotate(-14)"><rect x="-26" y="-18" width="52" height="36" fill="${P.paper}" stroke="${P.carbon}" stroke-width="2.6"/><path d="M-16 -6h32M-16 4h22" stroke="${P.wine}" stroke-width="2.6"/></g></svg>`;
 }
 
-module.exports = { P, ICON, icon, figure, crowd, samratYantra, paperSlip, phoneNoData, unreachable, recording, helpingHands };
+
+// A detention bus with sealed windows; a hand presses a handwritten note to the glass.
+function busNote(lang = 'en', w = 420, h = 250) {
+  const hi = lang === 'hi';
+  const l1 = hi ? 'मुझे ले जा रहे हैं' : 'TAKING ME', l2 = hi ? 'घर: 98______' : 'Home: 98______';
+  let g = `<rect x="6" y="40" width="404" height="170" rx="18" fill="${P.carbon}"/>`;
+  g += `<rect x="6" y="40" width="404" height="16" rx="8" fill="#2E2F2B"/>`;
+  [24, 112, 200, 288].forEach((x, i) => { g += `<rect x="${x}" y="70" width="${i === 3 ? 104 : 76}" height="66" rx="5" fill="#3B3C37"/>`; });
+  g += `<rect x="6" y="150" width="404" height="6" fill="${P.wine}"/>`;
+  g += `<text x="208" y="186" text-anchor="middle" font-family="Big Shoulders Stencil Display, IBM Plex Mono, monospace" font-weight="700" font-size="20" letter-spacing="5" fill="#6C6A64">POLICE</text>`;
+  [70, 330].forEach(cx => { g += `<circle cx="${cx}" cy="212" r="24" fill="${P.carbon}"/><circle cx="${cx}" cy="212" r="10" fill="${P.grey}"/>`; });
+  // the note pressed to the window
+  g += `<g transform="translate(118 52) rotate(-5)"><rect x="0" y="0" width="150" height="92" fill="${P.paper}" stroke="${P.grey}" stroke-width="1"/>`;
+  g += `<text x="12" y="36" font-family="${hi ? 'Kalam' : 'Caveat'}" font-weight="700" font-size="${hi ? 21 : 28}" fill="${P.wine}">${l1}</text>`;
+  g += `<text x="12" y="72" font-family="${hi ? 'Kalam' : 'Caveat'}" font-size="${hi ? 20 : 25}" fill="${P.carbon}">${l2}</text></g>`;
+  // fingers holding it
+  g += `<g fill="#C9A389">${[0, 1, 2, 3].map(i => `<rect x="${140 + i * 16}" y="138" width="12" height="22" rx="6"/>`).join('')}</g>`;
+  return `<svg width="${w}" height="${h}" viewBox="0 0 416 240" style="display:block">${g}</svg>`;
+}
+
+// A uniform chest where the name plate should be.
+function noNameTag(lang = 'en', w = 260, h = 230) {
+  const q = lang === 'hi' ? 'नाम?' : 'NAME?';
+  return `<svg width="${w}" height="${h}" viewBox="0 0 260 230" style="display:block">
+  <path d="M20 230 C20 120 50 70 92 56 L130 80 L168 56 C210 70 240 120 240 230Z" fill="#8C7A5B"/>
+  <path d="M92 56 L130 80 L168 56 L156 48 L130 66 L104 48Z" fill="#6E5F45"/>
+  <path d="M130 80 V230" stroke="#6E5F45" stroke-width="3"/>
+  ${[110, 150, 190].map(y => `<circle cx="130" cy="${y}" r="5" fill="#C9B98F"/>`).join('')}
+  <rect x="44" y="104" width="62" height="10" fill="${P.wine}"/><rect x="44" y="114" width="62" height="6" fill="#2F5E8A"/>
+  <rect x="152" y="104" width="76" height="26" rx="2" fill="none" stroke="${P.paper}" stroke-width="2.6" stroke-dasharray="6 5"/>
+  <text x="190" y="122" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="14" fill="${P.paper}">${q}</text>
+  <path d="M60 150 h36 v40 l-18 10 l-18 -10z" fill="none" stroke="#C9B98F" stroke-width="2"/></svg>`;
+}
+
+module.exports = { busNote, noNameTag, P, ICON, icon, figure, crowd, samratYantra, paperSlip, phoneNoData, unreachable, recording, helpingHands };

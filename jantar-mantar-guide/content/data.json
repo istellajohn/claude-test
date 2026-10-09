@@ -149,6 +149,48 @@
         "hi": "मतदाता सूची में अपना नाम जाँचें · electoralsearch.eci.gov.in"
       },
       "source": "L15"
+    },
+    "dcw": {
+      "display": "181",
+      "status": "official",
+      "category": "women",
+      "name": {
+        "en": "Women’s helpline, Delhi",
+        "hi": "महिला हेल्पलाइन, दिल्ली"
+      },
+      "help": {
+        "en": "Delhi Commission for Women · 24×7",
+        "hi": "दिल्ली महिला आयोग · 24×7"
+      },
+      "source": "L21"
+    },
+    "ncw": {
+      "display": "14490",
+      "status": "official",
+      "category": "women",
+      "name": {
+        "en": "National Commission for Women",
+        "hi": "राष्ट्रीय महिला आयोग"
+      },
+      "help": {
+        "en": "Helpline · complaints at ncwapps.nic.in",
+        "hi": "हेल्पलाइन · शिकायत ncwapps.nic.in पर"
+      },
+      "source": "L22"
+    },
+    "pca": {
+      "display": "011 2140 0977",
+      "status": "official",
+      "category": "rights",
+      "name": {
+        "en": "Delhi Police Complaints Authority",
+        "hi": "दिल्ली पुलिस शिकायत प्राधिकरण"
+      },
+      "help": {
+        "en": "Serious police misconduct, detention without due process",
+        "hi": "गंभीर पुलिस ज़्यादती, बिना प्रक्रिया हिरासत"
+      },
+      "source": "L23"
     }
   },
   "status": [
