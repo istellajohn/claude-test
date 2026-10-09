@@ -1,0 +1,345 @@
+{
+  "meta": {
+    "event_date": "2026-10-10",
+    "checked": {
+      "en": "9 Oct 2026, 11:40 pm IST",
+      "hi": "9 अक्टूबर 2026, रात 11:40 बजे (IST)"
+    },
+    "author": "Stella John",
+    "credit": {
+      "en": "Stella John · Independent citizen’s guide · 10 Oct 2026",
+      "hi": "स्टेला जॉन · एक नागरिक की स्वतंत्र गाइड · 10 अक्टूबर 2026"
+    },
+    "independence": {
+      "en": "Independent. Not affiliated with any party, organiser or organisation listed.",
+      "hi": "स्वतंत्र। किसी पार्टी, आयोजक या सूचीबद्ध संस्था से जुड़ी नहीं।"
+    }
+  },
+  "status_labels": {
+    "official": {
+      "en": "Government ambulance service",
+      "hi": "सरकारी एम्बुलेंस सेवा",
+      "mark": "●"
+    },
+    "public": {
+      "en": "Independent · not confirmed for 10 Oct",
+      "hi": "स्वतंत्र · 10 अक्टूबर के लिए पुष्टि नहीं",
+      "mark": "○"
+    },
+    "confirmed": {
+      "en": "Confirmed for 10 Oct",
+      "hi": "10 अक्टूबर के लिए पुष्ट",
+      "mark": "◆"
+    }
+  },
+  "contacts": {
+    "112": {
+      "display": "112",
+      "status": "official",
+      "category": "emergency",
+      "name": {
+        "en": "National emergency number",
+        "hi": "राष्ट्रीय आपातकालीन नंबर"
+      },
+      "help": {
+        "en": "Police emergency response",
+        "hi": "पुलिस आपात सहायता"
+      },
+      "note": {
+        "en": "I found it unreliable at 1.0. Try it, but don’t depend on it alone.",
+        "hi": "1.0 में यह मेरे लिए भरोसेमंद नहीं रहा। ज़रूर आज़माएँ, पर सिर्फ़ इसी पर निर्भर न रहें।"
+      },
+      "source": "L12"
+    },
+    "102": {
+      "display": "102",
+      "status": "official",
+      "category": "emergency",
+      "name": {
+        "en": "Ambulance",
+        "hi": "एम्बुलेंस"
+      },
+      "help": {
+        "en": "For injuries. Not for help with police.",
+        "hi": "चोट के लिए। पुलिस से मदद के लिए नहीं।"
+      },
+      "source": "L11"
+    },
+    "dslsa": {
+      "display": "15100",
+      "alt": "1516 · 98701 01337",
+      "status": "official",
+      "category": "legal",
+      "name": {
+        "en": "Delhi State Legal Services Authority",
+        "hi": "दिल्ली राज्य विधिक सेवा प्राधिकरण"
+      },
+      "help": {
+        "en": "Free legal aid helpline · listed as 24×7",
+        "hi": "मुफ़्त क़ानूनी सहायता हेल्पलाइन · 24×7 बताई गई"
+      },
+      "source": "L08"
+    },
+    "hrln": {
+      "display": "011 2437 4501",
+      "status": "public",
+      "category": "rights",
+      "name": {
+        "en": "Human Rights Law Network",
+        "hi": "ह्यूमन राइट्स लॉ नेटवर्क"
+      },
+      "help": {
+        "en": "Human-rights lawyers · Delhi office line",
+        "hi": "मानवाधिकार वकील · दिल्ली कार्यालय"
+      },
+      "source": "L09"
+    },
+    "apcr": {
+      "display": "011 4105 2797",
+      "status": "public",
+      "category": "rights",
+      "name": {
+        "en": "Association for Protection of Civil Rights",
+        "hi": "एसोसिएशन फ़ॉर प्रोटेक्शन ऑफ़ सिविल राइट्स (APCR)"
+      },
+      "help": {
+        "en": "Civil-rights legal support · office Mon to Sat",
+        "hi": "नागरिक अधिकार क़ानूनी सहायता · कार्यालय सोम से शनि"
+      },
+      "source": "L10"
+    },
+    "sflc": {
+      "display": "011 4358 7126",
+      "status": "public",
+      "category": "digital",
+      "name": {
+        "en": "SFLC.in",
+        "hi": "SFLC.in"
+      },
+      "help": {
+        "en": "Digital rights: phone seizures, internet shutdowns · rightsline.sflc.in",
+        "hi": "डिजिटल अधिकार: फ़ोन ज़ब्ती, इंटरनेट बंदी · rightsline.sflc.in"
+      },
+      "source": "L13"
+    },
+    "dmrc": {
+      "display": "155370",
+      "status": "public",
+      "category": "transport",
+      "name": {
+        "en": "Delhi Metro helpline",
+        "hi": "दिल्ली मेट्रो हेल्पलाइन"
+      },
+      "help": {
+        "en": "Station status and service queries",
+        "hi": "स्टेशन और सेवा की जानकारी"
+      },
+      "source": "L14"
+    },
+    "eci": {
+      "display": "1950",
+      "status": "official",
+      "category": "civic",
+      "name": {
+        "en": "Voter helpline, Election Commission",
+        "hi": "मतदाता हेल्पलाइन, निर्वाचन आयोग"
+      },
+      "help": {
+        "en": "Check your electoral-roll entry · electoralsearch.eci.gov.in",
+        "hi": "मतदाता सूची में अपना नाम जाँचें · electoralsearch.eci.gov.in"
+      },
+      "source": "L15"
+    },
+    "dcw": {
+      "display": "181",
+      "status": "official",
+      "category": "women",
+      "name": {
+        "en": "Women’s helpline, Delhi",
+        "hi": "महिला हेल्पलाइन, दिल्ली"
+      },
+      "help": {
+        "en": "Delhi Commission for Women · 24×7",
+        "hi": "दिल्ली महिला आयोग · 24×7"
+      },
+      "source": "L21"
+    },
+    "ncw": {
+      "display": "14490",
+      "status": "official",
+      "category": "women",
+      "name": {
+        "en": "National Commission for Women",
+        "hi": "राष्ट्रीय महिला आयोग"
+      },
+      "help": {
+        "en": "Helpline · complaints at ncwapps.nic.in",
+        "hi": "हेल्पलाइन · शिकायत ncwapps.nic.in पर"
+      },
+      "source": "L22"
+    },
+    "pca": {
+      "display": "011 2140 0977",
+      "status": "official",
+      "category": "rights",
+      "name": {
+        "en": "Delhi Police Complaints Authority",
+        "hi": "दिल्ली पुलिस शिकायत प्राधिकरण"
+      },
+      "help": {
+        "en": "Serious police misconduct, detention without due process",
+        "hi": "गंभीर पुलिस ज़्यादती, बिना प्रक्रिया हिरासत"
+      },
+      "source": "L23"
+    },
+    "jagori": {
+      "display": "011 2669 2700",
+      "alt": "88009 96640",
+      "status": "public",
+      "category": "women",
+      "name": {
+        "en": "Jagori women’s helpline",
+        "hi": "जागोरी महिला हेल्पलाइन"
+      },
+      "help": {
+        "en": "Independent women’s group, Delhi · counselling and legal referral · listed 9:30 am to 5:30 pm",
+        "hi": "स्वतंत्र महिला संगठन, दिल्ली · परामर्श और क़ानूनी मदद · सुबह 9:30 से शाम 5:30"
+      },
+      "source": "L26"
+    },
+    "pucl": {
+      "display": "puclnat@gmail.com",
+      "status": "public",
+      "category": "rights",
+      "name": {
+        "en": "PUCL",
+        "hi": "PUCL"
+      },
+      "help": {
+        "en": "People’s Union for Civil Liberties · email",
+        "hi": "पीपुल्स यूनियन फ़ॉर सिविल लिबर्टीज़ · ईमेल"
+      },
+      "source": "L27"
+    }
+  },
+  "status": [
+    {
+      "id": "permission",
+      "tag": {
+        "en": "Verified",
+        "hi": "पुष्ट"
+      },
+      "label": {
+        "en": "Permission",
+        "hi": "अनुमति"
+      },
+      "value": {
+        "en": "Denied by Delhi Police",
+        "hi": "दिल्ली पुलिस ने इनकार किया"
+      },
+      "detail": {
+        "en": "Refused on 9 Oct. Section 163 BNSS prohibitory orders apply in New Delhi district.",
+        "hi": "9 अक्टूबर को इनकार। नई दिल्ली ज़िले में BNSS धारा 163 के निषेधात्मक आदेश।"
+      },
+      "source": "L01"
+    },
+    {
+      "id": "metro",
+      "tag": {
+        "en": "Changing",
+        "hi": "बदल रहा है"
+      },
+      "label": {
+        "en": "Delhi Metro",
+        "hi": "दिल्ली मेट्रो"
+      },
+      "value": {
+        "en": "57 stations shut for entry and exit",
+        "hi": "57 स्टेशनों पर प्रवेश और निकास बंद"
+      },
+      "detail": {
+        "en": "From 9 pm, 9 Oct. Interchange continues except at New Delhi. The Supreme Court has said metro must not be completely halted. Check DMRC for the final list.",
+        "hi": "9 अक्टूबर रात 9 बजे से। इंटरचेंज चालू, नई दिल्ली को छोड़कर। सुप्रीम कोर्ट ने कहा है कि मेट्रो पूरी तरह बंद न हो। अंतिम सूची DMRC से जाँचें।"
+      },
+      "source": "L03, L04"
+    },
+    {
+      "id": "trains",
+      "tag": {
+        "en": "Verified",
+        "hi": "पुष्ट"
+      },
+      "label": {
+        "en": "Trains",
+        "hi": "ट्रेनें"
+      },
+      "value": {
+        "en": "Arrivals cancelled, 4 am to 2 pm",
+        "hi": "सुबह 4 से दोपहर 2 बजे तक आगमन रद्द"
+      },
+      "detail": {
+        "en": "Mail and express trains due at New Delhi and Hazrat Nizamuddin on 10 Oct.",
+        "hi": "10 अक्टूबर को नई दिल्ली और हज़रत निज़ामुद्दीन पहुँचने वाली मेल और एक्सप्रेस ट्रेनें।"
+      },
+      "source": "L01, L02"
+    },
+    {
+      "id": "internet",
+      "tag": {
+        "en": "Reported",
+        "hi": "रिपोर्टेड"
+      },
+      "label": {
+        "en": "Mobile internet",
+        "hi": "मोबाइल इंटरनेट"
+      },
+      "value": {
+        "en": "Suspended within about 4 km",
+        "hi": "लगभग 4 किमी के दायरे में बंद"
+      },
+      "detail": {
+        "en": "Around Jantar Mantar, 10 pm 9 Oct to 10 pm 10 Oct, per police sources. Calls and SMS are not part of the reported order.",
+        "hi": "जंतर मंतर के आसपास, 9 अक्टूबर रात 10 से 10 अक्टूबर रात 10 बजे तक, पुलिस सूत्रों के अनुसार। रिपोर्टेड आदेश में कॉल और SMS शामिल नहीं।"
+      },
+      "source": "L05, L06"
+    },
+    {
+      "id": "roads",
+      "tag": {
+        "en": "Reported",
+        "hi": "रिपोर्टेड"
+      },
+      "label": {
+        "en": "Roads and cabs",
+        "hi": "सड़कें और कैब"
+      },
+      "value": {
+        "en": "Checkpoints and detention points",
+        "hi": "चेकपॉइंट और हिरासत केंद्र"
+      },
+      "detail": {
+        "en": "Police reportedly have border checkpoints, detention points in all 15 districts, and have asked cab apps to restrict rides nearby.",
+        "hi": "रिपोर्टों के अनुसार सीमाओं पर चेकपॉइंट, सभी 15 ज़िलों में हिरासत केंद्र, और कैब ऐप्स से आसपास की सवारी सीमित करने को कहा गया है।"
+      },
+      "source": "L02"
+    }
+  ],
+  "_volunteer_template": {
+    "_how": "Copy this block into ‘contacts’ with a new id ONLY after direct confirmation and consent. Then add the id to s08.ids (en.json and hi.json) and rebuild.",
+    "example_id": {
+      "display": "98XXX XXXXX",
+      "status": "confirmed",
+      "category": "rights",
+      "name": {
+        "en": "Name, profession",
+        "hi": "नाम, पेशा"
+      },
+      "help": {
+        "en": "What they will do, where, and hours",
+        "hi": "क्या करेंगे, कहाँ, किस समय"
+      },
+      "source": "Direct confirmation: date, time, method",
+      "consent": "Written consent to publish this number: yes/no"
+    }
+  }
+}

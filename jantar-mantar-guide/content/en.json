@@ -1,0 +1,806 @@
+{
+  "lang": "en",
+  "ui": {
+    "checked": "Checked",
+    "recheck": "Things are changing by the hour. Check again in the morning before you leave.",
+    "sources": "Sources",
+    "not_endorsed": "None of these groups has endorsed this guide. No number is guaranteed to pick up.",
+    "not_legal_advice": "General information, not legal or medical advice.",
+    "of": "/",
+    "leave_label": "Leave at home",
+    "dont": "Don’t"
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "type": "cover",
+      "kicker": "An independent citizen’s guide",
+      "date": "Saturday, 10 October 2026",
+      "headline": "I was at|Jantar Mantar 1.0.",
+      "headline2": "If you’re going for 2.0,|here’s what I want you to know.",
+      "deck": "Twenty pages on what can go wrong today, and what to do when it does. Save it while you still have signal.",
+      "byline": "By Stella John"
+    },
+    {
+      "id": "status",
+      "type": "status",
+      "kicker": "What’s changed",
+      "headline": "Before you leave,|know what’s changed.",
+      "src": "L01, L02, L04, L05"
+    },
+    {
+      "id": "expect",
+      "type": "expect",
+      "kicker": "What to expect",
+      "headline": "Don’t plan for the rules.|Plan for what’s been happening.",
+      "lede": "All of this was reported in the past few weeks, at Jantar Mantar or a few streets away. Police deny some of it. Plan as though any of it could happen to you.",
+      "items": [
+        [
+          "No name tags",
+          "On 2 Oct journalists asked officers why they weren’t wearing name tags. Nobody would say."
+        ],
+        [
+          "Women taken|away alone,|after dark",
+          "A student leader says she was taken to Narela in a private-looking car. No woman officer was with her."
+        ],
+        [
+          "Hands on women",
+          "Three women journalists say officers touched them. One names an ACP. Another says her shirt was lifted inside a bus."
+        ],
+        [
+          "No video, no FIR",
+          "The women who complained were told: no video, no FIR."
+        ],
+        [
+          "Cameras go first",
+          "Reporters lost cameras, mics, phones, even glasses, in the minutes before they were pushed into buses."
+        ],
+        [
+          "Batons|and tear gas",
+          "Both were used on 20 July. By the police’s own count, about 60 protesters were hurt."
+        ]
+      ],
+      "src": "L17, L18, L19, L20"
+    },
+    {
+      "id": "travel",
+      "type": "steps",
+      "art": "routes",
+      "kicker": "Getting there and back",
+      "headline": "Plan the way in.|Plan the way home.",
+      "steps": [
+        [
+          "Expect to be stopped on the way",
+          "Police have checkpoints at Delhi’s borders, and are reportedly stopping young people carrying posters. You may be turned back before you arrive."
+        ],
+        [
+          "Don’t count on the Metro or a cab",
+          "57 stations are shut for entry and exit, trains into New Delhi are cancelled till 2 pm, and cab apps have been asked to restrict rides nearby."
+        ],
+        [
+          "Know two ways home",
+          "Work them out tonight and write them down. If you’re detained, you may be dropped far from where you started."
+        ],
+        [
+          "Coming from outside Delhi?",
+          "Police have reportedly told hotels not to take in protesters. Sort out where you’ll sleep, with someone you know, before you travel."
+        ],
+        [
+          "If police came to your door before you left",
+          "Activists in Maharashtra report notices asking them to sign bonds. Don’t sign anything you don’t understand. Call a lawyer first."
+        ]
+      ],
+      "src": "L02, L01"
+    },
+    {
+      "id": "phone",
+      "type": "steps",
+      "art": "lock",
+      "kicker": "Your phone",
+      "headline": "Get your phone ready|tonight.",
+      "steps": [
+        [
+          "Switch off face and fingerprint unlock",
+          "Use a long PIN instead. A face or a finger can be pressed onto a phone. A PIN has to come out of your mouth."
+        ],
+        [
+          "Hide message previews",
+          "Turn off notifications on the lock screen, so nobody holding your phone can read your chats."
+        ],
+        [
+          "Back up, then log out",
+          "Back up your photos and chats tonight. Log out of anything you won’t need today."
+        ],
+        [
+          "Save maps offline",
+          "Download central Delhi in Google Maps or Organic Maps. They still show where you are without data."
+        ],
+        [
+          "Think about a second phone",
+          "Leave the phone with your whole life on it at home. A cheap phone with a few numbers saved will do for the day."
+        ],
+        [
+          "Charge everything",
+          "Phone, power bank, cable. Then put the power bank where you won’t forget it."
+        ]
+      ]
+    },
+    {
+      "id": "offline",
+      "type": "steps",
+      "art": "mesh",
+      "dark": true,
+      "kicker": "When the internet goes",
+      "headline": "No internet?|Here’s what still works.",
+      "lede": "At 1.0 in July, I couldn’t reach people for long stretches, and 112 was no use to me.",
+      "steps": [
+        [
+          "Calls and SMS",
+          "The reported order covers mobile data, not calls or texts. A plain SMS may get through when nothing else does."
+        ],
+        [
+          "Bluetooth mesh apps",
+          "At 1.0 people used apps that pass messages from phone to phone over Bluetooth, with no internet. Briar and Bridgefy were among them. Bitchat has since been pulled from Indian app stores."
+        ],
+        [
+          "Install and test tonight",
+          "Nothing downloads once data is cut. Install the same app as your partner, add each other, and send a test message before you sleep."
+        ],
+        [
+          "Know their limits",
+          "They only reach a short distance, need enough people nearby on the same app, and eat battery. Treat them as a backup, never as your only plan."
+        ],
+        [
+          "Paper doesn’t need charging",
+          "The meeting point, the time and the numbers, written down and in your pocket."
+        ]
+      ],
+      "src": "L29, L30"
+    },
+    {
+      "id": "carry",
+      "type": "checklist",
+      "kicker": "What to carry",
+      "headline": "Pack for the day|going wrong.",
+      "items": [
+        [
+          "Water",
+          "More than you think",
+          "water"
+        ],
+        [
+          "ORS and glucose",
+          "For heat and for shaky hands",
+          "food"
+        ],
+        [
+          "Your medicines",
+          "Plus extra, in case you’re held overnight",
+          "pills"
+        ],
+        [
+          "Photocopy of one ID",
+          "Not the original",
+          "id"
+        ],
+        [
+          "An emergency card",
+          "Name, someone to call, blood group, allergies",
+          "file"
+        ],
+        [
+          "Cash in small notes",
+          "Enough to get home from the edge of the city",
+          "cash"
+        ],
+        [
+          "Power bank and cable",
+          "Charged tonight",
+          "battery"
+        ],
+        [
+          "Marker pen",
+          "For numbers on your arm",
+          "pen"
+        ],
+        [
+          "Cap and a cotton scarf",
+          "Sun, dust, and tear gas",
+          "weather"
+        ],
+        [
+          "Glasses, not lenses",
+          "Lenses trap tear gas against the eye",
+          "glasses"
+        ],
+        [
+          "Pads, tissues, sanitiser",
+          "Toilets will be hard to find",
+          "care"
+        ],
+        [
+          "Shoes you can run in",
+          "You may walk far, or fast",
+          "shoe"
+        ]
+      ],
+      "leave": "Original documents, jewellery, your laptop, contact lenses, and anything that could be called a weapon."
+    },
+    {
+      "id": "kit",
+      "type": "checklist",
+      "kicker": "Medicine kit",
+      "headline": "A small kit|for a long day.",
+      "items": [
+        [
+          "Your own medicines",
+          "Two extra days’ worth",
+          "pills"
+        ],
+        [
+          "Inhaler",
+          "If you’ve ever needed one",
+          "care"
+        ],
+        [
+          "Plasters and bandages",
+          "Different sizes",
+          "medic"
+        ],
+        [
+          "Gauze and tape",
+          "For anything bigger than a scrape",
+          "medic"
+        ],
+        [
+          "Antiseptic",
+          "Wipes or liquid",
+          "medic"
+        ],
+        [
+          "A painkiller you already use",
+          "Not something new today",
+          "pills"
+        ],
+        [
+          "ORS sachets",
+          "Three or four",
+          "food"
+        ],
+        [
+          "Glucose or sweets",
+          "For low sugar and faintness",
+          "food"
+        ],
+        [
+          "A bottle of plain water",
+          "Just for rinsing eyes and wounds",
+          "water"
+        ],
+        [
+          "Sanitary pads",
+          "Also good for pressing on a cut",
+          "care"
+        ],
+        [
+          "Disposable gloves",
+          "One pair, for helping someone else",
+          "hand"
+        ],
+        [
+          "A plastic bag",
+          "For clothes after tear gas",
+          "file"
+        ]
+      ],
+      "note": "If you have a heart, lung or blood-sugar condition, stand near the edge, near shade, and tell your partner exactly what to do if you go down."
+    },
+    {
+      "id": "together",
+      "type": "buddy",
+      "kicker": "Each other",
+      "headline": "Don’t be alone there.|Not for a minute.",
+      "body": [
+        "Go with at least one person. Know their full name, someone to call at home, and any medical condition they have.",
+        "Decide tonight what happens if one of you is taken. The other notes the time, the place, the vehicle number and which way it turned, shouts the name loud enough for others to hear, and starts calling.",
+        "If you see a woman being pulled away on her own, stay. Film it, call out her name if you know it, and get a number to her somehow."
+      ],
+      "boundary_label": "Be warm with strangers. Don’t be trusting.",
+      "boundary": "Nobody is owed your number or your company, and nobody, in uniform or not, should be leading you somewhere alone.",
+      "close": "By evening the stranger next to you may be the only person who saw what happened to you."
+    },
+    {
+      "id": "body",
+      "type": "steps",
+      "art": "sun",
+      "kicker": "Heat, panic, fainting",
+      "headline": "Look after your body|before it gives up.",
+      "steps": [
+        [
+          "Drink before you’re thirsty",
+          "Sip all day, and add ORS by the afternoon. Delhi can still touch the low 30s in October."
+        ],
+        [
+          "Know heat exhaustion",
+          "Dizziness, headache, nausea, cold clammy skin. Get the person into shade, loosen their clothes, give small sips of ORS."
+        ],
+        [
+          "If someone faints",
+          "Clear a space, lay them on their side, fan them. If they don’t come round in a minute or so, call an ambulance."
+        ],
+        [
+          "If panic hits you",
+          "Move to the edge. Breathe out slowly, longer than you breathe in. Tell your partner. It passes."
+        ],
+        [
+          "Eat something",
+          "Low blood sugar feels a lot like panic. A sweet and some water can change the next hour."
+        ]
+      ],
+      "src": "L32"
+    },
+    {
+      "id": "teargas",
+      "type": "steps",
+      "art": "eye",
+      "dark": true,
+      "kicker": "Tear gas",
+      "headline": "If there’s tear gas,|get out, then rinse.",
+      "steps": [
+        [
+          "Move away, uphill and upwind",
+          "The gas is heavier than air. Higher ground and moving air clear it faster."
+        ],
+        [
+          "Don’t rub your eyes",
+          "Rubbing spreads it. Blink hard, and keep your hands away from your face."
+        ],
+        [
+          "Rinse with plain water",
+          "Tilt the head to one side and pour from the inner corner outward, for several minutes. Milk, oil and baking soda are no better than water."
+        ],
+        [
+          "Lenses out",
+          "Contacts trap the chemical. Take them out and throw them away."
+        ],
+        [
+          "Change and wash afterwards",
+          "Bag your clothes, shower in cool water, and wash the clothes separately."
+        ],
+        [
+          "See a doctor if it doesn’t ease",
+          "Trouble breathing, or pain or blurred vision that lasts, needs a doctor."
+        ]
+      ],
+      "src": "L31"
+    },
+    {
+      "id": "crush",
+      "type": "steps",
+      "art": "exits",
+      "kicker": "Lathi charge or crush",
+      "headline": "If they charge,|or the crowd crushes.",
+      "steps": [
+        [
+          "Find two exits when you arrive",
+          "Stay near the edges, and away from barricades and walls. Those are where people get pinned."
+        ],
+        [
+          "Leave at the first bad feeling",
+          "When you can’t move freely any more, that’s the moment to go. Not five minutes later."
+        ],
+        [
+          "Arms up at your chest",
+          "Like a boxer. It keeps a little room for your lungs."
+        ],
+        [
+          "Move in the lulls",
+          "A crush comes in waves. Between them, move sideways towards the edge, not against the push."
+        ],
+        [
+          "If a lathi comes down",
+          "Cover your head with your arms or your bag, turn away, and get out with your partner. Don’t stop to argue."
+        ],
+        [
+          "If someone falls, pull them up",
+          "Getting back on your feet fast matters more than anything else in a crowd."
+        ]
+      ],
+      "src": "L33"
+    },
+    {
+      "id": "grabbed",
+      "type": "steps",
+      "art": "voice",
+      "kicker": "If anyone grabs you",
+      "headline": "If anyone grabs you,|make noise.",
+      "sub": "Even if it’s a police officer. Especially then.",
+      "steps": [
+        [
+          "Say exactly what’s happening",
+          "Loudly, in plain words. “He’s touching me.” “Where’s the woman officer?” People turn, and phones come out."
+        ],
+        [
+          "Get it on someone’s phone",
+          "Ask whoever is nearest to film. Afterwards, take their name and number. You’ll need them."
+        ],
+        [
+          "Find out who it is",
+          "Name tag, rank, helmet number, the van’s number. If there’s no name tag, say so out loud while someone is filming."
+        ],
+        [
+          "Ask for a woman officer, on camera",
+          "Women are meant to be searched only by women, and not arrested after sunset except in exceptional cases. Saying it won’t stop them. It puts it on record. BNSS s. 49, 43(5)"
+        ],
+        [
+          "Don’t swing back",
+          "Any push you return becomes their excuse, and a case against you. Keep your hands where the camera can see them."
+        ]
+      ],
+      "note": "None of this is your fault. Tell someone tonight.",
+      "disclaimer": true
+    },
+    {
+      "id": "bus",
+      "type": "steps",
+      "art": "busNote",
+      "cols": 2,
+      "kicker": "If you’re detained",
+      "headline": "If they put you|in a bus.",
+      "steps": [
+        [
+          "Shout your name and a number",
+          "Your full name and a number at home, as you’re being taken. Someone outside will remember it."
+        ],
+        [
+          "Use the window",
+          "On 4 Oct a reporter pressed a note to the glass. It said what was being done to her, with a phone number."
+        ],
+        [
+          "Ask where they’re taking you",
+          "“Kis thane le ja rahe ho?” Then repeat the answer out loud to everyone on the bus."
+        ],
+        [
+          "Name any medical condition",
+          "Diabetes, asthma, pregnancy, anything. To the officers and to the people around you."
+        ],
+        [
+          "Keep your phone locked",
+          "If they take it, don’t unlock it for them."
+        ],
+        [
+          "Don’t get split off",
+          "If they try to take you alone in an unmarked car, make noise. Ask for a woman officer."
+        ]
+      ],
+      "note": "Most people were let go by evening, often on the far edge of the city. That’s what your cash is for.",
+      "callout": [
+        "If you’re outside",
+        "Find out which police station. Go there with a couple of others, and call their family and a lawyer. Don’t post their phone number or address."
+      ],
+      "src": "L18, L25"
+    },
+    {
+      "id": "seized",
+      "type": "steps",
+      "art": "phoneTaken",
+      "kicker": "If they take your phone",
+      "headline": "If they take|your phone.",
+      "steps": [
+        [
+          "Keep it locked",
+          "Don’t unlock it for them, and don’t say your PIN out loud. Ask to speak to a lawyer."
+        ],
+        [
+          "Note who took it",
+          "Name, rank, number, time and place. Ask for a written receipt for it."
+        ],
+        [
+          "The same day, from another phone",
+          "Change your email and social media passwords, and log out of all other sessions."
+        ],
+        [
+          "Tell your people",
+          "Ask friends not to trust messages from your number until you’re back in control of it."
+        ],
+        [
+          "Get help with it",
+          "SFLC.in works on phone seizures. 011 4358 7126."
+        ]
+      ],
+      "src": "L13"
+    },
+    {
+      "id": "missing",
+      "type": "steps",
+      "art": "unreachable",
+      "kicker": "If you can’t find someone",
+      "headline": "If you can’t find|someone you came with.",
+      "steps": [
+        [
+          "Go to the meeting point",
+          "At the time you agreed. Phones may simply be dead."
+        ],
+        [
+          "Ask the people they were near",
+          "Someone may have seen which way they went, or which van."
+        ],
+        [
+          "Try a call or an SMS",
+          "Not just WhatsApp. Those may get through when data doesn’t."
+        ],
+        [
+          "If you think they were detained",
+          "Find out which police station from whoever saw. Go there with others. Call their family and a lawyer."
+        ],
+        [
+          "If you think they’re hurt",
+          "The nearest big hospitals are RML and Lady Hardinge, both a short distance from Jantar Mantar."
+        ],
+        [
+          "Don’t post them as missing too soon",
+          "A wrong ‘missing’ post panics a family and spreads faster than the correction."
+        ]
+      ]
+    },
+    {
+      "id": "record",
+      "type": "record",
+      "kicker": "Documentation",
+      "headline": "They go for cameras first.|Record anyway.",
+      "cols": [
+        {
+          "label": "Record",
+          "items": [
+            "Film from a distance, in short clips.",
+            "Get faces, helmet and van numbers, and name tags or the lack of them.",
+            "Keep filming before and after, not only the worst moment.",
+            "Say the date, time and place out loud."
+          ]
+        },
+        {
+          "label": "Keep it safe",
+          "items": [
+            "Hand clips to a friend away from the front.",
+            "Keep the original file, with sound. Don’t trim or filter it.",
+            "Copy it somewhere else the moment you get signal."
+          ]
+        },
+        {
+          "label": "Before you post",
+          "items": [
+            "Blur anyone who could be hurt for being seen.",
+            "If it’s evidence, show a lawyer first."
+          ]
+        }
+      ],
+      "note": "The women who complained on 3 Oct were told there’d be no FIR without video. Your clip may be the only thing that backs someone up.",
+      "form": [
+        "Date",
+        "Time",
+        "Place",
+        "What happened",
+        "Who: name, rank, number",
+        "Witnesses",
+        "Original file name"
+      ],
+      "src": "L18"
+    },
+    {
+      "id": "after",
+      "type": "steps",
+      "icons": [
+        "file",
+        "hospital",
+        "doc",
+        "scale",
+        "people",
+        "phone"
+      ],
+      "kicker": "Afterwards",
+      "headline": "Nobody official is coming.|Build the record yourself.",
+      "steps": [
+        [
+          "Write it all down tonight",
+          "Times, places, any names or numbers you saw, the exact words used, who was standing nearby. Memory goes fast."
+        ],
+        [
+          "Show your injuries to a doctor",
+          "One you trust. Keep the report, and photograph every bruise with the date visible."
+        ],
+        [
+          "Copy your footage to three places",
+          "Your phone, a friend’s phone, and somewhere online once you have signal. Never edit the original."
+        ],
+        [
+          "Take it to an independent lawyer",
+          "HRLN, APCR, PUCL, or a lawyer you know. They’ll tell you what’s worth pursuing, and how."
+        ],
+        [
+          "Give it to journalists you trust",
+          "Independent reporters and fact-checkers, the ones who were actually there. Keep your original."
+        ],
+        [
+          "Check on people the next day",
+          "Including the ones who say they’re fine."
+        ]
+      ],
+      "note": "When anything has moved after a protest, it was usually because there was footage, there were witnesses, and somebody refused to let it drop.",
+      "disclaimer": true
+    },
+    {
+      "id": "numbers",
+      "type": "numbers",
+      "kicker": "Numbers",
+      "headline": "Numbers to keep on paper.",
+      "groups": [
+        {
+          "label": "If someone is badly hurt",
+          "ids": [
+            "102"
+          ]
+        },
+        {
+          "label": "Women",
+          "ids": [
+            "jagori"
+          ]
+        },
+        {
+          "label": "Lawyers and rights groups",
+          "ids": [
+            "hrln",
+            "apcr",
+            "sflc",
+            "pucl"
+          ]
+        }
+      ],
+      "mine_label": "Write your own",
+      "mine": [
+        "Someone at home",
+        "Your person there"
+      ],
+      "honest": "The organisers set up a legal-aid fund and volunteer lawyers in July. Get their legal contact from their official handle before you leave. I couldn’t confirm any lawyer or doctor on the ground for 10 Oct."
+    },
+    {
+      "id": "closing",
+      "type": "closing",
+      "kicker": "",
+      "headline": "I hope everyone|gets home safe.",
+      "body": "You’ll be angry today, and you’ll have every right to be. Shout. Just don’t be on your own, and don’t hand them the excuse they’re waiting for. Film what you can. If something happens to you or to the person beside you, it doesn’t end when the bus doors open. Write it down, show a doctor, copy the footage, find a lawyer, and keep at it until somebody answers for it.",
+      "sign": "Stella John",
+      "credit": "Independent citizen’s guide · 10 October 2026"
+    }
+  ],
+  "cards": [
+    {
+      "key": "a",
+      "from": "offline",
+      "title": "No internet?|Start here.",
+      "sub": "What still works when data is cut"
+    },
+    {
+      "key": "b",
+      "type": "numbers",
+      "title": "Save these numbers.",
+      "sub": "Ambulance, women’s support, lawyers and rights groups",
+      "ids": [
+        "102",
+        "jagori",
+        "hrln",
+        "apcr",
+        "sflc",
+        "pucl"
+      ]
+    },
+    {
+      "key": "c",
+      "from": "grabbed",
+      "title": "If anyone grabs you,|make noise.",
+      "sub": "Grabbed, groped or stripped",
+      "wine": true
+    },
+    {
+      "key": "d",
+      "from": "bus",
+      "title": "If they put you|in a bus.",
+      "sub": "Inside the bus, and outside it"
+    },
+    {
+      "key": "e",
+      "from": "teargas",
+      "title": "If there’s tear gas,|get out, then rinse.",
+      "sub": "What actually helps"
+    },
+    {
+      "key": "f",
+      "from": "crush",
+      "title": "If they charge,|or the crowd crushes.",
+      "sub": "Staying on your feet"
+    },
+    {
+      "key": "g",
+      "from": "seized",
+      "title": "If they take|your phone.",
+      "sub": "Before, during and after"
+    },
+    {
+      "key": "h",
+      "from": "after",
+      "title": "Nobody official is coming.|Build the record yourself.",
+      "sub": "What to do in the days after"
+    },
+    {
+      "key": "i",
+      "type": "status",
+      "title": "Check before|you travel.",
+      "sub": "Restrictions reported for 10 Oct"
+    }
+  ],
+  "stories": {
+    "1": {
+      "kicker": "A guide, before you leave",
+      "headline": "I was at|Jantar Mantar 1.0|in July.",
+      "body": "If you’re going for 2.0 today, I’ve put together what I’d want you to have read first: what has actually been happening, what to pack, what to do about tear gas, crowds, grabbing hands and police buses, and how to keep proof nobody can take from you.",
+      "cta": "Twenty pages on my profile. Save them while you have signal."
+    },
+    "2": {
+      "kicker": "Before you lose signal",
+      "headline": "Do these|tonight.",
+      "items": [
+        "Write a home number and a lawyer’s on your arm.",
+        "Turn off face unlock. Use a PIN.",
+        "Install a Bluetooth chat app. Test it with your partner.",
+        "Photocopy one ID. Leave the original.",
+        "Pack water, ORS, cash and medicines.",
+        "Pick a time and place to regroup."
+      ]
+    },
+    "3": {
+      "kicker": "Screenshot this",
+      "headline": "Numbers to keep|on paper.",
+      "ids": [
+        "102",
+        "jagori",
+        "hrln",
+        "apcr"
+      ]
+    },
+    "4": {
+      "kicker": "If it happens",
+      "headline": "If anyone grabs you,|make noise.",
+      "from": "grabbed"
+    },
+    "5": {
+      "kicker": "Status",
+      "headline": "What’s changed|for 10 Oct."
+    }
+  },
+  "whatsapp": {
+    "1": {
+      "title": "What’s changed for 10 Oct",
+      "type": "status"
+    },
+    "2": {
+      "title": "Save these numbers",
+      "type": "numbers",
+      "ids": [
+        "102",
+        "jagori",
+        "hrln",
+        "apcr",
+        "sflc",
+        "pucl"
+      ]
+    },
+    "3": {
+      "title": "If there’s tear gas",
+      "from": "teargas"
+    },
+    "4": {
+      "title": "If anyone grabs you",
+      "from": "grabbed"
+    }
+  }
+}

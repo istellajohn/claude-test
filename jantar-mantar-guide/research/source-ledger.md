@@ -1,0 +1,27 @@
+# Source ledger
+
+All times IST. Verified on 9 Oct 2026, 21:00 to 21:40. Source IDs match `content/sources.json`.
+
+| # | Claim as published | Source | Type | Published / updated | Reliability | Used on | Status | Notes |
+|---|---|---|---|---|---|---|---|---|
+| 1 | Delhi Police denied permission for the 10 Oct protest | L01 ThePrint; L02 Indian Express | News; on-record quote from Joint CP Nupur Prasad | 9 Oct 13:26; 9 Oct 15:31, upd 18:57 | High | s02, card F, story 5, WA 1 | Verified | Reasons given: short notice (10-day rule), alleged non-compliance at the July protest, law and order |
+| 2 | Section 163 BNSS prohibitory orders apply in New Delhi district | L01, L02, L05 | News | 9 Oct | High | s02, card F | Verified | |
+| 3 | DMRC: entry and exit closed at 57 stations from 9 pm on 9 Oct; interchange open except at New Delhi | L01, L02, L05 | News quoting DMRC | 9 Oct | High | s02, card F, story 5, WA 1 | Verified, may change | Full station list in L02 |
+| 4 | Supreme Court: metro must not be completely halted; measures to be proportionate | L03, L04 Bar & Bench | Court reporting | 9 Oct | High | s02, card F | Verified | **The court did not issue a revised station list.** DMRC's response after the order was not found. The slide says "Check DMRC for the final list". |
+| 5 | Mail and express arrivals at New Delhi and Hazrat Nizamuddin cancelled, 4 am to 2 pm on 10 Oct | L01, L02, L05 | News quoting Railways | 9 Oct | High | s02, card F, WA 1 | Verified | |
+| 6 | Mobile internet suspended within about 4 km, 10 pm 9 Oct to 10 pm 10 Oct | L05, L06 | News citing police sources and an MHA approval | 9 Oct 20:03 | Medium-high | s02, s03, card A, F, story 5, WA 1 | Reported | Order text not seen. Centre point differs between outlets (Jantar Mantar vs Janpath and Kartavya Path). Business Today cites the Telecommunications Act 2023 and the 2024 suspension rules. Wording kept as "reported". |
+| 7 | Voice calls and SMS are not part of the reported order | L05 ("limited to mobile internet services") | News | 9 Oct | Medium | s02, s03 | Reported | Call jamming claims are labelled "not verified". |
+| 8 | Border checkpoints, detention points in all 15 districts, cab apps asked to restrict | L02 | News, partly attributed to police sources | 9 Oct | Medium | s02, card F | Reported | |
+| 9 | Organisers' claims of thousands detained in other states | L07 | Party claims | 9 Oct | Unverified | **Not used** | Excluded | Maharashtra DGP's office denies the detentions |
+| 10 | Arrest rights: BNSS s.47 (grounds, bail), s.48 (inform nominated person), s.38 (lawyer during interrogation); Art. 22(2) (magistrate within 24 hrs) | L16 | Primary law via secondary summaries and a PIB comparison | n/a | Needs lawyer review | Not used in revision 2 | Superseded | Revision 2 uses the provisions in row 19 instead. |
+| 11 | Author's experience at 1.0 (July): communication problems, 112 unreliable | Author testimony | First-hand | n/a | Testimony | s04, story 3 | Framed as personal | Never stated as a general fact. 1.0 was in **July** (confirmed by author; ThePrint also dates it to July). |
+| 12 | Officers without name tags on 2 Oct; journalists refused an explanation | L17 The Wire | News | 5 Oct | High | s03 | Reported | |
+| 13 | Student leader Neha Bora taken in an unmarked, private-looking car with no woman officer, to Narela; women detained after 5 pm | L17, L18 | News, first-hand | 5 to 6 Oct | Allegation | s03 | Reported as allegation | |
+| 14 | Three women journalists allege sexual harassment by police; one names ACP Vivek Bhagat; Delhi Police received complaints and moved them to Crime Branch for inquiry | L17, L19 ABC | News; Delhi Police statement | 4 to 5 Oct | High (the statement); allegation not adjudicated | s03 | Reported | **This corrects my earlier note**, which said reporting described "assault, not sexual harassment". That note referred to a separate September Saket case. The October allegations are of sexual harassment. |
+| 15 | Officers lifted a journalist's shirt on a bus; cameras, mic, phone and glasses lost; she held a handwritten note to the window | L18 The Quint | First-person account | 6 Oct | Testimony; police did not respond | s03, s08, busNote illustration | Reported as account | |
+| 16 | Police told complainants an FIR would follow only if video evidence emerged | L18 (Brinda Karat's account) | News | 6 Oct | Reported statement | s03, s09 | Reported | The Hindu: "no evidence to substantiate" |
+| 17 | 20 July: tear gas and batons; police count about 60 protesters injured | L20 NPR, TIME | News | 21 to 22 Jul | High | s03 | Verified | |
+| 18 | Detainees held at Barakhamba Road police station and Chhatrasal Stadium, released after 8 pm | L25 Business Standard | News | 7 Oct | High | s08 ("held for hours") | Verified | |
+| 19 | BNSS s.36 name identification; s.49(2) woman searched by a woman; s.43(5) no arrest of a woman after sunset without magistrate permission; s.173(1) Zero FIR; s.173(4) and 175(3) remedies; BNS s.199(c) | L24 | Law via reproductions | n/a | Consistent; the s.199(c) list varies, so the slide says "some" | s07, s10, cards C and F | Needs lawyer review | |
+
+**Reddit and forums:** Reddit blocks automated access from this environment (HTTP 403 and search-index exclusion), so no Reddit thread could be read or cited. First-hand material comes from accounts published under the speakers' names (The Quint) and from on-record statements. Threads the author pastes in can be added to this ledger, labelled as anecdote.
