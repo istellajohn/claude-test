@@ -17,13 +17,13 @@
   },
   "status_labels": {
     "official": {
-      "en": "Official public service",
-      "hi": "आधिकारिक सार्वजनिक सेवा",
+      "en": "Government ambulance service",
+      "hi": "सरकारी एम्बुलेंस सेवा",
       "mark": "●"
     },
     "public": {
-      "en": "Established public contact · 10 Oct availability not confirmed",
-      "hi": "स्थापित सार्वजनिक संपर्क · 10 अक्टूबर की उपलब्धता की पुष्टि नहीं",
+      "en": "Independent · not confirmed for 10 Oct",
+      "hi": "स्वतंत्र · 10 अक्टूबर के लिए पुष्टि नहीं",
       "mark": "○"
     },
     "confirmed": {
@@ -56,12 +56,12 @@
       "status": "official",
       "category": "emergency",
       "name": {
-        "en": "CATS Ambulance, Delhi",
-        "hi": "कैट्स एम्बुलेंस, दिल्ली"
+        "en": "Ambulance",
+        "hi": "एम्बुलेंस"
       },
       "help": {
-        "en": "Free government ambulance",
-        "hi": "मुफ़्त सरकारी एम्बुलेंस"
+        "en": "For injuries. Not for help with police.",
+        "hi": "चोट के लिए। पुलिस से मदद के लिए नहीं।"
       },
       "source": "L11"
     },
@@ -86,7 +86,7 @@
       "category": "rights",
       "name": {
         "en": "Human Rights Law Network",
-        "hi": "ह्यूमन राइट्स लॉ नेटवर्क (HRLN)"
+        "hi": "ह्यूमन राइट्स लॉ नेटवर्क"
       },
       "help": {
         "en": "Human-rights lawyers · Delhi office line",
@@ -191,6 +191,35 @@
         "hi": "गंभीर पुलिस ज़्यादती, बिना प्रक्रिया हिरासत"
       },
       "source": "L23"
+    },
+    "jagori": {
+      "display": "011 2669 2700",
+      "alt": "88009 96640",
+      "status": "public",
+      "category": "women",
+      "name": {
+        "en": "Jagori women’s helpline",
+        "hi": "जागोरी महिला हेल्पलाइन"
+      },
+      "help": {
+        "en": "Independent women’s group, Delhi · counselling and legal referral · listed 9:30 am to 5:30 pm",
+        "hi": "स्वतंत्र महिला संगठन, दिल्ली · परामर्श और क़ानूनी मदद · सुबह 9:30 से शाम 5:30"
+      },
+      "source": "L26"
+    },
+    "pucl": {
+      "display": "puclnat@gmail.com",
+      "status": "public",
+      "category": "rights",
+      "name": {
+        "en": "PUCL",
+        "hi": "PUCL"
+      },
+      "help": {
+        "en": "People’s Union for Civil Liberties · email",
+        "hi": "पीपुल्स यूनियन फ़ॉर सिविल लिबर्टीज़ · ईमेल"
+      },
+      "source": "L27"
     }
   },
   "status": [

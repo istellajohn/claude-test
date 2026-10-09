@@ -136,8 +136,8 @@ function samratYantra(w = 904, h = 560, mode = 'day', opts = {}) {
 function paperSlip(lang = 'en', w = 330, h = 300) {
   const hi = lang === 'hi';
   const font = hi ? 'Kalam' : 'Caveat';
-  const lines = hi ? [['घर', '__________'], ['क़ानूनी सहायता', '15100'], ['एम्बुलेंस', '102'], ['मिलने की जगह', '______']]
-                   : [['Home', '__________'], ['Legal aid', '15100'], ['Ambulance', '102'], ['Meet at', '__________']];
+  const lines = hi ? [['घर', '__________'], ['वकील', '__________'], ['एम्बुलेंस', '102'], ['मिलने की जगह', '______']]
+                   : [['Home', '__________'], ['Lawyer', '__________'], ['Ambulance', '102'], ['Meet at', '__________']];
   let g = `<g transform="rotate(-4 ${w / 2} ${h / 2})">`;
   let edge = `M14 30`; for (let x = 14; x <= w - 14; x += 12) edge += ` L${x + 6} ${26 + (x % 24 ? 6 : 0)}`;
   g += `<path d="${edge} L${w - 14} ${h - 20} L14 ${h - 20} Z" fill="${P.paper}" stroke="${P.grey}" stroke-width="1.2"/>`;

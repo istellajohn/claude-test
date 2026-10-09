@@ -23,7 +23,7 @@ const pad = n => String(n).padStart(2, '0');
 const P = I.P;
 
 // Which icon belongs to each contact and status row (one place to change it).
-const CONTACT_ICON = { '112': 'siren', '102': 'medic', dslsa: 'scale', hrln: 'shield', apcr: 'scale', sflc: 'wifioff', dmrc: 'metro', eci: 'vote', dcw: 'phone', ncw: 'shield', pca: 'file' };
+const CONTACT_ICON = { '112': 'siren', '102': 'medic', dslsa: 'scale', hrln: 'shield', apcr: 'scale', sflc: 'wifioff', dmrc: 'metro', eci: 'vote', dcw: 'phone', ncw: 'shield', pca: 'file', jagori: 'care', pucl: 'scale' };
 const STATUS_ICON = { permission: 'gate', metro: 'metro', trains: 'train', internet: 'wifioff', roads: 'barrier' };
 
 // ------------------------------------------------------------------ type system + base CSS
@@ -105,7 +105,8 @@ function foot(lang, o = {}) {
 // ------------------------------------------------------------------ components
 function contactRow(id, lang, o = {}) {
   const c = C(id), st = DATA.status_labels[c.status];
-  const numPx = o.num || 66, colW = o.col || 300, nameF = o.name || 28, dark = o.dark;
+  const base = o.num || 66, colW = o.col || 300, nameF = o.name || 28, dark = o.dark;
+  const numPx = c.display.length > 8 ? Math.min(base, Math.floor(colW / (c.display.length * 0.5))) : base;
   return `<div style="display:grid;grid-template-columns:${colW}px 1fr;gap:24px;align-items:start;padding:${o.pad ?? 18}px 0;border-top:1px solid ${dark ? 'rgba(240,238,232,.22)' : 'var(--rule)'}">
     <div class="num" style="font-size:${numPx}px;white-space:nowrap;padding-top:2px">${c.display}</div>
     <div>
@@ -187,7 +188,7 @@ function slide(id, lang) {
       <div style="margin-top:14px">${s.items.map(([a, b, src]) => `<div style="display:grid;grid-template-columns:${hi ? 290 : 280}px 1fr;gap:22px;padding:${hi ? 11 : 12}px 0;border-top:1px solid var(--rule)">
         <div class="disp" style="font-size:${hi ? 25 : 27}px;line-height:1.12">${a}</div>
         <div><div style="font-size:${hi ? 21 : 21}px;line-height:1.36">${b}</div><div style="margin-top:3px;font-family:var(--mono);font-size:14px;letter-spacing:.04em;color:var(--wine)">${src}</div></div></div>`).join('')}<div class="hair"></div></div>
-      ${foot(lang, { left: hi ? 'आरोप अदालत में साबित नहीं हुए हैं। दिल्ली पुलिस ने जाँच का वादा किया है।' : 'Allegations have not been tested in court. Delhi Police has promised an inquiry.' })}` });
+      ${foot(lang, { left: L.ui.sources + ': ' + srcShort('L17, L18, L19, L20') })}` });
 
     case 's04': return page({ lang, cls: 'dark', inner: `
       ${top(s.kicker, n)}
@@ -274,13 +275,19 @@ function slide(id, lang) {
       <div class="disp h1" style="margin-top:32px;font-size:${hi ? 58 : 68}px">${s.headline}</div>
       <div style="margin-top:20px">${stepRows(s.steps, lang, { icons: AFTER_ICON, hl: 2, pad: 14, t: hi ? 27 : 27, d: hi ? 22 : 22 })}</div>
       <div class="note" style="margin-top:14px;font-size:${hi ? 21 : 20}px;line-height:1.36;font-weight:600">${s.note}</div>
-      ${foot(lang, { left: s.disclaimer + '<br>' + L.ui.sources + ': ' + srcShort('L24, L22, L23') })}` });
+      ${foot(lang, { left: s.disclaimer, checked: false, right: n })}` });
 
     case 's11': return page({ lang, inner: `
       ${top(s.kicker, n)}
       <div class="disp h1" style="margin-top:32px;font-size:${hi ? 62 : 72}px">${s.headline}</div>
-      ${s.groups.map(g => `<div class="label" style="margin-top:20px">${g.label}</div><div style="display:grid;grid-template-columns:1fr 1fr;column-gap:32px;margin-top:6px">${g.ids.map(id => contactTile(id, lang)).join('')}</div>`).join('')}
-      <div class="disp" style="margin-top:20px;font-size:${hi ? 22 : 23}px;line-height:1.3;text-wrap:pretty"><em>${s.honest}</em></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;column-gap:32px;margin-top:8px">
+        ${s.groups.slice(0, 2).map(g => `<div><div class="label" style="margin-top:16px">${g.label}</div>${g.ids.map(id => contactTile(id, lang, { name: 23, help: 18 })).join('')}</div>`).join('')}
+      </div>
+      <div class="label" style="margin-top:18px">${s.groups[2].label}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;column-gap:32px">${s.groups[2].ids.map(id => contactTile(id, lang, { long: 36 })).join('')}</div>
+      <div class="label" style="margin-top:18px">${s.mine_label}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;column-gap:32px">${s.mine.map(m => `<div style="border-top:2px solid var(--carbon);padding-top:10px"><div class="small" style="font-size:19px">${m}</div><div style="margin-top:52px;border-bottom:1.5px dashed var(--grey)"></div></div>`).join('')}</div>
+      <div class="disp" style="margin-top:20px;font-size:${hi ? 21 : 22}px;line-height:1.3;text-wrap:pretty"><em>${s.honest}</em></div>
       ${foot(lang, { left: L.ui.not_endorsed })}` });
 
     case 's12': return page({ lang, cls: 'wine', inner: `
@@ -312,16 +319,16 @@ function card(key) {
       <div>${S.s04.steps.map((x, i) => `<div style="display:grid;grid-template-columns:50px 1fr;padding:14px 0;border-top:1px solid var(--rule)"><span class="num" style="font-size:28px;color:var(--wine)">${pad(i + 1)}</span><span style="font-size:26px;line-height:1.26">${x}</span></div>`).join('')}<div class="hair"></div></div>
       <div style="padding-top:8px">${I.paperSlip('en', 290, 266)}</div></div>
       <div class="small" style="margin-top:16px;color:var(--carbon);font-size:21px"><b>${S.s04.confirmed_label}:</b> ${S.s04.confirmed} <b>${S.s04.unverified_label}:</b> ${S.s04.unverified}</div>`; }
-  if (key === 'b') { ts = true; src = srcShort('L11, L21, L22, L08');
+  if (key === 'b') { ts = true; src = srcShort('L11, L26, L09, L10, L13');
     body = `<div style="margin-top:16px">${c.ids.map(id => contactRow(id, lang, { num: 76, col: 300, name: 28, small: 22, pad: 14 })).join('')}<div class="hair"></div></div><div class="small" style="margin-top:12px;font-size:20px">${L.ui.not_endorsed}</div>`; }
   if (key === 'c') { src = srcShort('L24');
-    body = `<div class="disp" style="margin-top:20px;font-size:34px"><em>${S.s07.sub}</em></div><div style="margin-top:12px">${stepRows(S.s07.steps, lang, { pad: 19, t: 30, d: 24, c: 16 })}</div><div class="note strong" style="margin-top:16px;font-size:23px">${S.s07.after.replace(', and turn to slide 10 for what to do next', '')}</div>`; }
+    body = `<div class="disp" style="margin-top:20px;font-size:34px"><em>${S.s07.sub}</em></div><div style="margin-top:12px">${stepRows(S.s07.steps, lang, { pad: 19, t: 30, d: 24, c: 16 })}</div><div class="note strong" style="margin-top:16px;font-size:23px">${S.s07.after.replace(', and see slide 10 for keeping the record', '')}</div>`; }
   if (key === 'd') { src = srcShort('L18, L25');
     body = `<div style="margin-top:12px">${stepRows(S.s08.steps, lang, { pad: 13, t: 27, d: 22 })}</div><div style="margin-top:14px;background:var(--paper2);padding:14px 20px"><div class="label">${S.s08.outside_label}</div><div style="margin-top:4px;font-size:21px;line-height:1.36">${S.s08.outside}</div></div>`; }
   if (key === 'e') { src = srcShort('L18');
     body = `<div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:20px">${[S.s09.cols[0], { label: S.s09.cols[1].label + ' · ' + S.s09.cols[2].label, items: [...S.s09.cols[1].items, ...S.s09.cols[2].items] }].map(col => `<div><div class="label">${col.label}</div>${col.items.map(x => `<div style="font-size:27px;line-height:1.3;padding:18px 0;border-top:1px solid var(--rule)">${x}</div>`).join('')}</div>`).join('')}</div>
       <div class="note strong" style="margin-top:18px;font-size:23px">${S.s09.impersonation}</div>`; }
-  if (key === 'f') { src = srcShort('L24, L22, L23');
+  if (key === 'f') { src = '';
     body = `<div style="margin-top:12px">${stepRows(S.s10.steps, lang, { icons: AFTER_ICON, hl: 2, pad: 17, t: 28, d: 23, c: 16 })}</div><div class="small" style="margin-top:10px;font-size:20px">${S.s10.disclaimer}</div>`; }
   if (key === 'g') { ts = true; src = srcShort('L01, L02, L04, L05');
     body = `<div style="margin-top:6px">${statusRows(lang, { pad: 13, det: 21, val: 28 })}</div><div class="small strong" style="margin-top:12px;color:var(--carbon);font-size:22px">${L.ui.recheck} Delhi Metro helpline 155370.</div>`; }
@@ -344,15 +351,15 @@ function story(key) {
     <div style="margin-top:40px">${st.items.map((x, i) => `<div style="display:grid;grid-template-columns:84px 1fr;padding:32px 0;border-top:1px solid rgba(240,238,232,.22)"><span class="num" style="font-size:42px;color:#E7C9CD">${pad(i + 1)}</span><span style="font-size:42px;line-height:1.22">${x}</span></div>`).join('')}</div>`; }
   if (key === '3') body = `
     <div class="disp" style="font-size:112px;line-height:.95;margin-top:44px">${st.headline}</div>
-    <div style="margin-top:36px">${st.ids.map(id => contactRow(id, lang, { num: 104, col: 380, name: 34, small: 27, tag: 19, pad: 30, noNote: true })).join('')}<div class="hair"></div></div>
-    <div class="small" style="margin-top:20px;font-size:26px">112: I found it unreliable at 1.0. Keep other routes ready.</div>`;
+    <div style="margin-top:36px">${st.ids.map(id => contactRow(id, lang, { num: 90, col: 400, name: 30, small: 23, tag: 17, pad: 18, noNote: true, noAlt: true })).join('')}<div class="hair"></div></div>
+    <div class="label" style="margin-top:28px;font-size:20px">Write your own</div>${['Someone at home', 'Your person there'].map(m => `<div style="border-top:2px solid var(--carbon);padding-top:12px;margin-top:14px"><div class="small" style="font-size:26px">${m}</div><div style="margin-top:36px;border-bottom:1.5px dashed var(--grey)"></div></div>`).join('')}`;
   if (key === '4') body = `
     <div class="disp" style="font-size:96px;line-height:.98;margin-top:40px">${st.headline}</div>
     <div class="disp" style="margin-top:14px;font-size:50px"><em>${S.s07.sub}</em></div>
     <div style="margin-top:26px">${stepRows(S.s07.steps, lang, { pad: 18, t: 34, d: 27, c: 17, numF: 38 })}</div>`;
   if (key === '5') body = `
     <div class="disp" style="font-size:104px;line-height:.96;margin-top:44px">${st.headline}</div>
-    <div style="margin-top:26px">${statusRows(lang, { iconW: 70, val: 34, det: 24, pad: 16, tagF: 16 })}</div>
+    <div style="margin-top:26px">${statusRows(lang, { iconW: 70, val: 33, det: 23, pad: 14, tagF: 16 })}</div>
     <div class="strong" style="margin-top:16px;font-size:27px">${L.ui.recheck}</div>`;
   return page({ lang, W: 1080, H: 1920, cls, extraCss: extra, inner: `${top(st.kicker, key + ' / 5')}${body}${foot(lang, { left: 'Stella John · Independent citizen’s guide' + (key === '5' ? '<br>Sources: ' + srcShort('L01, L02, L04, L05') : '') })}` });
 }
@@ -364,9 +371,9 @@ function whatsapp(key) {
   const extra = `.page{padding:64px 72px 0;--M:72px}.foot{font-size:20px}.foot .r{font-size:17px}`;
   let body = '';
   if (key === '1') body = DATA.status.map(s => `<div style="display:grid;grid-template-columns:76px 1fr;gap:18px;align-items:center;padding:30px 0;border-top:2px solid var(--carbon)">${I.icon(STATUS_ICON[s.id], 70, s.id === 'metro' || s.id === 'internet' ? P.wine : P.carbon, 2.4)}<div><div style="font-family:var(--mono);font-size:19px;letter-spacing:.1em;text-transform:uppercase;color:var(--wine)">${s.label.en} · ${s.tag.en}</div><div class="strong" style="font-size:46px;line-height:1.1;margin-top:6px">${s.value.en}</div></div></div>`).join('') + `<div class="strong" style="font-size:28px;margin-top:16px;border-top:2px solid var(--carbon);padding-top:16px">No police permission. ${L.ui.recheck}</div>`;
-  if (key === '2') body = w.ids.map(id => { const c = C(id); return `<div style="display:grid;grid-template-columns:430px 1fr;gap:18px;align-items:center;padding:22px 0;border-top:2px solid var(--carbon)"><div class="num" style="font-size:${c.display.length > 8 ? 66 : 92}px;white-space:nowrap">${c.display}</div><div><div class="strong" style="font-size:29px;line-height:1.12">${c.name.en}</div><div style="font-size:22px;color:${c.status === 'official' ? 'var(--ink2)' : 'var(--wine)'};margin-top:3px">${c.status === 'official' ? t(c.help, 'en') : 'Office line · 10 Oct not confirmed'}</div></div></div>`; }).join('') + `<div style="font-size:22px;margin-top:12px;color:var(--ink2);border-top:2px solid var(--carbon);padding-top:12px">No number is guaranteed to connect. None of these groups endorses this guide.</div>`;
+  if (key === '2') body = w.ids.map(id => { const c = C(id); return `<div style="display:grid;grid-template-columns:430px 1fr;gap:18px;align-items:center;padding:22px 0;border-top:2px solid var(--carbon)"><div class="num" style="font-size:${c.display.includes('@') ? 40 : c.display.length > 8 ? 66 : 92}px;white-space:nowrap">${c.display}</div><div><div class="strong" style="font-size:29px;line-height:1.12">${c.name.en}</div><div style="font-size:22px;color:${c.status === 'official' ? 'var(--ink2)' : 'var(--wine)'};margin-top:3px">${c.status === 'official' ? t(c.help, 'en') : (c.display.includes('@') ? 'Email' : 'Office line') + ' · 10 Oct not confirmed'}</div></div></div>`; }).join('') + `<div style="font-size:22px;margin-top:12px;color:var(--ink2);border-top:2px solid var(--carbon);padding-top:12px">No number is guaranteed to connect. None of these groups endorses this guide.</div>`;
   if (key === '3') body = stepRows(S.s07.steps, 'en', { pad: 22, t: 37, d: 27, numF: 38, c: 17, numW: 64 });
-  if (key === '4') body = stepRows(S.s08.steps.map(([x, y]) => [x, y.replace(' SFLC.in has a guide on device seizure.', '')]), 'en', { pad: 15, t: 33, d: 24, numF: 36, numW: 60 }) + `<div class="strong" style="font-size:26px;margin-top:14px;color:var(--wine)">Outside? Call legal aid 15100 and their family. Go to the police station.</div>`;
+  if (key === '4') body = stepRows(S.s08.steps.map(([x, y]) => [x, y.replace(' SFLC.in has a guide on device seizure.', '')]), 'en', { pad: 15, t: 33, d: 24, numF: 36, numW: 60 }) + `<div class="strong" style="font-size:26px;margin-top:14px;color:var(--wine)">Outside? Find out which police station. Go there with others. Call their family and a lawyer.</div>`;
   return page({ lang, extraCss: extra, inner: `
     <div class="row" style="justify-content:space-between;align-items:center"><div style="font-family:var(--mono);font-size:20px;letter-spacing:.1em;text-transform:uppercase;color:var(--wine)">Jantar Mantar 2.0 · Sat 10 Oct 2026</div>${I.icon(WA_ICON[key], 52, P.wine, 2.4)}</div>
     <div class="disp" style="font-size:${key === '1' ? 76 : 84}px;margin:14px 0 24px">${w.title}</div>${body}

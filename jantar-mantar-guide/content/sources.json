@@ -198,5 +198,29 @@
     "type": "News",
     "date": "2026-10-07",
     "reliability": "High; detainees held at Barakhamba Road PS and Chhatrasal Stadium, released after 8 pm"
+  },
+  "L26": {
+    "short": "Jagori",
+    "title": "Jagori: national women's helpline and case support",
+    "url": "https://jagori.org/node/94",
+    "type": "Organisation's own site",
+    "date": "Checked 2026-10-09",
+    "reliability": "Established NGO; hours from an older directory (Tarshi)"
+  },
+  "L27": {
+    "short": "PUCL",
+    "title": "PUCL national office contact",
+    "url": "https://pucl.org/about-us/",
+    "type": "Organisation's own site",
+    "date": "Checked 2026-10-09",
+    "reliability": "Established; only email confirmed current"
+  },
+  "L28": {
+    "short": "The Week, 28 Jul",
+    "title": "CJP legal-aid fund and volunteer-lawyer platform",
+    "url": "https://www.theweek.in/news/india/2026/07/28/kapil-sibal-cjp-legal-aid-neet-one-crore.html",
+    "type": "News",
+    "date": "2026-07-28",
+    "reliability": "High; no public helpline number found"
   }
 }
