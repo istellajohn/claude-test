@@ -1,0 +1,21 @@
+{
+  "_note": "Remotion TypeCard / Stamp presets. Used by overlays[].props.preset.",
+  "serif_statement": {
+    "font": "display",
+    "italic_words": true,
+    "stagger_frames": 5,
+    "reveal": "mask-rise",
+    "tracking": -0.01
+  },
+  "grotesk_impact": {
+    "font": "text",
+    "uppercase": true,
+    "reveal": "hit",
+    "tracking": 0.0
+  },
+  "mono_stamp": {
+    "font": "mono",
+    "reveal": "type",
+    "tracking": 0.08
+  }
+}

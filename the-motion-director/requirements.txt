@@ -1,0 +1,7 @@
+numpy>=1.26
+opencv-python-headless>=4.9,<5   # 5.x removed the Haar cascade classifier used for face detection
+scenedetect>=0.6.4
+librosa>=0.10
+soundfile>=0.12
+pillow>=10
+faster-whisper>=1.0   # optional: transcription. Downloads a model on first use; audio is decoded by ffmpeg, not PyAV

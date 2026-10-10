@@ -1,0 +1,31 @@
+# THE MOTION DIRECTOR
+# Raw footage, photographs, audio and renders never go to a public repository by default.
+# Move a folder out of this list only after deciding on a private repo + Git LFS (see documentation/ASSET-STORAGE.md).
+projects/*/01_original_footage/*
+projects/*/02_audio/*
+projects/*/03_music_references/audio/*
+projects/*/04_photographs/*
+projects/*/06_footage_analysis/proxies/
+projects/*/06_footage_analysis/thumbs/
+projects/*/06_footage_analysis/.cache/
+projects/*/13_previews/*
+projects/*/14_final_exports/*
+projects/*/15_thumbnails/*
+projects/*/.work/
+projects/*/09_motion_graphics/renders/
+!projects/*/**/.gitkeep
+!projects/*/**/README.md
+
+# secrets
+.env
+.env.*
+*.pem
+*token*
+*apikey*
+
+# tooling
+__pycache__/
+*.pyc
+node_modules/
+engine/motion/out/
+.DS_Store

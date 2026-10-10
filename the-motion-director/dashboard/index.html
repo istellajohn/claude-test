@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Motion Director</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/static/styles/app.css">
+</head>
+<body>
+<div id="app">
+  <aside id="rail">
+    <div class="brand"><span class="brand-mark">TMD</span><span class="brand-name">The Motion<br>Director</span></div>
+    <label class="field-label" for="project-select">Project</label>
+    <select id="project-select"></select>
+    <nav id="nav"></nav>
+    <div id="rail-foot"><div id="doctor-dot"></div><span class="muted small">local studio · 127.0.0.1</span></div>
+  </aside>
+  <main id="main"><div id="view"></div></main>
+  <div id="jobbar" hidden></div>
+</div>
+<div id="toasts"></div>
+<script type="module" src="/static/src/main.js"></script>
+</body>
+</html>
