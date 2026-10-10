@@ -1,0 +1,35 @@
+{
+  "_note": "The vocabulary the engine can currently execute. Anything not listed here is not implemented.",
+  "cut": {
+    "implemented": true,
+    "note": "Hard cut. Default. Frame-exact."
+  },
+  "j_cut": {
+    "implemented": true,
+    "note": "Set clips[].audio.lead (seconds): the next clip's sound begins under the previous picture."
+  },
+  "l_cut": {
+    "implemented": true,
+    "note": "Set clips[].audio.tail (seconds): this clip's sound carries over the next picture."
+  },
+  "dip": {
+    "implemented": true,
+    "note": "clips[].fade_in / fade_out in seconds, to black. Use rarely, as punctuation."
+  },
+  "dissolve": {
+    "implemented": false,
+    "note": "Not implemented yet. Use a hard cut, a dip, or a J/L audio bridge."
+  },
+  "speed_ramp": {
+    "implemented": true,
+    "note": "clips[].ramp {from,to,steps}. Forbidden on factual_incident clips in documentary mode unless an integrity_note is given."
+  },
+  "freeze": {
+    "implemented": true,
+    "note": "clips[].freeze true holds the first frame of the clip's in-point for its duration."
+  },
+  "match_cut": {
+    "implemented": false,
+    "note": "An editorial decision, achieved by choosing clip order and focus points. Not an effect."
+  }
+}

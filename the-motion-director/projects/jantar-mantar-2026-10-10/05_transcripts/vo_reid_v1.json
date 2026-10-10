@@ -1,0 +1,229 @@
+{
+  "file": "vo_reid_v1.wav",
+  "model": "small",
+  "language": "en",
+  "language_probability": 0.992,
+  "generated": "2026-10-10T17:25:49+0000",
+  "note": "Machine transcript. Verify every line against the audio before captioning; low avg_logprob means low confidence. Never alter meaning.",
+  "segments": [
+    {
+      "start": 0.05,
+      "end": 5.93,
+      "text": "You can put us in buses. You can drag us off the road. You cannot detain a country",
+      "avg_logprob": -0.182,
+      "no_speech_prob": 0.067,
+      "words": [
+        {
+          "w": "You",
+          "start": 0.05,
+          "end": 0.55,
+          "p": 0.954
+        },
+        {
+          "w": "can",
+          "start": 0.55,
+          "end": 0.69,
+          "p": 0.995
+        },
+        {
+          "w": "put",
+          "start": 0.69,
+          "end": 0.87,
+          "p": 0.998
+        },
+        {
+          "w": "us",
+          "start": 0.87,
+          "end": 1.01,
+          "p": 0.999
+        },
+        {
+          "w": "in",
+          "start": 1.01,
+          "end": 1.15,
+          "p": 0.996
+        },
+        {
+          "w": "buses.",
+          "start": 1.15,
+          "end": 1.49,
+          "p": 0.982
+        },
+        {
+          "w": "You",
+          "start": 1.91,
+          "end": 2.31,
+          "p": 0.996
+        },
+        {
+          "w": "can",
+          "start": 2.31,
+          "end": 2.47,
+          "p": 0.999
+        },
+        {
+          "w": "drag",
+          "start": 2.47,
+          "end": 2.75,
+          "p": 0.998
+        },
+        {
+          "w": "us",
+          "start": 2.75,
+          "end": 3.01,
+          "p": 0.999
+        },
+        {
+          "w": "off",
+          "start": 3.01,
+          "end": 3.23,
+          "p": 0.999
+        },
+        {
+          "w": "the",
+          "start": 3.23,
+          "end": 3.37,
+          "p": 0.997
+        },
+        {
+          "w": "road.",
+          "start": 3.37,
+          "end": 3.71,
+          "p": 0.997
+        },
+        {
+          "w": "You",
+          "start": 3.99,
+          "end": 4.41,
+          "p": 0.997
+        },
+        {
+          "w": "cannot",
+          "start": 4.41,
+          "end": 4.69,
+          "p": 0.979
+        },
+        {
+          "w": "detain",
+          "start": 4.69,
+          "end": 5.35,
+          "p": 0.993
+        },
+        {
+          "w": "a",
+          "start": 5.35,
+          "end": 5.51,
+          "p": 0.996
+        },
+        {
+          "w": "country",
+          "start": 5.51,
+          "end": 5.93,
+          "p": 0.998
+        }
+      ]
+    },
+    {
+      "start": 6.65,
+      "end": 7.27,
+      "text": "enough",
+      "avg_logprob": -0.182,
+      "no_speech_prob": 0.067,
+      "words": [
+        {
+          "w": "enough",
+          "start": 6.65,
+          "end": 7.27,
+          "p": 0.436
+        }
+      ]
+    },
+    {
+      "start": 7.89,
+      "end": 13.03,
+      "text": "We are not afraid. We are not alone. We are not going home",
+      "avg_logprob": -0.182,
+      "no_speech_prob": 0.067,
+      "words": [
+        {
+          "w": "We",
+          "start": 7.89,
+          "end": 8.51,
+          "p": 0.926
+        },
+        {
+          "w": "are",
+          "start": 8.51,
+          "end": 8.71,
+          "p": 0.999
+        },
+        {
+          "w": "not",
+          "start": 8.71,
+          "end": 8.93,
+          "p": 0.996
+        },
+        {
+          "w": "afraid.",
+          "start": 8.93,
+          "end": 9.39,
+          "p": 0.995
+        },
+        {
+          "w": "We",
+          "start": 9.57,
+          "end": 10.13,
+          "p": 0.999
+        },
+        {
+          "w": "are",
+          "start": 10.13,
+          "end": 10.29,
+          "p": 0.999
+        },
+        {
+          "w": "not",
+          "start": 10.29,
+          "end": 10.49,
+          "p": 0.999
+        },
+        {
+          "w": "alone.",
+          "start": 10.49,
+          "end": 10.83,
+          "p": 0.998
+        },
+        {
+          "w": "We",
+          "start": 11.19,
+          "end": 11.75,
+          "p": 0.999
+        },
+        {
+          "w": "are",
+          "start": 11.75,
+          "end": 11.89,
+          "p": 0.999
+        },
+        {
+          "w": "not",
+          "start": 11.89,
+          "end": 12.23,
+          "p": 0.98
+        },
+        {
+          "w": "going",
+          "start": 12.23,
+          "end": 12.65,
+          "p": 0.999
+        },
+        {
+          "w": "home",
+          "start": 12.65,
+          "end": 13.03,
+          "p": 0.999
+        }
+      ]
+    }
+  ]
+}

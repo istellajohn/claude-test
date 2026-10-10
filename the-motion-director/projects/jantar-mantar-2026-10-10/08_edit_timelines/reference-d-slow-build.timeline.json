@@ -1,0 +1,381 @@
+{
+  "name": "reference-d-slow-build",
+  "treatment": "D",
+  "treatment_label": "The Slow Build",
+  "status": "DRAFT: machine-assembled; every choice still needs a director's pass",
+  "documentary_mode": true,
+  "clips": [
+    {
+      "id": "p1",
+      "src": "04_photographs/156272372.png",
+      "kind": "still",
+      "dur": 2.6,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.08
+      },
+      "focus": {
+        "x": 0.58,
+        "y": 0.35
+      },
+      "label": "156272372.png",
+      "role": "photo"
+    },
+    {
+      "id": "p2",
+      "src": "04_photographs/clgfm2d8_congggg_160x120_10_October_26.png",
+      "kind": "still",
+      "dur": 1.9,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.08
+      },
+      "focus": {
+        "x": 0.3,
+        "y": 0.65
+      },
+      "label": "clgfm2d8_congggg_160x120_10_October_26.png",
+      "role": "photo"
+    },
+    {
+      "id": "p3",
+      "src": "04_photographs/delhi-cjp-protests-live-1791620576.png",
+      "kind": "still",
+      "dur": 1.5,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.08
+      },
+      "focus": {
+        "x": 0.36,
+        "y": 0.5
+      },
+      "label": "delhi-cjp-protests-live-1791620576.png",
+      "role": "photo"
+    },
+    {
+      "id": "p4",
+      "src": "04_photographs/c323379e-a843-4bbb-8257-97bc61a8e2c6.png",
+      "kind": "still",
+      "dur": 1.2,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.08
+      },
+      "focus": {
+        "x": 0.6,
+        "y": 0.45
+      },
+      "label": "c323379e-a843-4bbb-8257-97bc61a8e2c6.png",
+      "role": "photo"
+    },
+    {
+      "id": "p5",
+      "src": "04_photographs/samakalikamalayalam_2F2026-10-10_2Fvmef7q8e_2F20261010043L.png",
+      "kind": "still",
+      "dur": 1.0,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.08
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.42
+      },
+      "label": "samakalikamalayalam_2F2026-10-10_2Fvmef7q8e_2F20261010043L.png",
+      "role": "photo"
+    },
+    {
+      "id": "p6",
+      "src": "04_photographs/156310534.png",
+      "kind": "still",
+      "dur": 0.8667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.45
+      },
+      "label": "156310534.png",
+      "role": "photo"
+    },
+    {
+      "id": "p7",
+      "src": "04_photographs/05sfi-student-unions-protest5.png",
+      "kind": "still",
+      "dur": 0.7,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "label": "05sfi-student-unions-protest5.png",
+      "role": "photo"
+    },
+    {
+      "id": "p8",
+      "src": "04_photographs/215881-fuwehaboka-1791125971.png",
+      "kind": "still",
+      "dur": 0.6,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.6,
+        "y": 0.5
+      },
+      "label": "215881-fuwehaboka-1791125971.png",
+      "role": "photo"
+    },
+    {
+      "id": "p9",
+      "src": "04_photographs/delhi-police-CJP-PTI_1791636606906_d.png",
+      "kind": "still",
+      "dur": 0.5,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.55
+      },
+      "label": "delhi-police-CJP-PTI_1791636606906_d.png",
+      "role": "photo"
+    },
+    {
+      "id": "p10",
+      "src": "04_photographs/CJP-protest-Police-Brutality.png",
+      "kind": "still",
+      "dur": 0.4333,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.6
+      },
+      "label": "CJP-protest-Police-Brutality.png",
+      "role": "photo"
+    },
+    {
+      "id": "p11",
+      "src": "04_photographs/cjp-jpg.png",
+      "kind": "still",
+      "dur": 0.3667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.55,
+        "y": 0.6
+      },
+      "label": "cjp-jpg.png",
+      "role": "photo"
+    },
+    {
+      "id": "p12",
+      "src": "04_photographs/cjp-protest-protesters-hide-in-gurdwara-don-cockroach-helmets-to-evade-delhi-police.png",
+      "kind": "still",
+      "dur": 0.3,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.5
+      },
+      "label": "cjp-protest-protesters-hide-in-gurdwara-don-cockroach-helmets-to-evade-delhi-police.png",
+      "role": "photo",
+      "crop": {
+        "x": 0,
+        "y": 0.128,
+        "w": 1,
+        "h": 0.744
+      }
+    },
+    {
+      "id": "p13",
+      "src": "04_photographs/jantar-mantar-cjp-protest-100656241-1x1.png",
+      "kind": "still",
+      "dur": 0.2667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.5
+      },
+      "label": "jantar-mantar-cjp-protest-100656241-1x1.png",
+      "role": "photo"
+    },
+    {
+      "id": "p14",
+      "src": "04_photographs/jantar-mantar-cjp-protest-100656234-16x9_0.png",
+      "kind": "still",
+      "dur": 0.2333,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.6
+      },
+      "label": "jantar-mantar-cjp-protest-100656234-16x9_0.png",
+      "role": "photo"
+    },
+    {
+      "id": "p15",
+      "src": "04_photographs/Priyanka-Gandhi-protest.png",
+      "kind": "still",
+      "dur": 0.2,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.45
+      },
+      "label": "Priyanka-Gandhi-protest.png",
+      "role": "photo"
+    },
+    {
+      "id": "p16",
+      "src": "04_photographs/1200-675-27838591-thumbnail-16x9-cjp-violence-1-aspera.png",
+      "kind": "still",
+      "dur": 3.0,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.06
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.36
+      },
+      "label": "1200-675-27838591-thumbnail-16x9-cjp-violence-1-aspera.png",
+      "role": "photo",
+      "fade_out": 0.7,
+      "notes": "closing wide hold"
+    }
+  ],
+  "audio_layers": [
+    {
+      "id": "pulse",
+      "kind": "designed",
+      "src": "03_music_references/audio/score_pulse.wav",
+      "start": 0,
+      "in": 0,
+      "gain_db": -2,
+      "fade_in": 0.0,
+      "fade_out": 0.0
+    }
+  ],
+  "overlays": [
+    {
+      "id": "thesis1",
+      "composition": "Thesis",
+      "start": 0.35,
+      "dur": 4.15,
+      "props": {
+        "parts": [
+          {
+            "t": "women will not be "
+          },
+          {
+            "t": "silenced",
+            "accent": true
+          }
+        ],
+        "position": "lower",
+        "size": 118,
+        "fadeIn": 8,
+        "fadeOut": 0
+      }
+    },
+    {
+      "id": "thesis2",
+      "composition": "Thesis",
+      "start": 4.5,
+      "dur": 3.7,
+      "props": {
+        "parts": [
+          {
+            "t": "students will not be "
+          },
+          {
+            "t": "silenced",
+            "accent": true
+          }
+        ],
+        "position": "lower",
+        "size": 118,
+        "fadeIn": 1,
+        "fadeOut": 0
+      }
+    },
+    {
+      "id": "thesis3",
+      "composition": "Thesis",
+      "start": 8.2,
+      "dur": 2.167,
+      "props": {
+        "parts": [
+          {
+            "t": "citizens will not be "
+          },
+          {
+            "t": "silenced",
+            "accent": true
+          }
+        ],
+        "position": "lower",
+        "size": 118,
+        "fadeIn": 1,
+        "fadeOut": 0
+      }
+    },
+    {
+      "id": "thesis4",
+      "composition": "Thesis",
+      "start": 10.367,
+      "dur": 5.3,
+      "props": {
+        "parts": [
+          {
+            "t": "this country will not be "
+          },
+          {
+            "t": "silenced",
+            "accent": true
+          }
+        ],
+        "position": "lower",
+        "size": 118,
+        "fadeIn": 1,
+        "fadeOut": 20
+      }
+    }
+  ],
+  "captions": "12_subtitles/captions.json",
+  "intentional_silence": [],
+  "grade": {
+    "look": "editorial_bw"
+  },
+  "canvas": {
+    "width": 1910,
+    "height": 1000,
+    "fps": 30
+  }
+}

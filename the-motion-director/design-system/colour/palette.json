@@ -1,0 +1,9 @@
+{
+  "_note": "Default visual system tokens. Projects override these in 09_motion_graphics/visual_system.json. A documentary on a protest should not inherit a perfume-commercial palette: change per project.",
+  "ink": "#0E0E0F",
+  "paper": "#F2EEE6",
+  "ash": "#8C8A84",
+  "accent": "#E8431F",
+  "signal": "#F5D547",
+  "shadow": "#000000"
+}

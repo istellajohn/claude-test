@@ -1,0 +1,329 @@
+{
+  "name": "photos-b-cinematic",
+  "treatment": "B",
+  "treatment_label": "The Cinematic Cut",
+  "status": "DRAFT: machine-assembled photo montage; every choice still needs a director's pass",
+  "documentary_mode": true,
+  "clips": [
+    {
+      "id": "p1",
+      "src": "04_photographs/156272372.png",
+      "kind": "still",
+      "dur": 1.8333,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.58,
+        "y": 0.35
+      },
+      "label": "156272372.png",
+      "role": "photo",
+      "notes": ""
+    },
+    {
+      "id": "p2",
+      "src": "04_photographs/1200-675-27838591-thumbnail-16x9-cjp-violence-1-aspera.png",
+      "kind": "still",
+      "dur": 1.8,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.36
+      },
+      "label": "1200-675-27838591-thumbnail-16x9-cjp-violence-1-aspera.png",
+      "role": "photo",
+      "notes": ""
+    },
+    {
+      "id": "p3",
+      "src": "04_photographs/clgfm2d8_congggg_160x120_10_October_26.png",
+      "kind": "still",
+      "dur": 1.3667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.3,
+        "y": 0.65
+      },
+      "label": "clgfm2d8_congggg_160x120_10_October_26.png",
+      "role": "photo",
+      "notes": ""
+    },
+    {
+      "id": "p4",
+      "src": "04_photographs/c323379e-a843-4bbb-8257-97bc61a8e2c6.png",
+      "kind": "still",
+      "dur": 1.3667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.6,
+        "y": 0.45
+      },
+      "label": "c323379e-a843-4bbb-8257-97bc61a8e2c6.png",
+      "role": "photo",
+      "notes": ""
+    },
+    {
+      "id": "p5",
+      "src": "04_photographs/delhi-cjp-protests-live-1791620576.png",
+      "kind": "still",
+      "dur": 1.3667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.36,
+        "y": 0.5
+      },
+      "label": "delhi-cjp-protests-live-1791620576.png",
+      "role": "photo",
+      "notes": ""
+    },
+    {
+      "id": "p6",
+      "src": "04_photographs/samakalikamalayalam_2F2026-10-10_2Fvmef7q8e_2F20261010043L.png",
+      "kind": "still",
+      "dur": 1.3667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.42
+      },
+      "label": "samakalikamalayalam_2F2026-10-10_2Fvmef7q8e_2F20261010043L.png",
+      "role": "photo",
+      "notes": ""
+    },
+    {
+      "id": "p7",
+      "src": "04_photographs/156310534.png",
+      "kind": "still",
+      "dur": 1.3667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.45
+      },
+      "label": "156310534.png",
+      "role": "photo",
+      "notes": ""
+    },
+    {
+      "id": "p8",
+      "src": "04_photographs/05sfi-student-unions-protest5.png",
+      "kind": "still",
+      "dur": 0.9,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "label": "05sfi-student-unions-protest5.png",
+      "role": "photo",
+      "notes": ""
+    },
+    {
+      "id": "p9",
+      "src": "04_photographs/215881-fuwehaboka-1791125971.png",
+      "kind": "still",
+      "dur": 1.3667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.6,
+        "y": 0.5
+      },
+      "label": "215881-fuwehaboka-1791125971.png",
+      "role": "photo",
+      "notes": ""
+    },
+    {
+      "id": "p10",
+      "src": "04_photographs/delhi-police-CJP-PTI_1791636606906_d.png",
+      "kind": "still",
+      "dur": 0.9,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.55
+      },
+      "label": "delhi-police-CJP-PTI_1791636606906_d.png",
+      "role": "photo",
+      "notes": ""
+    },
+    {
+      "id": "p11",
+      "src": "04_photographs/CJP-protest-Police-Brutality.png",
+      "kind": "still",
+      "dur": 0.9,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.6
+      },
+      "label": "CJP-protest-Police-Brutality.png",
+      "role": "photo",
+      "notes": ""
+    },
+    {
+      "id": "p12",
+      "src": "04_photographs/cjp-jpg.png",
+      "kind": "still",
+      "dur": 1.3667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.55,
+        "y": 0.6
+      },
+      "label": "cjp-jpg.png",
+      "role": "photo",
+      "notes": ""
+    },
+    {
+      "id": "p13",
+      "src": "04_photographs/cjp-protest-protesters-hide-in-gurdwara-don-cockroach-helmets-to-evade-delhi-police.png",
+      "kind": "still",
+      "dur": 0.9333,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.5
+      },
+      "label": "cjp-protest-protesters-hide-in-gurdwara-don-cockroach-helmets-to-evade-delhi-police.png",
+      "role": "photo",
+      "notes": "",
+      "crop": {
+        "x": 0,
+        "y": 0.128,
+        "w": 1,
+        "h": 0.744
+      }
+    },
+    {
+      "id": "p14",
+      "src": "04_photographs/Priyanka-Gandhi-protest.png",
+      "kind": "still",
+      "dur": 3.6333,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.45
+      },
+      "label": "Priyanka-Gandhi-protest.png",
+      "role": "photo",
+      "notes": ""
+    },
+    {
+      "id": "p15",
+      "src": "04_photographs/jantar-mantar-cjp-protest-100656241-1x1.png",
+      "kind": "still",
+      "dur": 1.3667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.5
+      },
+      "label": "jantar-mantar-cjp-protest-100656241-1x1.png",
+      "role": "photo",
+      "notes": ""
+    },
+    {
+      "id": "p16",
+      "src": "04_photographs/Priyanka-Gandhi-protest.png",
+      "kind": "still",
+      "dur": 1.8,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.07
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.45
+      },
+      "label": "Priyanka-Gandhi-protest.png",
+      "role": "photo",
+      "notes": "",
+      "fade_out": 0.25
+    }
+  ],
+  "audio_layers": [
+    {
+      "id": "score",
+      "kind": "designed",
+      "src": "03_music_references/audio/score_grunge_132bpm_24s.wav",
+      "start": 0,
+      "in": 0,
+      "gain_db": -3,
+      "fade_in": 0.0,
+      "fade_out": 0.5
+    }
+  ],
+  "overlays": [
+    {
+      "id": "stamp",
+      "composition": "Stamp",
+      "start": 0.2,
+      "dur": 2.4,
+      "props": {
+        "place": "New Delhi",
+        "time": "10 Oct 2026",
+        "note": "CJP protest call. Source: PTI, 8 Oct",
+        "position": "upper"
+      }
+    }
+  ],
+  "captions": "12_subtitles/captions.json",
+  "intentional_silence": [
+    [
+      8.864,
+      9.091
+    ]
+  ],
+  "grade": {
+    "look": "grunge_ember"
+  },
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  }
+}

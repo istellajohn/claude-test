@@ -1,0 +1,15 @@
+{
+  "ink": "#0E0E0F",
+  "paper": "#F2EEE6",
+  "ash": "#8C8A84",
+  "accent": "#E8431F",
+  "signal": "#F5D547",
+  "shadow": "#000000",
+  "fonts": {
+    "display": "Instrument Serif",
+    "text": "Hanken Grotesk",
+    "mono": "DM Mono"
+  },
+  "grain": 0.0,
+  "caption_style": "minimal_editorial"
+}

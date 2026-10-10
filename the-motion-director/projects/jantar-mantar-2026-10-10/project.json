@@ -1,0 +1,79 @@
+{
+  "name": "jantar-mantar-2026-10-10",
+  "title": "will not be silenced",
+  "created": "2026-10-10T16:20:19+0000",
+  "status": "exported",
+  "platform": "instagram_reels",
+  "documentary_mode": true,
+  "canvas": {
+    "width": 1910,
+    "height": 1000,
+    "fps": 30
+  },
+  "loudness": {
+    "integrated_lufs": -14.0,
+    "true_peak_dbtp": -1.0
+  },
+  "music_intent": {
+    "post_type": "organic",
+    "boosted": false,
+    "account_type": "NOT VERIFIED",
+    "region": "NOT VERIFIED",
+    "note": "Plan: original generated score (embeddable). No third-party recording is needed."
+  },
+  "treatments": {
+    "A": "The Impact Cut",
+    "B": "The Cinematic Cut",
+    "C": "The Experimental Editorial Cut"
+  },
+  "chosen_treatment": null,
+  "statement": {
+    "cards": [
+      {
+        "at": "start",
+        "lines": [
+          "ENOUGH."
+        ],
+        "dur": 1.6,
+        "position": "middle"
+      },
+      {
+        "at": "drop",
+        "lines": [
+          "WE WILL NOT",
+          "BE SILENCED."
+        ],
+        "dur": 2.7,
+        "position": "middle"
+      },
+      {
+        "at": "end",
+        "lines": [
+          "THEY CAN'T",
+          "DETAIN A COUNTRY."
+        ],
+        "dur": 2.7,
+        "position": "middle"
+      }
+    ],
+    "note": "The maker's angry message, in the maker's voice. Rhetoric, not caption: it makes no factual claim about the photographs."
+  },
+  "default_aspect": "1.91:1",
+  "thesis": {
+    "nouns": [
+      "women",
+      "students",
+      "citizens",
+      "this country"
+    ],
+    "noun_at_cut": [
+      0,
+      2,
+      5,
+      8
+    ],
+    "frame": " will not be ",
+    "word": "silenced",
+    "note": "The maker's sentence, in the maker's voice (rhetoric, not caption). Structure borrowed from a reference: one frame, the noun swaps, one red word."
+  }
+}

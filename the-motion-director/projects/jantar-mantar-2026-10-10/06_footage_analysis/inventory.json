@@ -1,0 +1,443 @@
+{
+  "version": 3,
+  "generated": "2026-10-10T16:30:52+0000",
+  "note": "Machine suggestions for human review. Tags are heuristics, not judgements.",
+  "assets": [
+    {
+      "id": "P001",
+      "rel_path": "04_photographs/04g3s9b8_cjp-protest_625x300_08_October_26.png",
+      "kind": "photo",
+      "sig": [
+        3413368,
+        1791648892
+      ],
+      "filename": "04g3s9b8_cjp-protest_625x300_08_October_26.png",
+      "width": 1600,
+      "height": 900,
+      "orientation": "horizontal",
+      "analysis_version": 3,
+      "sharpness": 6159.1,
+      "faces": 0,
+      "focus": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": "centre"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P001/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P002",
+      "rel_path": "04_photographs/05sfi-student-unions-protest5.png",
+      "kind": "photo",
+      "sig": [
+        1820988,
+        1791649593
+      ],
+      "filename": "05sfi-student-unions-protest5.png",
+      "width": 1200,
+      "height": 819,
+      "orientation": "horizontal",
+      "analysis_version": 3,
+      "sharpness": 2113.2,
+      "faces": 0,
+      "focus": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": "centre"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P002/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P003",
+      "rel_path": "04_photographs/1200-675-27838591-thumbnail-16x9-cjp-violence-1-aspera.png",
+      "kind": "photo",
+      "sig": [
+        1964244,
+        1791649128
+      ],
+      "filename": "1200-675-27838591-thumbnail-16x9-cjp-violence-1-aspera.png",
+      "width": 1200,
+      "height": 675,
+      "orientation": "horizontal",
+      "analysis_version": 3,
+      "sharpness": 4861.4,
+      "faces": 1,
+      "focus": {
+        "x": 0.503,
+        "y": 0.243,
+        "source": "faces"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P003/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P004",
+      "rel_path": "04_photographs/156272372.png",
+      "kind": "photo",
+      "sig": [
+        1530139,
+        1791649573
+      ],
+      "filename": "156272372.png",
+      "width": 1280,
+      "height": 720,
+      "orientation": "horizontal",
+      "analysis_version": 3,
+      "sharpness": 4437.7,
+      "faces": 0,
+      "focus": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": "centre"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P004/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P005",
+      "rel_path": "04_photographs/156310534.png",
+      "kind": "photo",
+      "sig": [
+        1524035,
+        1791649368
+      ],
+      "filename": "156310534.png",
+      "width": 1280,
+      "height": 720,
+      "orientation": "horizontal",
+      "analysis_version": 3,
+      "sharpness": 1365.8,
+      "faces": 2,
+      "focus": {
+        "x": 0.531,
+        "y": 0.29,
+        "source": "faces"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P005/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P006",
+      "rel_path": "04_photographs/215881-fuwehaboka-1791125971.png",
+      "kind": "photo",
+      "sig": [
+        1416929,
+        1791649135
+      ],
+      "filename": "215881-fuwehaboka-1791125971.png",
+      "width": 1200,
+      "height": 630,
+      "orientation": "horizontal",
+      "analysis_version": 3,
+      "sharpness": 1740.8,
+      "faces": 1,
+      "focus": {
+        "x": 0.607,
+        "y": 0.479,
+        "source": "faces"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P006/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P007",
+      "rel_path": "04_photographs/CJP-protest-Police-Brutality.png",
+      "kind": "photo",
+      "sig": [
+        1543836,
+        1791648868
+      ],
+      "filename": "CJP-protest-Police-Brutality.png",
+      "width": 1014,
+      "height": 675,
+      "orientation": "horizontal",
+      "analysis_version": 3,
+      "sharpness": 2780.1,
+      "faces": 1,
+      "focus": {
+        "x": 0.388,
+        "y": 0.182,
+        "source": "faces"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P007/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P008",
+      "rel_path": "04_photographs/Priyanka-Gandhi-protest.png",
+      "kind": "photo",
+      "sig": [
+        3002662,
+        1791649208
+      ],
+      "filename": "Priyanka-Gandhi-protest.png",
+      "width": 1600,
+      "height": 900,
+      "orientation": "horizontal",
+      "analysis_version": 3,
+      "sharpness": 1022.2,
+      "faces": 0,
+      "focus": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": "centre"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P008/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P009",
+      "rel_path": "04_photographs/c323379e-a843-4bbb-8257-97bc61a8e2c6.png",
+      "kind": "photo",
+      "sig": [
+        1637935,
+        1791648980
+      ],
+      "filename": "c323379e-a843-4bbb-8257-97bc61a8e2c6.png",
+      "width": 1200,
+      "height": 716,
+      "orientation": "horizontal",
+      "analysis_version": 3,
+      "sharpness": 1226.3,
+      "faces": 0,
+      "focus": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": "centre"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P009/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P010",
+      "rel_path": "04_photographs/cjp-jpg.png",
+      "kind": "photo",
+      "sig": [
+        1296790,
+        1791649605
+      ],
+      "filename": "cjp-jpg.png",
+      "width": 900,
+      "height": 599,
+      "orientation": "horizontal",
+      "analysis_version": 3,
+      "sharpness": 3471.7,
+      "faces": 0,
+      "focus": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": "centre"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P010/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P011",
+      "rel_path": "04_photographs/cjp-protest-protesters-hide-in-gurdwara-don-cockroach-helmets-to-evade-delhi-police.png",
+      "kind": "photo",
+      "sig": [
+        1893485,
+        1791648882
+      ],
+      "filename": "cjp-protest-protesters-hide-in-gurdwara-don-cockroach-helmets-to-evade-delhi-police.png",
+      "width": 1200,
+      "height": 1200,
+      "orientation": "square",
+      "analysis_version": 3,
+      "sharpness": 1172.1,
+      "faces": 1,
+      "focus": {
+        "x": 0.411,
+        "y": 0.281,
+        "source": "faces"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P011/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P012",
+      "rel_path": "04_photographs/clgfm2d8_congggg_160x120_10_October_26.png",
+      "kind": "photo",
+      "sig": [
+        3975679,
+        1791649106
+      ],
+      "filename": "clgfm2d8_congggg_160x120_10_October_26.png",
+      "width": 1920,
+      "height": 1080,
+      "orientation": "horizontal",
+      "analysis_version": 3,
+      "sharpness": 2835.4,
+      "faces": 2,
+      "focus": {
+        "x": 0.492,
+        "y": 0.223,
+        "source": "faces"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P012/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P013",
+      "rel_path": "04_photographs/delhi-cjp-protests-live-1791620576.png",
+      "kind": "photo",
+      "sig": [
+        1316284,
+        1791649479
+      ],
+      "filename": "delhi-cjp-protests-live-1791620576.png",
+      "width": 1200,
+      "height": 675,
+      "orientation": "horizontal",
+      "analysis_version": 3,
+      "sharpness": 1474.4,
+      "faces": 0,
+      "focus": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": "centre"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P013/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P014",
+      "rel_path": "04_photographs/delhi-police-CJP-PTI_1791636606906_d.png",
+      "kind": "photo",
+      "sig": [
+        1609057,
+        1791648857
+      ],
+      "filename": "delhi-police-CJP-PTI_1791636606906_d.png",
+      "width": 1280,
+      "height": 720,
+      "orientation": "horizontal",
+      "analysis_version": 3,
+      "sharpness": 1713.8,
+      "faces": 0,
+      "focus": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": "centre"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P014/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P015",
+      "rel_path": "04_photographs/jantar-mantar-cjp-protest-100656234-16x9_0.png",
+      "kind": "photo",
+      "sig": [
+        1982195,
+        1791649459
+      ],
+      "filename": "jantar-mantar-cjp-protest-100656234-16x9_0.png",
+      "width": 1200,
+      "height": 675,
+      "orientation": "horizontal",
+      "analysis_version": 3,
+      "sharpness": 3670.8,
+      "faces": 0,
+      "focus": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": "centre"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P015/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P016",
+      "rel_path": "04_photographs/jantar-mantar-cjp-protest-100656241-1x1.png",
+      "kind": "photo",
+      "sig": [
+        3124584,
+        1791649398
+      ],
+      "filename": "jantar-mantar-cjp-protest-100656241-1x1.png",
+      "width": 1200,
+      "height": 1200,
+      "orientation": "square",
+      "analysis_version": 3,
+      "sharpness": 2807.7,
+      "faces": 0,
+      "focus": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": "centre"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P016/S001.jpg",
+      "warnings": []
+    },
+    {
+      "id": "P017",
+      "rel_path": "04_photographs/samakalikamalayalam_2F2026-10-10_2Fvmef7q8e_2F20261010043L.png",
+      "kind": "photo",
+      "sig": [
+        1373710,
+        1791649507
+      ],
+      "filename": "samakalikamalayalam_2F2026-10-10_2Fvmef7q8e_2F20261010043L.png",
+      "width": 1200,
+      "height": 675,
+      "orientation": "horizontal",
+      "analysis_version": 3,
+      "sharpness": 1785.8,
+      "faces": 2,
+      "focus": {
+        "x": 0.631,
+        "y": 0.59,
+        "source": "faces"
+      },
+      "exif_taken": null,
+      "exif_camera": null,
+      "thumb": "06_footage_analysis/thumbs/P017/S001.jpg",
+      "warnings": []
+    }
+  ],
+  "shots": [],
+  "summary": {
+    "assets": 17,
+    "videos": 0,
+    "photos": 17,
+    "audio_files": 0,
+    "unreadable": 0,
+    "shots": 0,
+    "total_video_seconds": 0,
+    "tags": {}
+  }
+}

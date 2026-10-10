@@ -1,0 +1,47 @@
+{
+  "file": "02_audio/vo_reid_v1.wav",
+  "lead": 0.6,
+  "tail": 2.2,
+  "final_treat": "natural",
+  "voice": "Higgsfield seed_audio preset 'Reid' (AI-generated read of the maker's script)",
+  "lines": [
+    {
+      "text": "You can put us in *buses*.",
+      "cut_every": 2,
+      "treat": "bw",
+      "slow": true
+    },
+    {
+      "text": "You can *drag* us off the road.",
+      "cut_every": 2,
+      "treat": "red_duotone",
+      "slow": true
+    },
+    {
+      "text": "You cannot *detain* a *country*.",
+      "cut_every": 1,
+      "treat": "bw"
+    },
+    {
+      "text": "*Enough.*",
+      "cut_every": 1,
+      "treat": "black",
+      "black": true
+    },
+    {
+      "text": "We are *not* afraid.",
+      "cut_every": 1,
+      "treat": "halftone_red"
+    },
+    {
+      "text": "We are *not* alone.",
+      "cut_every": 1,
+      "treat": "bw"
+    },
+    {
+      "text": "We are *not* going *home*.",
+      "cut_every": 1,
+      "treat": "natural"
+    }
+  ]
+}
