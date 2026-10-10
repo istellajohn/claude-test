@@ -12,8 +12,11 @@
 ## Photo treatment
 Supplied photo has a saturated pink backdrop. It was converted to a warm black-and-white print. The backdrop was matted out by colour (soft matte, edge pixels un-mixed) and replaced with a gentle paper-grey so the figure melts into the cream paper. JPEG blocking in the backdrop was removed. The face and figure are untouched. Originals kept in `03_SOURCE_ASSETS/photography/`.
 
+## Respect for the subject (rule)
+The face, forehead markings (tilak), bindi and hair are never retouched, blurred, faded or recoloured. On the burgundy cover only the backdrop is re-graded; a protected head box keeps the face at full strength. Verified against the original at close zoom (`04_WORKING/iterations/forehead_check.png`). Build script: `04_WORKING/scripts/build_cover_colour.py`.
+
 ## Colour note
-v02 used deep red grounds and a red-ink portrait. Feedback was that red all over was disrespectful for a memorial, so v03 moves to cream paper and wine with a black-and-white portrait, following the feed's own parchment language. Red appears only in the logo.
+v02 used deep red grounds and a red-ink portrait. Feedback was that red all over was disrespectful for a memorial, so v03 moves to cream paper and wine for the inside pages, following the feed's parchment language. After further feedback the cover is burgundy with Dorai in his real colours (pink backdrop re-graded to the Antaranga-poster maroon `#6C2821`, cream and gold type `#E3B16A`).
 
 ## Copy edits (compressions of the supplied newsletter)
 - v02 structure: eight slides, one per beat of Adi tala (marked by the eight ticks at the foot of each page, grouped 4+2+2). The six brushstrokes of the logo arrive one per slide (1 to 6) and the full logo closes slide 8. The two lines about anticipation and the gumki now share slide 5.

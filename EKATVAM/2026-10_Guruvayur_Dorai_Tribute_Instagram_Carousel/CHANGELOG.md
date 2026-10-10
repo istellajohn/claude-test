@@ -10,3 +10,6 @@ Slide 4 simplified (six names, bigger, more air) after feedback that it was cong
 
 ## v03
 Feedback: red all over looked disrespectful for a memorial. Rebuilt in cream, wine and taupe sampled from the feed's Entrust and Yuva Sagara posts. Black-and-white portrait matted into the paper. Two ledger slides set as parchment sheets on jute. Strokes in wine. Logo in colour only on the cover (small) and last slide. Script name for Rajmohan Krishnan.
+
+## v03 revision 2
+Cover changed to burgundy with the portrait in real colours (like the Antaranga poster). First attempt faded his forehead into the background; fixed with a protected head box and verified against the original. Slide 5: 'It was anticipation.' on a single line. Cream cover alternative dropped (pink fringe).
