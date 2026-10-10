@@ -15,7 +15,7 @@ Supplied photo has a saturated pink backdrop. It was converted to monochrome and
 ## Copy edits (compressions of the supplied newsletter)
 - v02 structure: eight slides, one per beat of Adi tala (marked by the eight ticks at the foot of each page, grouped 4+2+2). The six brushstrokes of the logo arrive one per slide (1 to 6) and the full logo closes slide 8. The two lines about anticipation and the gumki now share slide 5.
 - Slide 3: "Born in a house on North Mada Street, Guruvayur, close to the temple" compresses the birth paragraph. "Polio. His father saw a way forward, not a limit" compresses "His father did not see the illness as a limit ... He saw a way forward." "Moves in with his guru ... for nearly nine years" compresses the 1953 sentence.
-- Slide 4: names verbatim, in the newsletter's order.
+- Slide 4: the opening line is verbatim from the newsletter ("Over more than six decades, he accompanied nearly every major artist of his time."). Six of the ten names are shown to keep the page uncluttered, verbatim and in the newsletter's order: Musiri Subramania Iyer, Semmangudi Srinivasa Iyer, G.N. Balasubramaniam, M.D. Ramanathan, M. Balamuralikrishna, T.R. Mahalingam. Left out for space: Dwaram Venkataswamy Naidu, Mysore Chowdiah, S. Balachander, Chitti Babu. Confirm with Rajmohan, or put the full list in the caption.
 - Slide 6: "The honours came in their time" is a heading added by design; honours and years verbatim.
 - Slide 7: "Teaching at the University of Washington, Seattle" (1978), "Published Mridanga Nada Manjari, so a guru's knowledge would outlive the guru" (2001), Trust awards compressed.
 

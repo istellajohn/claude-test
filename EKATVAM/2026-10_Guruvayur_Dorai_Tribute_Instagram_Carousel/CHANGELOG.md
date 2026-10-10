@@ -4,3 +4,6 @@
 
 ## v02
 Rebuilt after feedback that v01 looked flat and below the standard of the feed. Warm ivory paper texture, red-ink duotone portrait, garnet grounds, larger type, eight-beat tala device, one logo stroke per slide assembling into the full logo. 9 slides reduced to 8. v01 archived.
+
+## v02 revision 2
+Slide 4 simplified (six names, bigger, more air) after feedback that it was congested. Slide 6 bottom spacing eased.
