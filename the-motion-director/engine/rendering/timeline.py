@@ -28,7 +28,7 @@ from pathlib import Path
 from engine.utilities.common import Project, TMDError, read_json, tc, write_json
 from engine.video.probe import probe
 
-ASPECTS = {"9:16": (1080, 1920), "4:5": (1080, 1350), "1:1": (1080, 1080), "16:9": (1920, 1080)}
+ASPECTS = {"9:16": (1080, 1920), "4:5": (1080, 1350), "1:1": (1080, 1080), "16:9": (1920, 1080), "1.91:1": (1910, 1000)}
 
 
 def load(project: Project, name: str) -> dict:

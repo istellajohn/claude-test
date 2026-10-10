@@ -5,7 +5,7 @@ import {family, loadFonts, palette, Visual} from './tokens';
 
 export type Line = {text: string; emph?: string[]; hit?: number};
 export type TypeCardProps = {
-  preset?: 'serif_statement' | 'grotesk_impact' | 'mono_stamp';
+  preset?: 'serif_statement' | 'grotesk_impact' | 'mono_stamp' | 'poster_block';
   lines: Line[];
   align?: 'left' | 'center';
   position?: 'lower' | 'middle' | 'upper';
@@ -26,13 +26,37 @@ export const TypeCard: React.FC<TypeCardProps> = ({
   const frame = useCurrentFrame();
   const {width, height, durationInFrames, fps} = useVideoConfig();
   const pal = palette(visual);
-  const s = (size * width) / 1080;
+  const s = (size * Math.min(width, height)) / 1080;  // sized by the short side, so portrait and landscape canvases read alike
+  const landscape = width > height;
   const fam = family(preset === 'serif_statement' ? 'display' : preset === 'mono_stamp' ? 'mono' : 'text', visual);
   const upper = preset === 'grotesk_impact';
-  const padL = width * 0.06, padR = width * 0.12, padT = height * 0.13, padB = height * 0.2;
+  const padL = landscape ? width * 0.05 : width * 0.06, padR = landscape ? width * 0.05 : width * 0.12, padT = landscape ? height * 0.2 : height * 0.13, padB = landscape ? height * 0.1 : height * 0.2;
   const justify = position === 'upper' ? 'flex-start' : position === 'middle' ? 'center' : 'flex-end';
   const exit = interpolate(frame, [durationInFrames - holdOut, durationInFrames - 1], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   const exitOpacity = 1 - inOutCubic(exit);
+  if (preset === 'poster_block') {
+    // Placard type: Anton, uppercase, white on solid red blocks. No easing: each line HITS on its frame, slightly
+    // over-scaled, then settles in two frames, like a stamp. Blocks sit at alternating tiny angles.
+    return (
+      <AbsoluteFill>
+        <AbsoluteFill style={{padding: `${padT}px ${padR}px ${padB}px ${padL}px`, justifyContent: justify === 'flex-end' ? 'flex-end' : justify, alignItems: align === 'center' ? 'center' : 'flex-start', opacity: frame > durationInFrames - 3 ? 0 : 1}}>
+          {lines.map((ln, i) => {
+            const start = ln.hit ?? i * 7;
+            const local = frame - start;
+            if (local < 0) return <div key={i} style={{height: s * 1.18}} />;
+            const pop = 1 + Math.max(0, 1 - local / 3) * 0.1;
+            const rot = (i % 2 === 0 ? -1.4 : 0.9);
+            return (
+              <div key={i} style={{display: 'inline-block', marginBottom: s * 0.08, background: pal.accent, color: '#fff', fontFamily: "'Anton', 'Hanken Grotesk', sans-serif", fontSize: s, lineHeight: 1,
+                padding: `${s * 0.07}px ${s * 0.2}px ${s * 0.02}px`, textTransform: 'uppercase', letterSpacing: '0.012em', transform: `rotate(${rot}deg) scale(${pop})`, transformOrigin: 'left center', boxShadow: '0 6px 0 rgba(0,0,0,0.85)', whiteSpace: 'nowrap'}}>
+                {ln.text}
+              </div>
+            );
+          })}
+        </AbsoluteFill>
+      </AbsoluteFill>
+    );
+  }
   return (
     <AbsoluteFill style={{backgroundColor: background === 'ink' ? pal.ink : 'transparent'}}>
       <AbsoluteFill style={{padding: `${padT}px ${padR}px ${padB}px ${padL}px`, justifyContent: justify, alignItems: align === 'center' ? 'center' : 'flex-start', opacity: exitOpacity}}>

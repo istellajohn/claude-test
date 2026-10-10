@@ -63,8 +63,8 @@ def main(argv=None):
         if c == "transcribe": q.add_argument("--model", default="small"); q.add_argument("--language")
         if c == "music": q.add_argument("files", nargs="*")
         if c == "rough-cut": q.add_argument("--treatment", choices=["A", "B", "C", "all"], default="all"); q.add_argument("--music"); q.add_argument("--target", type=float)
-        if c == "render": q.add_argument("--mode", choices=["preview", "final"], default="preview"); q.add_argument("--variant", default="full"); q.add_argument("--aspect", default="9:16")
-        if c == "export": q.add_argument("--all", action="store_true", help="every variant and aspect ratio"); q.add_argument("--no-preview", action="store_true")
+        if c == "render": q.add_argument("--mode", choices=["preview", "final"], default="preview"); q.add_argument("--variant", default="full"); q.add_argument("--aspect", default=None)
+        if c == "export": q.add_argument("--aspect", default=None, help="one aspect ratio (default: the project's)"); q.add_argument("--all", action="store_true", help="every variant and aspect ratio"); q.add_argument("--no-preview", action="store_true")
         if c == "qc": q.add_argument("file")
     q = sub.add_parser("serve", help="start the review dashboard"); q.add_argument("--port", type=int, default=8765); q.add_argument("--host", default="127.0.0.1")
     q = sub.add_parser("score", help="generate an ORIGINAL grunge/industrial score (nothing to license) with an exact beat grid"); q.add_argument("project"); q.add_argument("--bpm", type=float, default=132); q.add_argument("--seconds", type=float, default=30); q.add_argument("--seed", type=int, default=7)
@@ -123,7 +123,7 @@ def main(argv=None):
             for w in r["warnings"]: print("warning:", w)
         elif a.cmd == "export":
             from engine.rendering.exports import export, FULL_SET
-            r = export(P, a.timeline, FULL_SET if a.all else None, not a.no_preview)
+            r = export(P, a.timeline, FULL_SET if a.all else ([('full', a.aspect)] if a.aspect else None), not a.no_preview)
             for d in r["deliverables"]: print(f"{d['variant']:13s} {d['aspect']:5s} {d['qc']:20s} {d['file']}")
         elif a.cmd == "qc":
             from engine.rendering import qc

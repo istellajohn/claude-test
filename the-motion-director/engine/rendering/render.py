@@ -293,6 +293,28 @@ def esc_filter_path(p: Path) -> str:
     return str(p).replace("\\", "\\\\").replace(":", "\\:").replace("'", "\\'").replace(",", "\\,")
 
 
+def make_top_band(cfg: dict, w: int, h: int, dst: Path) -> Path:
+    """A red band across the top of the frame: solid at the edge, bleeding down into the picture, with grain so it
+    belongs to the photocopy texture instead of sitting on top of it like a UI bar."""
+    import numpy as np
+    from PIL import Image
+    col = cfg.get("color", "#D90F1B").lstrip("#")
+    rgb = np.array([int(col[i:i + 2], 16) for i in (0, 2, 4)], dtype=np.float32)
+    solid, fade = float(cfg.get("solid", 0.07)), float(cfg.get("height", 0.2))
+    y = np.arange(h, dtype=np.float32) / h
+    a = np.where(y <= solid, 1.0, np.clip(1 - (y - solid) / max(1e-3, fade - solid), 0, 1) ** 1.6) * float(cfg.get("opacity", 0.94))
+    rng = np.random.default_rng(3)
+    grain = rng.normal(0, 14, (h, w, 1)).astype(np.float32)
+    img = np.clip(rgb[None, None, :] + grain, 0, 255)
+    # dark, uneven edge along the solid part: ink-on-paper bleed
+    streak = (rng.random((h, 1)) * 0.25)[:, :] * (y[:, None] < solid + 0.02)
+    img = img * (1 - streak[:, :, None])
+    alpha = np.clip(a[:, None] * (1 + rng.normal(0, 0.05, (h, w))), 0, 1)
+    out = np.dstack([img, alpha[:, :, None] * 255]).astype(np.uint8)
+    Image.fromarray(out, "RGBA").save(dst)
+    return dst
+
+
 def render_overlay(project: Project, ov: dict, canvas: dict, vs: dict, work: Path) -> Path:
     props = {**ov.get("props", {}), "composition": ov["composition"], "visual": vs}
     fps = canvas["fps"]
@@ -326,7 +348,7 @@ VARIANTS = {
 }
 
 
-def render(project: Project, tl_name: str, mode: str = "final", variant: str = "full", aspect: str = "9:16",
+def render(project: Project, tl_name: str, mode: str = "final", variant: str = "full", aspect: str | None = None,
            scale: float | None = None) -> dict:
     """mode 'preview': half-size, guide music included, fast. mode 'final': full size, no guide music."""
     tl = T.load(project, tl_name)
@@ -335,6 +357,9 @@ def render(project: Project, tl_name: str, mode: str = "final", variant: str = "
         raise TMDError("Timeline is not valid:\n  - " + "\n  - ".join(errs))
     vsys = read_json(project.motion / "visual_system.json", {}) or {}
     vcfg = VARIANTS[variant]
+    aspect = aspect or project.meta.get("default_aspect", "9:16")
+    if aspect not in T.ASPECTS:
+        raise TMDError(f"Unknown aspect '{aspect}'. Available: {', '.join(T.ASPECTS)}")
     base_w, base_h = T.ASPECTS[aspect]
     cv0 = project.meta.get("canvas", {})
     if scale is None:
@@ -360,6 +385,12 @@ def render(project: Project, tl_name: str, mode: str = "final", variant: str = "
     fc, last = [], "[0:v]"
     n_in = 1
     ovs = tl.get("overlays", []) if vcfg["overlays"] else []
+    if tl.get("top_band"):
+        band = make_top_band({**{"color": vsys.get("accent", "#D90F1B")}, **tl["top_band"]}, cw, ch, work / f"top_band_{cw}x{ch}.png")
+        inputs += ["-loop", "1", "-framerate", str(canvas["fps"]), "-i", str(band)]
+        fc.append(f"{last}[{n_in}:v]overlay=0:0:shortest=1[vb]")
+        last = "[vb]"
+        n_in += 1
     for i, ov in enumerate(ovs):
         mov = render_overlay(project, ov, canvas, vsys, work)
         inputs += ["-i", str(mov)]
@@ -394,7 +425,7 @@ def render(project: Project, tl_name: str, mode: str = "final", variant: str = "
         report["warnings"].append(f"{len(uncleared)} photograph(s) have no photographer/licence on record: this file is marked UNCLEARED-DRAFT and must not be published until they are cleared.")
     report["uncleared_photos"] = uncleared
     stem = f"{tl['name']}_{variant}_{aspect.replace(':', 'x')}" + ("_UNCLEARED-DRAFT" if uncleared else "")
-    out = out_dir / (f"{tl['name']}_preview.mp4" if mode == "preview" and variant == "full" and aspect == "9:16" and not uncleared else f"{stem}{'_preview' if mode == 'preview' else ''}.mp4")
+    out = out_dir / (f"{tl['name']}_preview.mp4" if mode == "preview" and variant == "full" and aspect == project.meta.get("default_aspect", "9:16") and not uncleared else f"{stem}{'_preview' if mode == 'preview' else ''}.mp4")
     crf = "24" if mode == "preview" else "15"
     cmd = [*inputs, "-filter_complex", ";".join(fc), "-map", "[vout]"]
     if has_audio:

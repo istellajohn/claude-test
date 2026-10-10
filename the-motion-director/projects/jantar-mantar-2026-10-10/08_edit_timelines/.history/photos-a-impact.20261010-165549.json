@@ -1002,62 +1002,43 @@
   ],
   "overlays": [
     {
-      "id": "card1",
+      "id": "open",
       "composition": "TypeCard",
-      "start": 0.1,
-      "dur": 1.6,
+      "start": 0.3,
+      "dur": 2.2,
       "props": {
-        "preset": "poster_block",
+        "preset": "serif_statement",
         "lines": [
           {
-            "text": "ENOUGH.",
-            "hit": 0
+            "text": "We stand",
+            "emph": []
+          },
+          {
+            "text": "together.",
+            "emph": [
+              "together."
+            ]
           }
         ],
-        "position": "middle",
-        "size": 170
+        "position": "lower",
+        "size": 120
       }
     },
     {
-      "id": "card2",
+      "id": "close",
       "composition": "TypeCard",
-      "start": 9.091,
-      "dur": 2.7,
+      "start": 21.336,
+      "dur": 2.0,
       "props": {
-        "preset": "poster_block",
+        "preset": "serif_statement",
         "lines": [
           {
-            "text": "WE WILL NOT",
-            "hit": 0
-          },
-          {
-            "text": "BE SILENCED.",
-            "hit": 7
+            "text": "Together.",
+            "emph": []
           }
         ],
-        "position": "middle",
-        "size": 170
-      }
-    },
-    {
-      "id": "card3",
-      "composition": "TypeCard",
-      "start": 20.836,
-      "dur": 2.7,
-      "props": {
-        "preset": "poster_block",
-        "lines": [
-          {
-            "text": "THEY CAN'T",
-            "hit": 0
-          },
-          {
-            "text": "DETAIN A COUNTRY.",
-            "hit": 7
-          }
-        ],
-        "position": "middle",
-        "size": 170
+        "position": "lower",
+        "size": 120
       }
     }
   ],
@@ -1071,15 +1052,9 @@
   "grade": {
     "look": "grunge_mono"
   },
-  "top_band": {
-    "color": "#D90F1B",
-    "solid": 0.075,
-    "height": 0.24,
-    "opacity": 0.95
-  },
   "canvas": {
-    "width": 1910,
-    "height": 1000,
+    "width": 1080,
+    "height": 1920,
     "fps": 30
   }
 }

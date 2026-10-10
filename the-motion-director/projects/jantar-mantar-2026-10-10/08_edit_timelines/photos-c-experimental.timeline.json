@@ -939,43 +939,62 @@
   ],
   "overlays": [
     {
-      "id": "open",
+      "id": "card1",
       "composition": "TypeCard",
-      "start": 0.3,
-      "dur": 2.2,
+      "start": 0.1,
+      "dur": 1.6,
       "props": {
-        "preset": "serif_statement",
+        "preset": "poster_block",
         "lines": [
           {
-            "text": "We stand",
-            "emph": []
-          },
-          {
-            "text": "together.",
-            "emph": [
-              "together."
-            ]
+            "text": "ENOUGH.",
+            "hit": 0
           }
         ],
-        "position": "lower",
-        "size": 120
+        "position": "middle",
+        "size": 170
       }
     },
     {
-      "id": "close",
+      "id": "card2",
       "composition": "TypeCard",
-      "start": 21.336,
-      "dur": 2.0,
+      "start": 9.091,
+      "dur": 2.7,
       "props": {
-        "preset": "serif_statement",
+        "preset": "poster_block",
         "lines": [
           {
-            "text": "Together.",
-            "emph": []
+            "text": "WE WILL NOT",
+            "hit": 0
+          },
+          {
+            "text": "BE SILENCED.",
+            "hit": 7
           }
         ],
-        "position": "lower",
-        "size": 120
+        "position": "middle",
+        "size": 170
+      }
+    },
+    {
+      "id": "card3",
+      "composition": "TypeCard",
+      "start": 20.836,
+      "dur": 2.7,
+      "props": {
+        "preset": "poster_block",
+        "lines": [
+          {
+            "text": "THEY CAN'T",
+            "hit": 0
+          },
+          {
+            "text": "DETAIN A COUNTRY.",
+            "hit": 7
+          }
+        ],
+        "position": "middle",
+        "size": 170
       }
     }
   ],
@@ -989,9 +1008,15 @@
   "grade": {
     "look": "grunge_mono"
   },
+  "top_band": {
+    "color": "#D90F1B",
+    "solid": 0.075,
+    "height": 0.24,
+    "opacity": 0.95
+  },
   "canvas": {
-    "width": 1080,
-    "height": 1920,
+    "width": 1910,
+    "height": 1000,
     "fps": 30
   }
 }

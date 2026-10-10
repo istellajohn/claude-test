@@ -1,13 +1,13 @@
 {
   "name": "jantar-mantar-2026-10-10",
-  "title": "Standing together",
+  "title": "Enough",
   "created": "2026-10-10T16:20:19+0000",
   "status": "exported",
   "platform": "instagram_reels",
   "documentary_mode": true,
   "canvas": {
-    "width": 1080,
-    "height": 1920,
+    "width": 1910,
+    "height": 1000,
     "fps": 30
   },
   "loudness": {
@@ -28,24 +28,41 @@
   },
   "chosen_treatment": null,
   "statement": {
-    "open": [
+    "cards": [
       {
-        "text": "We stand",
-        "emph": []
+        "at": "start",
+        "lines": [
+          "ENOUGH."
+        ],
+        "dur": 1.6,
+        "position": "middle"
       },
       {
-        "text": "together.",
-        "emph": [
-          "together."
-        ]
-      }
-    ],
-    "close": [
+        "at": "drop",
+        "lines": [
+          "WE WILL NOT",
+          "BE SILENCED."
+        ],
+        "dur": 2.7,
+        "position": "middle"
+      },
       {
-        "text": "Together.",
-        "emph": []
+        "at": "end",
+        "lines": [
+          "THEY CAN'T",
+          "DETAIN A COUNTRY."
+        ],
+        "dur": 2.7,
+        "position": "middle"
       }
     ],
-    "note": "The maker's message, in the maker's voice. It is not a caption and makes no factual claim about where the photographs were taken."
+    "note": "The maker's angry message, in the maker's voice. Rhetoric, not caption: it makes no factual claim about the photographs."
+  },
+  "default_aspect": "1.91:1",
+  "top_band": {
+    "color": "#D90F1B",
+    "solid": 0.075,
+    "height": 0.24,
+    "opacity": 0.95
   }
 }

@@ -19,6 +19,7 @@ export async function render(ctx) {
     const safe = h("div", { hidden: true, style: { position: "absolute", inset: 0, pointerEvents: "none" } },
       h("div", { class: "safe-fill", style: { left: 0, right: 0, top: 0, height: `${SAFE_916.t * 100}%` } }), h("div", { class: "safe-fill", style: { left: 0, right: 0, bottom: 0, height: `${SAFE_916.b * 100}%` } }), h("div", { class: "safe-fill", style: { right: 0, top: `${SAFE_916.t * 100}%`, bottom: `${SAFE_916.b * 100}%`, width: `${SAFE_916.r * 100}%` } }),
       h("div", { class: "safe", style: { left: `${SAFE_916.l * 100}%`, right: `${SAFE_916.r * 100}%`, top: `${SAFE_916.t * 100}%`, bottom: `${SAFE_916.b * 100}%` } }));
+    const safeBtn = h("button", { onclick: () => (safe.hidden = !safe.hidden) }, "Reels safe area (9:16)");
     const tcEl = h("div", { class: "tcbig" }), info = h("div", { class: "small muted" }), head = h("div", { class: "head" }), scrub = h("div", { class: "scrub" });
     const dur = plan?.duration || 1;
     cuts.forEach((c, i) => scrub.append(h("div", { class: `cut ${c.role === "hero" ? "hero" : ""}`, title: `${c.id} · ${c.src} @ ${fmt(c.src_in, 2)}s`, style: { left: `${(c.start / dur) * 100}%`, width: `${(c.dur / dur) * 100}%` }, onclick: (e) => { e.stopPropagation(); v.currentTime = c.start + 0.001; } }, c.label || c.id)));
@@ -32,7 +33,7 @@ export async function render(ctx) {
       info.textContent = c ? `${c.id}${c.label ? " · " + c.label : ""} · ${c.src} · source in ${fmt(c.src_in, 2)}s${c.role ? " · " + c.role : ""}` : "";
     };
     const loop = () => { upd(); if (v.requestVideoFrameCallback) v.requestVideoFrameCallback(loop); else requestAnimationFrame(loop); };
-    v.addEventListener("loadedmetadata", () => { loop(); });
+    v.addEventListener("loadedmetadata", () => { if (v.videoWidth > v.videoHeight) { safe.remove(); safeBtn.hidden = true; } loop(); });
     v.addEventListener("seeked", upd);
     v.addEventListener("error", () => root.prepend(h("div", { class: "err-box" }, "The browser could not decode the preview file. Re-render it, or open it directly from 13_previews/.")));
     const step = (n) => { v.pause(); v.currentTime = Math.max(0, Math.min(v.duration, v.currentTime + n / fps)); };
@@ -49,7 +50,7 @@ export async function render(ctx) {
       h("div", {}, h("div", { class: "player", style: { display: "inline-block", lineHeight: 0, position: "relative", maxWidth: "100%" } }, v, safe)),
       h("div", {}, tcEl, info, h("div", { class: "spacer" }),
         h("div", { class: "row" }, h("button", { onclick: () => step(-fps) }, "−1s"), h("button", { onclick: () => step(-1) }, "◀ frame"), h("button", { class: "primary", onclick: toggle }, "Play / pause"), h("button", { onclick: () => step(1) }, "frame ▶"), h("button", { onclick: () => step(fps) }, "+1s"),
-          h("button", { onclick: () => (safe.hidden = !safe.hidden) }, "Reels safe area")),
+          safeBtn),
         h("p", { class: "small muted" }, "Space play/pause · ←/→ one frame (Shift: one second) · J/L slower/faster playback (no reverse play in browsers) · K pause · S safe area · Home/End"),
         scrub, h("div", { class: "small muted", style: { marginTop: "6px" } }, `${cuts.length} cuts · ${fmt(dur, 2)} s · shortest ${fmt(Math.min(...cuts.map((c) => c.dur)), 2)} s · longest ${fmt(Math.max(...cuts.map((c) => c.dur)), 2)} s`))));
   }

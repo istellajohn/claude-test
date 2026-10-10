@@ -165,10 +165,12 @@ def draft_photos(project: Project, treatment: str, music_analysis: str | None, t
     ev = project.meta.get("event", {})
     st = project.meta.get("statement", {})
     overlays = []
-    if st.get("open"):
-        overlays.append({"id": "open", "composition": "TypeCard", "start": 0.3, "dur": min(2.2, total_t - 0.4), "props": {"preset": "serif_statement", "lines": st["open"], "position": "lower", "size": 120}})
-    if st.get("close") and total_t > 4:
-        overlays.append({"id": "close", "composition": "TypeCard", "start": round(total_t - 2.3, 3), "dur": 2.0, "props": {"preset": "serif_statement", "lines": st["close"], "position": "lower", "size": 120}})
+    drop_t = next((x["start"] for x in secs if x.get("label") == "drop"), 0.0)
+    for k, card in enumerate(st.get("cards", [])):
+        at = {"start": 0.1, "drop": drop_t, "end": max(0.0, total_t - card.get("dur", 2.4) - 0.1)}.get(card.get("at", "start"), card.get("at") if isinstance(card.get("at"), (int, float)) else 0.1)
+        dur = float(card.get("dur", 2.0))
+        overlays.append({"id": f"card{k + 1}", "composition": "TypeCard", "start": round(at, 3), "dur": round(min(dur, total_t - at), 3),
+                         "props": {"preset": card.get("preset", "poster_block"), "lines": [{"text": t, "hit": i * 7} for i, t in enumerate(card["lines"])], "position": card.get("position", "middle"), "size": card.get("size", 170)}})
     if ev:
         overlays.append({"id": "stamp", "composition": "Stamp", "start": 0.2, "dur": min(2.4, total_t - 0.4), "props": {"place": ev.get("place", ""), "time": ev.get("date", ""), "note": ev.get("note", ""), "position": "upper"}})
     layers = []
@@ -179,4 +181,5 @@ def draft_photos(project: Project, treatment: str, music_analysis: str | None, t
             "status": "DRAFT: machine-assembled photo montage; every choice still needs a director's pass", "documentary_mode": docs,
             "clips": clips, "audio_layers": layers, "overlays": overlays, "captions": "12_subtitles/captions.json",
             "intentional_silence": [[s["start"], s["end"]] for s in (ana or {}).get("silences", [])], "grade": {"look": PHOTO_LOOK[treatment]},
+            **({"top_band": project.meta["top_band"]} if project.meta.get("top_band") else {}),
             "canvas": {**project.meta.get("canvas", {})}}
