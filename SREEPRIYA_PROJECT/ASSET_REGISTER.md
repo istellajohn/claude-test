@@ -11,3 +11,4 @@
 | Fonts | Newsreader (SIL OFL) and Inter (SIL OFL), from Google Fonts, stored in `04_FONTS/` |
 | Export | 1080×1350 px PNG |
 | Editable masters | `05_WORKING/*.html`, `base.css`, `render.js` |
+| Excerpt crop | Paragraph under 'Understand what patience actually means.' (page 5 of the PDF), rendered at 300 dpi, unaltered: `03_IMAGES/forbes_excerpt_patience.png` |

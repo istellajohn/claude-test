@@ -8,6 +8,6 @@ Two 1080×1350 (4:5) options. Editable masters are HTML in `05_WORKING/`; re-exp
 
 Exports: `06_EXPORTS/Instagram/`. Not yet approved; Entrust logo not supplied (typographic placeholder used).
 - Option C (editorial, recommended): `05_WORKING/option_C_editorial.html`. Unaltered Getty photo, Forbes masthead, article headline and Sreepriya's own line from her LinkedIn caption.
-- Option D (Forbes above, note below): `05_WORKING/option_D_forbes_above_note_below.html`. Forbes article block in paper tone; Sreepriya's "Shared by" layer in a separate burgundy band.
-- Option E (clipping on desk): `05_WORKING/option_E_clipping_on_desk.html`. Photo print and real Forbes page clipping on blush; "Shared by Sreepriya N.S." above.
+- Option D (Forbes above, note below): `05_WORKING/option_D_forbes_above_note_below.html`. Forbes article block in paper tone; article paragraph crop plus "Worth reading." in a separate burgundy band.
+- Option E (clipping on desk): `05_WORKING/option_E_clipping_on_desk.html`. Photo print and real Forbes page clipping on blush; "Worth reading." above and a real paragraph crop below.
 - Option C is superseded: its signed quote under the Forbes headline read as her authorship.
