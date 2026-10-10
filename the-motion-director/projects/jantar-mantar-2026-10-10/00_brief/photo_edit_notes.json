@@ -1,0 +1,45 @@
+{
+  "_note": "Editorial overrides for the photo montage. 'order' is an editor's arrangement for rhythm and is NOT claimed to be chronological: the files carry no capture time. 'exclude' lists photos left out and why.",
+  "exclude": ["04g3s9b8_cjp-protest_625x300_08_October_26.png"],
+  "exclude_reason": {"04g3s9b8_cjp-protest_625x300_08_October_26.png": "File name dates it 08 October 2026 and the image carries a PTI credit: not shown as 10 October. Include only if its date is confirmed."},
+  "order": [
+    "156272372.png",
+    "1200-675-27838591-thumbnail-16x9-cjp-violence-1-aspera.png",
+    "clgfm2d8_congggg_160x120_10_October_26.png",
+    "c323379e-a843-4bbb-8257-97bc61a8e2c6.png",
+    "delhi-cjp-protests-live-1791620576.png",
+    "samakalikamalayalam_2F2026-10-10_2Fvmef7q8e_2F20261010043L.png",
+    "156310534.png",
+    "05sfi-student-unions-protest5.png",
+    "215881-fuwehaboka-1791125971.png",
+    "delhi-police-CJP-PTI_1791636606906_d.png",
+    "CJP-protest-Police-Brutality.png",
+    "cjp-jpg.png",
+    "cjp-protest-protesters-hide-in-gurdwara-don-cockroach-helmets-to-evade-delhi-police.png",
+    "jantar-mantar-cjp-protest-100656234-16x9_0.png",
+    "jantar-mantar-cjp-protest-100656241-1x1.png",
+    "Priyanka-Gandhi-protest.png"
+  ],
+  "hold": "Priyanka-Gandhi-protest.png",
+  "crop": {
+    "cjp-protest-protesters-hide-in-gurdwara-don-cockroach-helmets-to-evade-delhi-police.png": {"x": 0, "y": 0.128, "w": 1, "h": 0.744}
+  },
+  "focus": {
+    "156272372.png": {"x": 0.58, "y": 0.35},
+    "1200-675-27838591-thumbnail-16x9-cjp-violence-1-aspera.png": {"x": 0.5, "y": 0.36},
+    "clgfm2d8_congggg_160x120_10_October_26.png": {"x": 0.3, "y": 0.65},
+    "c323379e-a843-4bbb-8257-97bc61a8e2c6.png": {"x": 0.6, "y": 0.45},
+    "delhi-cjp-protests-live-1791620576.png": {"x": 0.36, "y": 0.5},
+    "samakalikamalayalam_2F2026-10-10_2Fvmef7q8e_2F20261010043L.png": {"x": 0.5, "y": 0.42},
+    "156310534.png": {"x": 0.45, "y": 0.45},
+    "05sfi-student-unions-protest5.png": {"x": 0.5, "y": 0.5},
+    "215881-fuwehaboka-1791125971.png": {"x": 0.6, "y": 0.5},
+    "delhi-police-CJP-PTI_1791636606906_d.png": {"x": 0.45, "y": 0.55},
+    "CJP-protest-Police-Brutality.png": {"x": 0.45, "y": 0.6},
+    "cjp-jpg.png": {"x": 0.55, "y": 0.6},
+    "cjp-protest-protesters-hide-in-gurdwara-don-cockroach-helmets-to-evade-delhi-police.png": {"x": 0.45, "y": 0.5},
+    "jantar-mantar-cjp-protest-100656234-16x9_0.png": {"x": 0.5, "y": 0.6},
+    "jantar-mantar-cjp-protest-100656241-1x1.png": {"x": 0.45, "y": 0.5},
+    "Priyanka-Gandhi-protest.png": {"x": 0.45, "y": 0.45}
+  }
+}

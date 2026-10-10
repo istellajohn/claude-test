@@ -1,8 +1,8 @@
 {
   "name": "jantar-mantar-2026-10-10",
-  "title": "Jantar Mantar, 10 October 2026",
+  "title": "Standing together",
   "created": "2026-10-10T16:20:19+0000",
-  "status": "awaiting_photographs",
+  "status": "exported",
   "platform": "instagram_reels",
   "documentary_mode": true,
   "canvas": {
@@ -27,9 +27,25 @@
     "C": "The Experimental Editorial Cut"
   },
   "chosen_treatment": null,
-  "event": {
-    "place": "Jantar Mantar, New Delhi",
-    "date": "10 Oct 2026",
-    "note": "Photographs: see credits"
+  "statement": {
+    "open": [
+      {
+        "text": "We stand",
+        "emph": []
+      },
+      {
+        "text": "together.",
+        "emph": [
+          "together."
+        ]
+      }
+    ],
+    "close": [
+      {
+        "text": "Together.",
+        "emph": []
+      }
+    ],
+    "note": "The maker's message, in the maker's voice. It is not a caption and makes no factual claim about where the photographs were taken."
   }
 }

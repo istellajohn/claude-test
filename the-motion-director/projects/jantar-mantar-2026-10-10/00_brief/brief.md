@@ -27,5 +27,16 @@ Source: ThePrint, republishing PTI, 8 October 2026 (https://theprint.in/india/de
 - Faces of detained or vulnerable people: decide before publishing. Consider blurring or omitting.
 - Style lives in grade, rhythm, type and sound. It never alters what a photograph shows.
 
+## Message (client, 10 Oct 2026)
+The film is not about Jantar Mantar alone. It is about the whole country standing together and fighting. This is the maker's message and is carried as type cards in the maker's voice ("We stand together." / "Together."). It is not a caption: the 16 photographs show Delhi only, and nothing on screen claims where else protests happened.
+
+## Photograph provenance (supplied as two zips; 3 exact duplicates removed, 17 unique)
+- Files are saved news-site images (outlet file names; visible PTI and IANS marks and an ET NOW logo), not camera originals. No EXIF, so no capture times: the order is editorial, not chronological.
+- Licence unknown for all. Every export is named UNCLEARED-DRAFT until `16_licences/photo_credits.json` has a photographer and licence for each photo.
+- Left out: `04g3s9b8_cjp-protest_625x300_08_October_26.png` (file name says 8 October 2026).
+- Several photos show the Parliament Street police station and buses, so they are not all at Jantar Mantar. Do not caption them with a location.
+- People are recognisable, including detained people and public figures. Do not name anyone from a face; decide about blurring detainees before publishing.
+- Resolution is low (900 to 1920 px wide) for 1080x1920: crops are upscaled and soft by nature; the grain hides most of it.
+
 ## Direction
 Print-culture protest: photocopy grain, crushed blacks, hard cuts on the beat, a held silence before the drop. Original generated score. Typography in Instrument Serif and DM Mono, Hanken Grotesk for impact lines.

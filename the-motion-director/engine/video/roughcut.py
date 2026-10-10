@@ -113,9 +113,14 @@ def draft_photos(project: Project, treatment: str, music_analysis: str | None, t
     if target:
         total_t = min(total_t, target)
     secs = [s for s in (ana or {}).get("sections", []) if s.get("label")] or [{"start": 0, "end": total_t, "label": "drop"}]
+    notes = read_json(project.brief / "photo_edit_notes.json", {}) or {}
+    photos = [a for a in photos if a["filename"] not in set(notes.get("exclude", []))]
     ordered = sorted(photos, key=_exif_key)  # documentary: real order of capture where EXIF has it, never reshuffled for effect
     docs = bool(project.meta.get("documentary_mode"))
-    if not docs:
+    if notes.get("order"):  # an editor's arrangement, recorded as such; it is NOT claimed to be chronological
+        rank = {n: i for i, n in enumerate(notes["order"])}
+        ordered = sorted(photos, key=lambda a: rank.get(a["filename"], 999))
+    elif not docs:
         ordered = sorted(photos, key=lambda a: -(a.get("sharpness") or 0))
     clips, cur_beats, k, n_photo = [], 0.0, 0, 0
     end_frames_prev = 0
@@ -133,7 +138,10 @@ def draft_photos(project: Project, treatment: str, music_analysis: str | None, t
             continue
         a = ordered[n_photo % len(ordered)]
         cycle = n_photo // len(ordered)
-        fx, fy = a["focus"]["x"], a["focus"]["y"]
+        if sec["label"] == "break" and notes.get("hold"):
+            a = next((x for x in photos if x["filename"] == notes["hold"]), a)
+            cycle = 0
+        fx, fy = (notes.get("focus", {}).get(a["filename"]) or a["focus"])["x"], (notes.get("focus", {}).get(a["filename"]) or a["focus"])["y"]
         zoom = {"from": 1.0, "to": 1.12} if not flip else {"from": 1.12, "to": 1.0}
         if cycle >= 1 or (treatment == "C" and n_photo % 3 == 2):  # a repeat is a different crop of the same frame, never a new "event"
             zoom = {"from": 1.7, "to": 1.9}
@@ -143,6 +151,8 @@ def draft_photos(project: Project, treatment: str, music_analysis: str | None, t
             zoom = {"from": 1.0, "to": 1.07}
         clip = {"id": f"p{len(clips) + 1}", "src": a["rel_path"], "kind": "still", "dur": round(nf / fps, 4), "zoom": zoom, "focus": {"x": round(fx, 3), "y": round(fy, 3)},
                 "label": a["filename"], "role": "photo", "notes": ("crop of an earlier photograph" if cycle >= 1 else "")}
+        if notes.get("crop", {}).get(a["filename"]):
+            clip["crop"] = notes["crop"][a["filename"]]
         if treatment in ("A", "C") and sec["label"] in ("drop", "build") and abs((t_now / (beat * 4)) - round(t_now / (beat * 4))) < 1e-3:
             clip["flash_in"] = {"color": "white", "dur": 0.06}  # flash on the downbeat only
         clips.append(clip)
@@ -153,7 +163,12 @@ def draft_photos(project: Project, treatment: str, music_analysis: str | None, t
     if clips:
         clips[-1]["fade_out"] = 0.25
     ev = project.meta.get("event", {})
+    st = project.meta.get("statement", {})
     overlays = []
+    if st.get("open"):
+        overlays.append({"id": "open", "composition": "TypeCard", "start": 0.3, "dur": min(2.2, total_t - 0.4), "props": {"preset": "serif_statement", "lines": st["open"], "position": "lower", "size": 120}})
+    if st.get("close") and total_t > 4:
+        overlays.append({"id": "close", "composition": "TypeCard", "start": round(total_t - 2.3, 3), "dur": 2.0, "props": {"preset": "serif_statement", "lines": st["close"], "position": "lower", "size": 120}})
     if ev:
         overlays.append({"id": "stamp", "composition": "Stamp", "start": 0.2, "dur": min(2.4, total_t - 0.4), "props": {"place": ev.get("place", ""), "time": ev.get("date", ""), "note": ev.get("note", ""), "position": "upper"}})
     layers = []

@@ -12,6 +12,7 @@ clips[]: {
   audio: {mode: "keep"|"mute", lead: 0, tail: 0, gain_db: 0, dialogue: false}
   fade_in, fade_out        (dip to/from black, seconds)
   flash_in {color, dur}    (frame-exact flash on the cut)
+  crop {x,y,w,h}           (fractions of the source, applied before reframing)
   role, label, notes, factual_incident: false, integrity_note: ""
 }
 audio_layers[]: {id, kind: "music_guide"|"music_licensed"|"designed"|"ambience", src, track_id, start, in, dur, gain_db, fade_in, fade_out, duck}
@@ -149,7 +150,7 @@ def compile_plan(project: Project, tl: dict, canvas: dict | None = None) -> dict
             src_in, out_dur = 0.0, float(c["dur"])
         nframes = max(1, round(out_dur * fps))
         base = {k: c.get(k) for k in ("id", "role", "label", "notes", "grade", "auto", "audio", "fade_in", "fade_out", "dissolve_in",
-                                       "focus", "focus_to", "zoom", "focus_by_aspect", "factual_incident", "integrity_note", "interp", "flash_in")}
+                                       "focus", "focus_to", "zoom", "focus_by_aspect", "factual_incident", "integrity_note", "interp", "flash_in", "crop")}
         ramp = c.get("ramp")
         if ramp and kind == "video":
             n = int(ramp.get("steps", 8))

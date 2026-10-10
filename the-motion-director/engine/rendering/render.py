@@ -89,6 +89,11 @@ def _seg_cmd(project: Project, tl: dict, s: dict, plan: dict, dst: Path, vs_grai
             chain.append(f"setpts=(PTS-STARTPTS)/{s['speed']:.5f}")
             interp = s.get("interp") or "none"
             chain.append(f"minterpolate=fps={fps}:mi_mode={interp}" if interp in ("blend", "mci") else f"fps={fps}")
+    cr = s.get("crop")  # {"x","y","w","h"} as fractions of the source: trims blur-padding, borders, watermark margins
+    if cr:
+        cx, cy, cwf, chf = (int(round(iw * cr["x"])), int(round(ih * cr["y"])), int(round(iw * cr["w"])) // 2 * 2, int(round(ih * cr["h"])) // 2 * 2)
+        chain.append(f"crop={cwf}:{chf}:{cx}:{cy}")
+        iw, ih = cwf, chf
     chain.append(reframe_filter(iw, ih, cw, ch, focus, s.get("focus_to"), s.get("zoom"), N, fps))
     g = s.get("grade")
     if s.get("auto") and s.get("auto_grade"):
@@ -383,8 +388,13 @@ def render(project: Project, tl_name: str, mode: str = "final", variant: str = "
         inputs += ["-i", str(audio)]
     out_dir = project.previews if mode == "preview" else project.exports / tl["name"]
     out_dir.mkdir(parents=True, exist_ok=True)
-    stem = f"{tl['name']}_{variant}_{aspect.replace(':', 'x')}"
-    out = out_dir / (f"{tl['name']}_preview.mp4" if mode == "preview" and variant == "full" and aspect == "9:16" else f"{stem}{'_preview' if mode == 'preview' else ''}.mp4")
+    from engine.rendering import credits as _cr
+    uncleared = _cr.missing(project, tl)
+    if uncleared:
+        report["warnings"].append(f"{len(uncleared)} photograph(s) have no photographer/licence on record: this file is marked UNCLEARED-DRAFT and must not be published until they are cleared.")
+    report["uncleared_photos"] = uncleared
+    stem = f"{tl['name']}_{variant}_{aspect.replace(':', 'x')}" + ("_UNCLEARED-DRAFT" if uncleared else "")
+    out = out_dir / (f"{tl['name']}_preview.mp4" if mode == "preview" and variant == "full" and aspect == "9:16" and not uncleared else f"{stem}{'_preview' if mode == 'preview' else ''}.mp4")
     crf = "24" if mode == "preview" else "15"
     cmd = [*inputs, "-filter_complex", ";".join(fc), "-map", "[vout]"]
     if has_audio:

@@ -1,6 +1,6 @@
-# Jantar Mantar, 10 October 2026
+# Standing together (Jantar Mantar protest photographs, 10 October 2026)
 
-Status: **awaiting photographs.** Nothing has been edited, because no photographs have been supplied yet.
+Status: **draft cuts made from 16 supplied photographs; licences not yet recorded (UNCLEARED-DRAFT).**
 
 1. Put the photos you are licensed to use in `04_photographs/` (or drop them on the dashboard's Footage Library). Original files, not screenshots; keep EXIF.
 2. `./tmd ingest jantar-mantar-2026-10-10`
