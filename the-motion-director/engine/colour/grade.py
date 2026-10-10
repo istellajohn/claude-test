@@ -8,6 +8,8 @@ from __future__ import annotations
 LOOKS = {
     "neutral": {},
     # grunge / photocopy: crushed blacks, very low saturation, hard contrast, heavy temporal grain, dark edges
+    # clean editorial black and white: no crushed blacks, light grain, soft edges. Colour is left for one word of type.
+    "editorial_bw": {"saturation": 0.0, "contrast": 1.1, "gamma": 0.96, "brightness": -0.01, "grain": 5, "vignette": 0.45},
     "grunge_mono": {"saturation": 0.12, "contrast": 1.35, "brightness": -0.04, "gamma": 0.92, "curves": "strong_contrast", "grain": 16, "vignette": 0.9},
     # same bones with the colour kept hot in the shadows: dried-blood red, not a filter-pack orange
     "grunge_ember": {"saturation": 0.3, "contrast": 1.3, "brightness": -0.05, "gamma": 0.94, "curves": "strong_contrast", "shadows_tint": [0.07, -0.02, -0.04], "grain": 14, "vignette": 0.85},
@@ -80,3 +82,14 @@ def resolve(clip_grade, global_grade) -> dict:
         base.update({k: v for k, v in g.items() if k != "look"})
         return base
     return merge(expand(global_grade), expand(clip_grade))
+
+
+# Per-clip treatments for the voice-driven edit. Each is a self-contained look (not stacked on a global grade).
+TREATS = {
+    "natural": "eq=contrast=1.06:saturation=1.05,vignette=angle=0.4,noise=alls=4:allf=t",
+    "bw": "hue=s=0,eq=contrast=1.14:gamma=0.95:brightness=-0.01,vignette=angle=0.45,noise=alls=5:allf=t",
+    "negative": "hue=s=0,negate,eq=contrast=1.2:brightness=-0.02,colorbalance=rs=-0.12:bs=0.16,noise=alls=5:allf=t",
+    "red_duotone": "hue=s=0,eq=contrast=1.3:gamma=0.9,curves=g='0/0 0.5/0.06 1/0.7':b='0/0 0.5/0.04 1/0.66',vignette=angle=0.5,noise=alls=6:allf=t",
+    "black": "eq=brightness=-1",
+    "halftone_red": "",  # produced by preprocessing the still (render.halftone)
+}

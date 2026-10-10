@@ -183,3 +183,59 @@ def draft_photos(project: Project, treatment: str, music_analysis: str | None, t
             "intentional_silence": [[s["start"], s["end"]] for s in (ana or {}).get("silences", [])], "grade": {"look": PHOTO_LOOK[treatment]},
             **({"top_band": project.meta["top_band"]} if project.meta.get("top_band") else {}),
             "canvas": {**project.meta.get("canvas", {})}}
+
+
+# ---------------------------------------------------------------------------------------------------------
+# Treatment D, "The Slow Build" (reference style): hold, then accelerate. One sentence carries the voice.
+# ---------------------------------------------------------------------------------------------------------
+BUILD_DURATIONS = [2.6, 1.9, 1.5, 1.2, 1.0, 0.85, 0.7, 0.6, 0.5, 0.42, 0.36, 0.3, 0.26, 0.23, 0.2]
+FINAL_HOLD = 3.0
+
+
+def draft_reference(project: Project, name: str | None = None) -> dict:
+    from engine.audio.synth import make_pulse
+    inv = read_json(project.analysis / "inventory.json") or {}
+    notes = read_json(project.brief / "photo_edit_notes.json", {}) or {}
+    amap = {a["filename"]: a for a in inv.get("assets", []) if a["kind"] == "photo"}
+    order = [f for f in notes.get("reference_order", []) if f in amap]
+    final = notes.get("reference_final")
+    if len(order) < 3 or final not in amap:
+        raise TMDError("Treatment D needs reference_order and reference_final in 00_brief/photo_edit_notes.json.")
+    fps = project.meta.get("canvas", {}).get("fps", 30)
+    durs = BUILD_DURATIONS[:len(order)]
+    starts_f, cur = [], 0
+    for d in durs:
+        starts_f.append(cur)
+        cur += round(d * fps)
+    final_f = cur
+    total_f = cur + round(FINAL_HOLD * fps)
+    hits = [f / fps for f in starts_f] + [final_f / fps]
+    sc = make_pulse(project, hits, total_f / fps)
+    clips = []
+    for i, fn in enumerate(order):
+        a = amap[fn]
+        nf = (starts_f[i + 1] if i + 1 < len(starts_f) else final_f) - starts_f[i]
+        slow = i < 5
+        foc = notes.get("focus", {}).get(fn) or a["focus"]
+        c = {"id": f"p{i + 1}", "src": a["rel_path"], "kind": "still", "dur": round(nf / fps, 4), "zoom": {"from": 1.0, "to": 1.08 if slow else 1.04},
+             "focus": {"x": foc["x"], "y": foc["y"]}, "label": fn, "role": "photo"}
+        if notes.get("crop", {}).get(fn):
+            c["crop"] = notes["crop"][fn]
+        clips.append(c)
+    fa = amap[final]
+    foc = notes.get("focus", {}).get(final) or fa["focus"]
+    clips.append({"id": f"p{len(order) + 1}", "src": fa["rel_path"], "kind": "still", "dur": round((total_f - final_f) / fps, 4), "zoom": {"from": 1.0, "to": 1.06},
+                  "focus": {"x": foc["x"], "y": foc["y"]}, "label": final, "role": "photo", "fade_out": 0.7, "notes": "closing wide hold"})
+    th = project.meta.get("thesis", {})
+    overlays = []
+    nouns, at = th.get("nouns", []), th.get("noun_at_cut", [])
+    for k, noun in enumerate(nouns):
+        t0 = 0.35 if at[k] == 0 else starts_f[at[k]] / fps
+        t1 = (starts_f[at[k + 1]] / fps) if k + 1 < len(nouns) else total_f / fps
+        overlays.append({"id": f"thesis{k + 1}", "composition": "Thesis", "start": round(t0, 3), "dur": round(t1 - t0, 3),
+                         "props": {"parts": [{"t": f"{noun}{th.get('frame', ' will not be ')}"}, {"t": th.get("word", "silenced"), "accent": True}], "position": "lower", "size": 118,
+                                   "fadeIn": 8 if k == 0 else 1, "fadeOut": 20 if k == len(nouns) - 1 else 0}})
+    return {"name": name or "reference-d-slow-build", "treatment": "D", "treatment_label": "The Slow Build",
+            "status": "DRAFT: machine-assembled; every choice still needs a director's pass", "documentary_mode": True, "clips": clips,
+            "audio_layers": [{"id": "pulse", "kind": "designed", "src": sc["file"], "start": 0, "in": 0, "gain_db": -2, "fade_in": 0.0, "fade_out": 0.0}],
+            "overlays": overlays, "captions": "12_subtitles/captions.json", "intentional_silence": [], "grade": {"look": "editorial_bw"}, "canvas": {**project.meta.get("canvas", {})}}

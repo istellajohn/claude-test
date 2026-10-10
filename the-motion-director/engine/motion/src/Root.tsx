@@ -2,6 +2,8 @@ import React from 'react';
 import {Composition} from 'remotion';
 import {TypeCard} from './TypeCard';
 import {Stamp} from './Stamp';
+import {Thesis} from './Thesis';
+import {KineticWords} from './KineticWords';
 
 // width/height/fps/duration are supplied at render time by render.mjs (the canvas follows the edit).
 export const Root: React.FC = () => (
@@ -10,5 +12,9 @@ export const Root: React.FC = () => (
       defaultProps={{lines: [{text: 'Nine hours, standing', emph: ['standing']}], preset: 'serif_statement'}} />
     <Composition id="Stamp" component={Stamp as React.FC<any>} width={1080} height={1920} fps={30} durationInFrames={90}
       defaultProps={{place: 'Azad Maidan, Mumbai', time: '14:20', note: 'Filmed by the editor'}} />
+    <Composition id="Thesis" component={Thesis as React.FC<any>} width={1080} height={1920} fps={30} durationInFrames={90}
+      defaultProps={{parts: [{t: 'women will not be '}, {t: 'silenced', accent: true}]}} />
+    <Composition id="KineticWords" component={KineticWords as React.FC<any>} width={1080} height={1920} fps={30} durationInFrames={90}
+      defaultProps={{words: [{text: 'ENOUGH.', start: 0, end: 20, red: true}]}} />
   </>
 );

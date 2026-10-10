@@ -62,13 +62,14 @@ def main(argv=None):
         if c == "ingest": q.add_argument("--force", action="store_true"); q.add_argument("--no-proxies", action="store_true")
         if c == "transcribe": q.add_argument("--model", default="small"); q.add_argument("--language")
         if c == "music": q.add_argument("files", nargs="*")
-        if c == "rough-cut": q.add_argument("--treatment", choices=["A", "B", "C", "all"], default="all"); q.add_argument("--music"); q.add_argument("--target", type=float)
+        if c == "rough-cut": q.add_argument("--treatment", choices=["A", "B", "C", "D", "all"], default="all"); q.add_argument("--music"); q.add_argument("--target", type=float)
         if c == "render": q.add_argument("--mode", choices=["preview", "final"], default="preview"); q.add_argument("--variant", default="full"); q.add_argument("--aspect", default=None)
         if c == "export": q.add_argument("--aspect", default=None, help="one aspect ratio (default: the project's)"); q.add_argument("--all", action="store_true", help="every variant and aspect ratio"); q.add_argument("--no-preview", action="store_true")
         if c == "qc": q.add_argument("file")
     q = sub.add_parser("serve", help="start the review dashboard"); q.add_argument("--port", type=int, default=8765); q.add_argument("--host", default="127.0.0.1")
     q = sub.add_parser("score", help="generate an ORIGINAL grunge/industrial score (nothing to license) with an exact beat grid"); q.add_argument("project"); q.add_argument("--bpm", type=float, default=132); q.add_argument("--seconds", type=float, default=30); q.add_argument("--seed", type=int, default=7)
     q = sub.add_parser("credits", help="create/refresh the photo credits file in 16_licences"); q.add_argument("project")
+    q = sub.add_parser("kinetic", help="build a VOICE-DRIVEN edit from 00_brief/voiceover.json (word timing drives cuts and type)"); q.add_argument("project"); q.add_argument("--name", default="voice-driven")
     sub.add_parser("selftest", help="end-to-end pipeline test on synthetic fixtures")
     a = ap.parse_args(argv)
     try:
@@ -91,6 +92,10 @@ def main(argv=None):
         if a.cmd == "score":
             from engine.audio.synth import make_score
             r = make_score(P, a.bpm, a.seconds, seed=a.seed); print(r["file"], f"{r['duration']:.1f}s", f"drop at {r['drop_at']:.2f}s", "\nanalysis:", r["analysis"])
+        elif a.cmd == "kinetic":
+            from engine.rendering import timeline as T
+            from engine.video.kinetic import build
+            tl = build(P, a.name); T.save(P, tl); print("wrote", f"08_edit_timelines/{a.name}.timeline.json", tl["_sync"])
         elif a.cmd == "credits":
             from engine.rendering import credits
             credits.template(P); print("wrote 16_licences/photo_credits.json: fill in photographer + licence for every photo")
@@ -116,7 +121,12 @@ def main(argv=None):
             from engine.rendering import timeline as T
             from engine.video.roughcut import draft
             for t in (["A", "B", "C"] if a.treatment == "all" else [a.treatment]):
-                tl = draft(P, t, a.music, a.target); path = T.save(P, tl); print("wrote", path.relative_to(P.dir), f"({len(tl['clips'])} clips)")
+                if t == "D":
+                    from engine.video.roughcut import draft_reference
+                    tl = draft_reference(P)
+                else:
+                    tl = draft(P, t, a.music, a.target)
+                path = T.save(P, tl); print("wrote", path.relative_to(P.dir), f"({len(tl['clips'])} clips)")
         elif a.cmd == "render":
             from engine.rendering.render import render
             r = render(P, a.timeline, a.mode, a.variant, a.aspect); print(r["output"], f"{r['duration']:.2f}s")

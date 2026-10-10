@@ -1,0 +1,719 @@
+{
+  "name": "voice-driven",
+  "treatment": "D",
+  "treatment_label": "Voice-driven",
+  "status": "DRAFT: machine-assembled from the voice-over timing; needs a director's pass",
+  "documentary_mode": true,
+  "clips": [
+    {
+      "id": "p1",
+      "src": "04_photographs/156272372.png",
+      "kind": "still",
+      "dur": 1.3,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.08
+      },
+      "focus": {
+        "x": 0.58,
+        "y": 0.35
+      },
+      "label": "156272372.png",
+      "role": "photo",
+      "treat": "bw",
+      "notes": ""
+    },
+    {
+      "id": "p2",
+      "src": "04_photographs/clgfm2d8_congggg_160x120_10_October_26.png",
+      "kind": "still",
+      "dur": 0.3,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.08
+      },
+      "focus": {
+        "x": 0.3,
+        "y": 0.65
+      },
+      "label": "clgfm2d8_congggg_160x120_10_October_26.png",
+      "role": "photo",
+      "treat": "bw",
+      "notes": ""
+    },
+    {
+      "id": "p3",
+      "src": "04_photographs/delhi-cjp-protests-live-1791620576.png",
+      "kind": "still",
+      "dur": 0.9,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.08
+      },
+      "focus": {
+        "x": 0.36,
+        "y": 0.5
+      },
+      "label": "delhi-cjp-protests-live-1791620576.png",
+      "role": "photo",
+      "treat": "bw",
+      "notes": ""
+    },
+    {
+      "id": "p4",
+      "src": "04_photographs/c323379e-a843-4bbb-8257-97bc61a8e2c6.png",
+      "kind": "still",
+      "dur": 0.5667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.08
+      },
+      "focus": {
+        "x": 0.6,
+        "y": 0.45
+      },
+      "label": "c323379e-a843-4bbb-8257-97bc61a8e2c6.png",
+      "role": "photo",
+      "treat": "red_duotone",
+      "notes": ""
+    },
+    {
+      "id": "p5",
+      "src": "04_photographs/samakalikamalayalam_2F2026-10-10_2Fvmef7q8e_2F20261010043L.png",
+      "kind": "still",
+      "dur": 0.5333,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.08
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.42
+      },
+      "label": "samakalikamalayalam_2F2026-10-10_2Fvmef7q8e_2F20261010043L.png",
+      "role": "photo",
+      "treat": "red_duotone",
+      "notes": ""
+    },
+    {
+      "id": "p6",
+      "src": "04_photographs/156310534.png",
+      "kind": "still",
+      "dur": 0.3667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.08
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.45
+      },
+      "label": "156310534.png",
+      "role": "photo",
+      "treat": "red_duotone",
+      "notes": ""
+    },
+    {
+      "id": "p7",
+      "src": "04_photographs/05sfi-student-unions-protest5.png",
+      "kind": "still",
+      "dur": 0.6333,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.08
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "label": "05sfi-student-unions-protest5.png",
+      "role": "photo",
+      "treat": "red_duotone",
+      "notes": ""
+    },
+    {
+      "id": "p8",
+      "src": "04_photographs/215881-fuwehaboka-1791125971.png",
+      "kind": "still",
+      "dur": 0.4,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.6,
+        "y": 0.5
+      },
+      "label": "215881-fuwehaboka-1791125971.png",
+      "role": "photo",
+      "treat": "bw",
+      "notes": ""
+    },
+    {
+      "id": "p9",
+      "src": "04_photographs/delhi-police-CJP-PTI_1791636606906_d.png",
+      "kind": "still",
+      "dur": 0.3,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.55
+      },
+      "label": "delhi-police-CJP-PTI_1791636606906_d.png",
+      "role": "photo",
+      "treat": "bw",
+      "notes": ""
+    },
+    {
+      "id": "p10",
+      "src": "04_photographs/CJP-protest-Police-Brutality.png",
+      "kind": "still",
+      "dur": 0.6333,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.6
+      },
+      "label": "CJP-protest-Police-Brutality.png",
+      "role": "photo",
+      "treat": "bw",
+      "notes": ""
+    },
+    {
+      "id": "p11",
+      "src": "04_photographs/cjp-jpg.png",
+      "kind": "still",
+      "dur": 0.1667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.55,
+        "y": 0.6
+      },
+      "label": "cjp-jpg.png",
+      "role": "photo",
+      "treat": "bw",
+      "notes": ""
+    },
+    {
+      "id": "p12",
+      "src": "04_photographs/cjp-protest-protesters-hide-in-gurdwara-don-cockroach-helmets-to-evade-delhi-police.png",
+      "kind": "still",
+      "dur": 1.1667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.5
+      },
+      "label": "cjp-protest-protesters-hide-in-gurdwara-don-cockroach-helmets-to-evade-delhi-police.png",
+      "role": "photo",
+      "treat": "bw",
+      "notes": "",
+      "crop": {
+        "x": 0,
+        "y": 0.128,
+        "w": 1,
+        "h": 0.744
+      }
+    },
+    {
+      "id": "p13",
+      "src": "04_photographs/jantar-mantar-cjp-protest-100656241-1x1.png",
+      "kind": "still",
+      "dur": 1.2333,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.5
+      },
+      "label": "jantar-mantar-cjp-protest-100656241-1x1.png",
+      "role": "photo",
+      "treat": "black",
+      "notes": ""
+    },
+    {
+      "id": "p14",
+      "src": "04_photographs/jantar-mantar-cjp-protest-100656241-1x1.png",
+      "kind": "still",
+      "dur": 0.6,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.5
+      },
+      "label": "jantar-mantar-cjp-protest-100656241-1x1.png",
+      "role": "photo",
+      "treat": "halftone_red",
+      "notes": ""
+    },
+    {
+      "id": "p15",
+      "src": "04_photographs/jantar-mantar-cjp-protest-100656234-16x9_0.png",
+      "kind": "still",
+      "dur": 0.2,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.6
+      },
+      "label": "jantar-mantar-cjp-protest-100656234-16x9_0.png",
+      "role": "photo",
+      "treat": "halftone_red",
+      "notes": ""
+    },
+    {
+      "id": "p16",
+      "src": "04_photographs/Priyanka-Gandhi-protest.png",
+      "kind": "still",
+      "dur": 0.2333,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.04
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.45
+      },
+      "label": "Priyanka-Gandhi-protest.png",
+      "role": "photo",
+      "treat": "halftone_red",
+      "notes": ""
+    },
+    {
+      "id": "p17",
+      "src": "04_photographs/156272372.png",
+      "kind": "still",
+      "dur": 0.6333,
+      "zoom": {
+        "from": 1.7,
+        "to": 1.9
+      },
+      "focus": {
+        "x": 0.58,
+        "y": 0.28
+      },
+      "label": "156272372.png",
+      "role": "photo",
+      "treat": "halftone_red",
+      "notes": "crop of an earlier photograph"
+    },
+    {
+      "id": "p18",
+      "src": "04_photographs/clgfm2d8_congggg_160x120_10_October_26.png",
+      "kind": "still",
+      "dur": 0.5667,
+      "zoom": {
+        "from": 1.7,
+        "to": 1.9
+      },
+      "focus": {
+        "x": 0.3,
+        "y": 0.28
+      },
+      "label": "clgfm2d8_congggg_160x120_10_October_26.png",
+      "role": "photo",
+      "treat": "bw",
+      "notes": "crop of an earlier photograph"
+    },
+    {
+      "id": "p19",
+      "src": "04_photographs/delhi-cjp-protests-live-1791620576.png",
+      "kind": "still",
+      "dur": 0.1667,
+      "zoom": {
+        "from": 1.7,
+        "to": 1.9
+      },
+      "focus": {
+        "x": 0.36,
+        "y": 0.28
+      },
+      "label": "delhi-cjp-protests-live-1791620576.png",
+      "role": "photo",
+      "treat": "bw",
+      "notes": "crop of an earlier photograph"
+    },
+    {
+      "id": "p20",
+      "src": "04_photographs/c323379e-a843-4bbb-8257-97bc61a8e2c6.png",
+      "kind": "still",
+      "dur": 0.2,
+      "zoom": {
+        "from": 1.7,
+        "to": 1.9
+      },
+      "focus": {
+        "x": 0.6,
+        "y": 0.28
+      },
+      "label": "c323379e-a843-4bbb-8257-97bc61a8e2c6.png",
+      "role": "photo",
+      "treat": "bw",
+      "notes": "crop of an earlier photograph"
+    },
+    {
+      "id": "p21",
+      "src": "04_photographs/samakalikamalayalam_2F2026-10-10_2Fvmef7q8e_2F20261010043L.png",
+      "kind": "still",
+      "dur": 0.7,
+      "zoom": {
+        "from": 1.7,
+        "to": 1.9
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.28
+      },
+      "label": "samakalikamalayalam_2F2026-10-10_2Fvmef7q8e_2F20261010043L.png",
+      "role": "photo",
+      "treat": "bw",
+      "notes": "crop of an earlier photograph"
+    },
+    {
+      "id": "p22",
+      "src": "04_photographs/156310534.png",
+      "kind": "still",
+      "dur": 0.5333,
+      "zoom": {
+        "from": 1.7,
+        "to": 1.9
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.28
+      },
+      "label": "156310534.png",
+      "role": "photo",
+      "treat": "natural",
+      "notes": "crop of an earlier photograph"
+    },
+    {
+      "id": "p23",
+      "src": "04_photographs/05sfi-student-unions-protest5.png",
+      "kind": "still",
+      "dur": 0.1667,
+      "zoom": {
+        "from": 1.7,
+        "to": 1.9
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.28
+      },
+      "label": "05sfi-student-unions-protest5.png",
+      "role": "photo",
+      "treat": "natural",
+      "notes": "crop of an earlier photograph"
+    },
+    {
+      "id": "p24",
+      "src": "04_photographs/215881-fuwehaboka-1791125971.png",
+      "kind": "still",
+      "dur": 0.3333,
+      "zoom": {
+        "from": 1.7,
+        "to": 1.9
+      },
+      "focus": {
+        "x": 0.6,
+        "y": 0.28
+      },
+      "label": "215881-fuwehaboka-1791125971.png",
+      "role": "photo",
+      "treat": "natural",
+      "notes": "crop of an earlier photograph"
+    },
+    {
+      "id": "p25",
+      "src": "04_photographs/delhi-police-CJP-PTI_1791636606906_d.png",
+      "kind": "still",
+      "dur": 0.4333,
+      "zoom": {
+        "from": 1.7,
+        "to": 1.9
+      },
+      "focus": {
+        "x": 0.45,
+        "y": 0.28
+      },
+      "label": "delhi-police-CJP-PTI_1791636606906_d.png",
+      "role": "photo",
+      "treat": "natural",
+      "notes": "crop of an earlier photograph"
+    },
+    {
+      "id": "p26",
+      "src": "04_photographs/1200-675-27838591-thumbnail-16x9-cjp-violence-1-aspera.png",
+      "kind": "still",
+      "dur": 2.5667,
+      "zoom": {
+        "from": 1.0,
+        "to": 1.08
+      },
+      "focus": {
+        "x": 0.5,
+        "y": 0.36
+      },
+      "label": "1200-675-27838591-thumbnail-16x9-cjp-violence-1-aspera.png",
+      "role": "photo",
+      "treat": "natural",
+      "notes": "closing wide hold",
+      "fade_out": 1.0
+    }
+  ],
+  "audio_layers": [
+    {
+      "id": "vo",
+      "kind": "voiceover",
+      "src": "02_audio/vo_reid_v1.wav",
+      "start": 0.6,
+      "in": 0,
+      "gain_db": 2
+    },
+    {
+      "id": "bed",
+      "kind": "designed",
+      "src": "03_music_references/audio/score_voice.wav",
+      "start": 0,
+      "in": 0,
+      "gain_db": -4
+    }
+  ],
+  "overlays": [
+    {
+      "id": "words",
+      "composition": "KineticWords",
+      "start": 0,
+      "dur": 15.83,
+      "props": {
+        "words": [
+          {
+            "text": "You",
+            "start": 20,
+            "end": 34,
+            "red": false
+          },
+          {
+            "text": "can",
+            "start": 34,
+            "end": 39,
+            "red": false
+          },
+          {
+            "text": "put",
+            "start": 39,
+            "end": 44,
+            "red": false
+          },
+          {
+            "text": "us",
+            "start": 44,
+            "end": 48,
+            "red": false
+          },
+          {
+            "text": "in",
+            "start": 48,
+            "end": 52,
+            "red": false
+          },
+          {
+            "text": "buses.",
+            "start": 52,
+            "end": 63,
+            "red": true
+          },
+          {
+            "text": "You",
+            "start": 75,
+            "end": 87,
+            "red": false
+          },
+          {
+            "text": "can",
+            "start": 87,
+            "end": 92,
+            "red": false
+          },
+          {
+            "text": "drag",
+            "start": 92,
+            "end": 100,
+            "red": true
+          },
+          {
+            "text": "us",
+            "start": 100,
+            "end": 108,
+            "red": false
+          },
+          {
+            "text": "off",
+            "start": 108,
+            "end": 115,
+            "red": false
+          },
+          {
+            "text": "the",
+            "start": 115,
+            "end": 119,
+            "red": false
+          },
+          {
+            "text": "road.",
+            "start": 119,
+            "end": 129,
+            "red": false
+          },
+          {
+            "text": "You",
+            "start": 138,
+            "end": 150,
+            "red": false
+          },
+          {
+            "text": "cannot",
+            "start": 150,
+            "end": 159,
+            "red": false
+          },
+          {
+            "text": "detain",
+            "start": 159,
+            "end": 178,
+            "red": true
+          },
+          {
+            "text": "a",
+            "start": 178,
+            "end": 183,
+            "red": false
+          },
+          {
+            "text": "country.",
+            "start": 183,
+            "end": 196,
+            "red": true
+          },
+          {
+            "text": "Enough.",
+            "start": 218,
+            "end": 236,
+            "red": true
+          },
+          {
+            "text": "We",
+            "start": 255,
+            "end": 273,
+            "red": false
+          },
+          {
+            "text": "are",
+            "start": 273,
+            "end": 279,
+            "red": false
+          },
+          {
+            "text": "not",
+            "start": 279,
+            "end": 286,
+            "red": true
+          },
+          {
+            "text": "afraid.",
+            "start": 286,
+            "end": 300,
+            "red": false
+          },
+          {
+            "text": "We",
+            "start": 305,
+            "end": 322,
+            "red": false
+          },
+          {
+            "text": "are",
+            "start": 322,
+            "end": 327,
+            "red": false
+          },
+          {
+            "text": "not",
+            "start": 327,
+            "end": 333,
+            "red": true
+          },
+          {
+            "text": "alone.",
+            "start": 333,
+            "end": 343,
+            "red": false
+          },
+          {
+            "text": "We",
+            "start": 354,
+            "end": 370,
+            "red": false
+          },
+          {
+            "text": "are",
+            "start": 370,
+            "end": 375,
+            "red": false
+          },
+          {
+            "text": "not",
+            "start": 375,
+            "end": 385,
+            "red": true
+          },
+          {
+            "text": "going",
+            "start": 385,
+            "end": 398,
+            "red": false
+          },
+          {
+            "text": "home.",
+            "start": 398,
+            "end": 409,
+            "red": true
+          }
+        ]
+      }
+    }
+  ],
+  "captions": "12_subtitles/captions.json",
+  "intentional_silence": [],
+  "canvas": {
+    "width": 1910,
+    "height": 1000,
+    "fps": 30
+  },
+  "_sync": {
+    "words": 32,
+    "voice_end": 13.63,
+    "total": 15.83,
+    "cuts": 26
+  }
+}

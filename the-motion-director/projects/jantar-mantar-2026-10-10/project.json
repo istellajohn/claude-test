@@ -1,6 +1,6 @@
 {
   "name": "jantar-mantar-2026-10-10",
-  "title": "Enough",
+  "title": "will not be silenced",
   "created": "2026-10-10T16:20:19+0000",
   "status": "exported",
   "platform": "instagram_reels",
@@ -59,10 +59,21 @@
     "note": "The maker's angry message, in the maker's voice. Rhetoric, not caption: it makes no factual claim about the photographs."
   },
   "default_aspect": "1.91:1",
-  "top_band": {
-    "color": "#D90F1B",
-    "solid": 0.075,
-    "height": 0.24,
-    "opacity": 0.95
+  "thesis": {
+    "nouns": [
+      "women",
+      "students",
+      "citizens",
+      "this country"
+    ],
+    "noun_at_cut": [
+      0,
+      2,
+      5,
+      8
+    ],
+    "frame": " will not be ",
+    "word": "silenced",
+    "note": "The maker's sentence, in the maker's voice (rhetoric, not caption). Structure borrowed from a reference: one frame, the noun swaps, one red word."
   }
 }

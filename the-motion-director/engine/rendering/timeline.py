@@ -105,7 +105,7 @@ def validate(project: Project, tl: dict) -> tuple[list[str], list[str]]:
                 errs.append(f"{cid}: documentary mode: a speed change/freeze on factual footage needs an integrity_note "
                             f"explaining why it does not misrepresent timing (or set factual_incident:false for non-incident material)")
     for l in tl.get("audio_layers", []):
-        if l.get("kind") in ("music_guide", "music_licensed", "designed", "ambience"):
+        if l.get("kind") in ("music_guide", "music_licensed", "designed", "ambience", "voiceover"):
             if not (project.dir / l.get("src", "")).is_file():
                 errs.append(f"audio layer {l.get('id')}: file missing: {l.get('src')}")
         else:
@@ -150,7 +150,7 @@ def compile_plan(project: Project, tl: dict, canvas: dict | None = None) -> dict
             src_in, out_dur = 0.0, float(c["dur"])
         nframes = max(1, round(out_dur * fps))
         base = {k: c.get(k) for k in ("id", "role", "label", "notes", "grade", "auto", "audio", "fade_in", "fade_out", "dissolve_in",
-                                       "focus", "focus_to", "zoom", "focus_by_aspect", "factual_incident", "integrity_note", "interp", "flash_in", "crop")}
+                                       "focus", "focus_to", "zoom", "focus_by_aspect", "factual_incident", "integrity_note", "interp", "flash_in", "crop", "treat")}
         ramp = c.get("ramp")
         if ramp and kind == "video":
             n = int(ramp.get("steps", 8))

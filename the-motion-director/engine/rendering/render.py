@@ -57,6 +57,26 @@ def aspect_key(cw: int, ch: int) -> str:
     return "custom"
 
 
+def halftone(src_png: Path, dst: Path, cell: int = 7) -> Path:
+    """Red halftone print: dot size follows darkness on a black ground, like a screen-printed poster."""
+    import cv2
+    import numpy as np
+    im = cv2.imread(str(src_png), cv2.IMREAD_GRAYSCALE)
+    h, w = im.shape
+    im = cv2.createCLAHE(clipLimit=2.5, tileGridSize=(8, 8)).apply(im)
+    cell = max(4, int(round(w / 190)))
+    out = np.zeros((h, w, 3), np.uint8)
+    small = cv2.resize(im, (w // cell, h // cell), interpolation=cv2.INTER_AREA)
+    for yy in range(small.shape[0]):
+        for xx in range(small.shape[1]):
+            v = small[yy, xx] / 255.0
+            r = int(round(cell * 0.62 * (v ** 0.8)))
+            if r > 0:
+                cv2.circle(out, (xx * cell + cell // 2, yy * cell + cell // 2), r, (31, 20, 224), -1, cv2.LINE_AA)  # BGR red
+    cv2.imwrite(str(dst), out)
+    return dst
+
+
 def _seg_cmd(project: Project, tl: dict, s: dict, plan: dict, dst: Path, vs_grain: float) -> list[str]:
     cv, fps = plan["canvas"], plan["fps"]
     cw, ch = cv["width"], cv["height"]
@@ -76,6 +96,11 @@ def _seg_cmd(project: Project, tl: dict, s: dict, plan: dict, dst: Path, vs_grai
             if m < 1:
                 im = im.resize((round(im.width * m), round(im.height * m)), Image.LANCZOS)
             im.save(norm)
+        if s.get("treat") == "halftone_red":
+            ht = project.work / "stills" / f"{sha(file_sig(src), 'halftone-v1')}.png"
+            if not ht.exists():
+                halftone(norm, ht)
+            norm = ht
         with Image.open(norm) as im:
             iw, ih = im.size
         inp = ["-loop", "1", "-framerate", str(fps), "-i", str(norm)]
@@ -95,6 +120,8 @@ def _seg_cmd(project: Project, tl: dict, s: dict, plan: dict, dst: Path, vs_grai
         chain.append(f"crop={cwf}:{chf}:{cx}:{cy}")
         iw, ih = cwf, chf
     chain.append(reframe_filter(iw, ih, cw, ch, focus, s.get("focus_to"), s.get("zoom"), N, fps))
+    if s.get("treat") and G.TREATS.get(s["treat"]):
+        chain.append(G.TREATS[s["treat"]])
     g = s.get("grade")
     if s.get("auto") and s.get("auto_grade"):
         g = G.merge(s["auto_grade"], g)
@@ -209,7 +236,9 @@ def build_audio_pieces(project: Project, tl: dict, plan: dict, work: Path, varia
     # layers
     for l in tl.get("audio_layers", []):
         kind = l["kind"]
-        if kind in ("music_guide", "music_licensed"):
+        if kind == "voiceover":
+            bus = "dialogue"
+        elif kind in ("music_guide", "music_licensed"):
             if "music" not in buses:
                 continue
             if kind == "music_guide" and mode != "preview":
@@ -235,7 +264,10 @@ def build_audio_pieces(project: Project, tl: dict, plan: dict, work: Path, varia
         fi, fo = float(l.get("fade_in", 0.0)), float(l.get("fade_out", 0.0))
         dst = adir / f"layer_{sha(file_sig(project.dir / l['src']), t0, dur, gain, fi, fo)}.wav"
         if not dst.exists():
-            af = ["aresample=48000", "aformat=sample_fmts=fltp:channel_layouts=stereo", f"volume={gain}dB"]
+            af = ["aresample=48000", "aformat=sample_fmts=fltp:channel_layouts=stereo"]
+            if kind == "voiceover":  # clean up a synthetic read: rumble out, gentle compression, a little presence
+                af += ["highpass=f=90", "acompressor=threshold=-20dB:ratio=3:attack=5:release=90:makeup=3", "equalizer=f=3200:t=q:w=1:g=2"]
+            af.append(f"volume={gain}dB")
             af.append(f"afade=t=in:d={fi or 0.012}")
             af.append(f"afade=t=out:st={max(0, dur - (fo or 0.012)):.4f}:d={fo or 0.012}")
             ffmpeg(["-ss", f"{t0:.4f}", "-t", f"{dur:.4f}", "-i", str(project.dir / l["src"]), "-vn", "-af", ",".join(af), "-c:a", "pcm_f32le", str(dst)])
