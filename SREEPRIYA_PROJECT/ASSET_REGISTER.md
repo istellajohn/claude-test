@@ -12,3 +12,4 @@
 | Export | 1080×1350 px PNG |
 | Editable masters | `05_WORKING/*.html`, `base.css`, `render.js` |
 | Excerpt crop | Paragraph under 'Understand what patience actually means.' (page 5 of the PDF), rendered at 300 dpi, unaltered: `03_IMAGES/forbes_excerpt_patience.png` |
+| Entrust logo | Client-supplied, transparent WebP, unaltered: `02_BRAND/entrust_logo_original.webp`; cropped copy `02_BRAND/entrust_logo_transparent.png`. Used full-colour on light grounds in D and E |
