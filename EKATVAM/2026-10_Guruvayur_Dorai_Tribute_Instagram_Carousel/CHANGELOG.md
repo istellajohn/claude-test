@@ -7,3 +7,6 @@ Rebuilt after feedback that v01 looked flat and below the standard of the feed. 
 
 ## v02 revision 2
 Slide 4 simplified (six names, bigger, more air) after feedback that it was congested. Slide 6 bottom spacing eased.
+
+## v03
+Feedback: red all over looked disrespectful for a memorial. Rebuilt in cream, wine and taupe sampled from the feed's Entrust and Yuva Sagara posts. Black-and-white portrait matted into the paper. Two ledger slides set as parchment sheets on jute. Strokes in wine. Logo in colour only on the cover (small) and last slide. Script name for Rajmohan Krishnan.

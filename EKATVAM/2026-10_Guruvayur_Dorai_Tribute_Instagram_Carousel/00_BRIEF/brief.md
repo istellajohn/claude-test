@@ -4,10 +4,10 @@
 **Supplied:** tribute newsletter (`supplied_copy/`), portrait photograph, Ekatvam logo and palette.
 **Format:** 8 slides (v02), 1080 x 1350 px (4:5). Side margin 84 px, inside the grid-crop safe area.
 
-VISUAL IDEA: A printed memorial programme in red ink on ivory paper, eight pages for the eight beats of one Adi tala cycle, with the logo assembling one brushstroke at a time.
+VISUAL IDEA: A printed memorial programme on warm cream paper in deep wine, eight pages for the eight beats of one Adi tala cycle, with the portrait dissolving into the paper and the logo assembling one brushstroke at a time.
 
 ## Sequence (v02)
-1. Cover: portrait in red ink on garnet
+1. Cover: black-and-white portrait melting into cream paper, title in wine and taupe
 2. "Today the mridangam lost one of its last links to a golden age."
 3. Born Vaidyanathan: ledger 1935 to 1953
 4. He played for: the roll call, ending at Carnegie Hall
