@@ -13,9 +13,10 @@
 `04_WORKING/editable_files/` (HTML/CSS, one file per option, shared `tokens.css`). Re-render with `node render.js` from this folder (needs Playwright and Chromium). Renders land in `04_WORKING/iterations/`.
 
 ## Fonts / colours / assets
-See `DESIGN_SYSTEM.md` and `ASSET_REGISTER.md`. Font: Newsreader (OFL).
+See `DESIGN_SYSTEM.md` and `ASSET_REGISTER.md`. Font: Baskervville + Baskervville SC (OFL), standing in for Mrs Eaves.
 
 ## Unresolved
+- Mrs Eaves is a commercial Emigre face; confirm whether Ekatvam is licensed to use it. If yes, swap it in.
 - No portrait supplied; all options are typographic.
 - Logo is raster only. Vector master needed for larger use.
 - Reversed (Paper) wordmark in B has not been approved as a logo variant.
