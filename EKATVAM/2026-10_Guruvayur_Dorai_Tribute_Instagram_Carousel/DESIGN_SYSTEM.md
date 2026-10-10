@@ -9,6 +9,6 @@
 - **Colour (sampled from the feed references):** Cream paper `#EADFCC` to `#F3ECDF` with soft window-light bloom. Wine `#40151C` for headlines and brushwork. Taupe `#7B6D63` second phrases. Tan `#B49A72` hairlines. Label brown `#8A6F55`. Body text `#3A2B2A` and Umber `#5E4E47`. Jute board `#6A5844` behind the two ledger sheets.
 - **Paper:** procedural fibre texture and bloom in `02_BRAND/textures/` (cream a/b, board_sheet). Grain over everything, multiply 13%.
 - **Photo:** black and white print, warm shadows `#1D1614`, highlights `#F7F1E6`. The pink backdrop was matted out and replaced with a soft paper-grey (edge pixels un-mixed, not cut out), then multiplied into the paper and faded with soft masks. Face and figure not retouched.
-- **Tala ticks:** eight ticks at the foot of each slide, grouped 4 + 2 + 2 (Adi tala), current beat lit. Cycle completes on slide 8.
+- **Tala ticks:** removed on request (they were eight small lines at the foot of each slide).
 - **Brushstrokes:** logo strokes 1 to 6 in wine on slides 1 to 6 (slide 1 uses the full logo small), left-bleeding on cream, inset on parchment sheets. Full logo with the brand red closes slide 8.
 - **Layout rhythm:** photo / statement / ledger-sheet / roll call / photo / ledger-sheet / statement / close.

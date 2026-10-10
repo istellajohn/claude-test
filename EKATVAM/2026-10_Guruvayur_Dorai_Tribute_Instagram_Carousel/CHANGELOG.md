@@ -13,3 +13,6 @@ Feedback: red all over looked disrespectful for a memorial. Rebuilt in cream, wi
 
 ## v03 revision 2
 Cover changed to burgundy with the portrait in real colours (like the Antaranga poster). First attempt faded his forehead into the background; fixed with a protected head box and verified against the original. Slide 5: 'It was anticipation.' on a single line. Cream cover alternative dropped (pink fringe).
+
+## v03 revision 3
+Removed the eight tala tick lines from every slide.
