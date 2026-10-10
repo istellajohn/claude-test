@@ -1,0 +1,9 @@
+@import url('../04_FONTS/fonts.css');
+:root{--burgundy:#610124;--paper:#F7F7F7;--bronze:#A87B51;--wine:#4F1228;--mauve:#B7909F;--sand:#CCB59F;--blush:#ECC5D4}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1350px;overflow:hidden}
+body{position:relative;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Newsreader',serif}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.22;mix-blend-mode:multiply;
+background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .3  0 0 0 0 .2  0 0 0 0 .2  0 0 0 .5 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>")}
+.eyebrow{font:500 22px/1 'Inter';letter-spacing:.2em;text-transform:uppercase}
