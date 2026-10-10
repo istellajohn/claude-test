@@ -32,6 +32,7 @@ UPLOAD_DIRS = {"01_original_footage", "02_audio", "03_music_references/audio", "
 ACTIONS = {
     "ingest": lambda p, a: ["ingest", p] + (["--force"] if a.get("force") else []),
     "music": lambda p, a: ["music", p] + list(a.get("files", [])),
+    "score": lambda p, a: ["score", p, "--bpm", str(a.get("bpm", 132)), "--seconds", str(a.get("seconds", 30))],
     "transcribe": lambda p, a: ["transcribe", p, "--model", a.get("model", "small")],
     "storyboard": lambda p, a: ["storyboard", p, a["timeline"]],
     "rough-cut": lambda p, a: ["rough-cut", p, "--treatment", a.get("treatment", "all")] + (["--music", a["music"]] if a.get("music") else []) + (["--target", str(a["target"])] if a.get("target") else []),

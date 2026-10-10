@@ -1,0 +1,35 @@
+{
+  "name": "jantar-mantar-2026-10-10",
+  "title": "Jantar Mantar, 10 October 2026",
+  "created": "2026-10-10T16:20:19+0000",
+  "status": "awaiting_photographs",
+  "platform": "instagram_reels",
+  "documentary_mode": true,
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "loudness": {
+    "integrated_lufs": -14.0,
+    "true_peak_dbtp": -1.0
+  },
+  "music_intent": {
+    "post_type": "organic",
+    "boosted": false,
+    "account_type": "NOT VERIFIED",
+    "region": "NOT VERIFIED",
+    "note": "Plan: original generated score (embeddable). No third-party recording is needed."
+  },
+  "treatments": {
+    "A": "The Impact Cut",
+    "B": "The Cinematic Cut",
+    "C": "The Experimental Editorial Cut"
+  },
+  "chosen_treatment": null,
+  "event": {
+    "place": "Jantar Mantar, New Delhi",
+    "date": "10 Oct 2026",
+    "note": "Photographs: see credits"
+  }
+}

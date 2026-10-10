@@ -11,6 +11,7 @@ clips[]: {
   grade: {look, brightness, ...} | "auto": true
   audio: {mode: "keep"|"mute", lead: 0, tail: 0, gain_db: 0, dialogue: false}
   fade_in, fade_out        (dip to/from black, seconds)
+  flash_in {color, dur}    (frame-exact flash on the cut)
   role, label, notes, factual_incident: false, integrity_note: ""
 }
 audio_layers[]: {id, kind: "music_guide"|"music_licensed"|"designed"|"ambience", src, track_id, start, in, dur, gain_db, fade_in, fade_out, duck}
@@ -110,6 +111,9 @@ def validate(project: Project, tl: dict) -> tuple[list[str], list[str]]:
             errs.append(f"audio layer {l.get('id')}: unknown kind {l.get('kind')}")
         if l.get("kind") == "music_licensed" and not l.get("track_id"):
             errs.append(f"audio layer {l.get('id')}: music_licensed must reference a shortlist track_id")
+    from engine.rendering import credits
+    for n in credits.missing(project, tl):
+        warns.append(f"photo {n}: no photographer/licence on record in 16_licences/photo_credits.json. Draft only: do not publish until cleared.")
     if doc and not tl.get("clips", [{}])[0].get("src"):
         warns.append("documentary mode with no clips")
     if tl.get("canvas", {}).get("fps") and tl["canvas"]["fps"] != meta.get("canvas", {}).get("fps"):
@@ -145,7 +149,7 @@ def compile_plan(project: Project, tl: dict, canvas: dict | None = None) -> dict
             src_in, out_dur = 0.0, float(c["dur"])
         nframes = max(1, round(out_dur * fps))
         base = {k: c.get(k) for k in ("id", "role", "label", "notes", "grade", "auto", "audio", "fade_in", "fade_out", "dissolve_in",
-                                       "focus", "focus_to", "zoom", "focus_by_aspect", "factual_incident", "integrity_note", "interp")}
+                                       "focus", "focus_to", "zoom", "focus_by_aspect", "factual_incident", "integrity_note", "interp", "flash_in")}
         ramp = c.get("ramp")
         if ramp and kind == "video":
             n = int(ramp.get("steps", 8))

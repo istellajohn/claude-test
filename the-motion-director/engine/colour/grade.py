@@ -7,6 +7,10 @@ from __future__ import annotations
 
 LOOKS = {
     "neutral": {},
+    # grunge / photocopy: crushed blacks, very low saturation, hard contrast, heavy temporal grain, dark edges
+    "grunge_mono": {"saturation": 0.12, "contrast": 1.35, "brightness": -0.04, "gamma": 0.92, "curves": "strong_contrast", "grain": 16, "vignette": 0.9},
+    # same bones with the colour kept hot in the shadows: dried-blood red, not a filter-pack orange
+    "grunge_ember": {"saturation": 0.3, "contrast": 1.3, "brightness": -0.05, "gamma": 0.94, "curves": "strong_contrast", "shadows_tint": [0.07, -0.02, -0.04], "grain": 14, "vignette": 0.85},
     "documentary_clean": {"contrast": 1.06, "saturation": 0.96},
     "warm_dusk": {"temperature": 5600, "contrast": 1.08, "saturation": 0.94, "shadows_tint": [0.0, 0.0, 0.03]},
     "cool_concrete": {"temperature": 7400, "contrast": 1.10, "saturation": 0.82},
@@ -45,6 +49,8 @@ def filters(g: dict | None) -> list[str]:
     if g.get("shadows_tint") or g.get("highlights_tint") or g.get("midtones_tint"):
         s, m, h = (g.get("shadows_tint") or [0, 0, 0]), (g.get("midtones_tint") or [0, 0, 0]), (g.get("highlights_tint") or [0, 0, 0])
         f.append("colorbalance=" + ":".join([f"rs={s[0]}:gs={s[1]}:bs={s[2]}", f"rm={m[0]}:gm={m[1]}:bm={m[2]}", f"rh={h[0]}:gh={h[1]}:bh={h[2]}"]))
+    if g.get("curves"):
+        f.append(f"curves=preset={g['curves']}")
     if g.get("vignette"):
         f.append(f"vignette=angle={float(g['vignette'])}")
     if g.get("grain"):

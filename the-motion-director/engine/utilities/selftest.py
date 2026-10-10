@@ -64,6 +64,24 @@ def run_selftest(keep: bool = False) -> bool:
         ok, why = licensing.can_embed(P, None)
         check("an unlinked music layer cannot be embedded", not ok, why)
 
+        # photo montage + original score + credits gate
+        from engine.audio.synth import make_score
+        from engine.video.roughcut import draft_photos
+        from engine.rendering import credits
+        sc = make_score(P, 132, 12)
+        ana = read_json(P.dir / sc["analysis"])
+        check("generated score has an exact grid at 132 BPM and a silence before the drop", ana["tempo_bpm"] == 132 and len(ana["silences"]) == 1 and ana["origin"].startswith("Original"))
+        ingest(P, proxies=False)
+        pt = draft_photos(P, "A", sc["analysis"], None, "ph")
+        frames = round(sum(c["dur"] for c in pt["clips"]) * 30)
+        check("photo montage fills the score to the frame (no drift)", frames == round(ana["duration"] * 30), f"{frames} vs {round(ana['duration'] * 30)} frames, {len(pt['clips'])} cuts")
+        check("photo cuts are fast and flashes land only on downbeats", min(c["dur"] for c in pt["clips"]) >= 0.1 and all(c.get("flash_in") is None or c["role"] == "photo" for c in pt["clips"]))
+        T.save(P, pt)
+        _, w = T.validate(P, T.load(P, "ph"))
+        check("photos without a photographer/licence on record are flagged draft-only", any("photo_credits" in x for x in w))
+        credits.template(P)
+        check("credits template written, nothing pre-filled", all(not v["photographer"] for v in credits.load(P).values()))
+
         from engine.rendering import render as R, qc
         prev = R.render(P, "t", mode="preview")
         pv = P.dir / prev["output"]

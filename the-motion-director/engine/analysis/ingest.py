@@ -327,7 +327,14 @@ def ingest(project: Project, force: bool = False, proxies: bool = True) -> dict:
 def ingest_photo(project, path, rel, aid, sig):
     from PIL import Image, ImageOps
     cv2 = _cv()
-    im = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
+    raw = Image.open(path)
+    try:
+        ex = raw.getexif()
+        taken = (ex.get_ifd(0x8769).get(0x9003) or ex.get(0x0132))
+        camera = (ex.get(0x010F, "") + " " + ex.get(0x0110, "")).strip() or None
+    except Exception:
+        taken, camera = None, None
+    im = ImageOps.exif_transpose(raw).convert("RGB")
     w, h = im.size
     arr = np.array(im.resize((THUMB_W, int(THUMB_W * h / w))))
     g = cv2.cvtColor(arr, cv2.COLOR_RGB2GRAY)
@@ -340,6 +347,7 @@ def ingest_photo(project, path, rel, aid, sig):
     return {"id": aid, "rel_path": rel, "kind": "photo", "sig": sig, "filename": path.name, "width": w, "height": h,
             "orientation": "vertical" if h > w else ("square" if h == w else "horizontal"), "analysis_version": ANALYSIS_VERSION,
             "sharpness": round(float(cv2.Laplacian(g, cv2.CV_64F).var()), 1), "faces": int(len(faces)), "focus": focus,
+            "exif_taken": taken, "exif_camera": camera,
             "thumb": f"06_footage_analysis/thumbs/{aid}/S001.jpg", "warnings": []}
 
 

@@ -96,6 +96,9 @@ def _seg_cmd(project: Project, tl: dict, s: dict, plan: dict, dst: Path, vs_grai
     chain += G.filters(G.resolve(g, tl.get("grade")))
     if vs_grain:
         chain.append(f"noise=alls={int(vs_grain)}:allf=t")
+    fl = s.get("flash_in")  # {"color": "white"|"black", "dur": seconds}: a frame-exact flash on the cut
+    if fl:
+        chain.append(f"fade=t=in:st=0:d={fl.get('dur', 0.08)}:color={fl.get('color', 'white')}")
     fi, fo = s.get("fade_in"), s.get("fade_out")
     if fi:
         chain.append(f"fade=t=in:st=0:d={fi}")
@@ -397,7 +400,10 @@ def render(project: Project, tl_name: str, mode: str = "final", variant: str = "
     T.write_edl(plan, tl["name"], out_dir / f"{tl['name']}.edl") if mode == "final" else None
     write_json(out_dir / f"{tl['name']}.source_map.json", T.source_map(plan)) if mode == "final" else None
     write_json(work / "plan_summary.json", {"cuts": T.cuts_from_plan(plan), "duration": plan["duration"], "fps": plan["fps"], "canvas": canvas})
-    music_notes(project, tl, out_dir) if mode == "final" else None
+    if mode == "final":
+        music_notes(project, tl, out_dir)
+        from engine.rendering import credits
+        credits.write_credits_md(project, tl, out_dir / "CREDITS.md")
     report.update({"output": str(out.relative_to(project.dir)), "duration": plan["duration"], "frames": plan["total_frames"], "caption_layout": layout,
                    "crop_report": T.crop_report(plan), "finished": now_iso()})
     write_json(out.with_suffix(".render.json"), report)
