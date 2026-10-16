@@ -24,3 +24,9 @@
 
 ### Script fonts considered and rejected
 Ms Madi, Mrs Saint Delafield, Monsieur La Doulaise, Corinthia, The Nautigal, Bonheur Royale, Qwitcher Grypen (all OFL). Specimen: `01_RESEARCH/script_specimen.png`.
+
+## v03 additions (2026-10-16)
+- **Tabler Icons 3.19.0** (Pawel Kuna), MIT licence, https://github.com/tabler/tabler-icons. phone, mail, world, brand-instagram, arrow-up-right. `03_ASSETS/icons/tabler/` (licence included).
+- **Instrument Serif** and **DM Mono** (SIL OFL), from the covers project register.
+- No stock photography. Photo slots use the VLNC mark until real headshots are supplied.
+- Client references saved in `00_BRIEF/client_reference_*.png` for direction only; no elements copied.

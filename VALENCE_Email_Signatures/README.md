@@ -2,7 +2,24 @@
 
 Google Workspace (Gmail) signatures for Stella John, Pallavi Shinde and Ronaldo Gomes.
 
-## v02 (current): rendered 3D cards
+## v03 (current): banner signatures, after the client's references
+Five layouts at 600 x 200 (3:1, the reference format), each for all three people:
+1 **Signal Pattern** (bone card, autograph name, VLNC tile pattern band), 2 **Onyx Block** (black card, Verve bar, big name, role tag, photo panel, Instagram pill),
+3 **Horizon** (Onyx-to-Verve header with the brand line, overlapping circles), 4 **Editorial** (Forest green, serif capitals, labelled columns),
+5 **Monogram** (giant Verve VLNC, arched portrait, vlnc.in tab).
+
+| Path | What |
+|---|---|
+| `05_EXPORTS/boards/VALENCE_signature_v03_*.png` | mockup boards |
+| `05_EXPORTS/gmail_html/<person>/VALENCE_signature_<person>_v03_<layout>.html` | ready to copy into Gmail |
+| `05_EXPORTS/images/v03/` | slices to host at **https://www.vlnc.in/email/v03/** (17 to 27 per signature, 75 to 135 KB) |
+| `05_EXPORTS/images/v03_cards/` | full card masters, 1800 x 600 |
+| `00_BRIEF/headshots/` | drop `stella.jpg`, `pallavi.jpg`, `ronaldo.jpg` here and rebuild; until then photo slots show the VLNC mark |
+
+Every contact detail is its own linked slice (tel:, mailto:, website, Instagram); alt text carries the plain detail. Reassembled slices were checked against the master at 1:1 (no seams).
+Rebuild: `python3 -I 04_WORKING/source_files/build_signatures_v03.py`
+
+## v02 (superseded): rendered 3D cards
 Three finishes: **Obsidian** (gloss black stone, orange rim), **Plaster** (matte bone relief), **Gold Leaf** (polished gold metal). Each is a real 3D render of the VLNC mark (three.js, from the brand vectors) with a signed-letter type system: autograph in Herr Von Muellerhoff, typed name in General Sans, role in Cormorant Garamond Italic, contacts in General Sans.
 
 | Path | What |
