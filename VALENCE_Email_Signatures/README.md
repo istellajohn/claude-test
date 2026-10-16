@@ -1,6 +1,24 @@
-# VALENCE Email Signatures v01
+# VALENCE Email Signatures
 
-Google Workspace (Gmail) signatures for Stella John, Pallavi Shinde and Ronaldo Gomes. Three designed options plus a reply version.
+Google Workspace (Gmail) signatures for Stella John, Pallavi Shinde and Ronaldo Gomes.
+
+## v02 (current): rendered 3D cards
+Three finishes: **Obsidian** (gloss black stone, orange rim), **Plaster** (matte bone relief), **Gold Leaf** (polished gold metal). Each is a real 3D render of the VLNC mark (three.js, from the brand vectors) with a signed-letter type system: autograph in Herr Von Muellerhoff, typed name in General Sans, role in Cormorant Garamond Italic, contacts in General Sans.
+
+| Path | What |
+|---|---|
+| `05_EXPORTS/boards/VALENCE_signature_v02_*.png` | review boards |
+| `05_EXPORTS/gmail_html/<person>/VALENCE_signature_<person>_v02_<finish>.html` | ready to copy into Gmail |
+| `05_EXPORTS/images/v02/` | 117 slices (13 per signature, about 100 KB per signature) |
+| `05_EXPORTS/images/card-<finish>-<person>.png` | full card masters, 1200 x 600 |
+
+**Why sliced:** Gmail cannot show custom fonts, so the card is an image. It is cut into 13 pieces so the phone, email, website and Instagram are each their own link (tel:, mailto:, https). If images are blocked, the alt text shows the plain details.
+
+**Hosting:** upload everything in `05_EXPORTS/images/v02/` to **https://www.vlnc.in/email/v02/**, keeping filenames. Then install as described below. The v01 Reply signature (plain text) remains the reply/forward default.
+
+**Rebuild:** `python3 -I 04_WORKING/source_files/build_signatures_3d.py` (Chromium with WebGL via SwiftShader; renders through a local HTTP server because browsers block module scripts from file://).
+
+## v01 (superseded): typographic HTML signatures
 
 ## Deliverables
 | Path | What |
@@ -10,7 +28,7 @@ Google Workspace (Gmail) signatures for Stella John, Pallavi Shinde and Ronaldo 
 | `05_EXPORTS/images/` | `vlnc-tile.png` (60x60), `vlnc-plate.png` (84x26), `valence-band.png` (340x52), all @3x |
 | `05_EXPORTS/preview_html/` | review pages with local images |
 
-## Before installing: host the three images
+### v01 hosting
 Gmail cannot use local images in a pasted signature. Upload the three PNGs in `05_EXPORTS/images/` to **https://www.vlnc.in/email/** (exact filenames). If they live somewhere else, change `BASE_URL` in `04_WORKING/source_files/build_signatures.py` and rebuild. Option 4 (Reply) has no images and works immediately.
 
 ## Installing in Gmail (each person, in their own account)
