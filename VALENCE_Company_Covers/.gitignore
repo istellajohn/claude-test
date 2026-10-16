@@ -1,0 +1,8 @@
+# Switzer licence forbids redistribution: re-download from Fontshare
+02_BRAND/fonts/Switzer/
+# Heavy and regenerable
+03_ASSETS/photography/NASA_*_orig.jpg
+03_ASSETS/photography/graded/*.jpg
+05_EXPORTS/social/final/
+05_EXPORTS/social/_previews/
+__pycache__/

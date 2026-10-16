@@ -1,0 +1,40 @@
+/* VALENCE company covers: shared tokens and utilities.
+   Fonts are self-hosted from 02_BRAND/fonts (see ../../../ASSET_REGISTER.md for licences). */
+
+@font-face { font-family: "Switzer"; font-weight: 400; src: url("../../../02_BRAND/fonts/Switzer/Switzer_Complete/Fonts/WEB/fonts/Switzer-Regular.woff2") format("woff2"); }
+@font-face { font-family: "Switzer"; font-weight: 500; src: url("../../../02_BRAND/fonts/Switzer/Switzer_Complete/Fonts/WEB/fonts/Switzer-Medium.woff2") format("woff2"); }
+@font-face { font-family: "Switzer"; font-weight: 600; src: url("../../../02_BRAND/fonts/Switzer/Switzer_Complete/Fonts/WEB/fonts/Switzer-Semibold.woff2") format("woff2"); }
+@font-face { font-family: "DM Mono"; font-weight: 400; src: url("../../../02_BRAND/fonts/DMMono/DMMono-Regular.ttf") format("truetype"); }
+@font-face { font-family: "DM Mono"; font-weight: 500; src: url("../../../02_BRAND/fonts/DMMono/DMMono-Medium.ttf") format("truetype"); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; src: url("../../../02_BRAND/fonts/InstrumentSerif/InstrumentSerif-Italic.ttf") format("truetype"); }
+
+:root {
+  /* core */
+  --onyx: #0A0A0A; --bone: #F3F2EF; --stone: #A6A39E; --verve: #E35A2A; --gold: #C8A24C;
+  /* organic expansion */
+  --forest: #223D2E; --moss: #7A7E56; --sea: #0B5962; --sahara: #C49B5B; --sky: #8C9FB3;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: var(--w); height: var(--h); overflow: hidden; background: #000; }
+.canvas { position: relative; width: var(--w); height: var(--h); overflow: hidden; background: var(--bg, var(--onyx)); font-family: "Switzer", sans-serif; -webkit-font-smoothing: antialiased; }
+.abs { position: absolute; }
+
+.logo { position: absolute; display: block; }
+.logo svg { display: block; width: 100%; height: 100%; }
+
+.mono { font-family: "DM Mono", monospace; font-weight: 400; text-transform: uppercase; letter-spacing: 0.18em; white-space: nowrap; }
+.mono .s { color: var(--verve); margin: 0 0.75em; }
+.head { font-weight: 500; letter-spacing: -0.015em; }
+
+.rule-h { position: absolute; height: 1px; }
+.rule-v { position: absolute; width: 1px; }
+.plus { position: absolute; width: 11px; height: 11px; transform: translate(-50%, -50%); }
+.plus::before, .plus::after { content: ""; position: absolute; background: currentColor; }
+.plus::before { left: 5px; top: 0; width: 1px; height: 11px; }
+.plus::after { top: 5px; left: 0; height: 1px; width: 11px; }
+
+.grain { position: absolute; inset: 0; pointer-events: none; opacity: var(--grain, 0.55); mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='n' x='0' y='0'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='7' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 1.4 -.2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 600px 600px; }
+.grain.multiply { mix-blend-mode: multiply; opacity: var(--grain, 0.35); }
