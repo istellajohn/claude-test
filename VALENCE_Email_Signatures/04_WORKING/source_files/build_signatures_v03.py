@@ -306,6 +306,27 @@ def signature_html(p, plan, src):
     return f'<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;width:{W}px;">{rows}</table>'
 
 
+
+def text_block(p):
+    """Live text under the banner: copyable, readable when images are blocked, no images."""
+    a, sl = v1.a, v1.slash
+    mute = "#6E6B66"
+    role = ": ".join(p["role"])
+    aside = f' <span style="font-weight:normal;color:#A6A39E;">{p["aside"]}</span>' if p["aside"] else ""
+    return (f'<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;font-family:{v1.SANS};">'
+            f'<tr><td style="padding:12px 0 0 0;font-size:12px;line-height:17px;color:#0A0A0A;"><b>{p["name"]}</b>{aside}</td></tr>'
+            f'<tr><td style="font-size:11px;line-height:16px;color:{mute};">{role}<br>VALENCE / Branding &amp; Marketing</td></tr>'
+            f'<tr><td style="padding-top:4px;font-size:11px;line-height:16px;color:#0A0A0A;">'
+            f'{a(p["phone"], "tel:" + p["tel"])}{sl()}{a(p["email"], "mailto:" + p["email"])}{sl()}{a(v1.WEB[0], v1.WEB[1])}{sl()}{a(v1.IG[0], v1.IG[1])}</td></tr></table>')
+
+
+def text_plain(p):
+    name = v1.re.sub(r"&rsquo;", "'", p["name"] + (f" {p['aside']}" if p["aside"] else ""))
+    role = v1.re.sub(r"&rsquo;", "'", ": ".join(p["role"])).replace("&amp;", "&")
+    return (f"{name}\n{role}\nVALENCE / Branding & Marketing\n\n"
+            f"M  {p['phone']}\nE  {p['email']}\nW  vlnc.in\nI  {v1.IG[0]}\n\n"
+            f"Strategy / Story / Growth / Culture\n")
+
 # --------------------------------------------------------------------------- mockup board
 def board_html(key, title, desc, backdrop, hero, cards):
     gs = os.path.relpath(os.path.join(FONTS, "general-sans", "GeneralSans_Complete", "Fonts", "WEB", "fonts"), os.path.join(OUT, "preview_html"))
@@ -387,6 +408,9 @@ def main(only=None):
             d = os.path.join(OUT, "gmail_html", p["key"])
             os.makedirs(d, exist_ok=True)
             open(os.path.join(d, f"VALENCE_signature_{p['key']}_v03_{vk}.html"), "w").write(v1.gmail_page(f"{title}", live))
+            open(os.path.join(d, f"VALENCE_signature_{p['key']}_v03_{vk}_with_text.html"), "w").write(
+                v1.gmail_page(f"{title} + text", live + text_block(p)))
+            open(os.path.join(d, f"VALENCE_signature_{p['key']}_TEXT.txt"), "w").write(text_plain(p))
             n = sum(len(r["cells"]) for r in plan)
             kb = sum(os.path.getsize(os.path.join(SLICES, c["file"])) for r in plan for c in r["cells"]) / 1000
             print(f"  {vk:12s} {p['key']:8s} {len(live):5d} chars {n:3d} slices {kb:4.0f} KB  links={sorted({c['link'] for r in plan for c in r['cells'] if c['link']})}")
